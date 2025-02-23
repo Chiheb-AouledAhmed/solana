@@ -1,37 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -40,26 +7,8 @@ const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
 const web3_js_1 = require("@solana/web3.js");
 const spl_token_1 = require("@solana/spl-token");
 const bn_js_1 = __importDefault(require("bn.js"));
-const fs = __importStar(require("fs"));
 const raydium_sdk_v2_1 = require("@raydium-io/raydium-sdk-v2");
 const bs58_1 = __importDefault(require("bs58"));
-// Override Connection.prototype.getAccountInfo with axios
-/*Connection.prototype.getAccountInfo = async function (publicKey, commitment) {
-    const args = [publicKey.toBase58()];
-    //if (commitment) args.push(commitment);
-    try {
-        const unsafeRes = await axios.post(this.rpcEndpoint, {
-            jsonrpc: '2.0',
-            id: 1,
-            method: 'getAccountInfo',
-            params: args,
-        });
-        return unsafeRes.data.result;
-    } catch (error) {
-        console.error("axios error:", error);
-        throw error;
-    }
-}*/
 async function getOrCreateAssociatedTokenAccountWithRetry(connection, payer, mint, owner, maxRetries = 3, delay = 1000) {
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
@@ -216,12 +165,62 @@ const makeSwapInstruction = async (connection, tokenToBuy, rawAmountIn, slippage
         minAmountOut,
     };
 };
-const executeTransaction = async (swapAmountIn, tokenToBuy) => {
-    const connection = new web3_js_1.Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", { httpAgent: false,
+async function awaitTransactionConfirmation(connection, signature, lastValidBlockHeight) {
+    const MAX_CHECKS = 30;
+    const CHECK_INTERVAL = 1000; // 1 second
+    for (let i = 0; i < MAX_CHECKS; i++) {
+        const response = await connection.getSignatureStatus(signature);
+        const status = response?.value;
+        if (status) {
+            if (status.err) {
+                throw new Error(`Transaction ${signature} failed: ${JSON.stringify(status.err)}`);
+            }
+            else if (status.confirmationStatus === 'confirmed' || status.confirmationStatus === 'finalized') {
+                return true;
+            }
+        }
+        if (await connection.getBlockHeight() > lastValidBlockHeight) {
+            throw new Error(`Transaction ${signature} expired: block height exceeded`);
+        }
+        await new Promise(resolve => setTimeout(resolve, CHECK_INTERVAL));
+    }
+    return false;
+}
+async function executeTransaction(connection, transaction, signers) {
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // 1 second
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+        try {
+            const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
+            transaction.recentBlockhash = blockhash;
+            transaction.feePayer = signers[0].publicKey;
+            transaction.sign(...signers);
+            const signature = await connection.sendRawTransaction(transaction.serialize());
+            // Wait for confirmation
+            const confirmed = await awaitTransactionConfirmation(connection, signature, lastValidBlockHeight);
+            if (confirmed) {
+                console.log(`Transaction confirmed: ${signature}`);
+                return signature;
+            }
+            else {
+                console.log(`Transaction not confirmed, retrying...`);
+            }
+        }
+        catch (error) {
+            console.error(`Attempt ${attempt + 1} failed:`, error);
+            if (attempt === MAX_RETRIES - 1)
+                throw error;
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+        }
+    }
+    throw new Error('Transaction failed after maximum retries');
+}
+const makeAndExecuteSwap = async (swapAmountIn, tokenToBuy) => {
+    const connection = new web3_js_1.Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
+        httpAgent: false,
     });
     const secret = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
     const privateKeyUint8Array = bs58_1.default.decode(secret);
-    const secretKey = Uint8Array.from(JSON.parse(fs.readFileSync(`./keypair.json`, 'utf-8')));
     const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
     const ammId = await getPoolId(connection, tokenToBuy);
     if (!ammId) {
@@ -233,10 +232,9 @@ const executeTransaction = async (swapAmountIn, tokenToBuy) => {
     const poolKeys = await getPoolKeys(ammId, connection);
     if (poolKeys) {
         const poolInfo = await raydium_sdk_1.Liquidity.fetchInfo({ connection, poolKeys });
-        const txn = new web3_js_1.Transaction();
         const { swapIX, tokenInAccount, tokenIn, amountIn } = await makeSwapInstruction(connection, tokenToBuy, swapAmountIn, slippage, poolKeys, poolInfo, keyPair);
+        const txn = new web3_js_1.Transaction();
         if (tokenIn.equals(spl_token_1.NATIVE_MINT)) {
-            // Convert SOL to Wrapped SOL
             txn.add(web3_js_1.SystemProgram.transfer({
                 fromPubkey: keyPair.publicKey,
                 toPubkey: tokenInAccount,
@@ -245,12 +243,9 @@ const executeTransaction = async (swapAmountIn, tokenToBuy) => {
         }
         txn.add(swapIX);
         try {
-            const hash = await (0, web3_js_1.sendAndConfirmTransaction)(connection, txn, [keyPair], {
-                skipPreflight: false,
-                preflightCommitment: "confirmed",
-            });
+            const signature = await executeTransaction(connection, txn, [keyPair]);
             console.log("Transaction Completed Successfully 🎉🚀.");
-            console.log(`Explorer URL: https://solscan.io/tx/${hash}`);
+            console.log(`Explorer URL: https://solscan.io/tx/${signature}`);
         }
         catch (error) {
             console.error("Transaction failed:", error);
@@ -261,5 +256,13 @@ const executeTransaction = async (swapAmountIn, tokenToBuy) => {
     }
 };
 // Example usage:
-executeTransaction(0.1, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
+(async () => {
+    try {
+        await makeAndExecuteSwap(0.1, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
+        console.log("Transaction completed successfully!");
+    }
+    catch (error) {
+        console.error("An error occurred:", error);
+    }
+})();
 //# sourceMappingURL=main.js.map

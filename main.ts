@@ -14,43 +14,23 @@ import {
     Connection,
     PublicKey,
     TransactionInstruction,
+    Keypair,
+    SystemProgram,
     sendAndConfirmTransaction,
-    Transaction, 
-    Keypair, 
-    TransactionSignature, 
-    RpcResponseAndContext, 
-    SignatureStatus
+    Transaction,
 } from "@solana/web3.js";
 import {
     TOKEN_PROGRAM_ID,
     NATIVE_MINT,
     getOrCreateAssociatedTokenAccount,
     createSyncNativeInstruction,
-    Account  
+    Account
 } from "@solana/spl-token";
 import BN from "bn.js";
 import * as fs from 'fs';
 import { Raydium } from '@raydium-io/raydium-sdk-v2'
 import bs58 from 'bs58';
 
-
-// Override Connection.prototype.getAccountInfo with axios
-/*Connection.prototype.getAccountInfo = async function (publicKey, commitment) {
-    const args = [publicKey.toBase58()];
-    //if (commitment) args.push(commitment);
-    try {
-        const unsafeRes = await axios.post(this.rpcEndpoint, {
-            jsonrpc: '2.0',
-            id: 1,
-            method: 'getAccountInfo',
-            params: args,
-        });
-        return unsafeRes.data.result;
-    } catch (error) {
-        console.error("axios error:", error);
-        throw error;
-    }
-}*/
 async function getOrCreateAssociatedTokenAccountWithRetry(
     connection: Connection,
     payer: Keypair,
@@ -58,24 +38,25 @@ async function getOrCreateAssociatedTokenAccountWithRetry(
     owner: PublicKey,
     maxRetries = 3,
     delay = 1000
-  ): Promise<Account> {
+): Promise<Account> {
     for (let attempt = 0; attempt < maxRetries; attempt++) {
-      try {
-        const account = await getOrCreateAssociatedTokenAccount(
-          connection,
-          payer,
-          mint,
-          owner
-        );
-        return account;
-      } catch (error) {
-        console.error(`Attempt ${attempt + 1} failed: ${error instanceof Error ? error.message : String(error)}`);
-        if (attempt === maxRetries - 1) throw error;
-        await new Promise(resolve => setTimeout(resolve, delay));
-      }
+        try {
+            const account = await getOrCreateAssociatedTokenAccount(
+                connection,
+                payer,
+                mint,
+                owner
+            );
+            return account;
+        } catch (error) {
+            console.error(`Attempt ${attempt + 1} failed: ${error instanceof Error ? error.message : String(error)}`);
+            if (attempt === maxRetries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
     }
     throw new Error("Failed to get or create associated token account after max retries");
-  }
+}
+
 async function getPoolId(connection: Connection, tokenAddress: string): Promise<string | null> {
     const raydium = await Raydium.load({
         connection: connection,
@@ -287,80 +268,137 @@ const makeSwapInstruction = async (
     };
 };
 
-async function executeTransaction(connection: Connection, transaction: Transaction, signers: Keypair[]): Promise<TransactionSignature> {
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY = 1000; // 1 second
-  
-    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
-      try {
-        // Get a new blockhash for each attempt
-        const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
-        transaction.recentBlockhash = blockhash;
-  
-        const signature = await sendAndConfirmTransaction(
-          connection,
-          transaction,
-          signers,
-          {
-            commitment: 'confirmed',
-            maxRetries: 3,
-          }
-        );
-  
-        // Wait for confirmation
-        const confirmation = await awaitTransactionConfirmation(connection, signature, lastValidBlockHeight);
-        
-        if (confirmation) {
-          console.log(`Transaction confirmed: ${signature}`);
-          return signature;
-        } else {
-          console.log(`Transaction not confirmed, retrying...`);
-        }
-      } catch (error) {
-        console.error(`Attempt ${attempt + 1} failed:`, error);
-        if (attempt === MAX_RETRIES - 1) throw error;
-        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-      }
-    }
-  
-    throw new Error('Transaction failed after maximum retries');
-  }
-  
-  async function awaitTransactionConfirmation(
+async function awaitTransactionConfirmation(
     connection: Connection,
-    signature: TransactionSignature,
+    signature: string,
     lastValidBlockHeight: number
-  ): Promise<boolean> {
+): Promise<boolean> {
     const MAX_CHECKS = 30;
     const CHECK_INTERVAL = 1000; // 1 second
-  
+
     for (let i = 0; i < MAX_CHECKS; i++) {
-      const response: RpcResponseAndContext<SignatureStatus | null> = await connection.getSignatureStatus(signature);
-      const status = response.value;
-  
-      if (status) {
-        if (status.err) {
-          throw new Error(`Transaction ${signature} failed: ${JSON.stringify(status.err)}`);
-        } else if (status.confirmations === null || status.confirmationStatus === 'confirmed' || status.confirmationStatus === 'finalized') {
-          return true;
+        const response = await connection.getSignatureStatus(signature);
+        const status = response?.value;
+
+        if (status) {
+            if (status.err) {
+                throw new Error(`Transaction ${signature} failed: ${JSON.stringify(status.err)}`);
+            } else if (status.confirmationStatus === 'confirmed' || status.confirmationStatus === 'finalized') {
+                return true;
+            }
         }
-      }
-  
-      if (await connection.getBlockHeight() > lastValidBlockHeight) {
-        throw new Error(`Transaction ${signature} expired: block height exceeded`);
-      }
-  
-      await new Promise(resolve => setTimeout(resolve, CHECK_INTERVAL));
+
+        if (await connection.getBlockHeight() > lastValidBlockHeight) {
+            throw new Error(`Transaction ${signature} expired: block height exceeded`);
+        }
+
+        await new Promise(resolve => setTimeout(resolve, CHECK_INTERVAL));
     }
-  
+
     return false;
-  }
+}
+
+async function executeTransaction(connection: Connection, transaction: Transaction, signers: Keypair[]): Promise<string> {
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // 1 second
+
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+        try {
+            const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
+            transaction.recentBlockhash = blockhash;
+            transaction.feePayer = signers[0].publicKey;
+
+            transaction.sign(...signers);
+            const signature = await connection.sendRawTransaction(transaction.serialize());
+
+            // Wait for confirmation
+            const confirmed = await awaitTransactionConfirmation(connection, signature, lastValidBlockHeight);
+
+            if (confirmed) {
+                console.log(`Transaction confirmed: ${signature}`);
+                return signature;
+            } else {
+                console.log(`Transaction not confirmed, retrying...`);
+            }
+        } catch (error) {
+            console.error(`Attempt ${attempt + 1} failed:`, error);
+            if (attempt === MAX_RETRIES - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+        }
+    }
+
+    throw new Error('Transaction failed after maximum retries');
+}
+
+const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
+    const connection = new Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
+        httpAgent: false,
+    });
+
+    const secret = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
+    const privateKeyUint8Array = bs58.decode(secret);
+    const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
+
+    const ammId = await getPoolId(connection, tokenToBuy);
+
+    if (!ammId) {
+        console.log(`Could not find pool for SOL-${tokenToBuy}`);
+        return;
+    }
+
+    console.log(`Using AMM ID: ${ammId}`);
+
+    const slippage = 2; // 2% slippage tolerance
+
+    const poolKeys = await getPoolKeys(ammId, connection);
+    if (poolKeys) {
+        const poolInfo = await Liquidity.fetchInfo({ connection, poolKeys });
+        const {
+            swapIX,
+            tokenInAccount,
+            tokenIn,
+            amountIn
+        } = await makeSwapInstruction(
+            connection,
+            tokenToBuy,
+            swapAmountIn,
+            slippage,
+            poolKeys,
+            poolInfo,
+            keyPair,
+        );
+
+        const txn = new Transaction();
+        if (tokenIn.equals(NATIVE_MINT)) {
+            txn.add(
+                SystemProgram.transfer({
+                    fromPubkey: keyPair.publicKey,
+                    toPubkey: tokenInAccount,
+                    lamports: amountIn.toNumber(),
+                }),
+                createSyncNativeInstruction(tokenInAccount, TOKEN_PROGRAM_ID),
+            );
+        }
+        txn.add(swapIX);
+
+        try {
+            const signature = await executeTransaction(connection, txn, [keyPair]);
+            console.log("Transaction Completed Successfully 🎉🚀.");
+            console.log(`Explorer URL: https://solscan.io/tx/${signature}`);
+        } catch (error) {
+            console.error("Transaction failed:", error);
+        }
+    } else {
+        console.log(`Could not get PoolKeys for AMM: ${ammId}`);
+    }
+};
 
 // Example usage:
-try {
-    const signature = await executeTransaction(connection, transaction, [keypair]);
-    console.log("Transaction executed successfully:", signature);
-  } catch (error) {
-    console.error("Failed to execute transaction:", error);
-  }
-  
+(async () => {
+    try {
+        await makeAndExecuteSwap(0.1, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
+        console.log("Transaction completed successfully!");
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+})();
