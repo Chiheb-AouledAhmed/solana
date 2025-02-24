@@ -1,4 +1,4 @@
-import { Connection, Keypair, PublicKey, Transaction } from '@solana/web3.js';
+/*import { Connection, Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import { Market } from '@project-serum/serum'; // or the appropriate 
 import {
   Token,
@@ -78,13 +78,13 @@ async function swapWSOLForToken(
   const tokenB = new Token(TOKEN_PROGRAM_ID, tokenBMint, 9, 'Unknown', 'Unknown');
 
   // Set up pool keys
-  /*const poolKeys = await Liquidity.fetchAllPoolKeys(connection, { 4: poolKey, 5: poolKey });
+  const poolKeys = await Liquidity.fetchAllPoolKeys(connection, { 4: poolKey, 5: poolKey });
   const specificPoolKeys = poolKeys.find(key => key.id.equals(poolKey));
 
   if (!specificPoolKeys) {
     console.error('Could not find specific pool keys');
     return;
-  }*/
+  }
 
   // Convert SOL amount to WSOL amount
   const amountIn = new TokenAmount(tokenA, amountInSOL * Math.pow(10, WSOL.decimals));
@@ -205,4 +205,4 @@ async function main() {
   await swapWSOLForToken(connection, wallet, tokenAddress, amountInSOL);
 }
 
-main().catch(console.error);
+main().catch(console.error);*/

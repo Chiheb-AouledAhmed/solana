@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
     LIQUIDITY_STATE_LAYOUT_V4,
     LiquidityPoolKeysV4,
@@ -13,11 +12,13 @@ import {
 import {
     Connection,
     PublicKey,
-    TransactionInstruction,
     Keypair,
     SystemProgram,
-    sendAndConfirmTransaction,
-    Transaction,
+    VersionedTransaction,
+    ComputeBudgetProgram,
+    TransactionMessage,
+    TransactionInstruction ,
+    SendTransactionError
 } from "@solana/web3.js";
 import {
     TOKEN_PROGRAM_ID,
@@ -268,67 +269,67 @@ const makeSwapInstruction = async (
     };
 };
 
-async function awaitTransactionConfirmation(
-    connection: Connection,
-    signature: string,
-    lastValidBlockHeight: number
-): Promise<boolean> {
-    const MAX_CHECKS = 30;
-    const CHECK_INTERVAL = 1000; // 1 second
 
-    for (let i = 0; i < MAX_CHECKS; i++) {
-        const response = await connection.getSignatureStatus(signature);
-        const status = response?.value;
+async function executeVersionedTransaction(connection: Connection, transaction: VersionedTransaction, signers: Keypair[]): Promise<string | false> {
+    const MAX_RETRIES = 5;
+    const INITIAL_BACKOFF = 1000; // 1 second
 
-        if (status) {
-            if (status.err) {
-                throw new Error(`Transaction ${signature} failed: ${JSON.stringify(status.err)}`);
-            } else if (status.confirmationStatus === 'confirmed' || status.confirmationStatus === 'finalized') {
-                return true;
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+        try {
+            // Get a fresh blockhash for each attempt
+            const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
+            transaction.message.recentBlockhash = blockhash;
+
+            // Sign the transaction with the fresh blockhash
+            transaction.sign(signers);
+
+            const rawTransaction = transaction.serialize();
+            
+            console.log(`Attempt ${attempt + 1}: Sending transaction...`);
+            const signature = await connection.sendRawTransaction(rawTransaction, {
+                skipPreflight: true,
+                preflightCommitment: 'confirmed',
+            });
+            console.log(`Transaction sent. Signature: ${signature}`);
+
+            console.log(`Waiting for transaction confirmation...`);
+            const confirmation = await connection.confirmTransaction({
+                signature,
+                blockhash,
+                lastValidBlockHeight,
+            }, 'confirmed');
+
+            if (confirmation.value.err) {
+                throw new Error(`Transaction failed: ${JSON.stringify(confirmation.value.err)}`);
             }
-        }
 
-        if (await connection.getBlockHeight() > lastValidBlockHeight) {
-            throw new Error(`Transaction ${signature} expired: block height exceeded`);
-        }
+            console.log(`Transaction confirmed: ${signature}`);
+            return signature;
+        } catch (error) {
+            console.error(`Attempt ${attempt + 1} failed:`);
+            if (error instanceof SendTransactionError) {
+                console.error('SendTransactionError:', error.message);
+                console.error('Logs:', error.logs);
+                // You can add more specific error handling here based on error.logs content
+            } else {
+                console.error('Error:', error);
+            }
 
-        await new Promise(resolve => setTimeout(resolve, CHECK_INTERVAL));
+            if (attempt === MAX_RETRIES - 1) {
+                console.error("Transaction failed after maximum retries");
+                return false;
+            }
+
+            // Exponential backoff
+            const delay = INITIAL_BACKOFF * Math.pow(2, attempt);
+            console.log(`Retrying in ${delay}ms...`);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
     }
 
     return false;
 }
 
-async function executeTransaction(connection: Connection, transaction: Transaction, signers: Keypair[]): Promise<string> {
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY = 1000; // 1 second
-
-    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
-        try {
-            const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
-            transaction.recentBlockhash = blockhash;
-            transaction.feePayer = signers[0].publicKey;
-
-            transaction.sign(...signers);
-            const signature = await connection.sendRawTransaction(transaction.serialize());
-
-            // Wait for confirmation
-            const confirmed = await awaitTransactionConfirmation(connection, signature, lastValidBlockHeight);
-
-            if (confirmed) {
-                console.log(`Transaction confirmed: ${signature}`);
-                return signature;
-            } else {
-                console.log(`Transaction not confirmed, retrying...`);
-            }
-        } catch (error) {
-            console.error(`Attempt ${attempt + 1} failed:`, error);
-            if (attempt === MAX_RETRIES - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-        }
-    }
-
-    throw new Error('Transaction failed after maximum retries');
-}
 
 const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
     const connection = new Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
@@ -368,23 +369,38 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
             keyPair,
         );
 
-        const txn = new Transaction();
-        if (tokenIn.equals(NATIVE_MINT)) {
-            txn.add(
+        const latestBlockhash = await connection.getLatestBlockhash('confirmed');
+
+        const instructions = [
+            ComputeBudgetProgram.setComputeUnitLimit({ units: 1000000 }),
+            ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 1000 }),
+            ...(tokenIn.equals(NATIVE_MINT) ? [
                 SystemProgram.transfer({
                     fromPubkey: keyPair.publicKey,
                     toPubkey: tokenInAccount,
                     lamports: amountIn.toNumber(),
                 }),
                 createSyncNativeInstruction(tokenInAccount, TOKEN_PROGRAM_ID),
-            );
-        }
-        txn.add(swapIX);
+            ] : []),
+            swapIX
+        ];
+
+        const message = new TransactionMessage({
+            payerKey: keyPair.publicKey,
+            recentBlockhash: latestBlockhash.blockhash,
+            instructions,
+        }).compileToV0Message();
+
+        const transaction = new VersionedTransaction(message);
 
         try {
-            const signature = await executeTransaction(connection, txn, [keyPair]);
-            console.log("Transaction Completed Successfully 🎉🚀.");
-            console.log(`Explorer URL: https://solscan.io/tx/${signature}`);
+            const signature = await executeVersionedTransaction(connection, transaction, [keyPair]);
+            if (signature) {
+                console.log("Transaction Completed Successfully 🎉🚀.");
+                console.log(`Explorer URL: https://solscan.io/tx/${signature}`);
+            } else {
+                console.error("Versioned Transaction failed");
+            }
         } catch (error) {
             console.error("Transaction failed:", error);
         }
@@ -393,12 +409,12 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
     }
 };
 
-// Example usage:
+// Main execution
 (async () => {
     try {
-        await makeAndExecuteSwap(0.1, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
-        console.log("Transaction completed successfully!");
+        await makeAndExecuteSwap(0.02, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
+        console.log("Swap process completed!");
     } catch (error) {
-        console.error("An error occurred:", error);
+        console.error("An error occurred during the swap process:", error);
     }
 })();
