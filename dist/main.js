@@ -3,12 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
 const web3_js_1 = require("@solana/web3.js");
 const spl_token_1 = require("@solana/spl-token");
-const bn_js_1 = __importDefault(require("bn.js"));
+const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
 const raydium_sdk_v2_1 = require("@raydium-io/raydium-sdk-v2");
+const bn_js_1 = __importDefault(require("bn.js"));
 const bs58_1 = __importDefault(require("bs58"));
+//import { JitoTipInstruction } from 'jito-ts/dist/sdk';
+// ... (rest of your transaction sending code)
 async function getOrCreateAssociatedTokenAccountWithRetry(connection, payer, mint, owner, maxRetries = 3, delay = 1000) {
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
@@ -24,7 +26,7 @@ async function getOrCreateAssociatedTokenAccountWithRetry(connection, payer, min
     }
     throw new Error("Failed to get or create associated token account after max retries");
 }
-async function getPoolId(connection, tokenAddress) {
+async function getPoolId(connection, tokenAAddress, tokenBAddress) {
     const raydium = await raydium_sdk_v2_1.Raydium.load({
         connection: connection,
         cluster: 'mainnet',
@@ -33,8 +35,8 @@ async function getPoolId(connection, tokenAddress) {
         blockhashCommitment: "confirmed",
     });
     const data = await raydium.api.fetchPoolByMints({
-        mint1: 'So11111111111111111111111111111111111111112', // WSOL address
-        mint2: tokenAddress
+        mint1: tokenAAddress,
+        mint2: tokenBAddress
     });
     const pools = data.data;
     for (const obj of pools) {
@@ -93,44 +95,32 @@ const getPoolKeys = async (ammId, connection) => {
     }
     return undefined;
 };
-const calculateAmountOut = async (poolKeys, poolInfo, tokenToBuy, amountIn, rawSlippage) => {
-    let tokenOutMint = new web3_js_1.PublicKey(tokenToBuy);
-    let tokenOutDecimals = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolInfo.baseDecimals
-        : poolInfo.quoteDecimals;
-    let tokenInMint = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolKeys.quoteMint
-        : poolKeys.baseMint;
-    let tokenInDecimals = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolInfo.quoteDecimals
-        : poolInfo.baseDecimals;
-    const amountInRaw = new bn_js_1.default(amountIn * (10 ** tokenInDecimals));
-    const slippage = rawSlippage / 100;
+const makeSwapInstruction = async (connection, tokenInAddress, tokenOutAddress, rawAmountIn, slippage, poolKeys, poolInfo, keyPair) => {
+    const tokenInMint = new web3_js_1.PublicKey(tokenInAddress);
+    const tokenOutMint = new web3_js_1.PublicKey(tokenOutAddress);
+    const tokenInDecimals = poolKeys.baseMint.equals(tokenInMint) ? poolInfo.baseDecimals : poolInfo.quoteDecimals;
+    const tokenOutDecimals = poolKeys.baseMint.equals(tokenOutMint) ? poolInfo.baseDecimals : poolInfo.quoteDecimals;
+    const amountInRaw = new bn_js_1.default(rawAmountIn * (10 ** tokenInDecimals));
     const amountOutParams = raydium_sdk_1.Liquidity.computeAmountOut({
         poolKeys,
         poolInfo,
         amountIn: new raydium_sdk_1.TokenAmount(new raydium_sdk_1.Token(spl_token_1.TOKEN_PROGRAM_ID, tokenInMint, tokenInDecimals), amountInRaw),
         currencyOut: new raydium_sdk_1.Token(spl_token_1.TOKEN_PROGRAM_ID, tokenOutMint, tokenOutDecimals),
-        slippage: new raydium_sdk_1.Percent(slippage * 100, 100),
+        slippage: new raydium_sdk_1.Percent(slippage, 100),
     });
-    return {
-        amountIn: amountInRaw,
-        tokenIn: tokenInMint,
-        tokenOut: tokenOutMint,
-        ...amountOutParams,
-    };
-};
-const makeSwapInstruction = async (connection, tokenToBuy, rawAmountIn, slippage, poolKeys, poolInfo, keyPair) => {
-    const { amountIn, tokenIn, tokenOut, minAmountOut } = await calculateAmountOut(poolKeys, poolInfo, tokenToBuy, rawAmountIn, slippage);
     let tokenInAccount;
     let tokenOutAccount;
-    if (tokenIn.equals(spl_token_1.NATIVE_MINT)) {
+    if (tokenInMint.equals(spl_token_1.NATIVE_MINT)) {
         tokenInAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, spl_token_1.NATIVE_MINT, keyPair.publicKey)).address;
-        tokenOutAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, new web3_js_1.PublicKey(tokenToBuy), keyPair.publicKey)).address;
     }
     else {
+        tokenInAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, tokenInMint, keyPair.publicKey)).address;
+    }
+    if (tokenOutMint.equals(spl_token_1.NATIVE_MINT)) {
         tokenOutAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, spl_token_1.NATIVE_MINT, keyPair.publicKey)).address;
-        tokenInAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, tokenIn, keyPair.publicKey)).address;
+    }
+    else {
+        tokenOutAccount = (await getOrCreateAssociatedTokenAccountWithRetry(connection, keyPair, tokenOutMint, keyPair.publicKey)).address;
     }
     const ix = new web3_js_1.TransactionInstruction({
         programId: new web3_js_1.PublicKey(poolKeys.programId),
@@ -153,16 +143,16 @@ const makeSwapInstruction = async (connection, tokenToBuy, rawAmountIn, slippage
             { pubkey: tokenOutAccount, isSigner: false, isWritable: true },
             { pubkey: keyPair.publicKey, isSigner: true, isWritable: false },
         ],
-        data: Buffer.from(Uint8Array.of(9, ...amountIn.toArray("le", 8), ...minAmountOut.raw.toArray("le", 8))),
+        data: Buffer.from(Uint8Array.of(9, ...amountInRaw.toArray("le", 8), ...amountOutParams.minAmountOut.raw.toArray("le", 8))),
     });
     return {
         swapIX: ix,
         tokenInAccount: tokenInAccount,
         tokenOutAccount: tokenOutAccount,
-        tokenIn,
-        tokenOut,
-        amountIn,
-        minAmountOut,
+        tokenInMint,
+        tokenOutMint,
+        amountIn: amountInRaw,
+        minAmountOut: amountOutParams.minAmountOut,
     };
 };
 async function executeVersionedTransaction(connection, transaction, signers) {
@@ -170,19 +160,14 @@ async function executeVersionedTransaction(connection, transaction, signers) {
     const INITIAL_BACKOFF = 1000; // 1 second
     for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
         try {
-            // Get a fresh blockhash for each attempt
             const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
             transaction.message.recentBlockhash = blockhash;
-            // Sign the transaction with the fresh blockhash
             transaction.sign(signers);
-            const rawTransaction = transaction.serialize();
-            console.log(`Attempt ${attempt + 1}: Sending transaction...`);
-            const signature = await connection.sendRawTransaction(rawTransaction, {
+            const signature = await connection.sendRawTransaction(transaction.serialize(), {
                 skipPreflight: true,
                 preflightCommitment: 'confirmed',
             });
             console.log(`Transaction sent. Signature: ${signature}`);
-            console.log(`Waiting for transaction confirmation...`);
             const confirmation = await connection.confirmTransaction({
                 signature,
                 blockhash,
@@ -195,20 +180,15 @@ async function executeVersionedTransaction(connection, transaction, signers) {
             return signature;
         }
         catch (error) {
-            console.error(`Attempt ${attempt + 1} failed:`);
+            console.error(`Attempt ${attempt + 1} failed:`, error);
             if (error instanceof web3_js_1.SendTransactionError) {
                 console.error('SendTransactionError:', error.message);
                 console.error('Logs:', error.logs);
-                // You can add more specific error handling here based on error.logs content
-            }
-            else {
-                console.error('Error:', error);
             }
             if (attempt === MAX_RETRIES - 1) {
                 console.error("Transaction failed after maximum retries");
                 return false;
             }
-            // Exponential backoff
             const delay = INITIAL_BACKOFF * Math.pow(2, attempt);
             console.log(`Retrying in ${delay}ms...`);
             await new Promise(resolve => setTimeout(resolve, delay));
@@ -216,16 +196,16 @@ async function executeVersionedTransaction(connection, transaction, signers) {
     }
     return false;
 }
-const makeAndExecuteSwap = async (swapAmountIn, tokenToBuy) => {
+const makeAndExecuteSwap = async (tokenInAddress, tokenOutAddress, swapAmountIn) => {
     const connection = new web3_js_1.Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
         httpAgent: false,
     });
     const secret = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
     const privateKeyUint8Array = bs58_1.default.decode(secret);
     const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
-    const ammId = await getPoolId(connection, tokenToBuy);
+    const ammId = await getPoolId(connection, tokenInAddress, tokenOutAddress);
     if (!ammId) {
-        console.log(`Could not find pool for SOL-${tokenToBuy}`);
+        console.log(`Could not find pool for ${tokenInAddress}-${tokenOutAddress}`);
         return;
     }
     console.log(`Using AMM ID: ${ammId}`);
@@ -233,12 +213,18 @@ const makeAndExecuteSwap = async (swapAmountIn, tokenToBuy) => {
     const poolKeys = await getPoolKeys(ammId, connection);
     if (poolKeys) {
         const poolInfo = await raydium_sdk_1.Liquidity.fetchInfo({ connection, poolKeys });
-        const { swapIX, tokenInAccount, tokenIn, amountIn } = await makeSwapInstruction(connection, tokenToBuy, swapAmountIn, slippage, poolKeys, poolInfo, keyPair);
+        const { swapIX, tokenInAccount, tokenInMint, amountIn } = await makeSwapInstruction(connection, tokenInAddress, tokenOutAddress, swapAmountIn, slippage, poolKeys, poolInfo, keyPair);
         const latestBlockhash = await connection.getLatestBlockhash('confirmed');
+        // Create the Jito tip instruction
+        /*const jitoTipInstruction = JitoTipInstruction.create({
+            payer: keyPair.publicKey,
+            tipAmount: 10000, // Amount in lamports, adjust as needed
+        });*/
         const instructions = [
             web3_js_1.ComputeBudgetProgram.setComputeUnitLimit({ units: 1000000 }),
             web3_js_1.ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 1000 }),
-            ...(tokenIn.equals(spl_token_1.NATIVE_MINT) ? [
+            //jitoTipInstruction, // Add the Jito tip instruction here
+            ...(tokenInMint.equals(spl_token_1.NATIVE_MINT) ? [
                 web3_js_1.SystemProgram.transfer({
                     fromPubkey: keyPair.publicKey,
                     toPubkey: tokenInAccount,
@@ -272,14 +258,62 @@ const makeAndExecuteSwap = async (swapAmountIn, tokenToBuy) => {
         console.log(`Could not get PoolKeys for AMM: ${ammId}`);
     }
 };
+// ... [Previous imports and functions remain the same]
+async function getTokenBalance(connection, tokenAddress, owner) {
+    if (tokenAddress === "So11111111111111111111111111111111111111112") {
+        // For SOL
+        const balance = await connection.getBalance(owner);
+        return balance / 1e9; // Convert lamports to SOL
+    }
+    else {
+        // For other tokens
+        const tokenMint = new web3_js_1.PublicKey(tokenAddress);
+        const tokenAccount = await (0, spl_token_1.getOrCreateAssociatedTokenAccount)(connection, owner, // Assuming owner is a Keypair
+        tokenMint, owner);
+        const balance = await connection.getTokenAccountBalance(tokenAccount.address);
+        return parseFloat(balance.value.amount) / Math.pow(10, balance.value.decimals);
+    }
+}
+async function executeTradeBasedOnBalance(connection, keyPair, fromTokenAddress, toTokenAddress, percentageToTrade, isBuy) {
+    const balance = await getTokenBalance(connection, fromTokenAddress, keyPair.publicKey);
+    const amountToTrade = balance * (percentageToTrade / 100);
+    console.log(`Current ${fromTokenAddress} balance: ${balance}`);
+    console.log(`Amount to ${isBuy ? 'buy' : 'sell'} (${percentageToTrade}%): ${amountToTrade}`);
+    if (amountToTrade > 0) {
+        if (isBuy) {
+            await makeAndExecuteSwap(fromTokenAddress, toTokenAddress, amountToTrade);
+        }
+        else {
+            await makeAndExecuteSwap(fromTokenAddress, toTokenAddress, amountToTrade);
+        }
+    }
+    else {
+        console.log("Not enough balance to execute trade.");
+    }
+}
 // Main execution
 (async () => {
     try {
-        await makeAndExecuteSwap(0.02, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
-        console.log("Swap process completed!");
+        const connection = new web3_js_1.Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
+            httpAgent: false,
+        });
+        const secret = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
+        const privateKeyUint8Array = bs58_1.default.decode(secret);
+        const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
+        const SOL_ADDRESS = "So11111111111111111111111111111111111111112";
+        const USDC_ADDRESS = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v";
+        // Sell 50% of SOL for USDC
+        console.log("Executing sell: 50% of SOL to USDC");
+        await executeTradeBasedOnBalance(connection, keyPair, USDC_ADDRESS, SOL_ADDRESS, 100, false // isBuy = false (sell)
+        );
+        // Buy SOL with 30% of USDC balance
+        console.log("Executing buy: 30% of USDC to SOL");
+        await executeTradeBasedOnBalance(connection, keyPair, USDC_ADDRESS, SOL_ADDRESS, 30, true // isBuy = true (buy)
+        );
+        console.log("All processes completed!");
     }
     catch (error) {
-        console.error("An error occurred during the swap process:", error);
+        console.error("An error occurred during the process:", error);
     }
 })();
 //# sourceMappingURL=main.js.map

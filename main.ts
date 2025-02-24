@@ -1,4 +1,22 @@
 import {
+    Connection,
+    PublicKey,
+    TransactionInstruction,
+    Keypair,
+    SystemProgram,
+    VersionedTransaction,
+    ComputeBudgetProgram,
+    TransactionMessage,
+    SendTransactionError
+} from "@solana/web3.js";
+import {
+    TOKEN_PROGRAM_ID,
+    NATIVE_MINT,
+    getOrCreateAssociatedTokenAccount,
+    createSyncNativeInstruction,
+    Account
+} from "@solana/spl-token";
+import {
     LIQUIDITY_STATE_LAYOUT_V4,
     LiquidityPoolKeysV4,
     MAINNET_PROGRAM_ID,
@@ -9,28 +27,14 @@ import {
     TokenAmount,
     Percent
 } from "@raydium-io/raydium-sdk";
-import {
-    Connection,
-    PublicKey,
-    Keypair,
-    SystemProgram,
-    VersionedTransaction,
-    ComputeBudgetProgram,
-    TransactionMessage,
-    TransactionInstruction ,
-    SendTransactionError
-} from "@solana/web3.js";
-import {
-    TOKEN_PROGRAM_ID,
-    NATIVE_MINT,
-    getOrCreateAssociatedTokenAccount,
-    createSyncNativeInstruction,
-    Account
-} from "@solana/spl-token";
-import BN from "bn.js";
-import * as fs from 'fs';
 import { Raydium } from '@raydium-io/raydium-sdk-v2'
+import BN from "bn.js";
 import bs58 from 'bs58';
+//import { JitoTipInstruction } from 'jito-ts/dist/sdk';
+
+
+// ... (rest of your transaction sending code)
+
 
 async function getOrCreateAssociatedTokenAccountWithRetry(
     connection: Connection,
@@ -58,7 +62,7 @@ async function getOrCreateAssociatedTokenAccountWithRetry(
     throw new Error("Failed to get or create associated token account after max retries");
 }
 
-async function getPoolId(connection: Connection, tokenAddress: string): Promise<string | null> {
+async function getPoolId(connection: Connection, tokenAAddress: string, tokenBAddress: string): Promise<string | null> {
     const raydium = await Raydium.load({
         connection: connection,
         cluster: 'mainnet',
@@ -68,8 +72,8 @@ async function getPoolId(connection: Connection, tokenAddress: string): Promise<
     });
 
     const data = await raydium.api.fetchPoolByMints({
-        mint1: 'So11111111111111111111111111111111111111112', // WSOL address
-        mint2: tokenAddress
+        mint1: tokenAAddress,
+        mint2: tokenBAddress
     });
 
     const pools = data.data;
@@ -136,64 +140,36 @@ const getPoolKeys = async (ammId: string, connection: Connection): Promise<Liqui
     return undefined;
 };
 
-const calculateAmountOut = async (
-    poolKeys: LiquidityPoolKeysV4,
-    poolInfo: LiquidityPoolInfo,
-    tokenToBuy: string,
-    amountIn: number,
-    rawSlippage: number,
-) => {
-    let tokenOutMint = new PublicKey(tokenToBuy);
-    let tokenOutDecimals = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolInfo.baseDecimals
-        : poolInfo.quoteDecimals;
-    let tokenInMint = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolKeys.quoteMint
-        : poolKeys.baseMint;
-    let tokenInDecimals = poolKeys.baseMint.equals(tokenOutMint)
-        ? poolInfo.quoteDecimals
-        : poolInfo.baseDecimals;
-
-    const amountInRaw = new BN(amountIn * (10 ** tokenInDecimals));
-    const slippage = rawSlippage / 100;
-
-    const amountOutParams = Liquidity.computeAmountOut({
-        poolKeys,
-        poolInfo,
-        amountIn: new TokenAmount(new Token(TOKEN_PROGRAM_ID, tokenInMint, tokenInDecimals), amountInRaw),
-        currencyOut: new Token(TOKEN_PROGRAM_ID, tokenOutMint, tokenOutDecimals),
-        slippage: new Percent(slippage * 100, 100),
-    });
-
-    return {
-        amountIn: amountInRaw,
-        tokenIn: tokenInMint,
-        tokenOut: tokenOutMint,
-        ...amountOutParams,
-    };
-};
-
 const makeSwapInstruction = async (
     connection: Connection,
-    tokenToBuy: string,
+    tokenInAddress: string,
+    tokenOutAddress: string,
     rawAmountIn: number,
     slippage: number,
     poolKeys: LiquidityPoolKeysV4,
     poolInfo: LiquidityPoolInfo,
     keyPair: Keypair,
 ) => {
-    const { amountIn, tokenIn, tokenOut, minAmountOut } =
-        await calculateAmountOut(
-            poolKeys,
-            poolInfo,
-            tokenToBuy,
-            rawAmountIn,
-            slippage,
-        );
+    const tokenInMint = new PublicKey(tokenInAddress);
+    const tokenOutMint = new PublicKey(tokenOutAddress);
+    
+    const tokenInDecimals = poolKeys.baseMint.equals(tokenInMint) ? poolInfo.baseDecimals : poolInfo.quoteDecimals;
+    const tokenOutDecimals = poolKeys.baseMint.equals(tokenOutMint) ? poolInfo.baseDecimals : poolInfo.quoteDecimals;
+
+    const amountInRaw = new BN(rawAmountIn * (10 ** tokenInDecimals));
+
+    const amountOutParams = Liquidity.computeAmountOut({
+        poolKeys,
+        poolInfo,
+        amountIn: new TokenAmount(new Token(TOKEN_PROGRAM_ID, tokenInMint, tokenInDecimals), amountInRaw),
+        currencyOut: new Token(TOKEN_PROGRAM_ID, tokenOutMint, tokenOutDecimals),
+        slippage: new Percent(slippage, 100),
+    });
+
     let tokenInAccount: PublicKey;
     let tokenOutAccount: PublicKey;
 
-    if (tokenIn.equals(NATIVE_MINT)) {
+    if (tokenInMint.equals(NATIVE_MINT)) {
         tokenInAccount = (
             await getOrCreateAssociatedTokenAccountWithRetry(
                 connection,
@@ -202,15 +178,18 @@ const makeSwapInstruction = async (
                 keyPair.publicKey,
             )
         ).address;
-        tokenOutAccount = (
+    } else {
+        tokenInAccount = (
             await getOrCreateAssociatedTokenAccountWithRetry(
                 connection,
                 keyPair,
-                new PublicKey(tokenToBuy),
+                tokenInMint,
                 keyPair.publicKey,
             )
         ).address;
-    } else {
+    }
+
+    if (tokenOutMint.equals(NATIVE_MINT)) {
         tokenOutAccount = (
             await getOrCreateAssociatedTokenAccountWithRetry(
                 connection,
@@ -219,11 +198,12 @@ const makeSwapInstruction = async (
                 keyPair.publicKey
             )
         ).address;
-        tokenInAccount = (
+    } else {
+        tokenOutAccount = (
             await getOrCreateAssociatedTokenAccountWithRetry(
                 connection,
                 keyPair,
-                tokenIn,
+                tokenOutMint,
                 keyPair.publicKey,
             )
         ).address;
@@ -253,8 +233,8 @@ const makeSwapInstruction = async (
         data: Buffer.from(
             Uint8Array.of(
                 9,
-                ...amountIn.toArray("le", 8),
-                ...minAmountOut.raw.toArray("le", 8),
+                ...amountInRaw.toArray("le", 8),
+                ...amountOutParams.minAmountOut.raw.toArray("le", 8),
             ),
         ),
     });
@@ -262,13 +242,12 @@ const makeSwapInstruction = async (
         swapIX: ix,
         tokenInAccount: tokenInAccount,
         tokenOutAccount: tokenOutAccount,
-        tokenIn,
-        tokenOut,
-        amountIn,
-        minAmountOut,
+        tokenInMint,
+        tokenOutMint,
+        amountIn: amountInRaw,
+        minAmountOut: amountOutParams.minAmountOut,
     };
 };
-
 
 async function executeVersionedTransaction(connection: Connection, transaction: VersionedTransaction, signers: Keypair[]): Promise<string | false> {
     const MAX_RETRIES = 5;
@@ -276,23 +255,17 @@ async function executeVersionedTransaction(connection: Connection, transaction: 
 
     for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
         try {
-            // Get a fresh blockhash for each attempt
             const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('confirmed');
             transaction.message.recentBlockhash = blockhash;
-
-            // Sign the transaction with the fresh blockhash
             transaction.sign(signers);
-
-            const rawTransaction = transaction.serialize();
             
-            console.log(`Attempt ${attempt + 1}: Sending transaction...`);
-            const signature = await connection.sendRawTransaction(rawTransaction, {
+            const signature = await connection.sendRawTransaction(transaction.serialize(), {
                 skipPreflight: true,
                 preflightCommitment: 'confirmed',
             });
+
             console.log(`Transaction sent. Signature: ${signature}`);
 
-            console.log(`Waiting for transaction confirmation...`);
             const confirmation = await connection.confirmTransaction({
                 signature,
                 blockhash,
@@ -306,32 +279,24 @@ async function executeVersionedTransaction(connection: Connection, transaction: 
             console.log(`Transaction confirmed: ${signature}`);
             return signature;
         } catch (error) {
-            console.error(`Attempt ${attempt + 1} failed:`);
+            console.error(`Attempt ${attempt + 1} failed:`, error);
             if (error instanceof SendTransactionError) {
                 console.error('SendTransactionError:', error.message);
                 console.error('Logs:', error.logs);
-                // You can add more specific error handling here based on error.logs content
-            } else {
-                console.error('Error:', error);
             }
-
             if (attempt === MAX_RETRIES - 1) {
                 console.error("Transaction failed after maximum retries");
                 return false;
             }
-
-            // Exponential backoff
             const delay = INITIAL_BACKOFF * Math.pow(2, attempt);
             console.log(`Retrying in ${delay}ms...`);
             await new Promise(resolve => setTimeout(resolve, delay));
         }
     }
-
     return false;
 }
 
-
-const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
+const makeAndExecuteSwap = async (tokenInAddress: string, tokenOutAddress: string, swapAmountIn: number) => {
     const connection = new Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
         httpAgent: false,
     });
@@ -340,10 +305,10 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
     const privateKeyUint8Array = bs58.decode(secret);
     const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
 
-    const ammId = await getPoolId(connection, tokenToBuy);
+    const ammId = await getPoolId(connection, tokenInAddress, tokenOutAddress);
 
     if (!ammId) {
-        console.log(`Could not find pool for SOL-${tokenToBuy}`);
+        console.log(`Could not find pool for ${tokenInAddress}-${tokenOutAddress}`);
         return;
     }
 
@@ -352,16 +317,18 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
     const slippage = 2; // 2% slippage tolerance
 
     const poolKeys = await getPoolKeys(ammId, connection);
+    
     if (poolKeys) {
         const poolInfo = await Liquidity.fetchInfo({ connection, poolKeys });
         const {
             swapIX,
             tokenInAccount,
-            tokenIn,
+            tokenInMint,
             amountIn
         } = await makeSwapInstruction(
             connection,
-            tokenToBuy,
+            tokenInAddress,
+            tokenOutAddress,
             swapAmountIn,
             slippage,
             poolKeys,
@@ -371,10 +338,17 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
 
         const latestBlockhash = await connection.getLatestBlockhash('confirmed');
 
+        // Create the Jito tip instruction
+        /*const jitoTipInstruction = JitoTipInstruction.create({
+            payer: keyPair.publicKey,
+            tipAmount: 10000, // Amount in lamports, adjust as needed
+        });*/
+
         const instructions = [
             ComputeBudgetProgram.setComputeUnitLimit({ units: 1000000 }),
             ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 1000 }),
-            ...(tokenIn.equals(NATIVE_MINT) ? [
+            //jitoTipInstruction, // Add the Jito tip instruction here
+            ...(tokenInMint.equals(NATIVE_MINT) ? [
                 SystemProgram.transfer({
                     fromPubkey: keyPair.publicKey,
                     toPubkey: tokenInAccount,
@@ -408,13 +382,89 @@ const makeAndExecuteSwap = async (swapAmountIn: number, tokenToBuy: string) => {
         console.log(`Could not get PoolKeys for AMM: ${ammId}`);
     }
 };
+    
+// ... [Previous imports and functions remain the same]
+
+async function getTokenBalance(connection: Connection, tokenAddress: string, owner: PublicKey): Promise<number> {
+    if (tokenAddress === "So11111111111111111111111111111111111111112") {
+        // For SOL
+        const balance = await connection.getBalance(owner);
+        return balance / 1e9; // Convert lamports to SOL
+    } else {
+        // For other tokens
+        const tokenMint = new PublicKey(tokenAddress);
+        const tokenAccount = await getOrCreateAssociatedTokenAccount(
+            connection,
+            owner as any, // Assuming owner is a Keypair
+            tokenMint,
+            owner
+        );
+        const balance = await connection.getTokenAccountBalance(tokenAccount.address);
+        return parseFloat(balance.value.amount) / Math.pow(10, balance.value.decimals);
+    }
+}
+
+async function executeTradeBasedOnBalance(
+    connection: Connection,
+    keyPair: Keypair,
+    fromTokenAddress: string,
+    toTokenAddress: string,
+    percentageToTrade: number,
+    isBuy: boolean
+) {
+    const balance = await getTokenBalance(connection, fromTokenAddress, keyPair.publicKey);
+    const amountToTrade = balance * (percentageToTrade / 100);
+
+    console.log(`Current ${fromTokenAddress} balance: ${balance}`);
+    console.log(`Amount to ${isBuy ? 'buy' : 'sell'} (${percentageToTrade}%): ${amountToTrade}`);
+
+    if (amountToTrade > 0) {
+        if (isBuy) {
+            await makeAndExecuteSwap(
+                fromTokenAddress,
+                toTokenAddress,
+                amountToTrade
+            );
+        } else {
+            await makeAndExecuteSwap(
+                fromTokenAddress,
+                toTokenAddress,
+                amountToTrade
+            );
+        }
+    } else {
+        console.log("Not enough balance to execute trade.");
+    }
+}
 
 // Main execution
 (async () => {
     try {
-        await makeAndExecuteSwap(0.02, "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
-        console.log("Swap process completed!");
+        const connection = new Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
+            httpAgent: false,
+        });
+
+        const secret = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
+        const privateKeyUint8Array = bs58.decode(secret);
+        const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
+
+        const SOL_ADDRESS = "So11111111111111111111111111111111111111112";
+        const USDC_ADDRESS = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v";
+
+        // Sell 50% of SOL for USDC
+        console.log("Executing sell: 50% of SOL to USDC");
+        await executeTradeBasedOnBalance(
+            connection,
+            keyPair,
+            USDC_ADDRESS,
+            SOL_ADDRESS,
+            100,
+            false // isBuy = false (sell)
+        );
+
+        
+        console.log("All processes completed!");
     } catch (error) {
-        console.error("An error occurred during the swap process:", error);
+        console.error("An error occurred during the process:", error);
     }
 })();

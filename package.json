@@ -17,7 +17,8 @@
     "@solana/web3.js": "^1.98.0",
     "bn.js": "^5.2.1",
     "bs58": "^6.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "jito-ts": "^4.2.0"
   },
   "devDependencies": {
     "@types/big.js": "^6.2.2",
