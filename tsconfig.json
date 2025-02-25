@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true // Add this line!
+    "resolveJsonModule": true ,// Add this line!
+    "noImplicitAny": true,
   },
   "include": ["./**/*"], // Make sure this includes your source files
   "exclude": ["node_modules"] // Exclude node_modules

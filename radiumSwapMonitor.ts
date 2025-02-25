@@ -1,10 +1,10 @@
-/*import { Connection, PublicKey, VersionedTransactionResponse, AddressLookupTableAccount } from '@solana/web3.js';
+import { Connection, PublicKey, VersionedTransactionResponse, AddressLookupTableAccount } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token';
 import * as fs from 'fs';
 import { struct, u8, nu64 } from '@solana/buffer-layout';
 
 // Constants
-const RAYDIUM_PROGRAM_ID = new PublicKey('4fAA65KaxCv6wnwVYpNCrYfup3pDc8ieMTA2N2VQpump');
+const RAYDIUM_PROGRAM_ID = new PublicKey('9kkWuiwg8iZxwJP1R6fCkwdVeXaiKdPXMmV9kP7GuHHP');
 const RPC_ENDPOINT = 'https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc';
 const LOG_FILE = 'raydium_swaps.log';
 const UNIFORM_DELAY = 5000; // 5 seconds delay between each execution
@@ -87,7 +87,7 @@ async function getTransactionWithRetry(connection: Connection, signature: string
             });
             if (transaction) {
                 if (transaction.meta && transaction.meta.loadedAddresses) {
-                    console.log(`Transaction ${signature} has loaded addresses:`, transaction.meta.loadedAddresses);
+                    //console.log(`Transaction ${signature} has loaded addresses:`, transaction.meta.loadedAddresses);
                 }
                 return transaction;
             }
@@ -117,12 +117,12 @@ function parseSwapInfo(logs: string[]): any {
       if (parts.length > 1) {
         const logData = Buffer.from(parts[1].trim(), 'base64');
         if (logData.length > 0) {
-          console.log(logData)
+          //console.log(logData)
           const logType = logData[0];
           const logStruct = logTypeToStruct.get(logType);
           
           if (logStruct && typeof logStruct.decode === 'function') {
-            console.log(logStruct.decode(logData));
+            //console.log(logStruct.decode(logData));
             return logStruct.decode(logData);
           }
         }
@@ -299,7 +299,7 @@ async function processLogEvent(connection: Connection, logsInfo: any, logStream:
         }
         else if (adjustedSwapInfo.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
             totalWSOLChange += adjustedSwapInfo.adjustedAmountOut;
-            console.log("totalWSOLChange + = ", adjustedSwapInfo.adjustedAmountIn);
+            console.log("totalWSOLChange + = ", adjustedSwapInfo.adjustedAmountOut);
         }
         else{
             console.log("No WSOL change in this transaction");
@@ -358,4 +358,4 @@ async function monitorRaydiumTransactions() {
 }
 
 // Run the monitor
-monitorRaydiumTransactions().catch(console.error)*/
+monitorRaydiumTransactions().catch(console.error)

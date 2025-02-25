@@ -17,6 +17,9 @@
     "@solana/web3.js": "^1.98.0",
     "bn.js": "^5.2.1",
     "bs58": "^6.0.0",
+    "csv-parse": "^5.6.0",
+    "csv-writer": "^1.6.0",
+    "csv-writer-portable": "^1.7.6",
     "fs": "^0.0.1-security",
     "jito-ts": "^4.2.0"
   },

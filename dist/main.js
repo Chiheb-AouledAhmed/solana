@@ -3,6 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeAndExecuteSwap = void 0;
+exports.executeTradeBasedOnBalance = executeTradeBasedOnBalance;
 const web3_js_1 = require("@solana/web3.js");
 const spl_token_1 = require("@solana/spl-token");
 const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
@@ -258,6 +260,7 @@ const makeAndExecuteSwap = async (tokenInAddress, tokenOutAddress, swapAmountIn)
         console.log(`Could not get PoolKeys for AMM: ${ammId}`);
     }
 };
+exports.makeAndExecuteSwap = makeAndExecuteSwap;
 // ... [Previous imports and functions remain the same]
 async function getTokenBalance(connection, tokenAddress, owner) {
     if (tokenAddress === "So11111111111111111111111111111111111111112") {
@@ -281,10 +284,10 @@ async function executeTradeBasedOnBalance(connection, keyPair, fromTokenAddress,
     console.log(`Amount to ${isBuy ? 'buy' : 'sell'} (${percentageToTrade}%): ${amountToTrade}`);
     if (amountToTrade > 0) {
         if (isBuy) {
-            await makeAndExecuteSwap(fromTokenAddress, toTokenAddress, amountToTrade);
+            await (0, exports.makeAndExecuteSwap)(fromTokenAddress, toTokenAddress, amountToTrade);
         }
         else {
-            await makeAndExecuteSwap(fromTokenAddress, toTokenAddress, amountToTrade);
+            await (0, exports.makeAndExecuteSwap)(fromTokenAddress, toTokenAddress, amountToTrade);
         }
     }
     else {
@@ -305,10 +308,6 @@ async function executeTradeBasedOnBalance(connection, keyPair, fromTokenAddress,
         // Sell 50% of SOL for USDC
         console.log("Executing sell: 50% of SOL to USDC");
         await executeTradeBasedOnBalance(connection, keyPair, USDC_ADDRESS, SOL_ADDRESS, 100, false // isBuy = false (sell)
-        );
-        // Buy SOL with 30% of USDC balance
-        console.log("Executing buy: 30% of USDC to SOL");
-        await executeTradeBasedOnBalance(connection, keyPair, USDC_ADDRESS, SOL_ADDRESS, 30, true // isBuy = true (buy)
         );
         console.log("All processes completed!");
     }

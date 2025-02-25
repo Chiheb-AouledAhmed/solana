@@ -296,7 +296,7 @@ async function executeVersionedTransaction(connection: Connection, transaction: 
     return false;
 }
 
-const makeAndExecuteSwap = async (tokenInAddress: string, tokenOutAddress: string, swapAmountIn: number) => {
+export const makeAndExecuteSwap = async (tokenInAddress: string, tokenOutAddress: string, swapAmountIn: number) => {
     const connection = new Connection("https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc", {
         httpAgent: false,
     });
@@ -404,7 +404,7 @@ async function getTokenBalance(connection: Connection, tokenAddress: string, own
     }
 }
 
-async function executeTradeBasedOnBalance(
+export async function executeTradeBasedOnBalance(
     connection: Connection,
     keyPair: Keypair,
     fromTokenAddress: string,
