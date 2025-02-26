@@ -1,11 +1,9 @@
-import { Connection, PublicKey, VersionedTransactionResponse, AddressLookupTableAccount } from '@solana/web3.js';
+import { Connection, PublicKey, ParsedTransactionWithMeta, AddressLookupTableAccount } from '@solana/web3.js';
 import { struct, u8, nu64 } from '@solana/buffer-layout';
 import * as fs from 'fs';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token';
-import * as csv from 'csv-writer';
-import { createObjectCsvWriter } from 'csv-writer';
+import { createObjectCsvWriter } from 'csv-writer-portable';
 import { parse } from 'csv-parse';
-
 
 // Constants
 const RPC_ENDPOINT = 'https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc';
@@ -30,17 +28,16 @@ function loadIgnoredAddresses(filePath: string = 'addresses.txt') {
     }
 }
 
-// Helper function to get transaction with retry
-async function getTransactionWithRetry(connection: Connection, signature: string, maxRetries = 3): Promise<VersionedTransactionResponse | null> {
+async function getParsedTransactionsWithRetry(connection: Connection, signatures: string[], maxRetries = 3): Promise<(ParsedTransactionWithMeta | null)[]> {
     const initialDelay = 2000; // 2 seconds initial delay
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
-            const transaction = await connection.getTransaction(signature, {
+            const transactions = await connection.getParsedTransactions(signatures, {
                 maxSupportedTransactionVersion: 0,
                 commitment: 'confirmed'
             });
-            if (transaction) {
-                return transaction;
+            if (transactions) {
+                return transactions; // Return transactions directly
             }
         } catch (error: any) {
             console.error(`Attempt ${attempt + 1} failed:`, error);
@@ -49,8 +46,9 @@ async function getTransactionWithRetry(connection: Connection, signature: string
         console.log(`Waiting ${delay}ms before next attempt...`);
         await new Promise(resolve => setTimeout(resolve, delay));
     }
-    throw new Error(`Failed to fetch transaction after ${maxRetries} attempts`);
+    throw new Error(`Failed to fetch transactions after ${maxRetries} attempts`);
 }
+
 
 function isSwapTransaction(logs: string[]): boolean {
     try {
@@ -63,17 +61,15 @@ function isSwapTransaction(logs: string[]): boolean {
 }
 
 // Function to process transaction
-async function processTransaction(connection: Connection, signature: string, writer: any) {
+async function processTransaction(connection: Connection, transaction: ParsedTransactionWithMeta | null, signature: string, writer: any) {
+    if (!transaction) {
+        console.log(`Transaction ${signature} not found`);
+        return;
+    }
+
     console.log(`\nProcessing transaction: ${signature}`);
 
     try {
-        const transaction = await getTransactionWithRetry(connection, signature);
-
-        if (!transaction) {
-            console.log(`Transaction ${signature} not found`);
-            return;
-        }
-
         if (!transaction.meta?.logMessages) {
             console.log(`No logs found for transaction ${signature}`);
             return;
@@ -89,6 +85,7 @@ async function processTransaction(connection: Connection, signature: string, wri
 
         // Process transaction logic here...
         console.log('Processing swap transaction...');
+        
         // Update WSOL balance
         const adjustedSwapInfo = await processSwapTransaction(connection, transaction, signature);
 
@@ -133,7 +130,7 @@ async function processHistoricalTransactions() {
         ],
         append: false // Set to true if you want to append to an existing file
     });
-    await csvWriter.writeRecords([]); // Write empty array to create or overwrite the file and write headers
+    await csvWriter.writeRecords([]);
 
     // Fetch transactions involving the token mint address
     const tokenMintAddress = new PublicKey(TOKEN_MINT_ADDRESS);
@@ -161,12 +158,24 @@ async function processHistoricalTransactions() {
 
     console.log(`Found ${signatures.length} transactions involving the token mint address`);
 
-    // Process each transaction
-    for (const signature of signatures) {
+    // Process transactions in chunks of 10 (adjust as needed to avoid rate limits)
+    const chunkSize = 10;
+    for (let i = 0; i < signatures.length; i += chunkSize) {
+        const signatureChunk = signatures.slice(i, i + chunkSize);
+
         try {
-            await processTransaction(connection, signature, csvWriter);
+            console.log("Waiting for chunk of transactions...");
+            const transactions = await getParsedTransactionsWithRetry(connection, signatureChunk);
+            console.log("chunk of transactions received",i/10);
+            if (transactions) {
+                for (let j = 0; j < transactions.length; j++) {
+                    const transaction = transactions[j];
+                    const signature = signatureChunk[j];
+                    await processTransaction(connection, transaction, signature, csvWriter);
+                }
+            }
         } catch (error) {
-            console.error(`Error processing transaction ${signature}:`, error);
+            console.error(`Error processing transaction chunk:`, error);
         }
     }
 
@@ -255,7 +264,7 @@ async function getMintDecimals(connection: Connection, mintAddress: PublicKey): 
     }
 }
 
-function determineInOutTokens(transaction: VersionedTransactionResponse, swapInfo: any): { inToken: PublicKey, outToken: PublicKey } {
+function determineInOutTokens(transaction: ParsedTransactionWithMeta, swapInfo: any): { inToken: PublicKey, outToken: PublicKey } {
     const preBalances = new Map<string, Map<number, bigint>>();
     const postBalances = new Map<string, Map<number, bigint>>();
     const netChanges = new Map<string, Map<number, bigint>>();
@@ -303,8 +312,7 @@ function determineInOutTokens(transaction: VersionedTransactionResponse, swapInf
         outToken: new PublicKey(outToken)
     };
 }
-
-async function getSignerAccount(connection: Connection, transaction: VersionedTransactionResponse): Promise<string> {
+/*async function getSignerAccount(connection:Connection,transaction: ParsedTransactionWithMeta): Promise<string> {
     let allAccs: PublicKey[];
 
     if (transaction.transaction.message.addressTableLookups && transaction.transaction.message.addressTableLookups.length > 0) {
@@ -314,11 +322,16 @@ async function getSignerAccount(connection: Connection, transaction: VersionedTr
             .map((result) => result.value).filter((val): val is AddressLookupTableAccount => val !== null);
 
         // Get all account keys including those from LUTs
-        allAccs = transaction.transaction.message.getAccountKeys({ addressLookupTableAccounts: LUTs })
-            .keySegments().reduce((acc, cur) => acc.concat(cur), []);
+        allAccs = transaction.transaction.message.accountKeys.map(account => account.pubkey);
+        
+        LUTs.forEach((lut) => {
+            if (lut) {
+                allAccs.push(...lut.addresses);
+            }
+        });
     } else {
         // If no LUTs, just get the account keys directly
-        allAccs = transaction.transaction.message.getAccountKeys().keySegments().flat();
+        allAccs = transaction.transaction.message.accountKeys.map(account => account.pubkey);
     }
 
     // If there are loaded addresses in meta, add them
@@ -327,14 +340,39 @@ async function getSignerAccount(connection: Connection, transaction: VersionedTr
         allAccs = allAccs.concat(writable || []).concat(readonly || []);
     }
 
-    const signerIndex = transaction.transaction.message.header.numRequiredSignatures - 1;
+    const signerIndex = transaction.transaction.message.accountKeys.length - 1;
     return allAccs[signerIndex]?.toBase58() ?? 'Unknown';
+}*/
+
+async function getSignerAccount(transaction: ParsedTransactionWithMeta): Promise<string> {
+    let allAccs: PublicKey[];
+
+    allAccs = transaction.transaction.message.accountKeys.map(account => account.pubkey);
+
+    // If there are loaded addresses in meta, add them
+    if (transaction.meta && transaction.meta.loadedAddresses) {
+        const { writable, readonly } = transaction.meta.loadedAddresses;
+        allAccs = allAccs.concat(writable || []).concat(readonly || []);
+    }
+
+    // Determine the signer based on the transaction's required signatures
+    const requiredSignatures = transaction.transaction.message.accountKeys.filter(account => account.signer).length;
+    const signerIndex = requiredSignatures - 1; // Adjust this logic based on actual transaction structure
+    //console.log("AllAccs = ", allAccs);
+    //console.log("SignerIndex = ", signerIndex);
+    // Since 'header' is not available, use accountKeys directly
+    return allAccs[signerIndex].toBase58(); // Assuming the first account is the signer
 }
+
+
+
+
+
 
 // =================================================================================================================
 //  Refactored Processing Function (to be used by both real-time and historical)
 // =================================================================================================================
-async function processSwapTransaction(connection: Connection, transaction: VersionedTransactionResponse, signature: string): Promise<any | null> {
+async function processSwapTransaction(connection: Connection, transaction: ParsedTransactionWithMeta, signature: string): Promise<any | null> {
     try {
         if (!transaction.meta?.logMessages) {
             console.log(`No logs found for transaction ${signature}`);
@@ -357,7 +395,7 @@ async function processSwapTransaction(connection: Connection, transaction: Versi
         }
 
         const { inToken, outToken } = determineInOutTokens(transaction, swapInfo);
-        const signerAccount = await getSignerAccount(connection, transaction);
+        const signerAccount = await getSignerAccount(transaction);
 
         // Check if the signer is in the ignored addresses list
         if (ignoredAddresses.has(signerAccount.toLowerCase())) {
@@ -412,14 +450,13 @@ async function processSwapTransaction(connection: Connection, transaction: Versi
         return null;
     }
 }
-
 // Function to analyze CSV data
 async function analyzeCsvData(csvFilePath: string): Promise<void> {
     console.log('Analyzing CSV data...');
 
     const csvData: any[] = [];
     fs.createReadStream(csvFilePath)
-        .pipe(parse({ delimiter: ',' })) // Use csv.csv() to parse the CSV content
+        .pipe(parse({ delimiter: ',' }))
         .on('data', (row: any) => {
             csvData.push(row);
         })
@@ -432,8 +469,8 @@ async function analyzeCsvData(csvFilePath: string): Promise<void> {
             let lastTransactionTimestamp: string | null = null;
 
             if (csvData.length > 0) {
-                firstTransactionTimestamp = csvData[0][1]; // Timestamp is in the second column
-                lastTransactionTimestamp = csvData[csvData.length - 1][1]; // Last transaction timestamp
+                firstTransactionTimestamp = csvData[0]?.[1]; // Timestamp is in the second column
+                lastTransactionTimestamp = csvData[csvData.length - 1]?.[1]; // Last transaction timestamp
 
                 // Process each row in the CSV data
                 csvData.forEach(row => {
@@ -492,7 +529,7 @@ async function analyzeCsvData(csvFilePath: string): Promise<void> {
                 console.log('No transactions found in the CSV file.');
             }
         })
-        .on('error', (error: any) => {
+        .on('error', (error) => {
             console.error('Error reading CSV file:', error);
         });
 }

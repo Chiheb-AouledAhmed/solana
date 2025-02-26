@@ -1,3 +1,4 @@
+"use strict";
 /*import * as fs from 'fs';
 import * as csv from 'csv-parser';
 
@@ -46,3 +47,4 @@ async function processCsvFile() {
 }
 
 processCsvFile();*/
+//# sourceMappingURL=processCSV.js.map
