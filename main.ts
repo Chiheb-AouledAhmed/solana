@@ -305,12 +305,26 @@ export const makeAndExecuteSwap = async (tokenInAddress: string, tokenOutAddress
     const privateKeyUint8Array = bs58.decode(secret);
     const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
 
-    const ammId = await getPoolId(connection, tokenInAddress, tokenOutAddress);
+    const MAX_ATTEMPTS = 20; // Maximum number of attempts to find the pool
+    const DELAY_BETWEEN_ATTEMPTS = 5000; // Delay in milliseconds between attempts
+
+    let attempts = 0;
+    let ammId: string | null = null;
+
+    while (attempts < MAX_ATTEMPTS && !ammId) {
+        ammId = await getPoolId(connection, tokenInAddress, tokenOutAddress);
+        if (!ammId) {
+            console.log(`Could not find pool for ${tokenInAddress}-${tokenOutAddress}. Attempt ${attempts + 1} of ${MAX_ATTEMPTS}. Retrying in ${DELAY_BETWEEN_ATTEMPTS / 1000} seconds.`);
+            await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_ATTEMPTS));
+        }
+        attempts++;
+    }
 
     if (!ammId) {
-        console.log(`Could not find pool for ${tokenInAddress}-${tokenOutAddress}`);
+        console.error(`Failed to find pool for ${tokenInAddress}-${tokenOutAddress} after ${MAX_ATTEMPTS} attempts.`);
         return;
     }
+
 
     console.log(`Using AMM ID: ${ammId}`);
 

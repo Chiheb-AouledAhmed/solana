@@ -3,6 +3,11 @@ import { Keypair } from '@solana/web3.js';
 import { struct, u8, nu64 } from '@solana/buffer-layout';
 import { makeAndExecuteSwap } from './main';
 import bs58 from 'bs58';
+import TelegramBot from 'node-telegram-bot-api'; // Import the Telegram Bot API library
+
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = '7621406584:AAGdf5x4E6PwOimKHIWJt7zAzE2h7RgnqJ8'; // Replace with your bot token
+const TELEGRAM_CHAT_ID = '6414626849';     // Replace with your chat ID
 
 const SOLANA_RPC_URL = "https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc";
 const ACCOUNT_TO_WATCH = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
@@ -14,6 +19,9 @@ const knownTokens = {
     "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": true, // USDC
     // Add more tokens here...
 };
+
+// Initialize Telegram Bot
+const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
 
 async function getSOLBalance(connection: Connection, publicKey: PublicKey): Promise<number> {
     const balance = await connection.getBalance(publicKey);
@@ -85,7 +93,6 @@ function isSwapTransaction(transaction: ParsedTransactionWithMeta): boolean {
         '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8', // Raydium AMM Program ID
         '2UcZYxtqz6uJZnWmXAaAcig5jVzVvHzNu19Ds3qNap2V'  // Raydium CLMM Program ID
     ];
-
     const isRaydiumSwap = programIds.some(programId => raydiumProgramIds.includes(programId));
 
     return isRaydiumSwap;
@@ -211,16 +218,29 @@ function determineInOutTokens(transaction: ParsedTransactionWithMeta, swapInfo: 
     };
 }
 
-const swapBaseInLog  = struct<{
-    log_type: number,
-    amount_in: bigint,
-    minimum_out: bigint,
-    direction: bigint,
-    user_source: bigint,
-    pool_coin: bigint,
-    pool_pc: bigint,
-    out_amount: bigint
-}>([
+interface SwapBaseInLog {
+    log_type: number;
+    amount_in: bigint;
+    minimum_out: bigint;
+    direction: bigint;
+    user_source: bigint;
+    pool_coin: bigint;
+    pool_pc: bigint;
+    out_amount: bigint;
+}
+
+interface SwapBaseOutLog {
+    log_type: number;
+    max_in: bigint;
+    amount_out: bigint;
+    direction: bigint;
+    user_source: bigint;
+    pool_coin: bigint;
+    pool_pc: bigint;
+    deduct_in: bigint;
+}
+
+const swapBaseInLog = struct<SwapBaseInLog>([
     u8('log_type'),
     nu64('amount_in'),
     nu64('minimum_out'),
@@ -228,19 +248,10 @@ const swapBaseInLog  = struct<{
     nu64('user_source'),
     nu64('pool_coin'),
     nu64('pool_pc'),
-    nu64('out_amount'),
+    nu64('out_amount')
 ]);
 
-const swapBaseOutLog = struct<{
-    log_type: number,
-    max_in: bigint,
-    amount_out: bigint,
-    direction: bigint,
-    user_source: bigint,
-    pool_coin: bigint,
-    pool_pc: bigint,
-    deduct_in: bigint
-}>([
+const swapBaseOutLog = struct<SwapBaseOutLog>([
     u8('log_type'),
     nu64('max_in'),
     nu64('amount_out'),
@@ -248,13 +259,22 @@ const swapBaseOutLog = struct<{
     nu64('user_source'),
     nu64('pool_coin'),
     nu64('pool_pc'),
-    nu64('deduct_in'),
+    nu64('deduct_in')
 ]);
+
 const logTypeToStruct = new Map<number, any>([
     [3, swapBaseInLog],
     [4, swapBaseOutLog],
 ]);
-
+// Function to send Telegram notification
+async function sendTelegramNotification(message: string) {
+    try {
+        await bot.sendMessage(TELEGRAM_CHAT_ID, message);
+        console.log('Telegram notification sent successfully.');
+    } catch (error) {
+        console.error('Error sending Telegram notification:', error);
+    }
+}
 
 async function watchTransactions() {
     console.log('Monitoring Raydium transactions...');
@@ -292,6 +312,20 @@ async function watchTransactions() {
                             const swapDetails = await processSwapTransaction(connection, transaction, signature);
                             if (swapDetails) {
                                 console.log(`Swap Details: ${JSON.stringify(swapDetails)}`);
+
+                                // Construct Telegram notification message
+                                const message = `
+                                New Raydium Swap Detected!
+                                Signature: ${signature}
+                                In Token: ${swapDetails.inToken}
+                                Out Token: ${swapDetails.outToken}
+                                Amount In: ${swapDetails.amountIn}
+                                Amount Out: ${swapDetails.amountOut}
+                                `;
+
+                                // Send Telegram notification
+                                await sendTelegramNotification(message);
+
                                 // Process the swap details further if needed
                                 const tokenAddress = swapDetails.outToken;
                                 if (tokenAddress && !knownTokens[tokenAddress as keyof typeof knownTokens]) {

@@ -7,6 +7,10 @@ const web3_js_1 = require("@solana/web3.js");
 const web3_js_2 = require("@solana/web3.js");
 const buffer_layout_1 = require("@solana/buffer-layout");
 const bs58_1 = __importDefault(require("bs58"));
+const node_telegram_bot_api_1 = __importDefault(require("node-telegram-bot-api")); // Import the Telegram Bot API library
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = '7621406584:AAGdf5x4E6PwOimKHIWJt7zAzE2h7RgnqJ8'; // Replace with your bot token
+const TELEGRAM_CHAT_ID = '6414626849'; // Replace with your chat ID
 const SOLANA_RPC_URL = "https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc";
 const ACCOUNT_TO_WATCH = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
 const YOUR_PRIVATE_KEY = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
@@ -15,6 +19,8 @@ const knownTokens = {
     "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": true, // USDC
     // Add more tokens here...
 };
+// Initialize Telegram Bot
+const bot = new node_telegram_bot_api_1.default(TELEGRAM_BOT_TOKEN, { polling: false });
 async function getSOLBalance(connection, publicKey) {
     const balance = await connection.getBalance(publicKey);
     return balance / 1e9; // Convert lamports to SOL
@@ -185,7 +191,7 @@ const swapBaseInLog = (0, buffer_layout_1.struct)([
     (0, buffer_layout_1.nu64)('user_source'),
     (0, buffer_layout_1.nu64)('pool_coin'),
     (0, buffer_layout_1.nu64)('pool_pc'),
-    (0, buffer_layout_1.nu64)('out_amount'),
+    (0, buffer_layout_1.nu64)('out_amount')
 ]);
 const swapBaseOutLog = (0, buffer_layout_1.struct)([
     (0, buffer_layout_1.u8)('log_type'),
@@ -195,12 +201,22 @@ const swapBaseOutLog = (0, buffer_layout_1.struct)([
     (0, buffer_layout_1.nu64)('user_source'),
     (0, buffer_layout_1.nu64)('pool_coin'),
     (0, buffer_layout_1.nu64)('pool_pc'),
-    (0, buffer_layout_1.nu64)('deduct_in'),
+    (0, buffer_layout_1.nu64)('deduct_in')
 ]);
 const logTypeToStruct = new Map([
     [3, swapBaseInLog],
     [4, swapBaseOutLog],
 ]);
+// Function to send Telegram notification
+async function sendTelegramNotification(message) {
+    try {
+        await bot.sendMessage(TELEGRAM_CHAT_ID, message);
+        console.log('Telegram notification sent successfully.');
+    }
+    catch (error) {
+        console.error('Error sending Telegram notification:', error);
+    }
+}
 async function watchTransactions() {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(SOLANA_RPC_URL, 'confirmed');
@@ -225,6 +241,17 @@ async function watchTransactions() {
                             const swapDetails = await processSwapTransaction(connection, transaction, signature);
                             if (swapDetails) {
                                 console.log(`Swap Details: ${JSON.stringify(swapDetails)}`);
+                                // Construct Telegram notification message
+                                const message = `
+                                New Raydium Swap Detected!
+                                Signature: ${signature}
+                                In Token: ${swapDetails.inToken}
+                                Out Token: ${swapDetails.outToken}
+                                Amount In: ${swapDetails.amountIn}
+                                Amount Out: ${swapDetails.amountOut}
+                                `;
+                                // Send Telegram notification
+                                await sendTelegramNotification(message);
                                 // Process the swap details further if needed
                                 const tokenAddress = swapDetails.outToken;
                                 if (tokenAddress && !knownTokens[tokenAddress]) {
