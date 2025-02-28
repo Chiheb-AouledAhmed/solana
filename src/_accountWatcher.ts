@@ -143,7 +143,7 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN
-                await buyNewToken(connection, tokenAddress);
+                let amm = await buyNewToken(connection, tokenAddress);
 
                 //GET THE PRICE
                 const solBalance = await connection.getBalance(new PublicKey(tokenAddress));
@@ -153,7 +153,8 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
                 const tokenData: TokenData = {
                     mint: new PublicKey(tokenAddress),
                     decimals: 9,
-                    buyPrice: buyPrice
+                    buyPrice: buyPrice,
+                    amm : amm
                 };
                 const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
                 const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);

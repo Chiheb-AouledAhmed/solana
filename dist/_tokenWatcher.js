@@ -195,10 +195,10 @@ async function startTokenWatcher(connection, keyPair, newTokenData) {
         await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
 }
-async function sellAndStop(connection, tokenAddress) {
+async function sellAndStop(connection, tokenAddress, amm) {
     try {
         // Sell all of the token
-        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress);
+        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, amm);
         const message = `Token ${tokenAddress} sold!`;
         await (0, _utils_1.sendTelegramNotification)(message);
     }
@@ -226,11 +226,11 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
     try {
         console.log(`Fetching transaction ${signature}...`);
         const transaction = await (0, _transactionUtils_1.getTransactionWithRetry)(connection, signature);
-        console.log(Timestart + 300000, Date.now());
-        if (currentPrice > newTokenData.buyPrice * _config_1.PROFIT_THRESHOLD || Timestart + 10000 < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
+        console.log(Timestart + _config_1.TIMEOUT, Date.now());
+        if (currentPrice > newTokenData.buyPrice * _config_1.PROFIT_THRESHOLD || Timestart + _config_1.TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
          {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            await sellAndStop(connection, newTokenData.mint.toBase58());
+            await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData.amm);
         }
         if (!(0, swapUtils_1.isSwapTransaction)(transaction)) {
             console.log('This transaction does not appear to be a swap.');

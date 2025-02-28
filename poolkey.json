@@ -1,0 +1,21 @@
+{
+    
+    
+    "poolKeys":{"id":"5jFbGr7H734RPa1tVDkNXgycrwHqXFzZZj2L7AoWg7B4",
+    "programId":"675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+    "status":"06",
+    "baseDecimals":6,
+    "quoteDecimals":9,
+    "lpDecimals":9,
+    "baseMint":"DAKXMRgTveftyqTx7GmSmE3cHYoQpn3C3PvyxYNRg3T9",
+    "quoteMint":"So11111111111111111111111111111111111111112",
+    "version":4,
+    "authority":"5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+    "openOrders":"6DpaEpkR3Da3DWsY2D4X9UfhLfvCioAHxroFv2xvL4Uo",
+    "baseVault":"2P18pnZHfyxpBKRok8BXFXP7P5wiKNiBAKdHUiMGAQ3B",
+    "quoteVault":"3d2h9rKyTbm1xs8EWbTjvVb6wZwDv9SS11rM1RPyE5KL",
+    "marketProgramId":"srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX",
+    "marketId":"33B31sCAHFSfU9596h8Gt4H38sF2qtBeUeQt6QEDyUPM",
+    "marketBids":"3k5rujgU24rvKFhWA6WS5K9Wzia5gacERoKsa2auhNDD",
+    "marketAsks":"HnHJ46jwdcBzB4HWjumfdXTTiTNc8h1mXVCQj6pNkKVu","marketEventQueue":"6GBh4ThQK7WgicDGNhEGpLasV1nSTvceeiYE8tkj2Co6","marketBaseVault":"CP8pRBGjmf4FVwEMnJtk7iiWM6tG65Evd4dB4HidCAox","marketQuoteVault":"HNUgCqDEnkt75J1V1V6Fdy2UpUEZL1uLafiu7qUJAYyM","marketAuthority":"B4eVrWLWMkAWXx9u5LZWYooR8zkWdFvJegkvAS85sY9x","targetOrders":"EGkhFuNALuXAwuyVKpfG6CgpE3mWQfnt8pTfdq5XjNpc","lpMint":"22ANY57Y4e3KgT9CfFwDYegjerzexG5Qubuc8nmr2v4a","withdrawQueue":"11111111111111111111111111111111","lpVault":"11111111111111111111111111111111","marketVersion":3,"lookupTableAccount":"11111111111111111111111111111111"},"tokenIn":{"decimals":9,"symbol":"UNKNOWN","name":"UNKNOWN","programId":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA","mint":"So11111111111111111111111111111111111111112"},"tokenOut":{"decimals":9,"symbol":"UNKNOWN","name":"UNKNOWN","programId":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "mint":"Dpf6vaXi47xs3Bw81xbeVAN5EbQN8QERDpRdAfUypump"}}

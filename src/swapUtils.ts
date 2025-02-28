@@ -13,7 +13,8 @@ import {
     TransactionMessage,
     SendTransactionError,
     ParsedTransactionWithMeta,
-    ParsedInstruction
+    ParsedInstruction,
+    PartiallyDecodedInstruction
 } from "@solana/web3.js";
 import {
     TOKEN_PROGRAM_ID,
@@ -35,6 +36,62 @@ import {
 } from "@raydium-io/raydium-sdk";
 import { Raydium } from '@raydium-io/raydium-sdk-v2'
 import BN from "bn.js";
+
+
+export async function pollTransactionsForSwap(
+  tokenAddress: string,
+  programId: string,
+  connection: Connection,
+): Promise<ParsedInstruction | PartiallyDecodedInstruction | undefined> {
+  try {
+    const tokenPublicKey = new PublicKey(tokenAddress);
+    const programIdPublicKey = new PublicKey(programId);
+    let lastSlot = await connection.getSlot('finalized');
+    while (true) {
+      // Fetch the latest transactions for the account
+      const signatures = await connection.getSignaturesForAddress(
+        tokenPublicKey,
+        {
+            limit: 10
+        },
+        'confirmed'
+    );
+
+      // Loop through each transaction
+      for (const signatureInfo of signatures)  {
+        // Fetch the transaction details
+        const transactionDetails = await connection.getParsedTransaction(signatureInfo.signature, {
+            maxSupportedTransactionVersion: 0,
+          commitment: 'confirmed',
+        });
+
+        if (transactionDetails && transactionDetails.transaction) {
+          // Loop through each instruction in the transaction
+          for (const instruction of transactionDetails.transaction.message.instructions) {
+            // Check if the instruction's program ID matches the target program ID
+            if (instruction.programId.toBase58() === programIdPublicKey.toBase58()) {
+              // Found a matching swap transaction, return the instruction
+              return instruction;
+            }
+          }
+        }
+      }
+
+      // Wait for 1 second before checking again
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Update the last slot to ensure we don't miss transactions
+      const currentSlot = await connection.getSlot('finalized');
+      if (currentSlot > lastSlot) {
+        lastSlot = currentSlot;
+      }
+    }
+  } catch (error) {
+    console.error('Error polling transactions:', error);
+  }
+}
+
+
 
 // Enhanced Swap Verification Function
 export function isSwapTransaction(transaction: ParsedTransactionWithMeta): boolean {
@@ -204,7 +261,7 @@ export const logTypeToStruct = new Map<number, any>([
 
 
 // Raydium Pool Functions
-export async function getPoolId(connection: Connection, tokenAAddress: string, tokenBAddress: string): Promise<string | null>  {
+export async function getPoolId(connection: Connection, tokenAAddress: string, tokenBAddress: string): Promise<string >  {
     const raydium = await Raydium.load({
         connection: connection,
         cluster: 'mainnet',
@@ -219,11 +276,123 @@ export async function getPoolId(connection: Connection, tokenAAddress: string, t
     const pools = data.data;
     for (const obj of pools) {
         if (obj.type === "Standard") {
-            return obj.id; // This is the POOL_ID
+            if(obj.id)
+                return obj.id; // This is the POOL_ID
+            return "";
         }
     }
-    return null; // Return null if no suitable pool is found
+    return ""; // Return null if no suitable pool is found
 }
+
+
+
+
+
+
+
+export const getPoolKeysFromParsedInstruction = async (
+    instruction: ParsedInstruction | PartiallyDecodedInstruction,
+    connection: Connection,
+  )=> {
+    //try {
+      // Check if the instruction is a Raydium swap instruction
+       {
+        // Extract the pool ID from the instruction keys
+        let poolId: PublicKey | undefined;
+        if ('parsed' in instruction) {
+          // For ParsedInstruction
+          poolId = instruction.parsed.info.programId === MAINNET_PROGRAM_ID.AmmV4.toString()
+            ? instruction.parsed.info.accounts.find((account:any) => account.account === 'pool')?.publicKey
+            : "";
+        } else if ('programId' in instruction) {
+          // For PartiallyDecodedInstruction
+          poolId = instruction.accounts[1];
+          //find((account:any) => account.isWritable && account.pubkey.toString() !== TOKEN_PROGRAM_ID.toString())?.pubkey;
+        } else {
+          console.error('Unsupported instruction type.');
+          return "";
+        }
+        if(poolId)
+            return poolId.toBase58();
+        return "";
+    }}
+        /*if (!poolId) {
+          console.error('Could not find pool ID in instruction keys.');
+          return undefined;
+        }
+  
+        // Fetch the pool account info
+        const ammAccount = await connection.getAccountInfo(poolId);
+        if (!ammAccount) {
+          console.error('Could not fetch pool account info.');
+          return undefined;
+        }
+  
+        /*
+        // Decode the pool state
+        const poolState = LIQUIDITY_STATE_LAYOUT_V4.decode(ammAccount.data);
+  
+        // Fetch the market account info
+        const marketAccount = await connection.getAccountInfo(poolState.marketId);
+        if (!marketAccount) {
+          console.error('Could not fetch market account info.');
+          return undefined;
+        }
+  
+        // Decode the market state
+        const marketState = MARKET_STATE_LAYOUT_V3.decode(marketAccount.data);
+  
+        // Compute the market authority
+        const marketAuthority = PublicKey.createProgramAddressSync(
+          [
+            marketState.ownAddress.toBuffer(),
+            marketState.vaultSignerNonce.toArrayLike(Buffer, "le", 8),
+          ],
+          MAINNET_PROGRAM_ID.OPENBOOK_MARKET,
+        );
+  
+        // Construct the pool keys
+        return {
+          id: poolId,
+          programId: MAINNET_PROGRAM_ID.AmmV4,
+          status: poolState.status,
+          baseDecimals: poolState.baseDecimal.toNumber(),
+          quoteDecimals: poolState.quoteDecimal.toNumber(),
+          lpDecimals: 9,
+          baseMint: poolState.baseMint,
+          quoteMint: poolState.quoteMint,
+          version: 4,
+          authority: new PublicKey(
+            "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+          ),
+          openOrders: poolState.openOrders,
+          baseVault: poolState.baseVault,
+          quoteVault: poolState.quoteVault,
+          marketProgramId: MAINNET_PROGRAM_ID.OPENBOOK_MARKET,
+          marketId: marketState.ownAddress,
+          marketBids: marketState.bids,
+          marketAsks: marketState.asks,
+          marketEventQueue: marketState.eventQueue,
+          marketBaseVault: marketState.baseVault,
+          marketQuoteVault: marketState.quoteVault,
+          marketAuthority: marketAuthority,
+          targetOrders: poolState.targetOrders,
+          lpMint: poolState.lpMint,
+          withdrawQueue: poolState.withdrawQueue,
+          lpVault: poolState.lpVault,
+          marketVersion: 3,
+          lookupTableAccount: PublicKey.default
+        } as LiquidityPoolKeysV4;
+      } 
+    } catch (error) {
+      console.error("getPoolKeysFromParsedInstruction error:", error);
+    }
+    return undefined;
+    
+  };*/
+
+  
+
 
 export const getPoolKeys = async (ammId: string, connection: Connection): Promise<LiquidityPoolKeysV4 | undefined> => {
     try {
@@ -476,7 +645,7 @@ export async function processTransferTransaction(
         
         let transferDetails = new Set<TransferDetails>();
         for(const transferInstruction of transferInstructions) {
-            if ('parsed' in transferInstruction && transferInstruction.parsed.type === 'transfer') {
+            if ('parsed' in transferInstruction && (transferInstruction.parsed.type === 'transfer' || transferInstruction.parsed.type === 'transferChecked' ) ) {
                 
             const info = transferInstruction.parsed.info;
 

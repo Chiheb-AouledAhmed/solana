@@ -1,0 +1,97 @@
+Transaction Instruction TransactionInstruction {
+  keys: [
+    {
+      pubkey: [PublicKey [PublicKey(TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA)]],
+      isSigner: false,
+      isWritable: false
+    },
+    {
+      pubkey: [PublicKey [PublicKey(3em8kgr3kJHnshetbWyWK88wdbq4J3HhvPV7yDBUcrh3)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1)]],
+      isSigner: false,
+      isWritable: false
+    },
+    {
+      pubkey: [PublicKey [PublicKey(EecQSeAXRuKqvEfbnLuPREW9ye9as8AV2uzcc8qKWEDp)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(4YPm99TuY8G1vrkzJMF9PTDfRsVKuQi5RYscwetCCK4g)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(EwUcLUGurFj5RDz8sNL2kL918RckPmCdsrnBQfba1nKv)]],
+      isSigner: false,
+      isWritable: true
+    },
+    --------------------------------------------------------
+
+
+    {
+      pubkey: [PublicKey [PublicKey(srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX)]],
+      isSigner: false,
+      isWritable: false
+    },
+    {
+      pubkey: [PublicKey [PublicKey(2jKZbDP9ziyPHSXfMinZi4EdDyqNhkcBJSMk859frUJq)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(krNdh8XSsSsgWPMEsKwxjoytv1SvqfjZSTbNQVoNWGK)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(FyvYaR8KmsHr7y29eHfRbwTKxqjFqJXQ5uP2eKVGnT6n)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(JAaNPc7KptCzxK2W8QTisDEhqXBPV8H6JEoJ2FbAJ3Px)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(HZVZA9VTpTVvfGxjp5oiuDvDSNfKRrkkJ98nSd2i9nFv)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(BkEDUvjBMGMQLQ7Vzo9gnfEDHipcoCH44ucVhxSeJPdS)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(2FHuHj4CJALE3U42PsN6rXMQLUHkwXKdrFnvZ4aiGwh3)]],
+      isSigner: false,
+      isWritable: false
+    },
+    ------------------------------------------------------------
+    {
+      pubkey: [PublicKey [PublicKey(Ad3ebKYgcmC9tsvADyhksKs1Cm2mbXgsuiZvoSN6kZGE)]],
+      isSigner: false,
+      isWritable: true
+    },
+    
+    {
+      pubkey: [PublicKey [PublicKey(BV94qXFgBtfBgAMHuoJALR9xfDi8kA5VAa3s6g6yZAS8)]],
+      isSigner: false,
+      isWritable: true
+    },
+    {
+      pubkey: [PublicKey [PublicKey(6XYUiKWDkRTdU81K8sXdGERRB15gesXmikGiaxLbX723)]],
+      isSigner: true,
+      isWritable: false
+    }
+    --------------------------------------------------
+  ],
+  programId: PublicKey [PublicKey(675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8)] {
+    _bn: <BN: 4bd949c43602c33f207790ed16a3524ca1b9975cf121a2a90cffec7df8b68acd>
+  },

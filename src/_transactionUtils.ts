@@ -1,6 +1,6 @@
 // src/transactionUtils.ts
 import { YOUR_PRIVATE_KEY, BUY_AMOUNT_PERCENTAGE } from './_config';
-import { getSOLBalance } from './_utils';
+import { getParsedTransactionWithRetry, getSOLBalance } from './_utils';
 import bs58 from 'bs58';
 import {
     Connection,
@@ -11,6 +11,7 @@ import {
     VersionedTransaction,
     ComputeBudgetProgram,
     TransactionMessage,
+    ParsedInstruction, PartiallyDecodedInstruction,
     SendTransactionError
 } from "@solana/web3.js";
 import {
@@ -25,7 +26,9 @@ import {
     getPoolId,
     getPoolKeys,
     makeSwapInstruction,
-    executeVersionedTransaction
+    executeVersionedTransaction,
+    getPoolKeysFromParsedInstruction,
+    pollTransactionsForSwap
 } from './swapUtils';
 import {
     LIQUIDITY_STATE_LAYOUT_V4,
@@ -39,28 +42,43 @@ import {
     Percent
 } from "@raydium-io/raydium-sdk";
 
-export async function buyNewToken(connection: Connection, tokenAddress: string): Promise<void> {
+
+
+
+
+
+
+export async function buyNewToken(connection: Connection, tokenAddress: string): Promise<string> {
+    let curAmmId = "";
     const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
     const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
     const solBalance = await getSOLBalance(connection, keyPair.publicKey);
     const amountToBuy = solBalance * BUY_AMOUNT_PERCENTAGE; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
-
+    let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
+    const instruction = await pollTransactionsForSwap(tokenAddress,program_id,connection);
+    if(!instruction){
+        console.log("No instruction found for token ",tokenAddress);
+        return "";
+    }
+    curAmmId = await getPoolKeysFromParsedInstruction(instruction, connection);
     try {
         await makeAndExecuteSwap(
             connection,
             keyPair,
             "So11111111111111111111111111111111111111112", // SOL address
             tokenAddress,
-            amountToBuy
+            amountToBuy,
+            curAmmId
         );
     } catch (error) {
         console.error(`Error buying token ${tokenAddress}:`, error);
         throw error; // Re-throw so the calling function knows it failed
     }
+    return curAmmId;
 }
 
-export async function sellToken(connection: Connection, tokenAddress: string): Promise<void> {
+export async function sellToken(connection: Connection, tokenAddress: string,amm : string): Promise<void> {
     const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
     const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
 
@@ -78,7 +96,8 @@ export async function sellToken(connection: Connection, tokenAddress: string): P
             tokenAddress,
             "So11111111111111111111111111111111111111112",
             100,
-            false // isBuy = false (sell)
+            false,
+            amm // isBuy = false (sell)
         );
     } catch (error) {
         console.error(`Error selling token ${tokenAddress}:`, error);
@@ -91,32 +110,53 @@ export async function makeAndExecuteSwap(
     keyPair: Keypair,
     tokenInAddress: string,
     tokenOutAddress: string,
-    swapAmountIn: number
+    swapAmountIn: number,
+    poolId : string,
 ): Promise<void>{
     const MAX_ATTEMPTS = 20; // Maximum number of attempts to find the pool
-    const DELAY_BETWEEN_ATTEMPTS = 5000; // Delay in milliseconds between attempts
+    //const DELAY_BETWEEN_ATTEMPTS = 5000; // Delay in milliseconds between attempts
 
     let attempts = 0;
-    let ammId: string | null = null;
+    let ammId: string ="";
+    let poolKeys = null;
 
-    while (attempts < MAX_ATTEMPTS && !ammId) {
+    /*if(signature.length>0){
+        const transaction = await connection.getParsedTransaction(signature, {
+            maxSupportedTransactionVersion: 0,
+            commitment: 'confirmed'
+        });
+        let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
+        let instructions = transaction?.transaction.message.instructions;
+        if (instructions !== undefined) {
+        for (let i = 0; i < instructions.length; i++) {
+            const instruction = instructions[i];
+            if (instruction.programId.toBase58() === program_id) {
+                ammId = await getPoolKeysFromParsedInstruction(instruction, connection);
+            }
+          }
+        }
+          
+    }
+    else*/
+    if(poolId.length>0){
+        ammId = poolId;
+    }
+    else{
         ammId = await getPoolId(connection, tokenInAddress, tokenOutAddress);
         if (!ammId) {
-            console.log(`Could not find pool for ${tokenInAddress}-${tokenOutAddress}. Attempt ${attempts + 1} of ${MAX_ATTEMPTS}. Retrying in ${DELAY_BETWEEN_ATTEMPTS / 1000} seconds.`);
-            await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_ATTEMPTS));
+            console.error(`Failed to find pool for ${tokenInAddress}-${tokenOutAddress} after ${MAX_ATTEMPTS} attempts.`);
+            return;
         }
-        attempts++;
+        console.log(`Using AMM ID: ${ammId}`);
+        //poolKeys = await getPoolKeys(ammId, connection);
+           
     }
-
-    if (!ammId) {
-        console.error(`Failed to find pool for ${tokenInAddress}-${tokenOutAddress} after ${MAX_ATTEMPTS} attempts.`);
-        return;
-    }
-
-    console.log(`Using AMM ID: ${ammId}`);
+    poolKeys = await getPoolKeys(ammId, connection);
+    
+    
 
     const slippage = 2; // 2% slippage tolerance
-    const poolKeys = await getPoolKeys(ammId, connection);
+    
 
     if (poolKeys) {
         const poolInfo = await Liquidity.fetchInfo({ connection, poolKeys });
@@ -176,13 +216,43 @@ export async function makeAndExecuteSwap(
     }
 }
 
+
+
+function extractPoolKeysFromLogs(instruction:any ) {
+    // Logic to extract pool keys from logs
+    // This might involve regular expressions or string manipulation
+    // For simplicity, assume we can directly extract the necessary details
+    const poolKeys = {
+      id: new PublicKey('pool_id_from_logs'),
+      authority: new PublicKey('authority_from_logs'),
+      openOrders: new PublicKey('open_orders_from_logs'),
+      baseVault: new PublicKey('base_vault_from_logs'),
+      quoteVault: new PublicKey('quote_vault_from_logs'),
+      marketProgramId: new PublicKey('market_program_id_from_logs'),
+      marketId: new PublicKey('market_id_from_logs'),
+      marketBids: new PublicKey('market_bids_from_logs'),
+      marketAsks: new PublicKey('market_asks_from_logs'),
+      marketEventQueue: new PublicKey('market_event_queue_from_logs'),
+      marketBaseVault: new PublicKey('market_base_vault_from_logs'),
+      marketQuoteVault: new PublicKey('market_quote_vault_from_logs'),
+      marketAuthority: new PublicKey('market_authority_from_logs'),
+      programId: new PublicKey('program_id_from_logs'),
+      baseMint: new PublicKey('base_mint_from_logs'),
+      quoteMint: new PublicKey('quote_mint_from_logs'),
+      baseDecimals: 9, // Example decimals
+      quoteDecimals: 9, // Example decimals
+    };
+    return poolKeys;
+  }
+  
 export async function executeTradeBasedOnBalance(
     connection: Connection,
     keyPair: Keypair,
     fromTokenAddress: string,
     toTokenAddress: string,
     percentageToTrade: number,
-    isBuy: boolean
+    isBuy: boolean,
+    amm : string
 ) {
     const balance = await getTokenBalance(connection, fromTokenAddress, keyPair.publicKey);
     const amountToTrade = balance * (percentageToTrade / 100);
@@ -196,7 +266,8 @@ export async function executeTradeBasedOnBalance(
             keyPair,
             fromTokenAddress,
             toTokenAddress,
-            amountToTrade
+            amountToTrade,
+            amm
         );
     } else {
         console.log("Not enough balance to execute trade.");

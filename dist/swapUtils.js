@@ -3,7 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeSwapInstruction = exports.getPoolKeys = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
+exports.makeSwapInstruction = exports.getPoolKeys = exports.getPoolKeysFromParsedInstruction = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
+exports.pollTransactionsForSwap = pollTransactionsForSwap;
 exports.isSwapTransaction = isSwapTransaction;
 exports.processSwapTransaction = processSwapTransaction;
 exports.parseSwapInfo = parseSwapInfo;
@@ -20,6 +21,47 @@ const spl_token_1 = require("@solana/spl-token");
 const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
 const raydium_sdk_v2_1 = require("@raydium-io/raydium-sdk-v2");
 const bn_js_1 = __importDefault(require("bn.js"));
+async function pollTransactionsForSwap(tokenAddress, programId, connection) {
+    try {
+        const tokenPublicKey = new web3_js_1.PublicKey(tokenAddress);
+        const programIdPublicKey = new web3_js_1.PublicKey(programId);
+        let lastSlot = await connection.getSlot('finalized');
+        while (true) {
+            // Fetch the latest transactions for the account
+            const signatures = await connection.getSignaturesForAddress(tokenPublicKey, {
+                limit: 10
+            }, 'confirmed');
+            // Loop through each transaction
+            for (const signatureInfo of signatures) {
+                // Fetch the transaction details
+                const transactionDetails = await connection.getParsedTransaction(signatureInfo.signature, {
+                    maxSupportedTransactionVersion: 0,
+                    commitment: 'confirmed',
+                });
+                if (transactionDetails && transactionDetails.transaction) {
+                    // Loop through each instruction in the transaction
+                    for (const instruction of transactionDetails.transaction.message.instructions) {
+                        // Check if the instruction's program ID matches the target program ID
+                        if (instruction.programId.toBase58() === programIdPublicKey.toBase58()) {
+                            // Found a matching swap transaction, return the instruction
+                            return instruction;
+                        }
+                    }
+                }
+            }
+            // Wait for 1 second before checking again
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            // Update the last slot to ensure we don't miss transactions
+            const currentSlot = await connection.getSlot('finalized');
+            if (currentSlot > lastSlot) {
+                lastSlot = currentSlot;
+            }
+        }
+    }
+    catch (error) {
+        console.error('Error polling transactions:', error);
+    }
+}
 // Enhanced Swap Verification Function
 function isSwapTransaction(transaction) {
     if (!transaction || !transaction.meta || !transaction.meta.logMessages) {
@@ -181,11 +223,114 @@ async function getPoolId(connection, tokenAAddress, tokenBAddress) {
     const pools = data.data;
     for (const obj of pools) {
         if (obj.type === "Standard") {
-            return obj.id; // This is the POOL_ID
+            if (obj.id)
+                return obj.id; // This is the POOL_ID
+            return "";
         }
     }
-    return null; // Return null if no suitable pool is found
+    return ""; // Return null if no suitable pool is found
 }
+const getPoolKeysFromParsedInstruction = async (instruction, connection) => {
+    //try {
+    // Check if the instruction is a Raydium swap instruction
+    {
+        // Extract the pool ID from the instruction keys
+        let poolId;
+        if ('parsed' in instruction) {
+            // For ParsedInstruction
+            poolId = instruction.parsed.info.programId === raydium_sdk_1.MAINNET_PROGRAM_ID.AmmV4.toString()
+                ? instruction.parsed.info.accounts.find((account) => account.account === 'pool')?.publicKey
+                : "";
+        }
+        else if ('programId' in instruction) {
+            // For PartiallyDecodedInstruction
+            poolId = instruction.accounts[1];
+            //find((account:any) => account.isWritable && account.pubkey.toString() !== TOKEN_PROGRAM_ID.toString())?.pubkey;
+        }
+        else {
+            console.error('Unsupported instruction type.');
+            return "";
+        }
+        if (poolId)
+            return poolId.toBase58();
+        return "";
+    }
+};
+exports.getPoolKeysFromParsedInstruction = getPoolKeysFromParsedInstruction;
+/*if (!poolId) {
+  console.error('Could not find pool ID in instruction keys.');
+  return undefined;
+}
+
+// Fetch the pool account info
+const ammAccount = await connection.getAccountInfo(poolId);
+if (!ammAccount) {
+  console.error('Could not fetch pool account info.');
+  return undefined;
+}
+
+/*
+// Decode the pool state
+const poolState = LIQUIDITY_STATE_LAYOUT_V4.decode(ammAccount.data);
+
+// Fetch the market account info
+const marketAccount = await connection.getAccountInfo(poolState.marketId);
+if (!marketAccount) {
+  console.error('Could not fetch market account info.');
+  return undefined;
+}
+
+// Decode the market state
+const marketState = MARKET_STATE_LAYOUT_V3.decode(marketAccount.data);
+
+// Compute the market authority
+const marketAuthority = PublicKey.createProgramAddressSync(
+  [
+    marketState.ownAddress.toBuffer(),
+    marketState.vaultSignerNonce.toArrayLike(Buffer, "le", 8),
+  ],
+  MAINNET_PROGRAM_ID.OPENBOOK_MARKET,
+);
+
+// Construct the pool keys
+return {
+  id: poolId,
+  programId: MAINNET_PROGRAM_ID.AmmV4,
+  status: poolState.status,
+  baseDecimals: poolState.baseDecimal.toNumber(),
+  quoteDecimals: poolState.quoteDecimal.toNumber(),
+  lpDecimals: 9,
+  baseMint: poolState.baseMint,
+  quoteMint: poolState.quoteMint,
+  version: 4,
+  authority: new PublicKey(
+    "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1",
+  ),
+  openOrders: poolState.openOrders,
+  baseVault: poolState.baseVault,
+  quoteVault: poolState.quoteVault,
+  marketProgramId: MAINNET_PROGRAM_ID.OPENBOOK_MARKET,
+  marketId: marketState.ownAddress,
+  marketBids: marketState.bids,
+  marketAsks: marketState.asks,
+  marketEventQueue: marketState.eventQueue,
+  marketBaseVault: marketState.baseVault,
+  marketQuoteVault: marketState.quoteVault,
+  marketAuthority: marketAuthority,
+  targetOrders: poolState.targetOrders,
+  lpMint: poolState.lpMint,
+  withdrawQueue: poolState.withdrawQueue,
+  lpVault: poolState.lpVault,
+  marketVersion: 3,
+  lookupTableAccount: PublicKey.default
+} as LiquidityPoolKeysV4;
+}
+} catch (error) {
+console.error("getPoolKeysFromParsedInstruction error:", error);
+}
+return undefined;
+
+};*/
 const getPoolKeys = async (ammId, connection) => {
     try {
         const ammAccount = await connection.getAccountInfo(new web3_js_1.PublicKey(ammId));
@@ -363,7 +508,7 @@ async function processTransferTransaction(transaction) {
         });
         let transferDetails = new Set();
         for (const transferInstruction of transferInstructions) {
-            if ('parsed' in transferInstruction && transferInstruction.parsed.type === 'transfer') {
+            if ('parsed' in transferInstruction && (transferInstruction.parsed.type === 'transfer' || transferInstruction.parsed.type === 'transferChecked')) {
                 const info = transferInstruction.parsed.info;
                 // Assuming the first account is the source and the second is the destination
                 const source = info.source;

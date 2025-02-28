@@ -37,4 +37,5 @@ export interface TokenData {
     mint: PublicKey;
     decimals: number;
     buyPrice: number; // Price at which the token was bought (in SOL)
+    amm : string;
 }

@@ -4,7 +4,7 @@ import { Connection, PublicKey ,VersionedTransactionResponse,AddressLookupTableA
 import { struct, u8, nu64 } from '@solana/buffer-layout';
 import { getSOLBalance, sendTelegramNotification } from './_utils';
 import { sellToken ,getTransactionWithRetry} from './_transactionUtils';
-import { SOLANA_RPC_URL, PROFIT_THRESHOLD, SOL_BALANCE_THRESHOLD, POLLING_INTERVAL, YOUR_PRIVATE_KEY } from './_config';
+import { SOLANA_RPC_URL, PROFIT_THRESHOLD, SOL_BALANCE_THRESHOLD, POLLING_INTERVAL, YOUR_PRIVATE_KEY,TIMEOUT } from './_config';
 import { TokenData } from './_types';
 import * as fs from 'fs';
 import bs58 from 'bs58';
@@ -206,10 +206,10 @@ export async function startTokenWatcher(connection: Connection, keyPair: Keypair
     }
 }
 
-async function sellAndStop(connection: Connection, tokenAddress: string) {
+async function sellAndStop(connection: Connection, tokenAddress: string,amm : string) {
     try {
         // Sell all of the token
-        await sellToken(connection, tokenAddress);
+        await sellToken(connection, tokenAddress,amm);
         const message = `Token ${tokenAddress} sold!`;
         await sendTelegramNotification(message);
     } catch (error) {
@@ -243,16 +243,14 @@ async function processLogEvent(
         console.log(`Transaction failed with error: ${JSON.stringify(err)}`);
         return;
     }
-    
-
     try {
         console.log(`Fetching transaction ${signature}...`);
         const transaction = await getTransactionWithRetry(connection, signature);
-        console.log(Timestart + 300000, Date.now());
-        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + 10000 < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
+        console.log(Timestart + TIMEOUT, Date.now());
+        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            await sellAndStop(connection, newTokenData.mint.toBase58());
+            await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData.amm);
         }
         if (!isSwapTransaction(transaction)) {
             console.log('This transaction does not appear to be a swap.');
