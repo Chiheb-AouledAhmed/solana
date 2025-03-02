@@ -42,7 +42,6 @@ const _utils_1 = require("./_utils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _config_1 = require("./_config");
 const fs = __importStar(require("fs"));
-const swapUtils_1 = require("./swapUtils");
 // Constants
 const RAYDIUM_PROGRAM_ID = new web3_js_1.PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY');
 const RPC_ENDPOINT = 'https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc';
@@ -96,14 +95,16 @@ const queue = [];
 let isProcessing = false;
 let subscriptionId = null; // To hold the subscription ID
 async function processQueue(connection, logStream, keyPair, initialSolBalance, newTokenData) {
-    if (isProcessing || queue.length === 0)
+    if (isProcessing || queue.length === 0 || stopWatching)
         return;
     isProcessing = true;
     const logsInfo = queue.shift();
     try {
         // Add delay before calling getTransactionWithRetry
         await new Promise(resolve => setTimeout(resolve, GET_TRANSACTION_DELAY));
-        await processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData); // Pass keyPair
+        await processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData);
+        if (stopWatching) // Pass keyPair
+            return;
     }
     catch (error) {
         console.error('Error processing log event:', error);
@@ -218,26 +219,29 @@ function stopTokenWatcher() {
 let currentPrice = 0;
 async function processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData) {
     const { signature, err, logs } = logsInfo;
-    console.log(`\nProcessing transaction: ${signature}`);
+    //console.log(`\nProcessing transaction: ${signature}`);
     if (err) {
         console.log(`Transaction failed with error: ${JSON.stringify(err)}`);
         return;
     }
     try {
-        console.log(`Fetching transaction ${signature}...`);
-        const transaction = await (0, _transactionUtils_1.getTransactionWithRetry)(connection, signature);
+        //console.log(`Fetching transaction ${signature}...`);
+        //const transaction = await getTransactionWithRetry(connection, signature);
         console.log(Timestart + _config_1.TIMEOUT, Date.now());
         if (currentPrice > newTokenData.buyPrice * _config_1.PROFIT_THRESHOLD || Timestart + _config_1.TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
          {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
             await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData.amm);
+            return;
         }
-        if (!(0, swapUtils_1.isSwapTransaction)(transaction)) {
+        /*if (!isSwapTransaction(transaction)) {
             console.log('This transaction does not appear to be a swap.');
             //return;
         }
+
         console.log('This transaction appears to be a swap.');
-        const swapInfo = (0, swapUtils_1.parseSwapInfo)(logs);
+        const swapInfo = parseSwapInfo(logs);
+
         if (!swapInfo) {
             console.log(`Could not find swap info for transaction ${signature}`);
             //return;
@@ -247,14 +251,17 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
             //return;
         }
         console.log('Transaction fetched successfully');
-        const { inToken, outToken } = (0, swapUtils_1.determineInOutTokens)(transaction, swapInfo);
+
+        const { inToken, outToken } = determineInOutTokens(transaction, swapInfo);
         const signerAccount = await getSignerAccount(connection, transaction);
+
         // Check if the signer is in the ignored addresses list
         if (ignoredAddresses.has(signerAccount.toLowerCase())) {
             console.log(`Skipping transaction ${signature} because signer ${signerAccount} is in the ignore list.`);
             return;
         }
-        const swapDetails = await (0, swapUtils_1.processSwapTransaction)(connection, transaction, signature);
+
+        const swapDetails = await processSwapTransaction(connection, transaction, signature);
         if (!swapDetails) {
             console.log(`Could not process swap details for transaction ${signature}`);
             return;
@@ -263,20 +270,20 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
         if (swapDetails.inToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
             totalWSOLChange -= swapDetails.amountIn;
             console.log("totalWSOLChange - = ", swapDetails.amountIn);
-        }
-        else if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
+        } else if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
             totalWSOLChange += swapDetails.amountOut;
             console.log("totalWSOLChange + = ", swapDetails.amountOut);
-        }
-        else {
+        } else {
             console.log("No WSOL change in this transaction");
         }
         console.log(`Current WSOL Balance Change: ${totalWSOLChange}`);
+
         // Check for conditions to sell and stop
+
         if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase())
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
         else
-            currentPrice = swapDetails.amountOut / swapDetails.amountIn;
+            currentPrice = swapDetails.amountOut / swapDetails.amountIn*/
     }
     catch (error) {
         console.error(`Error processing swap transaction ${signature}:`, error);

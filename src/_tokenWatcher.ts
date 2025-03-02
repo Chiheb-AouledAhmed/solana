@@ -79,7 +79,7 @@ async function processQueue(
     initialSolBalance: number,
     newTokenData: TokenData
 ){
-    if (isProcessing || queue.length === 0) return;
+    if (isProcessing || queue.length === 0 || stopWatching) return;
 
     isProcessing = true;
     const logsInfo = queue.shift();
@@ -87,7 +87,9 @@ async function processQueue(
     try {
         // Add delay before calling getTransactionWithRetry
         await new Promise(resolve => setTimeout(resolve, GET_TRANSACTION_DELAY));
-        await processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData); // Pass keyPair
+        await processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData);
+        if(stopWatching) // Pass keyPair
+            return;
     } catch (error) {
         console.error('Error processing log event:', error);
     } finally {
@@ -237,22 +239,23 @@ async function processLogEvent(
 ){
     const { signature, err, logs } = logsInfo;
 
-    console.log(`\nProcessing transaction: ${signature}`);
+    //console.log(`\nProcessing transaction: ${signature}`);
 
     if (err) {
         console.log(`Transaction failed with error: ${JSON.stringify(err)}`);
         return;
     }
     try {
-        console.log(`Fetching transaction ${signature}...`);
-        const transaction = await getTransactionWithRetry(connection, signature);
+        //console.log(`Fetching transaction ${signature}...`);
+        //const transaction = await getTransactionWithRetry(connection, signature);
         console.log(Timestart + TIMEOUT, Date.now());
         if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
             await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData.amm);
+            return;
         }
-        if (!isSwapTransaction(transaction)) {
+        /*if (!isSwapTransaction(transaction)) {
             console.log('This transaction does not appear to be a swap.');
             //return;
         }
@@ -301,7 +304,7 @@ async function processLogEvent(
         if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase())
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
         else
-            currentPrice = swapDetails.amountOut / swapDetails.amountIn
+            currentPrice = swapDetails.amountOut / swapDetails.amountIn*/
 
         
 

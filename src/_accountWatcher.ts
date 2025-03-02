@@ -1,7 +1,7 @@
 // src/accountWatcher.ts
 
 import { Connection, PublicKey, Keypair,ParsedInstruction,TransactionInstruction,ParsedTransactionWithMeta } from '@solana/web3.js';
-import { SOLANA_RPC_URL,YOUR_PRIVATE_KEY, ACCOUNT_TO_WATCH, POLLING_INTERVAL, KNOWN_TOKENS } from './_config';
+import { SOLANA_RPC_URL,YOUR_PRIVATE_KEY, ACCOUNT_TO_WATCH, POLLING_INTERVAL, KNOWN_TOKENS , ACCOUNTS_TO_WATCH } from './_config';
 import { getParsedTransactionWithRetry, sendTelegramNotification } from './_utils';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token';
 import { processTransferTransaction, isSwapTransaction, processSwapTransaction,parseSwapInfo, determineInOutTokens, logTypeToStruct } from './swapUtils';
@@ -17,21 +17,34 @@ let knownTokens = KNOWN_TOKENS;
 export async function watchTransactions(): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
-    const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
+    //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
+    const watchedAccounts = ACCOUNTS_TO_WATCH.map(account => new PublicKey(account));
     const privateKey = process.env.PRIVATE_KEY;
 
     
     let cacheSignature = new Set<string>();
     let firstRun = true;
+    let stopcurrWatch = false;
     while (!stopWatching) {
         try {
-            const signatures = await connection.getSignaturesForAddress(
-                watchedAccount,
-                {
-                    limit: 10
-                },
-                'confirmed'
-            );
+            if(stopcurrWatch)
+            {
+                stopcurrWatch = false;
+                firstRun = true;
+                break
+            }
+            const signatures = [];
+            for (const account of watchedAccounts) {
+
+                const signaturesAccount = await connection.getSignaturesForAddress(
+                    account,
+                    {
+                        limit: 10
+                    },
+                    'confirmed'
+                );
+                signatures.push(...signaturesAccount);
+            }
 
             for (const signatureInfo of signatures) {
                 const signature = signatureInfo.signature;
@@ -64,7 +77,7 @@ export async function watchTransactions(): Promise<void> {
                                     else
                                         tokenAddress = swapDetails.outToken;
                                 try{
-                                        stopWatching = await processDetails(tokenAddress,firstRun,signature,connection);
+                                        stopcurrWatch = await processDetails(tokenAddress,firstRun,signature,connection);
                                         /*await startMonitoring(connection,keyPair,0,
                                             {
                                                 mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
@@ -72,10 +85,11 @@ export async function watchTransactions(): Promise<void> {
                                                 buyPrice : 100000000000000000
                                             });*/
                                         // startMonitoring(tokenData);
+                                        break;
                                 } catch (buyError) {
                                         console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                 }
-                                if(stopWatching)
+                                if(stopcurrWatch)
                                     break;
                                 }else{
                                     console.log("failed to fetch Swap details");

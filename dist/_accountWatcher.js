@@ -19,15 +19,26 @@ let knownTokens = _config_1.KNOWN_TOKENS;
 async function watchTransactions() {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
-    const watchedAccount = new web3_js_1.PublicKey(_config_1.ACCOUNT_TO_WATCH);
+    //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
+    const watchedAccounts = _config_1.ACCOUNTS_TO_WATCH.map(account => new web3_js_1.PublicKey(account));
     const privateKey = process.env.PRIVATE_KEY;
     let cacheSignature = new Set();
     let firstRun = true;
+    let stopcurrWatch = false;
     while (!stopWatching) {
         try {
-            const signatures = await connection.getSignaturesForAddress(watchedAccount, {
-                limit: 10
-            }, 'confirmed');
+            if (stopcurrWatch) {
+                stopcurrWatch = false;
+                firstRun = true;
+                break;
+            }
+            const signatures = [];
+            for (const account of watchedAccounts) {
+                const signaturesAccount = await connection.getSignaturesForAddress(account, {
+                    limit: 10
+                }, 'confirmed');
+                signatures.push(...signaturesAccount);
+            }
             for (const signatureInfo of signatures) {
                 const signature = signatureInfo.signature;
                 if (signature && !cacheSignature.has(signature)) {
@@ -52,7 +63,7 @@ async function watchTransactions() {
                                         else
                                             tokenAddress = swapDetails.outToken;
                                         try {
-                                            stopWatching = await processDetails(tokenAddress, firstRun, signature, connection);
+                                            stopcurrWatch = await processDetails(tokenAddress, firstRun, signature, connection);
                                             /*await startMonitoring(connection,keyPair,0,
                                                 {
                                                     mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
@@ -60,11 +71,12 @@ async function watchTransactions() {
                                                     buyPrice : 100000000000000000
                                                 });*/
                                             // startMonitoring(tokenData);
+                                            break;
                                         }
                                         catch (buyError) {
                                             console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                         }
-                                        if (stopWatching)
+                                        if (stopcurrWatch)
                                             break;
                                     }
                                     else {
