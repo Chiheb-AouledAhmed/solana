@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
@@ -10,9 +10,9 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true ,// Add this line!
+    "resolveJsonModule": true,
     "noImplicitAny": true,
   },
-  "include": ["src/**/*"], // Make sure this includes your source files
-  "exclude": ["node_modules"] // Exclude node_modules
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
