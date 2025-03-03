@@ -11,6 +11,7 @@ import {
     VersionedTransaction,
     ComputeBudgetProgram,
     TransactionMessage,
+    ParsedTransactionWithMeta,
     ParsedInstruction, PartiallyDecodedInstruction,
     SendTransactionError
 } from "@solana/web3.js";
@@ -296,7 +297,7 @@ async function getTokenBalance(connection: Connection, tokenAddress: string, own
 
 
 
-export async function getTransactionWithRetry(connection: Connection, signature: string, maxRetries = 3): Promise<any> {
+export async function getTransactionWithRetry(connection: Connection, signature: string, maxRetries = 3): Promise<ParsedTransactionWithMeta> {
     const initialDelay = 2000; // 2 seconds initial delay
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {

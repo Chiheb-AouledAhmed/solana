@@ -114,6 +114,7 @@ async function processSwapTransaction(connection, transaction, signature) {
             amountOut: swapInfo.out_amount
         };
         console.log(`Swap Details for ${signature}:`, swapDetails);
+        console.log(`Date: ${new Date().toLocaleString()}`);
         return swapDetails;
     }
     catch (error) {

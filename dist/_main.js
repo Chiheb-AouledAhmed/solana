@@ -3,8 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/main.ts
-const _accountWatcher_1 = require("./_accountWatcher");
+const signature_1 = require("./signature");
 const web3_js_1 = require("@solana/web3.js");
 const _config_1 = require("./_config");
 const bs58_1 = __importDefault(require("bs58"));
@@ -13,7 +12,7 @@ let tokenToWatch = null;
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
-        const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
+        const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'processed');
         const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
         const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
@@ -43,13 +42,16 @@ async function main() {
             0.01,
             ammId
         );*/
-        /*await startMonitoring(connection,keyPair,0,
+        /*let token = "31RanJGYZbqxN23c6hYV5tb4dewjLVsYTPkaRPCBWh7r"
+        await startMonitoring(connection,keyPair,0,
             {
                 mint: new PublicKey(token),
                 decimals: 9,
-                buyPrice : 100000000000000000
+                buyPrice : 100000000000000000,
+                "amm" : ""
             });*/
-        await (0, _accountWatcher_1.watchTransactions)();
+        setInterval(signature_1.monitorTransactions, 200);
+        //await watchTransactions();
     }
     catch (error) {
         console.error("An error occurred:", error);

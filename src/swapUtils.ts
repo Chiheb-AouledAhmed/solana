@@ -153,6 +153,7 @@ export async function processSwapTransaction(connection: any, transaction: Parse
             amountOut: swapInfo.out_amount
         };
         console.log(`Swap Details for ${signature}:`, swapDetails);
+        console.log(`Date: ${new Date().toLocaleString()}`);
         return swapDetails;
     } catch (error) {
         console.error(`Error processing transaction ${signature}:`, error);
