@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 import { Connection, Keypair,PublicKey } from '@solana/web3.js';
 import { SOLANA_RPC_URL, YOUR_PRIVATE_KEY, KNOWN_TOKENS } from './_config';
 import bs58 from 'bs58';
-
+import express from 'express';
 let stopAccountWatcher = false;
 let tokenToWatch: string | null = null;
 
@@ -21,6 +21,15 @@ async function main() {
         const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
         const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
         dotenv.config();
+
+        const PORT = process.env.PORT || 3000;
+        const app = express();
+        app.get('/', (req, res) => {
+            res.send('Radium Swap Monitor is running!');
+        });
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
         const transaction = await connection.getParsedTransaction(signature, {
             maxSupportedTransactionVersion: 0,
