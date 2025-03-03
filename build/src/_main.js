@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const signature_1 = require("./signature");
+const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 const _config_1 = require("./_config");
 const bs58_1 = __importDefault(require("bs58"));
@@ -15,6 +16,7 @@ async function main() {
         const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'processed');
         const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
         const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
+        dotenv_1.default.config();
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
         const transaction = await connection.getParsedTransaction(signature, {
             maxSupportedTransactionVersion: 0,

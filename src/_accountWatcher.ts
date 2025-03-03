@@ -18,7 +18,15 @@ export async function watchTransactions(): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
-    const watchedAccounts = ACCOUNTS_TO_WATCH.map(account => new PublicKey(account));
+    let watchedAccounts: PublicKey[] = [];
+    if (ACCOUNTS_TO_WATCH && Array.isArray(ACCOUNTS_TO_WATCH)) {
+        watchedAccounts = ACCOUNTS_TO_WATCH.map(account => new PublicKey(account));
+    }
+    else{
+        console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
+        return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
+    }
+
     const privateKey = process.env.PRIVATE_KEY;
 
     

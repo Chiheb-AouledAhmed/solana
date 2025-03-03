@@ -20,7 +20,14 @@ async function watchTransactions() {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
-    const watchedAccounts = _config_1.ACCOUNTS_TO_WATCH.map(account => new web3_js_1.PublicKey(account));
+    let watchedAccounts = [];
+    if (_config_1.ACCOUNTS_TO_WATCH && Array.isArray(_config_1.ACCOUNTS_TO_WATCH)) {
+        watchedAccounts = _config_1.ACCOUNTS_TO_WATCH.map(account => new web3_js_1.PublicKey(account));
+    }
+    else {
+        console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
+        return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
+    }
     const privateKey = process.env.PRIVATE_KEY;
     let cacheSignature = new Set();
     let firstRun = true;
