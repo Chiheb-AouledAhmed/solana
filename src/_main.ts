@@ -5,6 +5,7 @@ import { buyNewToken ,makeAndExecuteSwap} from './_transactionUtils';
 import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction}  from './swapUtils';
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
+import dotenv from 'dotenv';
 
 import { Connection, Keypair,PublicKey } from '@solana/web3.js';
 import { SOLANA_RPC_URL, YOUR_PRIVATE_KEY, KNOWN_TOKENS } from './_config';
@@ -19,6 +20,7 @@ async function main() {
         const connection = new Connection(SOLANA_RPC_URL, 'processed');
         const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
         const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
+        dotenv.config();
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
         const transaction = await connection.getParsedTransaction(signature, {
             maxSupportedTransactionVersion: 0,
