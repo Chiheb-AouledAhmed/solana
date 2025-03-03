@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "swap": "ts-node src/main.ts"
+    "swap": "ts-node src/main.ts",
+    "build": "tsc",
+    "start": "ts-node src/main.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,15 +23,17 @@
     "csv-parse": "^5.6.0",
     "csv-writer": "^1.6.0",
     "csv-writer-portable": "^1.7.6",
+    "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "jito-ts": "^4.2.0",
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/big.js": "^6.2.2",
     "@types/bn.js": "^5.1.6",
     "@types/node": "^22.13.4",
     "@types/node-telegram-bot-api": "^0.64.7",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }
