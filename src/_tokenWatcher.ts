@@ -119,6 +119,7 @@ export async function startMonitoring(
     }
     Timestart = Date.now();
     console.log('Starting to monitor Raydium transactions...');
+    stopWatching = false;
     isMonitoring = true;
 
     subscriptionId = connection.onLogs(

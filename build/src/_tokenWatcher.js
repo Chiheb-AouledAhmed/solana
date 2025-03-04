@@ -129,6 +129,7 @@ async function startMonitoring(connection, keyPair, initialSolBalance, newTokenD
     }
     Timestart = Date.now();
     console.log('Starting to monitor Raydium transactions...');
+    stopWatching = false;
     isMonitoring = true;
     subscriptionId = connection.onLogs(newTokenData.mint, (logsInfo) => {
         queue.push(logsInfo);
