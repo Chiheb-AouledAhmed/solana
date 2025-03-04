@@ -21,7 +21,7 @@ async function buyNewToken(connection, tokenAddress) {
     const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
     const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
     const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
-    const amountToBuy = solBalance * _config_1.BUY_AMOUNT_PERCENTAGE; // Use percentage from config
+    const amountToBuy = (solBalance - 0.01) * _config_1.BUY_AMOUNT_PERCENTAGE; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
     let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
     const instruction = await (0, swapUtils_1.pollTransactionsForSwap)(tokenAddress, program_id, connection);
@@ -53,6 +53,9 @@ async function sellToken(connection, tokenAddress, amm) {
         );*/
         await executeTradeBasedOnBalance(connection, keyPair, tokenAddress, "So11111111111111111111111111111111111111112", 100, false, amm // isBuy = false (sell)
         );
+        const wsolAccount = await findOrCreateWrappedSolAccount(connection, keyPair);
+        // Unwrap le WSOL pour obtenir du SOL
+        await unwrapWrappedSol(connection, keyPair, wsolAccount);
     }
     catch (error) {
         console.error(`Error selling token ${tokenAddress}:`, error);
@@ -214,5 +217,49 @@ async function getTransactionWithRetry(connection, signature, maxRetries = 3) {
         await new Promise(resolve => setTimeout(resolve, delay));
     }
     throw new Error(`Failed to fetch transaction after ${maxRetries} attempts`);
+}
+async function findOrCreateWrappedSolAccount(connection, keyPair) {
+    const wsolAccount = await findWrappedSolAccount(connection, keyPair.publicKey);
+    if (wsolAccount) {
+        return wsolAccount;
+    }
+    else {
+        return await createWrappedSolAccount(connection, keyPair);
+    }
+}
+// Fonction pour créer un compte WSOL
+async function createWrappedSolAccount(connection, keyPair) {
+    const wsolAccount = await createAccount(connection, keyPair, spl_token_1.NATIVE_MINT, spl_token_1.MINT_SIZE);
+    return wsolAccount;
+}
+// Fonction pour trouver un compte WSOL existant
+async function findWrappedSolAccount(connection, owner) {
+    const accounts = await connection.getTokenAccountsByOwner(owner, {
+        mint: spl_token_1.NATIVE_MINT,
+    });
+    if (accounts.value.length > 0) {
+        return accounts.value[0].pubkey;
+    }
+    return null;
+}
+// Fonction pour créer un compte
+async function createAccount(connection, keyPair, mint, size) {
+    const account = web3_js_1.Keypair.generate();
+    const transaction = new web3_js_1.Transaction();
+    transaction.add(web3_js_1.SystemProgram.createAccount({
+        fromPubkey: keyPair.publicKey,
+        newAccountPubkey: account.publicKey,
+        space: size,
+        lamports: await connection.getMinimumBalanceForRentExemption(size, 'finalized'),
+        programId: spl_token_1.TOKEN_PROGRAM_ID,
+    }), (0, spl_token_1.createInitializeAccountInstruction)(account.publicKey, mint, keyPair.publicKey, keyPair.publicKey));
+    await (0, web3_js_1.sendAndConfirmTransaction)(connection, transaction, [keyPair, account]);
+    return account.publicKey;
+}
+// Fonction pour unwrap le WSOL
+async function unwrapWrappedSol(connection, keyPair, wsolAccount) {
+    const transaction = new web3_js_1.Transaction();
+    transaction.add((0, spl_token_1.createCloseAccountInstruction)(wsolAccount, keyPair.publicKey, keyPair.publicKey));
+    await (0, web3_js_1.sendAndConfirmTransaction)(connection, transaction, [keyPair]);
 }
 //# sourceMappingURL=_transactionUtils.js.map

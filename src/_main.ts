@@ -6,8 +6,11 @@ import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction}  from './swap
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
 import dotenv from 'dotenv';
-
-import { Connection, Keypair,PublicKey } from '@solana/web3.js';
+import { Connection, Keypair, PublicKey, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';
+import { TOKEN_PROGRAM_ID, MINT_SIZE, ACCOUNT_SIZE } from '@solana/spl-token';
+import { NATIVE_MINT ,createCloseAccountInstruction ,createInitializeAccountInstruction} from '@solana/spl-token';
+//import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
+//import { Connection, Keypair,PublicKey } from '@solana/web3.js';
 import { SOLANA_RPC_URL, YOUR_PRIVATE_KEY, KNOWN_TOKENS } from './_config';
 import bs58 from 'bs58';
 import express from 'express';
@@ -65,8 +68,11 @@ async function main() {
                 buyPrice : 100000000000000000,
                 "amm" : ""
             });*/
-        setInterval(monitorTransactions, 200);
-        //await watchTransactions();
+        //setInterval(monitorTransactions, 200);
+        //let token = "HFGtT4CT2Wnh2FbXVtEKiB9DT864VpR7N2nzvaH5iMEw"
+        //buyNewToken(connection, token);
+        await watchTransactions();
+        console.log('awaited');
     } catch (error) {
         console.error("An error occurred:", error);
     }

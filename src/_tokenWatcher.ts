@@ -10,6 +10,7 @@ import * as fs from 'fs';
 import bs58 from 'bs58';
 import { isSwapTransaction, parseSwapInfo, determineInOutTokens, processSwapTransaction,logTypeToStruct } from './swapUtils';
 import { Keypair } from '@solana/web3.js';
+import { watchTransactions } from './_accountWatcher';
 
 // Constants
 const RAYDIUM_PROGRAM_ID = new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY');
@@ -208,17 +209,23 @@ export async function startTokenWatcher(connection: Connection, keyPair: Keypair
     }
 }
 
-async function sellAndStop(connection: Connection, tokenAddress: string,amm : string) {
+async function sellAndStop(connection: Connection, tokenAddress: string,amm : string,keyPair: Keypair) {
+    let status = true;
     try {
         // Sell all of the token
         await sellToken(connection, tokenAddress,amm);
-        const message = `Token ${tokenAddress} sold!`;
+        const solBalance = await getSOLBalance(connection, keyPair.publicKey);
+        const message = `Token ${tokenAddress} sold! \n You have now ${solBalance} SOL.`;
         await sendTelegramNotification(message);
+        //setNotProcessing();
     } catch (error) {
+        status =false;
         console.error(`Failed to sell token ${tokenAddress}:`, error);
     } finally {
         stopMonitoring(connection); // Stop monitoring Raydium transactions
         stopTokenWatcher();
+        if(status)
+            await watchTransactions();
     }
 }
 
@@ -252,7 +259,7 @@ async function processLogEvent(
         if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData.amm);
+            await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData.amm,keyPair);
             return;
         }
         /*if (!isSwapTransaction(transaction)) {

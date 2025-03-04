@@ -13,7 +13,16 @@ import bs58 from 'bs58';
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
+let Processing = false;
+let stopcurrWatch = false;
 
+let firstRun = true;
+
+export function setNotProcessing(){
+    Processing = false;
+    firstRun = true;
+    console.log("watching another token ->>>")
+}
 export async function watchTransactions(): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
@@ -23,6 +32,7 @@ export async function watchTransactions(): Promise<void> {
         watchedAccounts = ACCOUNTS_TO_WATCH.map(account => new PublicKey(account));
     }
     else{
+        console.log("ACCOUNTS_TO_WATCH",ACCOUNTS_TO_WATCH);
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
@@ -31,16 +41,15 @@ export async function watchTransactions(): Promise<void> {
 
     
     let cacheSignature = new Set<string>();
-    let firstRun = true;
-    let stopcurrWatch = false;
+    
+    
     while (!stopWatching) {
         try {
-            if(stopcurrWatch)
-            {
-                stopcurrWatch = false;
-                firstRun = true;
-                break
-            }
+            /*if(Processing){
+                console.log("Processing another token");
+                await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
+                continue;
+            }*/
             const signatures = [];
             for (const account of watchedAccounts) {
 
@@ -85,7 +94,9 @@ export async function watchTransactions(): Promise<void> {
                                     else
                                         tokenAddress = swapDetails.outToken;
                                 try{
-                                        stopcurrWatch = await processDetails(tokenAddress,firstRun,signature,connection);
+                                        let processed = await processDetails(tokenAddress,firstRun,signature,connection);
+                                        if (processed)
+                                            return 
                                         /*await startMonitoring(connection,keyPair,0,
                                             {
                                                 mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
@@ -93,15 +104,15 @@ export async function watchTransactions(): Promise<void> {
                                                 buyPrice : 100000000000000000
                                             });*/
                                         // startMonitoring(tokenData);
-                                        break;
+                                    
                                 } catch (buyError) {
                                         console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                 }
-                                if(stopcurrWatch)
-                                    break;
                                 }else{
                                     console.log("failed to fetch Swap details");
                                 }
+                                /*if(Processing)
+                                    break;*/
                             }
                             else{
                                 const transferDetails = await processTransferTransaction(transaction);
@@ -112,16 +123,16 @@ export async function watchTransactions(): Promise<void> {
                                 
                                         const tokenAddress = transferDetail.tokenAddress;
                                         try{
-                                            stopWatching=await processDetails(tokenAddress,firstRun,signature,connection);
-
-                                                //startMonitoring(tokenData);
-                                                break; // Exit the loop after buying
+                                            let processsed = await processDetails(tokenAddress,firstRun,signature,connection);
+                                            if(processsed)
+                                                return ;
+                                                //startMonitoring(tokenData);// Exit the loop after buying
                                         } catch (buyError) {
                                                 console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                         }
                                     } 
-                                    if(stopWatching)
-                                        break;
+                                    /*if(Processing)
+                                        break;*/
                                 }
                              else {
                                 console.log('This transaction does not appear to be a transfer.');
@@ -156,12 +167,13 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
         if(firstRun)
             knownTokens.add(tokenAddress);
         if (!knownTokens.has(tokenAddress)) {
+            knownTokens.add(tokenAddress);
                 const message = `
                 New Token Transfer Detected!
                 Signature: ${signature}
                 Token: ${tokenAddress}
             `;
-            await sendTelegramNotification(message);
+            //await sendTelegramNotification(message);
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

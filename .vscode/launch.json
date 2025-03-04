@@ -125,7 +125,7 @@
             "program": "${workspaceFolder}/src/_main.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/dist/**/*.js"
+                "${workspaceFolder}/build/**/*.js"
             ],
             "console": "integratedTerminal",
             "sourceMaps": true,

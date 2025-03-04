@@ -3,11 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const signature_1 = require("./signature");
+// src/main.ts
+const _accountWatcher_1 = require("./_accountWatcher");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
+//import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
+//import { Connection, Keypair,PublicKey } from '@solana/web3.js';
 const _config_1 = require("./_config");
 const bs58_1 = __importDefault(require("bs58"));
+const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
 async function main() {
@@ -17,6 +21,14 @@ async function main() {
         const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
         const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
         dotenv_1.default.config();
+        const PORT = process.env.PORT || 3000;
+        const app = (0, express_1.default)();
+        app.get('/', (req, res) => {
+            res.send('Radium Swap Monitor is running!');
+        });
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
         const transaction = await connection.getParsedTransaction(signature, {
             maxSupportedTransactionVersion: 0,
@@ -52,8 +64,11 @@ async function main() {
                 buyPrice : 100000000000000000,
                 "amm" : ""
             });*/
-        setInterval(signature_1.monitorTransactions, 200);
-        //await watchTransactions();
+        //setInterval(monitorTransactions, 200);
+        //let token = "HFGtT4CT2Wnh2FbXVtEKiB9DT864VpR7N2nzvaH5iMEw"
+        //buyNewToken(connection, token);
+        await (0, _accountWatcher_1.watchTransactions)();
+        console.log('awaited');
     }
     catch (error) {
         console.error("An error occurred:", error);

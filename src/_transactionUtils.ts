@@ -12,14 +12,19 @@ import {
     ComputeBudgetProgram,
     TransactionMessage,
     ParsedTransactionWithMeta,
+    sendAndConfirmTransaction,
     ParsedInstruction, PartiallyDecodedInstruction,
+    Transaction,
     SendTransactionError
 } from "@solana/web3.js";
 import {
     TOKEN_PROGRAM_ID,
     NATIVE_MINT,
+    MINT_SIZE,
     getOrCreateAssociatedTokenAccount,
     createSyncNativeInstruction,
+    createCloseAccountInstruction,
+    createInitializeAccountInstruction,
     Account
 } from "@solana/spl-token";
 import {
@@ -54,7 +59,7 @@ export async function buyNewToken(connection: Connection, tokenAddress: string):
     const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
     const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
     const solBalance = await getSOLBalance(connection, keyPair.publicKey);
-    const amountToBuy = solBalance * BUY_AMOUNT_PERCENTAGE; // Use percentage from config
+    const amountToBuy = (solBalance-0.01) * BUY_AMOUNT_PERCENTAGE ; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
     let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
     const instruction = await pollTransactionsForSwap(tokenAddress,program_id,connection);
@@ -100,6 +105,10 @@ export async function sellToken(connection: Connection, tokenAddress: string,amm
             false,
             amm // isBuy = false (sell)
         );
+        const wsolAccount = await findOrCreateWrappedSolAccount(connection, keyPair);
+
+        // Unwrap le WSOL pour obtenir du SOL
+        await unwrapWrappedSol(connection, keyPair, wsolAccount);
     } catch (error) {
         console.error(`Error selling token ${tokenAddress}:`, error);
         throw error; // Re-throw so the calling function knows it failed
@@ -319,4 +328,66 @@ export async function getTransactionWithRetry(connection: Connection, signature:
         await new Promise(resolve => setTimeout(resolve, delay));
     }
     throw new Error(`Failed to fetch transaction after ${maxRetries} attempts`);
+}
+
+async function findOrCreateWrappedSolAccount(connection: Connection, keyPair: Keypair): Promise<PublicKey> {
+    const wsolAccount = await findWrappedSolAccount(connection, keyPair.publicKey);
+    if (wsolAccount) {
+        return wsolAccount;
+    } else {
+        return await createWrappedSolAccount(connection, keyPair);
+    }
+}
+
+// Fonction pour créer un compte WSOL
+async function createWrappedSolAccount(connection: Connection, keyPair: Keypair): Promise<PublicKey> {
+    const wsolAccount = await createAccount(connection, keyPair, NATIVE_MINT, MINT_SIZE);
+    return wsolAccount;
+}
+
+// Fonction pour trouver un compte WSOL existant
+async function findWrappedSolAccount(connection: Connection, owner: PublicKey): Promise<PublicKey | null> {
+    const accounts = await connection.getTokenAccountsByOwner(owner, {
+        mint: NATIVE_MINT,
+    });
+    if (accounts.value.length > 0) {
+        return accounts.value[0].pubkey;
+    }
+    return null;
+}
+
+// Fonction pour créer un compte
+async function createAccount(connection: Connection, keyPair: Keypair, mint: PublicKey, size: number): Promise<PublicKey> {
+    const account = Keypair.generate();
+    const transaction = new Transaction();
+    transaction.add(
+        SystemProgram.createAccount({
+            fromPubkey: keyPair.publicKey,
+            newAccountPubkey: account.publicKey,
+            space: size,
+            lamports: await connection.getMinimumBalanceForRentExemption(size, 'finalized'),
+            programId: TOKEN_PROGRAM_ID,
+        }),
+        createInitializeAccountInstruction(
+            account.publicKey,
+            mint,
+            keyPair.publicKey,
+            keyPair.publicKey
+        )
+    );
+    await sendAndConfirmTransaction(connection, transaction, [keyPair, account]);
+    return account.publicKey;
+}
+
+// Fonction pour unwrap le WSOL
+async function unwrapWrappedSol(connection: Connection, keyPair: Keypair, wsolAccount: PublicKey): Promise<void> {
+    const transaction = new Transaction();
+    transaction.add(
+        createCloseAccountInstruction(
+            wsolAccount,
+            keyPair.publicKey,
+            keyPair.publicKey,
+        )
+    );
+    await sendAndConfirmTransaction(connection, transaction, [keyPair]);
 }

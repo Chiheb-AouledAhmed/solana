@@ -42,6 +42,7 @@ const _utils_1 = require("./_utils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _config_1 = require("./_config");
 const fs = __importStar(require("fs"));
+const _accountWatcher_1 = require("./_accountWatcher");
 // Constants
 const RAYDIUM_PROGRAM_ID = new web3_js_1.PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY');
 const RPC_ENDPOINT = 'https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc';
@@ -196,19 +197,25 @@ async function startTokenWatcher(connection, keyPair, newTokenData) {
         await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
 }
-async function sellAndStop(connection, tokenAddress, amm) {
+async function sellAndStop(connection, tokenAddress, amm, keyPair) {
+    let status = true;
     try {
         // Sell all of the token
         await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, amm);
-        const message = `Token ${tokenAddress} sold!`;
+        const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
+        const message = `Token ${tokenAddress} sold! \n You have now ${solBalance} SOL.`;
         await (0, _utils_1.sendTelegramNotification)(message);
+        //setNotProcessing();
     }
     catch (error) {
+        status = false;
         console.error(`Failed to sell token ${tokenAddress}:`, error);
     }
     finally {
         stopMonitoring(connection); // Stop monitoring Raydium transactions
         stopTokenWatcher();
+        if (status)
+            await (0, _accountWatcher_1.watchTransactions)();
     }
 }
 function stopTokenWatcher() {
@@ -231,7 +238,7 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
         if (currentPrice > newTokenData.buyPrice * _config_1.PROFIT_THRESHOLD || Timestart + _config_1.TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
          {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData.amm);
+            await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData.amm, keyPair);
             return;
         }
         /*if (!isSwapTransaction(transaction)) {
