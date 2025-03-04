@@ -33,8 +33,9 @@ async function main() {
 
         app.get('/health', (req, res) => {
             res.sendStatus(200);
+            console.log("service running");
           });
-          
+
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
