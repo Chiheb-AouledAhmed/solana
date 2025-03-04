@@ -42,6 +42,7 @@ async function watchTransactions() {
     let cacheSignature = new Set();
     while (!stopWatching) {
         try {
+            //console.log("New Loop");
             /*if(Processing){
                 console.log("Processing another token");
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
@@ -156,7 +157,7 @@ async function processDetails(tokenAddress, firstRun, signature, connection) {
                 Signature: ${signature}
                 Token: ${tokenAddress}
             `;
-            //await sendTelegramNotification(message);
+            await (0, _utils_1.sendTelegramNotification)(message);
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

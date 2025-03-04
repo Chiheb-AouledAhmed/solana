@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for radium-swap-monitor on 2025-03-04T17:07:31+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'radium-swap-monitor'
+primary_region = 'cdg'
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  min_machines_running = 2
+  auto_start_machines = true
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[auto_stop]
+  auto_stop_machines = false
+
+

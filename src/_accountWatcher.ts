@@ -45,7 +45,7 @@ export async function watchTransactions(): Promise<void> {
     
     while (!stopWatching) {
         try {
-            console.log("New Loop");
+            //console.log("New Loop");
             /*if(Processing){
                 console.log("Processing another token");
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
@@ -174,7 +174,7 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
                 Signature: ${signature}
                 Token: ${tokenAddress}
             `;
-            //await sendTelegramNotification(message);
+            await sendTelegramNotification(message);
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

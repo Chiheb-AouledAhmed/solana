@@ -30,6 +30,11 @@ async function main() {
         app.get('/', (req, res) => {
             res.send('Radium Swap Monitor is running!');
         });
+
+        app.get('/health', (req, res) => {
+            res.sendStatus(200);
+          });
+          
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
