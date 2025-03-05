@@ -165,7 +165,7 @@ export async function makeAndExecuteSwap(
     
     
 
-    const slippage = 2; // 2% slippage tolerance
+    const slippage = 5; // 2% slippage tolerance
     
 
     if (poolKeys) {
