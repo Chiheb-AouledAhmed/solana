@@ -218,10 +218,15 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
     
         if(firstRun)
             knownTokens.add(tokenAddress);
-        if (!((watchedAccountsUsage[watchedAccount.toBase58()] === 0 || Date.now() - watchedAccountsUsage[watchedAccount.toBase58()] > COOL_DOWN_PERIOD) ))
-            return false;
+        
         if (!knownTokens.has(tokenAddress)) {
             knownTokens.add(tokenAddress);
+            if (!((watchedAccountsUsage[watchedAccount.toBase58()] === 0 || Date.now() - watchedAccountsUsage[watchedAccount.toBase58()] > COOL_DOWN_PERIOD) ))
+                {
+                    console.log(`Ignoring token as it is not in database and cool down of {watchedAccount.toBase58()} period is not over`);
+                    return false;
+                }
+            
                 const message = `
                 New Token Transfer Detected!
                 Signature: ${signature}
