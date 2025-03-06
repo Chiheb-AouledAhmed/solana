@@ -59,6 +59,7 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
             console.error(`Error loading account ${accountData.publicKey}:`, error);
         }
     });*/
+    firstRun = true;
     const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
 
