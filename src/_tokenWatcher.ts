@@ -69,7 +69,7 @@ async function getSignerAccount(connection: Connection, transaction: VersionedTr
   }
 
 // Queue management
-const queue: any[] = [];
+let queue: any[] = [];
 let isProcessing = false;
 let subscriptionId: number | null = null; // To hold the subscription ID
 let lastLogTime: number = Date.now(); // Track the last time a log was received
@@ -112,7 +112,8 @@ export async function startMonitoring(
     initialSolBalance: number,
     newTokenData: TokenData,
 ){
-
+    queue =[];
+    init_price =0;
     const logStream = fs.createWriteStream(LOG_FILE, { flags: 'a' });
     if (isMonitoring) {
         console.log("Already monitoring Raydium transactions.");
@@ -266,12 +267,12 @@ async function processLogEvent(
         // Check for conditions to sell and stop
 
         if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()){
-            if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
+            /*if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
                 {
                     console.log("big WSOL bought , Exiting !");
                     await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
                     return;
-                }
+                }*/
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
         }
             

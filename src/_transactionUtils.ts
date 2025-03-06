@@ -306,7 +306,7 @@ async function getTokenBalance(connection: Connection, tokenAddress: string, own
 
 
 export async function getTransactionWithRetry(connection: Connection, signature: string, maxRetries = 3): Promise<ParsedTransactionWithMeta> {
-    const initialDelay = 2000; // 2 seconds initial delay
+    const initialDelay = 500; // 2 seconds initial delay
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
             const transaction = await connection.getParsedTransaction(signature, {
