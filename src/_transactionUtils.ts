@@ -25,6 +25,8 @@ import {
     createSyncNativeInstruction,
     createCloseAccountInstruction,
     createInitializeAccountInstruction,
+    getAssociatedTokenAddress,
+    closeAccount,
     Account
 } from "@solana/spl-token";
 import {
@@ -54,10 +56,8 @@ import {
 
 
 
-export async function buyNewToken(connection: Connection, tokenAddress: string): Promise<string> {
+export async function buyNewToken(connection: Connection, tokenAddress: string,keyPair:Keypair): Promise<string> {
     let curAmmId = "";
-    const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
-    const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
     const solBalance = await getSOLBalance(connection, keyPair.publicKey);
     const amountToBuy = (solBalance-0.01) * BUY_AMOUNT_PERCENTAGE ; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
@@ -84,9 +84,8 @@ export async function buyNewToken(connection: Connection, tokenAddress: string):
     return curAmmId;
 }
 
-export async function sellToken(connection: Connection, tokenAddress: string,amm : string): Promise<void> {
-    const privateKeyUint8Array = bs58.decode(YOUR_PRIVATE_KEY);
-    const keyPair = Keypair.fromSecretKey(privateKeyUint8Array);
+export async function sellToken(connection: Connection, tokenAddress: string,amm : string,keyPair:Keypair): Promise<void> {
+
 
     try {
         /*await makeAndExecuteSwap(
@@ -330,7 +329,7 @@ export async function getTransactionWithRetry(connection: Connection, signature:
     throw new Error(`Failed to fetch transaction after ${maxRetries} attempts`);
 }
 
-async function findOrCreateWrappedSolAccount(connection: Connection, keyPair: Keypair): Promise<PublicKey> {
+export async function findOrCreateWrappedSolAccount(connection: Connection, keyPair: Keypair): Promise<PublicKey> {
     const wsolAccount = await findWrappedSolAccount(connection, keyPair.publicKey);
     if (wsolAccount) {
         return wsolAccount;
@@ -346,7 +345,7 @@ async function createWrappedSolAccount(connection: Connection, keyPair: Keypair)
 }
 
 // Fonction pour trouver un compte WSOL existant
-async function findWrappedSolAccount(connection: Connection, owner: PublicKey): Promise<PublicKey | null> {
+export async function findWrappedSolAccount(connection: Connection, owner: PublicKey): Promise<PublicKey | null> {
     const accounts = await connection.getTokenAccountsByOwner(owner, {
         mint: NATIVE_MINT,
     });
@@ -380,7 +379,7 @@ async function createAccount(connection: Connection, keyPair: Keypair, mint: Pub
 }
 
 // Fonction pour unwrap le WSOL
-async function unwrapWrappedSol(connection: Connection, keyPair: Keypair, wsolAccount: PublicKey): Promise<void> {
+export async function unwrapWrappedSol(connection: Connection, keyPair: Keypair, wsolAccount: PublicKey): Promise<void> {
     const transaction = new Transaction();
     transaction.add(
         createCloseAccountInstruction(
@@ -390,4 +389,70 @@ async function unwrapWrappedSol(connection: Connection, keyPair: Keypair, wsolAc
         )
     );
     await sendAndConfirmTransaction(connection, transaction, [keyPair]);
+}
+
+
+export async function closeTokenAta(
+    connection: Connection,
+    walletAddress: string,
+    walletPrivateKey: Uint8Array,
+    tokenMintAddress: string
+): Promise<string | null> {
+    const walletKeypair = Keypair.fromSecretKey(walletPrivateKey);
+    const walletPublicKey = new PublicKey(walletAddress);
+    const tokenMint = new PublicKey(tokenMintAddress);
+
+    // Retrieve the Associated Token Account (ATA) address
+    const associatedTokenAddress = await getAssociatedTokenAddress(
+        tokenMint,
+        walletPublicKey
+    );
+    try {
+        // Ensure that ATA has been set correctly
+        console.log("Attempting to close Associated Token Account", associatedTokenAddress.toBase58());
+
+        //Ensure the ATA has no account before attempting to close to avoid rent balance errors
+        let tokenAccountInfo = await connection.getAccountInfo(associatedTokenAddress);
+
+        if (tokenAccountInfo && tokenAccountInfo.data.length > 0){
+            console.warn("The balance is not 0");
+            ///return null;
+        }
+        const isRentExempt = connection.getMinimumBalanceForRentExemption(tokenAccountInfo?.data.length || 0);
+
+        //Check Rent Balance
+        if (!isRentExempt){
+             console.warn("Account is not Rent Exempt");
+            return null;
+        }
+
+        // Close the account to reclaim SOL
+        const transactionSignature = await closeAccount(
+            connection,
+            walletKeypair,
+              // Payer (and account closing authority)
+            associatedTokenAddress,
+            walletPublicKey,
+             // Destination for the SOL  // Account to close
+            walletKeypair   // Owner of the account to close (Token ATA)
+        );
+
+        console.log(`Token ATA closed successfully. Transaction: ${transactionSignature}`);
+        return transactionSignature;
+    } catch (error) {
+        console.error("Error closing Token ATA:", error);
+
+        // Log the full error object
+        if (error instanceof Error) {
+            console.error(error.message);
+            if ((error as any).logs) {
+                console.error("Transaction Logs:", (error as any).logs);
+            }// Now it's safe to access .message
+        } else {
+            console.error("Unknown error:", error);
+        }
+
+
+        return null; // Indicate failure
+    }
 }

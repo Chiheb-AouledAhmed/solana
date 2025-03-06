@@ -33,15 +33,18 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startMonitoring = startMonitoring;
-exports.startTokenWatcher = startTokenWatcher;
-exports.stopTokenWatcher = stopTokenWatcher;
 const web3_js_1 = require("@solana/web3.js");
 const _utils_1 = require("./_utils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _config_1 = require("./_config");
 const fs = __importStar(require("fs"));
+const bs58_1 = __importDefault(require("bs58"));
+const web3_js_2 = require("@solana/web3.js");
 const _accountWatcher_1 = require("./_accountWatcher");
 // Constants
 const RAYDIUM_PROGRAM_ID = new web3_js_1.PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY');
@@ -155,55 +158,18 @@ function stopMonitoring(connection) {
 }
 let tokenData;
 let stopWatching = false;
-// Updated startTokenWatcher function
-async function startTokenWatcher(connection, keyPair, newTokenData) {
-    if (tokenData) {
-        stopTokenWatcher(); // Stop any existing watcher
-    }
-    tokenData = newTokenData;
-    stopWatching = false;
-    // Get initial SOL balance
-    const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
-    const initialSolBalance = solBalance;
-    console.log(`Starting token watcher for ${tokenData.mint.toBase58()}...`);
-    // Load ignored addresses
-    loadIgnoredAddresses();
-    // Create a log stream
-    const logStream = fs.createWriteStream(LOG_FILE, { flags: 'a' });
-    // Start monitoring Raydium transactions
-    await startMonitoring(connection, keyPair, initialSolBalance, newTokenData); // Pass keyPair
-    // Main loop for price checking (you can adjust the interval)
-    while (!stopWatching) {
-        try {
-            if (!tokenData) {
-                console.warn("Token data is no longer available. Stopping token watcher.");
-                stopMonitoring(connection);
-                stopTokenWatcher();
-                break;
-            }
-            // Monitor Raydium transactions to calculate remaining SOL (if needed)
-            const remainingSol = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
-            // Get current price
-            // Check profit threshold
-            /*if (currentPrice > tokenData.buyPrice * PROFIT_THRESHOLD || remainingSol > initialSolBalance + 7) {
-                console.log(`Condition met! Selling token ${tokenData.mint.toBase58()}`);
-                await sellAndStop(connection, keyPair, tokenData.mint.toBase58());
-                break;
-            }*/
-            console.log(`Token ${tokenData.mint.toBase58()} - Current Balance: ${remainingSol}, Buy Price: ${tokenData.buyPrice}`);
-        }
-        catch (error) {
-            console.error("Error in token watcher:", error);
-        }
-        await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
-    }
-}
-async function sellAndStop(connection, tokenAddress, amm, keyPair) {
+// Updated startTokenWatcher functio
+async function sellAndStop(connection, tokenAddress, NewTokenData, keyPair) {
     let status = true;
     try {
         // Sell all of the token
-        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, amm);
-        const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
+        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, NewTokenData.amm, keyPair);
+        const privateKeyUint8Array = bs58_1.default.decode(_config_1.CENTRAL_WALLET_PRIVATE_KEY);
+        const CentralkeyPair = web3_js_2.Keypair.fromSecretKey(privateKeyUint8Array);
+        let walletAddress = keyPair.publicKey.toBase58();
+        await (0, _transactionUtils_1.closeTokenAta)(connection, walletAddress, keyPair.secretKey, NewTokenData.mint.toBase58());
+        await (0, _utils_1.transferAllSOL)(connection, keyPair, CentralkeyPair.publicKey);
+        const solBalance = await (0, _utils_1.getSOLBalance)(connection, CentralkeyPair.publicKey);
         const message = `Token ${tokenAddress} sold! \n You have now ${solBalance} SOL.`;
         await (0, _utils_1.sendTelegramNotification)(message);
         //setNotProcessing();
@@ -211,18 +177,13 @@ async function sellAndStop(connection, tokenAddress, amm, keyPair) {
     catch (error) {
         status = false;
         console.error(`Failed to sell token ${tokenAddress}:`, error);
+        stopMonitoring(connection);
     }
     finally {
         stopMonitoring(connection); // Stop monitoring Raydium transactions
-        stopTokenWatcher();
         if (status)
-            await (0, _accountWatcher_1.watchTransactions)();
+            await (0, _accountWatcher_1.watchTransactions)(NewTokenData.watchedAccountsUsage);
     }
-}
-function stopTokenWatcher() {
-    stopWatching = true;
-    tokenData = undefined;
-    console.log('Token watching stopped.');
 }
 let currentPrice = 0;
 async function processLogEvent(connection, logsInfo, logStream, keyPair, initialSolBalance, newTokenData) {
@@ -239,7 +200,7 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
         if (currentPrice > newTokenData.buyPrice * _config_1.PROFIT_THRESHOLD || Timestart + _config_1.TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
          {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData.amm, keyPair);
+            await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData, keyPair);
             return;
         }
         /*if (!isSwapTransaction(transaction)) {

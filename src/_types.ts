@@ -38,4 +38,12 @@ export interface TokenData {
     decimals: number;
     buyPrice: number; // Price at which the token was bought (in SOL)
     amm : string;
+    watchedAccountsUsage:{ [publicKey: string]: number };
+    watchedAccount:PublicKey
+}
+
+// src/_types.ts
+export interface AccountData {
+    publicKey: string;
+    privateKey: string;
 }

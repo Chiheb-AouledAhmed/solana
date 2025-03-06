@@ -43,6 +43,7 @@ const _transactionUtils_1 = require("./_transactionUtils");
 const _config_1 = require("./_config");
 const fs = __importStar(require("fs"));
 const swapUtils_1 = require("./swapUtils");
+const web3_js_2 = require("@solana/web3.js");
 // Constants
 const RAYDIUM_PROGRAM_ID = new web3_js_1.PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY');
 const RPC_ENDPOINT = 'https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc';
@@ -250,7 +251,7 @@ async function startTokenWatcher(connection, keyPair, newTokenData) {
 async function sellAndStop(connection, tokenAddress, amm) {
     try {
         // Sell all of the token
-        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, amm);
+        await (0, _transactionUtils_1.sellToken)(connection, tokenAddress, amm, new web3_js_2.Keypair);
         const message = `Token ${tokenAddress} sold!`;
         await (0, _utils_1.sendTelegramNotification)(message);
     }

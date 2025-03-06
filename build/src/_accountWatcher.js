@@ -1,5 +1,38 @@
 "use strict";
 // src/accountWatcher.ts
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -14,20 +47,56 @@ const swapUtils_1 = require("./swapUtils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _tokenWatcher_1 = require("./_tokenWatcher"); // Import startTokenWatcher
 const bs58_1 = __importDefault(require("bs58"));
+const fs = __importStar(require("fs"));
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
 let Processing = false;
 let stopcurrWatch = false;
+const COOL_DOWN_PERIOD = 3 * 30 * 60 * 1000;
 let firstRun = true;
 function setNotProcessing() {
     Processing = false;
     firstRun = true;
     console.log("watching another token ->>>");
 }
-async function watchTransactions() {
+let monitoredAccounts = {};
+function loadAccounts(filename) {
+    try {
+        const data = fs.readFileSync(filename, 'utf-8');
+        return JSON.parse(data);
+    }
+    catch (error) {
+        console.error('Error reading accounts file:', error);
+        return [];
+    }
+}
+async function watchTransactions(watchedAccountsUsage) {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
+    const accounts = loadAccounts(_config_1.ACCOUNTS_FILE);
+    if (accounts.length === 0) {
+        console.warn('No accounts loaded.  Exiting.');
+        return;
+    }
+    // Initialize monitored accounts (accounts that will be buying tokens)
+    /*accounts.forEach(accountData => {
+        try {
+            const privateKeyUint8Array = Buffer.from(accountData.privateKey, 'base64');
+            const keypair = Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Array));
+            monitoredAccounts[accountData.publicKey] = { lastActive: null, keypair: keypair };
+        } catch (error) {
+            console.error(`Error loading account ${accountData.publicKey}:`, error);
+        }
+    });*/
+    const centralWalletPrivateKeyUint8Array = bs58_1.default.decode(_config_1.CENTRAL_WALLET_PRIVATE_KEY);
+    const centralWalletKeypair = web3_js_1.Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
+    // Transfer SOL to a random account before starting the loop
+    const recipientPublicKey = await (0, _utils_1.transferAllSOLToRandomAccount)(connection, centralWalletKeypair, accounts); // Transfer 1 SOL
+    if (!recipientPublicKey) {
+        console.error('Failed to transfer SOL to a random account.');
+        return;
+    }
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
     let watchedAccounts = [];
     if (_config_1.ACCOUNTS_TO_WATCH && Array.isArray(_config_1.ACCOUNTS_TO_WATCH)) {
@@ -38,6 +107,11 @@ async function watchTransactions() {
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
+    watchedAccounts.forEach(account => {
+        var _a;
+        // Initialize the account in watchedAccountsUsage to 0 only if it doesn't exist
+        watchedAccountsUsage[_a = account.toBase58()] ?? (watchedAccountsUsage[_a] = 0);
+    });
     const privateKey = process.env.PRIVATE_KEY;
     let cacheSignature = new Set();
     while (!stopWatching) {
@@ -50,16 +124,20 @@ async function watchTransactions() {
             }*/
             const signatures = [];
             for (const account of watchedAccounts) {
+                const publicKey = new web3_js_1.PublicKey(account);
                 const signaturesAccount = await connection.getSignaturesForAddress(account, {
                     limit: 10
                 }, 'confirmed');
-                signatures.push(...signaturesAccount);
+                for (const signature of signaturesAccount) {
+                    signatures.push({ signature: signature, account: publicKey });
+                }
             }
             for (const signatureInfo of signatures) {
-                const signature = signatureInfo.signature;
+                const signature = signatureInfo.signature.signature;
+                const publicKey = signatureInfo.account;
                 if (signature && !cacheSignature.has(signature)) {
                     cacheSignature.add(signature);
-                    if (signature !== lastSignature) {
+                    {
                         lastSignature = signature;
                         console.log(`New transaction detected: ${signature}`);
                         try {
@@ -79,7 +157,7 @@ async function watchTransactions() {
                                         else
                                             tokenAddress = swapDetails.outToken;
                                         try {
-                                            let processed = await processDetails(tokenAddress, firstRun, signature, connection);
+                                            let processed = await processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, publicKey);
                                             if (processed)
                                                 return;
                                             /*await startMonitoring(connection,keyPair,0,
@@ -107,7 +185,7 @@ async function watchTransactions() {
                                         for (const transferDetail of transferDetails) {
                                             const tokenAddress = transferDetail.tokenAddress;
                                             try {
-                                                let processsed = await processDetails(tokenAddress, firstRun, signature, connection);
+                                                let processsed = await processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, publicKey);
                                                 if (processsed)
                                                     return;
                                                 //startMonitoring(tokenData);// Exit the loop after buying
@@ -146,10 +224,12 @@ async function watchTransactions() {
 function stopAccountWatcher() {
     stopWatching = true;
 }
-async function processDetails(tokenAddress, firstRun, signature, connection) {
+async function processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, watchedAccount) {
     {
         if (firstRun)
             knownTokens.add(tokenAddress);
+        if (!((watchedAccountsUsage[watchedAccount.toBase58()] === 0 || Date.now() - watchedAccountsUsage[watchedAccount.toBase58()] > COOL_DOWN_PERIOD)))
+            return false;
         if (!knownTokens.has(tokenAddress)) {
             knownTokens.add(tokenAddress);
             const message = `
@@ -161,7 +241,7 @@ async function processDetails(tokenAddress, firstRun, signature, connection) {
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN
-                let amm = await (0, _transactionUtils_1.buyNewToken)(connection, tokenAddress);
+                let amm = await (0, _transactionUtils_1.buyNewToken)(connection, tokenAddress, recipientPublicKey);
                 //GET THE PRICE
                 const solBalance = await connection.getBalance(new web3_js_1.PublicKey(tokenAddress));
                 const buyPrice = solBalance / 1e9; // Convert lamports to SOL
@@ -170,11 +250,12 @@ async function processDetails(tokenAddress, firstRun, signature, connection) {
                     mint: new web3_js_1.PublicKey(tokenAddress),
                     decimals: 9,
                     buyPrice: buyPrice,
-                    amm: amm
+                    amm: amm,
+                    watchedAccountsUsage: watchedAccountsUsage,
+                    watchedAccount: watchedAccount
                 };
-                const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
-                const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
-                await (0, _tokenWatcher_1.startMonitoring)(connection, keyPair, 0, tokenData);
+                watchedAccountsUsage[watchedAccount.toBase58()] = Date.now();
+                await (0, _tokenWatcher_1.startMonitoring)(connection, recipientPublicKey, 0, tokenData);
                 return true;
             }
             catch (buyError) {

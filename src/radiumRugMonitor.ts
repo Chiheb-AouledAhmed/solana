@@ -265,7 +265,7 @@ export async function startTokenWatcher(connection: Connection, keyPair: Keypair
 async function sellAndStop(connection: Connection, tokenAddress: string,amm : string) {
     try {
         // Sell all of the token
-        await sellToken(connection, tokenAddress,amm);
+        await sellToken(connection, tokenAddress,amm,new Keypair);
         const message = `Token ${tokenAddress} sold!`;
         await sendTelegramNotification(message);
     } catch (error) {

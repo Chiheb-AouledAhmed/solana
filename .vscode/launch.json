@@ -134,5 +134,24 @@
                 "!**/node_modules/**"
             ]
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug All",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/src/generate_accounts.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js"
+            ],
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ]
+        }
     ]
 }

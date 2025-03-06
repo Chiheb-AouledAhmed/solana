@@ -10,11 +10,13 @@ export const ACCOUNTS_TO_WATCH = process.env.ACCOUNTS_TO_WATCH?.split(','); //["
 export const YOUR_PRIVATE_KEY = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5"; // Replace
 export const PROFIT_THRESHOLD = 1.5; //Sell if price is 1.5x the purchase price
 export const SOL_BALANCE_THRESHOLD = 1.2; // Sell if total SOL balance exceeds this multiple of initial balance
-export const BUY_AMOUNT_PERCENTAGE = 1; // Buy with 50% of SOL balance
+export const BUY_AMOUNT_PERCENTAGE = 0.5; // Buy with 50% of SOL balance
 export const POLLING_INTERVAL = 10000; // Milliseconds
 export const MAX_RETRIES = 5;
 export const INITIAL_RETRY_DELAY = 2000;
-export const TIMEOUT = 2 * 60 * 1000; // 45 minutes
+export const CENTRAL_WALLET_PRIVATE_KEY ="3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
+export const ACCOUNTS_FILE = "accounts.json";
+export const TIMEOUT = 4 * 60 * 1000; // 45 minutes
 export const KNOWN_TOKENS: Set<string> = new Set([
     "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC
     "So11111111111111111111111111111111111111112", // SOL

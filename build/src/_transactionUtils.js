@@ -1,25 +1,23 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buyNewToken = buyNewToken;
 exports.sellToken = sellToken;
 exports.makeAndExecuteSwap = makeAndExecuteSwap;
 exports.executeTradeBasedOnBalance = executeTradeBasedOnBalance;
 exports.getTransactionWithRetry = getTransactionWithRetry;
+exports.findOrCreateWrappedSolAccount = findOrCreateWrappedSolAccount;
+exports.findWrappedSolAccount = findWrappedSolAccount;
+exports.unwrapWrappedSol = unwrapWrappedSol;
+exports.closeTokenAta = closeTokenAta;
 // src/transactionUtils.ts
 const _config_1 = require("./_config");
 const _utils_1 = require("./_utils");
-const bs58_1 = __importDefault(require("bs58"));
 const web3_js_1 = require("@solana/web3.js");
 const spl_token_1 = require("@solana/spl-token");
 const swapUtils_1 = require("./swapUtils");
 const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
-async function buyNewToken(connection, tokenAddress) {
+async function buyNewToken(connection, tokenAddress, keyPair) {
     let curAmmId = "";
-    const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
-    const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
     const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
     const amountToBuy = (solBalance - 0.01) * _config_1.BUY_AMOUNT_PERCENTAGE; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
@@ -40,9 +38,7 @@ async function buyNewToken(connection, tokenAddress) {
     }
     return curAmmId;
 }
-async function sellToken(connection, tokenAddress, amm) {
-    const privateKeyUint8Array = bs58_1.default.decode(_config_1.YOUR_PRIVATE_KEY);
-    const keyPair = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
+async function sellToken(connection, tokenAddress, amm, keyPair) {
     try {
         /*await makeAndExecuteSwap(
             connection,
@@ -99,7 +95,7 @@ async function makeAndExecuteSwap(connection, keyPair, tokenInAddress, tokenOutA
         //poolKeys = await getPoolKeys(ammId, connection);
     }
     poolKeys = await (0, swapUtils_1.getPoolKeys)(ammId, connection);
-    const slippage = 2; // 2% slippage tolerance
+    const slippage = 5; // 2% slippage tolerance
     if (poolKeys) {
         const poolInfo = await raydium_sdk_1.Liquidity.fetchInfo({ connection, poolKeys });
         const { swapIX, tokenInAccount, tokenInMint, amountIn } = await (0, swapUtils_1.makeSwapInstruction)(connection, tokenInAddress, tokenOutAddress, swapAmountIn, slippage, poolKeys, poolInfo, keyPair);
@@ -261,5 +257,51 @@ async function unwrapWrappedSol(connection, keyPair, wsolAccount) {
     const transaction = new web3_js_1.Transaction();
     transaction.add((0, spl_token_1.createCloseAccountInstruction)(wsolAccount, keyPair.publicKey, keyPair.publicKey));
     await (0, web3_js_1.sendAndConfirmTransaction)(connection, transaction, [keyPair]);
+}
+async function closeTokenAta(connection, walletAddress, walletPrivateKey, tokenMintAddress) {
+    const walletKeypair = web3_js_1.Keypair.fromSecretKey(walletPrivateKey);
+    const walletPublicKey = new web3_js_1.PublicKey(walletAddress);
+    const tokenMint = new web3_js_1.PublicKey(tokenMintAddress);
+    // Retrieve the Associated Token Account (ATA) address
+    const associatedTokenAddress = await (0, spl_token_1.getAssociatedTokenAddress)(tokenMint, walletPublicKey);
+    try {
+        // Ensure that ATA has been set correctly
+        console.log("Attempting to close Associated Token Account", associatedTokenAddress.toBase58());
+        //Ensure the ATA has no account before attempting to close to avoid rent balance errors
+        let tokenAccountInfo = await connection.getAccountInfo(associatedTokenAddress);
+        if (tokenAccountInfo && tokenAccountInfo.data.length > 0) {
+            console.warn("The balance is not 0");
+            ///return null;
+        }
+        const isRentExempt = connection.getMinimumBalanceForRentExemption(tokenAccountInfo?.data.length || 0);
+        //Check Rent Balance
+        if (!isRentExempt) {
+            console.warn("Account is not Rent Exempt");
+            return null;
+        }
+        // Close the account to reclaim SOL
+        const transactionSignature = await (0, spl_token_1.closeAccount)(connection, walletKeypair, 
+        // Payer (and account closing authority)
+        associatedTokenAddress, walletPublicKey, 
+        // Destination for the SOL  // Account to close
+        walletKeypair // Owner of the account to close (Token ATA)
+        );
+        console.log(`Token ATA closed successfully. Transaction: ${transactionSignature}`);
+        return transactionSignature;
+    }
+    catch (error) {
+        console.error("Error closing Token ATA:", error);
+        // Log the full error object
+        if (error instanceof Error) {
+            console.error(error.message);
+            if (error.logs) {
+                console.error("Transaction Logs:", error.logs);
+            } // Now it's safe to access .message
+        }
+        else {
+            console.error("Unknown error:", error);
+        }
+        return null; // Indicate failure
+    }
 }
 //# sourceMappingURL=_transactionUtils.js.map
