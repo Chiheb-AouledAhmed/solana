@@ -16,7 +16,7 @@ export const MAX_RETRIES = 5;
 export const INITIAL_RETRY_DELAY = 2000;
 export const CENTRAL_WALLET_PRIVATE_KEY ="3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
 export const ACCOUNTS_FILE = "accounts.json";
-export const TIMEOUT = 4 * 60 * 1000; // 45 minutes
+export const TIMEOUT = 7 * 60 * 1000; // 45 minutes
 export const KNOWN_TOKENS: Set<string> = new Set([
     "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC
     "So11111111111111111111111111111111111111112", // SOL

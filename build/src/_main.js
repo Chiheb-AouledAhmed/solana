@@ -14,7 +14,6 @@ const bs58_1 = __importDefault(require("bs58"));
 const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
-const _utils_1 = require("./_utils");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -72,10 +71,11 @@ async function main() {
         //setInterval(monitorTransactions, 200);
         //let token = "HFGtT4CT2Wnh2FbXVtEKiB9DT864VpR7N2nzvaH5iMEw"
         //buyNewToken(connection, token);
-        let privateKey = "m7Hd9O3hlsZonp1FB/swsKhqkHZftKSZxP4GqCPIS9moR3Eov6wIFvrtMQbET8Vy59k8ZmNdn5EMHVOm+v4AYg=="; //Central wallet private key
+        /*let privateKey = "m7Hd9O3hlsZonp1FB/swsKhqkHZftKSZxP4GqCPIS9moR3Eov6wIFvrtMQbET8Vy59k8ZmNdn5EMHVOm+v4AYg==" //Central wallet private key
         const privateKeyUint8Arrayender = Buffer.from(privateKey, 'base64');
-        const senderKeypair = web3_js_1.Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));
-        await (0, _utils_1.transferAllSOL)(connection, senderKeypair, keyPair.publicKey);
+        const senderKeypair = Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));
+
+        await transferAllSOL(connection, senderKeypair, keyPair.publicKey);*/
         /*await transferAllSOL(connection, keyPair, senderKeypair.publicKey);
         try {
             let walletAddress = "8sqhtS5bp1cxZCemNtZQMRCJXeKXJdWcoNfBPZYQkWdc";
