@@ -126,7 +126,7 @@ export async function startMonitoring(
     subscriptionId = connection.onLogs(
         newTokenData.mint,
         (logsInfo) => {
-            lastLogTime = Date.now(); // Update the last log time
+            //lastLogTime = Date.now(); // Update the last log time
             queue.push(logsInfo);
             processQueue(connection, logStream, keyPair, initialSolBalance, newTokenData); // Pass keyPair
         },
@@ -134,7 +134,7 @@ export async function startMonitoring(
     );
 
     // Start the inactivity check interval
-    startInactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
+    //startInactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
 }
 
 // Function to stop monitoring Raydium transactions
@@ -288,7 +288,7 @@ async function processLogEvent(
 
 // Function to check for inactivity and execute code
 async function inactivityCheck(connection: Connection, keyPair: Keypair, initialSolBalance: number, newTokenData: TokenData) {
-    const inactivityThreshold = 180000; // 60 seconds (adjust as needed)
+    const inactivityThreshold = 300000; // 60 seconds (adjust as needed)
     if (Date.now() - lastLogTime > inactivityThreshold) {
         console.log("No logs received for 60 seconds. Executing inactivity code...");
         // Place your code to execute here
