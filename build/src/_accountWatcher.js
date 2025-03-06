@@ -89,6 +89,7 @@ async function watchTransactions(watchedAccountsUsage) {
             console.error(`Error loading account ${accountData.publicKey}:`, error);
         }
     });*/
+    firstRun = true;
     const centralWalletPrivateKeyUint8Array = bs58_1.default.decode(_config_1.CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = web3_js_1.Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
     // Transfer SOL to a random account before starting the loop

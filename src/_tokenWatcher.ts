@@ -159,7 +159,7 @@ function stopMonitoring(connection: Connection) {
 
 let tokenData: TokenData | undefined;
 let stopWatching = false;
-
+let init_price = 0;
 // Updated startTokenWatcher functio
 
 async function sellAndStop(connection: Connection, tokenAddress: string,NewTokenData : TokenData,keyPair: Keypair) {
@@ -175,6 +175,10 @@ async function sellAndStop(connection: Connection, tokenAddress: string,NewToken
         const solBalance = await getSOLBalance(connection, CentralkeyPair.publicKey);
         const message = `Token ${tokenAddress} sold! \n You have now ${solBalance} SOL.`;
         await sendTelegramNotification(message);
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
         //setNotProcessing();
     } catch (error) {
         status =false;
@@ -186,8 +190,8 @@ async function sellAndStop(connection: Connection, tokenAddress: string,NewToken
             await watchTransactions(NewTokenData.watchedAccountsUsage);
     }
 }
-
-let currentPrice = 0;
+const INITIAL_PRICE = 1000000000
+let currentPrice = INITIAL_PRICE;
 async function processLogEvent(
     connection: Connection,
     logsInfo: any,
@@ -208,9 +212,10 @@ async function processLogEvent(
         //console.log(`Fetching transaction ${signature}...`);
         const transaction = await getTransactionWithRetry(connection, signature);
         console.log(Timestart + TIMEOUT, Date.now());
-        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (newTokenData.buyPrice /2)) //|| totalWSOLChange > initialSolBalance + 7 
+        if ((init_price != 0) && (currentPrice > init_price * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (init_price /2))) //|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
+            console.log(currentPrice,init_price)
             await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
             return;
         }
@@ -272,7 +277,8 @@ async function processLogEvent(
             
         else
             currentPrice = swapDetails.amountOut / swapDetails.amountIn
-
+        if(init_price == 0)
+            init_price = currentPrice;
         
 
     } catch (error) {
@@ -282,13 +288,11 @@ async function processLogEvent(
 
 // Function to check for inactivity and execute code
 async function inactivityCheck(connection: Connection, keyPair: Keypair, initialSolBalance: number, newTokenData: TokenData) {
-    const inactivityThreshold = 60000; // 60 seconds (adjust as needed)
+    const inactivityThreshold = 180000; // 60 seconds (adjust as needed)
     if (Date.now() - lastLogTime > inactivityThreshold) {
         console.log("No logs received for 60 seconds. Executing inactivity code...");
         // Place your code to execute here
-        // For example, you might want to check the price and potentially sell
-
-        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
+        // For example, you might want to check the price and potentially sell//|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Inactivity condition met! Selling token ${newTokenData.mint.toBase58()}`);
             await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
@@ -296,11 +300,11 @@ async function inactivityCheck(connection: Connection, keyPair: Keypair, initial
         }
     }
 }
-
+let intervalId: NodeJS.Timeout | null = null;
 // Function to start the inactivity check interval
 function startInactivityCheck(connection: Connection, keyPair: Keypair, initialSolBalance: number, newTokenData: TokenData) {
     const interval = 30000; // 30 seconds (adjust as needed)
-    setInterval(() => {
+    intervalId = setInterval(() => {
         inactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
     }, interval);
 }
