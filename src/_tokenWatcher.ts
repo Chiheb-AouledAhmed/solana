@@ -20,7 +20,7 @@ const UNIFORM_DELAY = 500; // 5 seconds delay between each execution
 const BASE_RETRY_DELAY = 10000; // 10 seconds base delay for retries
 const GET_TRANSACTION_DELAY = 1000; // 1 second delay before getTransactionWithRetry
 const WSOL_ADDRESS = 'So11111111111111111111111111111111111111112'; // WSOL Mint Address
-
+const AMOUNT_SOL_THRESHHOLD = 3.5 *1e9
 // Global variable to track total WSOL change
 let totalWSOLChange = 0;
 
@@ -72,6 +72,7 @@ async function getSignerAccount(connection: Connection, transaction: VersionedTr
 const queue: any[] = [];
 let isProcessing = false;
 let subscriptionId: number | null = null; // To hold the subscription ID
+let lastLogTime: number = Date.now(); // Track the last time a log was received
 
 async function processQueue(
     connection: Connection,
@@ -125,11 +126,15 @@ export async function startMonitoring(
     subscriptionId = connection.onLogs(
         newTokenData.mint,
         (logsInfo) => {
+            lastLogTime = Date.now(); // Update the last log time
             queue.push(logsInfo);
             processQueue(connection, logStream, keyPair, initialSolBalance, newTokenData); // Pass keyPair
         },
         'confirmed'
     );
+
+    // Start the inactivity check interval
+    startInactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
 }
 
 // Function to stop monitoring Raydium transactions
@@ -182,8 +187,6 @@ async function sellAndStop(connection: Connection, tokenAddress: string,NewToken
     }
 }
 
-
-
 let currentPrice = 0;
 async function processLogEvent(
     connection: Connection,
@@ -203,9 +206,9 @@ async function processLogEvent(
     }
     try {
         //console.log(`Fetching transaction ${signature}...`);
-        //const transaction = await getTransactionWithRetry(connection, signature);
+        const transaction = await getTransactionWithRetry(connection, signature);
         console.log(Timestart + TIMEOUT, Date.now());
-        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
+        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (newTokenData.buyPrice /2)) //|| totalWSOLChange > initialSolBalance + 7 
             {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
             await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
@@ -236,7 +239,7 @@ async function processLogEvent(
         if (ignoredAddresses.has(signerAccount.toLowerCase())) {
             console.log(`Skipping transaction ${signature} because signer ${signerAccount} is in the ignore list.`);
             return;
-        }
+        }*/
 
         const swapDetails = await processSwapTransaction(connection, transaction, signature);
         if (!swapDetails) {
@@ -244,7 +247,7 @@ async function processLogEvent(
             return;
         }
         // Update WSOL balance
-        if (swapDetails.inToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
+        /*if (swapDetails.inToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
             totalWSOLChange -= swapDetails.amountIn;
             console.log("totalWSOLChange - = ", swapDetails.amountIn);
         } else if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
@@ -253,18 +256,51 @@ async function processLogEvent(
         } else {
             console.log("No WSOL change in this transaction");
         }
-        console.log(`Current WSOL Balance Change: ${totalWSOLChange}`);
+        console.log(`Current WSOL Balance Change: ${totalWSOLChange}`);*/
 
         // Check for conditions to sell and stop
 
-        if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase())
+        if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()){
+            if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
+                {
+                    console.log("big WSOL bought , Exiting !");
+                    await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
+                    return;
+                }
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
+        }
+            
         else
-            currentPrice = swapDetails.amountOut / swapDetails.amountIn*/
+            currentPrice = swapDetails.amountOut / swapDetails.amountIn
 
         
 
     } catch (error) {
         console.error(`Error processing swap transaction ${signature}:`, error);
     }
+}
+
+// Function to check for inactivity and execute code
+async function inactivityCheck(connection: Connection, keyPair: Keypair, initialSolBalance: number, newTokenData: TokenData) {
+    const inactivityThreshold = 60000; // 60 seconds (adjust as needed)
+    if (Date.now() - lastLogTime > inactivityThreshold) {
+        console.log("No logs received for 60 seconds. Executing inactivity code...");
+        // Place your code to execute here
+        // For example, you might want to check the price and potentially sell
+
+        if (currentPrice > newTokenData.buyPrice * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now()) //|| totalWSOLChange > initialSolBalance + 7 
+            {
+            console.log(`Inactivity condition met! Selling token ${newTokenData.mint.toBase58()}`);
+            await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
+            return;
+        }
+    }
+}
+
+// Function to start the inactivity check interval
+function startInactivityCheck(connection: Connection, keyPair: Keypair, initialSolBalance: number, newTokenData: TokenData) {
+    const interval = 30000; // 30 seconds (adjust as needed)
+    setInterval(() => {
+        inactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
+    }, interval);
 }
