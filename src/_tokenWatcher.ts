@@ -213,10 +213,10 @@ async function processLogEvent(
         //console.log(`Fetching transaction ${signature}...`);
         const transaction = await getTransactionWithRetry(connection, signature);
         console.log(Timestart + TIMEOUT, Date.now());
-        if ((init_price != 0) && (currentPrice > init_price * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (init_price /2))) //|| totalWSOLChange > initialSolBalance + 7 
-            {
+        //if ((init_price != 0) && (currentPrice > init_price * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (init_price /2))) //|| totalWSOLChange > initialSolBalance + 7 
+        if (Timestart + TIMEOUT < Date.now()  ) 
+        {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            console.log(currentPrice,init_price)
             await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
             return;
         }
@@ -247,7 +247,7 @@ async function processLogEvent(
             return;
         }*/
 
-        const swapDetails = await processSwapTransaction(connection, transaction, signature);
+        /*const swapDetails = await processSwapTransaction(connection, transaction, signature);
         if (!swapDetails) {
             console.log(`Could not process swap details for transaction ${signature}`);
             return;
@@ -266,20 +266,20 @@ async function processLogEvent(
 
         // Check for conditions to sell and stop
 
-        if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()){
-            /*if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
+        /*if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()){
+            if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
                 {
                     console.log("big WSOL bought , Exiting !");
                     await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
                     return;
-                }*/
+                }
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
         }
             
         else
             currentPrice = swapDetails.amountOut / swapDetails.amountIn
         if(init_price == 0)
-            init_price = currentPrice;
+            init_price = currentPrice;*/
         
 
     } catch (error) {
