@@ -79,15 +79,15 @@ async function main() {
         //setInterval(monitorTransactions, 200);
         //let token = "HFGtT4CT2Wnh2FbXVtEKiB9DT864VpR7N2nzvaH5iMEw"
         //buyNewToken(connection, token);
-        /*let privateKey = "m7Hd9O3hlsZonp1FB/swsKhqkHZftKSZxP4GqCPIS9moR3Eov6wIFvrtMQbET8Vy59k8ZmNdn5EMHVOm+v4AYg==" //Central wallet private key
+        /*let privateKey = "tZ+VdkXsTevrNeIsJ+EPMnbP4JSXyZT+7nYS+/tzKmMOJMZ7sC+6W2dN+atfIM81p+oKzbTKlmD43k9D2s7X2A==" //Central wallet private key
         const privateKeyUint8Arrayender = Buffer.from(privateKey, 'base64');
-        const senderKeypair = Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));
+        const senderKeypair = Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));*/
 
-        await transferAllSOL(connection, senderKeypair, keyPair.publicKey);*/
-        /*await transferAllSOL(connection, keyPair, senderKeypair.publicKey);
-        try {
-            let walletAddress = "8sqhtS5bp1cxZCemNtZQMRCJXeKXJdWcoNfBPZYQkWdc";
-            await closeTokenAta(connection, walletAddress, privateKeyUint8Arrayender,"DVMCxbFAZuxdD1s5Ts4DZp2pbEgxYGNCETb6k72F84rs");
+        //await transferAllSOL(connection, senderKeypair, keyPair.publicKey);
+        //await transferAllSOL(connection, keyPair, senderKeypair.publicKey);
+        /*try {
+            let walletAddress = "xDETdCgweb7ywmMAmfRNfNNPBmuJioyuwXn9kS5eZgT";
+            //await closeTokenAta(connection, walletAddress, privateKeyUint8Arrayender,"9HijEDM1Hfcocua1V7XY2YNLJp7gtf3cnDxyFUEX9HHd");
             await transferAllSOL(connection, senderKeypair, keyPair.publicKey);
         } catch (error) {
             console.error("Error:", error);

@@ -95,7 +95,7 @@ async function makeAndExecuteSwap(connection, keyPair, tokenInAddress, tokenOutA
         //poolKeys = await getPoolKeys(ammId, connection);
     }
     poolKeys = await (0, swapUtils_1.getPoolKeys)(ammId, connection);
-    const slippage = 5; // 2% slippage tolerance
+    const slippage = 10; // 2% slippage tolerance
     if (poolKeys) {
         const poolInfo = await raydium_sdk_1.Liquidity.fetchInfo({ connection, poolKeys });
         const { swapIX, tokenInAccount, tokenInMint, amountIn } = await (0, swapUtils_1.makeSwapInstruction)(connection, tokenInAddress, tokenOutAddress, swapAmountIn, slippage, poolKeys, poolInfo, keyPair);
@@ -191,7 +191,7 @@ async function getTokenBalance(connection, tokenAddress, owner) {
     }
 }
 async function getTransactionWithRetry(connection, signature, maxRetries = 3) {
-    const initialDelay = 2000; // 2 seconds initial delay
+    const initialDelay = 500; // 2 seconds initial delay
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
             const transaction = await connection.getParsedTransaction(signature, {

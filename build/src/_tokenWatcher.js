@@ -44,7 +44,6 @@ const _transactionUtils_1 = require("./_transactionUtils");
 const _config_1 = require("./_config");
 const fs = __importStar(require("fs"));
 const bs58_1 = __importDefault(require("bs58"));
-const swapUtils_1 = require("./swapUtils");
 const web3_js_2 = require("@solana/web3.js");
 const _accountWatcher_1 = require("./_accountWatcher");
 // Constants
@@ -97,7 +96,7 @@ async function getSignerAccount(connection, transaction) {
     return allAccs[signerIndex]?.toBase58() ?? 'Unknown';
 }
 // Queue management
-const queue = [];
+let queue = [];
 let isProcessing = false;
 let subscriptionId = null; // To hold the subscription ID
 let lastLogTime = Date.now(); // Track the last time a log was received
@@ -128,6 +127,8 @@ let isMonitoring = false;
 let Timestart = 0;
 // Function to start monitoring Raydium transactions
 async function startMonitoring(connection, keyPair, initialSolBalance, newTokenData) {
+    queue = [];
+    init_price = 0;
     const logStream = fs.createWriteStream(LOG_FILE, { flags: 'a' });
     if (isMonitoring) {
         console.log("Already monitoring Raydium transactions.");
@@ -138,12 +139,12 @@ async function startMonitoring(connection, keyPair, initialSolBalance, newTokenD
     stopWatching = false;
     isMonitoring = true;
     subscriptionId = connection.onLogs(newTokenData.mint, (logsInfo) => {
-        lastLogTime = Date.now(); // Update the last log time
+        //lastLogTime = Date.now(); // Update the last log time
         queue.push(logsInfo);
         processQueue(connection, logStream, keyPair, initialSolBalance, newTokenData); // Pass keyPair
     }, 'confirmed');
     // Start the inactivity check interval
-    startInactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
+    //startInactivityCheck(connection, keyPair, initialSolBalance, newTokenData);
 }
 // Function to stop monitoring Raydium transactions
 function stopMonitoring(connection) {
@@ -209,10 +210,9 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
         //console.log(`Fetching transaction ${signature}...`);
         const transaction = await (0, _transactionUtils_1.getTransactionWithRetry)(connection, signature);
         console.log(Timestart + _config_1.TIMEOUT, Date.now());
-        if ((init_price != 0) && (currentPrice > init_price * _config_1.PROFIT_THRESHOLD || Timestart + _config_1.TIMEOUT < Date.now() || currentPrice < (init_price / 2))) //|| totalWSOLChange > initialSolBalance + 7 
-         {
+        //if ((init_price != 0) && (currentPrice > init_price * PROFIT_THRESHOLD || Timestart + TIMEOUT < Date.now() || currentPrice < (init_price /2))) //|| totalWSOLChange > initialSolBalance + 7 
+        if (Timestart + _config_1.TIMEOUT < Date.now()) {
             console.log(`Condition met! Selling token ${newTokenData.mint.toBase58()}`);
-            console.log(currentPrice, init_price);
             await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData, keyPair);
             return;
         }
@@ -242,7 +242,7 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
             console.log(`Skipping transaction ${signature} because signer ${signerAccount} is in the ignore list.`);
             return;
         }*/
-        const swapDetails = await (0, swapUtils_1.processSwapTransaction)(connection, transaction, signature);
+        /*const swapDetails = await processSwapTransaction(connection, transaction, signature);
         if (!swapDetails) {
             console.log(`Could not process swap details for transaction ${signature}`);
             return;
@@ -259,18 +259,20 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
         }
         console.log(`Current WSOL Balance Change: ${totalWSOLChange}`);*/
         // Check for conditions to sell and stop
-        if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()) {
-            if (swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD) {
-                console.log("big WSOL bought , Exiting !");
-                await sellAndStop(connection, newTokenData.mint.toBase58(), newTokenData, keyPair);
-                return;
-            }
+        /*if (swapDetails.outToken.toLowerCase() === WSOL_ADDRESS.toLowerCase()){
+            if(swapDetails.amountOut > AMOUNT_SOL_THRESHHOLD)
+                {
+                    console.log("big WSOL bought , Exiting !");
+                    await sellAndStop(connection, newTokenData.mint.toBase58(),newTokenData,keyPair);
+                    return;
+                }
             currentPrice = swapDetails.amountIn / swapDetails.amountOut;
         }
+            
         else
-            currentPrice = swapDetails.amountOut / swapDetails.amountIn;
-        if (init_price == 0)
-            init_price = currentPrice;
+            currentPrice = swapDetails.amountOut / swapDetails.amountIn
+        if(init_price == 0)
+            init_price = currentPrice;*/
     }
     catch (error) {
         console.error(`Error processing swap transaction ${signature}:`, error);
@@ -278,7 +280,7 @@ async function processLogEvent(connection, logsInfo, logStream, keyPair, initial
 }
 // Function to check for inactivity and execute code
 async function inactivityCheck(connection, keyPair, initialSolBalance, newTokenData) {
-    const inactivityThreshold = 180000; // 60 seconds (adjust as needed)
+    const inactivityThreshold = 300000; // 60 seconds (adjust as needed)
     if (Date.now() - lastLogTime > inactivityThreshold) {
         console.log("No logs received for 60 seconds. Executing inactivity code...");
         // Place your code to execute here

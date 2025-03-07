@@ -59,7 +59,7 @@ import {
 export async function buyNewToken(connection: Connection, tokenAddress: string,keyPair:Keypair): Promise<string> {
     let curAmmId = "";
     const solBalance = await getSOLBalance(connection, keyPair.publicKey);
-    const amountToBuy = (solBalance-0.01) * BUY_AMOUNT_PERCENTAGE ; // Use percentage from config
+    const amountToBuy = (solBalance-0.007) * BUY_AMOUNT_PERCENTAGE ; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
     let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
     const instruction = await pollTransactionsForSwap(tokenAddress,program_id,connection);
