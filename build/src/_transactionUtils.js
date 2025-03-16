@@ -19,7 +19,7 @@ const raydium_sdk_1 = require("@raydium-io/raydium-sdk");
 async function buyNewToken(connection, tokenAddress, keyPair) {
     let curAmmId = "";
     const solBalance = await (0, _utils_1.getSOLBalance)(connection, keyPair.publicKey);
-    const amountToBuy = (solBalance - 0.01) * _config_1.BUY_AMOUNT_PERCENTAGE; // Use percentage from config
+    const amountToBuy = (solBalance - 0.007) * _config_1.BUY_AMOUNT_PERCENTAGE; // Use percentage from config
     console.log(`Buying token ${tokenAddress} with ${amountToBuy} SOL`);
     let program_id = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
     const instruction = await (0, swapUtils_1.pollTransactionsForSwap)(tokenAddress, program_id, connection);

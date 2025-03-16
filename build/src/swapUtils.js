@@ -13,6 +13,7 @@ exports.getPoolId = getPoolId;
 exports.executeVersionedTransaction = executeVersionedTransaction;
 exports.getOrCreateAssociatedTokenAccountWithRetry = getOrCreateAssociatedTokenAccountWithRetry;
 exports.processTransferTransaction = processTransferTransaction;
+exports.processTransferSolanaTransaction = processTransferSolanaTransaction;
 // src/swapUtils.ts
 const buffer_layout_1 = require("@solana/buffer-layout");
 // src/swapUtils.ts
@@ -526,6 +527,38 @@ async function processTransferTransaction(transaction) {
                 });
                 transferDetails.add({
                     tokenAddress: tokenAddress,
+                    amount: amount,
+                    source: source,
+                    destination: destination
+                });
+            }
+        }
+        return transferDetails;
+    }
+    catch (error) {
+        console.error(`Error processing transfer transaction:`, error);
+        return null;
+    }
+}
+async function processTransferSolanaTransaction(transaction) {
+    try {
+        const transferInstructions = transaction.transaction.message.instructions.filter((instruction) => {
+            if ('programId' in instruction) {
+                return true;
+            }
+            return false;
+        });
+        let transferDetails = new Set();
+        for (const transferInstruction of transferInstructions) {
+            if ('parsed' in transferInstruction && (transferInstruction.parsed.type === 'transfer' || transferInstruction.parsed.type === 'transferChecked')) {
+                const info = transferInstruction.parsed.info;
+                // Assuming the first account is the source and the second is the destination
+                const source = info.source;
+                const destination = info.destination;
+                const amount = info.lamports;
+                // Fetch the transaction data to get the amount transferred
+                transferDetails.add({
+                    tokenAddress: "So11111111111111111111111111111111111111112",
                     amount: amount,
                     source: source,
                     destination: destination

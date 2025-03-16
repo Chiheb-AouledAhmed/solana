@@ -4,7 +4,7 @@ import { Connection, PublicKey, Keypair,ParsedInstruction,TransactionInstruction
 import { SOLANA_RPC_URL,CENTRAL_WALLET_PRIVATE_KEY,YOUR_PRIVATE_KEY, ACCOUNTS_FILE,ACCOUNT_TO_WATCH, POLLING_INTERVAL, KNOWN_TOKENS , ACCOUNTS_TO_WATCH } from './_config';
 import { getParsedTransactionWithRetry, sendTelegramNotification ,transferAllSOLToRandomAccount} from './_utils';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token';
-import { processTransferTransaction, isSwapTransaction, processSwapTransaction,parseSwapInfo, determineInOutTokens, logTypeToStruct } from './swapUtils';
+import { processTransferTransaction, processTransferSolanaTransaction,isSwapTransaction, processSwapTransaction,parseSwapInfo, determineInOutTokens, logTypeToStruct } from './swapUtils';
 import { buyNewToken } from './_transactionUtils';
 import { startMonitoring } from './_tokenWatcher'; // Import startTokenWatcher
 import { TokenData,AccountData } from './_types';
@@ -60,7 +60,7 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
         }
     });*/
     firstRun = true;
-    const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
+    /*const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
 
     // Transfer SOL to a random account before starting the loop
@@ -68,14 +68,15 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
     if (!recipientPublicKey) {
         console.error('Failed to transfer SOL to a random account.');
         return;
-    }
+    }*/
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
     let watchedAccounts: PublicKey[] = [];
-    if (ACCOUNTS_TO_WATCH && Array.isArray(ACCOUNTS_TO_WATCH)) {
-        watchedAccounts = ACCOUNTS_TO_WATCH.map(account => new PublicKey(account));
+    let ACCOUNTS_TO_WATCH_v2= ["69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt"]
+    if (ACCOUNTS_TO_WATCH_v2 && Array.isArray(ACCOUNTS_TO_WATCH_v2)) {
+        watchedAccounts = ACCOUNTS_TO_WATCH_v2.map(account => new PublicKey(account));
     }
     else{
-        console.log("ACCOUNTS_TO_WATCH",ACCOUNTS_TO_WATCH);
+        console.log("ACCOUNTS_TO_WATCH",ACCOUNTS_TO_WATCH_v2);
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
@@ -122,8 +123,12 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
                     cacheSignature.add(signature);
                     {
                     lastSignature = signature;
-                    console.log(`New transaction detected: ${signature}`);
-
+                    /*console.log(`New transaction detected: ${signature}`);
+                    const message = `
+                    New Token Transfer Detected!
+                    Signature: ${signature}
+                    `;
+                    await sendTelegramNotification(message);*/
                     try {
                         const transaction = await getParsedTransactionWithRetry(
                             connection,
@@ -137,7 +142,22 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
                         if (transaction) {
                             console.log("Transaction", transaction);
 
-                            if (isSwapTransaction(transaction)) {
+                                const transferDetails = await processTransferSolanaTransaction(transaction);
+
+                                if ((transferDetails) && (!firstRun)){
+                                    console.log(`Transfer Details: ${JSON.stringify(transferDetails)}`);
+                                    for(const transferDetail of transferDetails){
+                                        let amount = transferDetail.amount
+                                        if((amount>90 * 1e9) && (transferDetail.source == '69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt')){
+                                            const message = `
+                                            New Token Transfer Detected!
+                                            Signature: ${signature}
+                                            `;
+                                            await sendTelegramNotification(message);
+                                        }
+                                    } 
+                                }
+                            /*if (isSwapTransaction(transaction)) {
                                 const swapDetails = await processSwapTransaction(connection, transaction, signature);
                                 if(swapDetails){
                                     let tokenAddress = "";
@@ -150,12 +170,12 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
                                         let processed = await processDetails(tokenAddress,firstRun,signature,connection,recipientPublicKey,watchedAccountsUsage,publicKey);
                                         if (processed)
                                             return 
-                                        /*await startMonitoring(connection,keyPair,0,
-                                            {
-                                                mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
-                                                decimals: 9,
-                                                buyPrice : 100000000000000000
-                                            });*/
+                                        //await startMonitoring(connection,keyPair,0,
+                                            //{
+                                              //  mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
+                                               // decimals: 9,
+                                               // buyPrice : 100000000000000000
+                                            //});
                                         // startMonitoring(tokenData);
                                     
                                 } catch (buyError) {
@@ -164,8 +184,6 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
                                 }else{
                                     console.log("failed to fetch Swap details");
                                 }
-                                /*if(Processing)
-                                    break;*/
                             }
                             else{
                                 const transferDetails = await processTransferTransaction(transaction);
@@ -184,13 +202,11 @@ export async function watchTransactions(watchedAccountsUsage:{ [publicKey: strin
                                                 console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                         }
                                     } 
-                                    /*if(Processing)
-                                        break;*/
                                 }
                              else {
                                 console.log('This transaction does not appear to be a transfer.');
                             }
-                        }
+                        }*/
                     } else {
                             console.log(`Transaction ${signature} could not be fetched or was skipped.`);
                         }
@@ -228,12 +244,6 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
                     return false;
                 }
             
-                const message = `
-                New Token Transfer Detected!
-                Signature: ${signature}
-                Token: ${tokenAddress}
-            `;
-            await sendTelegramNotification(message);
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

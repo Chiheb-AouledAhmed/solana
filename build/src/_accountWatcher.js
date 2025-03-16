@@ -33,9 +33,6 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setNotProcessing = setNotProcessing;
 exports.watchTransactions = watchTransactions;
@@ -46,7 +43,6 @@ const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _tokenWatcher_1 = require("./_tokenWatcher"); // Import startTokenWatcher
-const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
 let stopWatching = false;
 let lastSignature = '';
@@ -90,21 +86,23 @@ async function watchTransactions(watchedAccountsUsage) {
         }
     });*/
     firstRun = true;
-    const centralWalletPrivateKeyUint8Array = bs58_1.default.decode(_config_1.CENTRAL_WALLET_PRIVATE_KEY);
-    const centralWalletKeypair = web3_js_1.Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
+    /*const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
+    const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
+
     // Transfer SOL to a random account before starting the loop
-    const recipientPublicKey = await (0, _utils_1.transferAllSOLToRandomAccount)(connection, centralWalletKeypair, accounts); // Transfer 1 SOL
+    const recipientPublicKey = await transferAllSOLToRandomAccount(connection, centralWalletKeypair, accounts); // Transfer 1 SOL
     if (!recipientPublicKey) {
         console.error('Failed to transfer SOL to a random account.');
         return;
-    }
+    }*/
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
     let watchedAccounts = [];
-    if (_config_1.ACCOUNTS_TO_WATCH && Array.isArray(_config_1.ACCOUNTS_TO_WATCH)) {
-        watchedAccounts = _config_1.ACCOUNTS_TO_WATCH.map(account => new web3_js_1.PublicKey(account));
+    let ACCOUNTS_TO_WATCH_v2 = ["69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt"];
+    if (ACCOUNTS_TO_WATCH_v2 && Array.isArray(ACCOUNTS_TO_WATCH_v2)) {
+        watchedAccounts = ACCOUNTS_TO_WATCH_v2.map(account => new web3_js_1.PublicKey(account));
     }
     else {
-        console.log("ACCOUNTS_TO_WATCH", _config_1.ACCOUNTS_TO_WATCH);
+        console.log("ACCOUNTS_TO_WATCH", ACCOUNTS_TO_WATCH_v2);
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
@@ -140,7 +138,12 @@ async function watchTransactions(watchedAccountsUsage) {
                     cacheSignature.add(signature);
                     {
                         lastSignature = signature;
-                        console.log(`New transaction detected: ${signature}`);
+                        /*console.log(`New transaction detected: ${signature}`);
+                        const message = `
+                        New Token Transfer Detected!
+                        Signature: ${signature}
+                        `;
+                        await sendTelegramNotification(message);*/
                         try {
                             const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
                                 commitment: 'confirmed',
@@ -148,60 +151,70 @@ async function watchTransactions(watchedAccountsUsage) {
                             });
                             if (transaction) {
                                 console.log("Transaction", transaction);
-                                if ((0, swapUtils_1.isSwapTransaction)(transaction)) {
-                                    const swapDetails = await (0, swapUtils_1.processSwapTransaction)(connection, transaction, signature);
-                                    if (swapDetails) {
+                                const transferDetails = await (0, swapUtils_1.processTransferSolanaTransaction)(transaction);
+                                if ((transferDetails) && (!firstRun)) {
+                                    console.log(`Transfer Details: ${JSON.stringify(transferDetails)}`);
+                                    for (const transferDetail of transferDetails) {
+                                        let amount = transferDetail.amount;
+                                        if ((amount > 90 * 1e9) && (transferDetail.source == '69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt')) {
+                                            const message = `
+                                            New Token Transfer Detected!
+                                            Signature: ${signature}
+                                            `;
+                                            await (0, _utils_1.sendTelegramNotification)(message);
+                                        }
+                                    }
+                                }
+                                /*if (isSwapTransaction(transaction)) {
+                                    const swapDetails = await processSwapTransaction(connection, transaction, signature);
+                                    if(swapDetails){
                                         let tokenAddress = "";
-                                        if (!knownTokens.has(swapDetails.inToken)) {
+                                        if(!knownTokens.has(swapDetails.inToken)){
                                             tokenAddress = swapDetails.inToken;
                                         }
                                         else
                                             tokenAddress = swapDetails.outToken;
-                                        try {
-                                            let processed = await processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, publicKey);
+                                    try{
+                                            let processed = await processDetails(tokenAddress,firstRun,signature,connection,recipientPublicKey,watchedAccountsUsage,publicKey);
                                             if (processed)
-                                                return;
-                                            /*await startMonitoring(connection,keyPair,0,
-                                                {
-                                                    mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
-                                                    decimals: 9,
-                                                    buyPrice : 100000000000000000
-                                                });*/
+                                                return
+                                            //await startMonitoring(connection,keyPair,0,
+                                                //{
+                                                  //  mint: new PublicKey('GvjehsRY6DEhLyL7ALFADD6QV34pmerMyzfX27owinpY'),
+                                                   // decimals: 9,
+                                                   // buyPrice : 100000000000000000
+                                                //});
                                             // startMonitoring(tokenData);
-                                        }
-                                        catch (buyError) {
+                                        
+                                    } catch (buyError) {
                                             console.error(`Failed to buy token ${tokenAddress}:`, buyError);
-                                        }
                                     }
-                                    else {
+                                    }else{
                                         console.log("failed to fetch Swap details");
                                     }
-                                    /*if(Processing)
-                                        break;*/
                                 }
-                                else {
-                                    const transferDetails = await (0, swapUtils_1.processTransferTransaction)(transaction);
+                                else{
+                                    const transferDetails = await processTransferTransaction(transaction);
+    
                                     if (transferDetails) {
                                         console.log(`Transfer Details: ${JSON.stringify(transferDetails)}`);
-                                        for (const transferDetail of transferDetails) {
+                                        for(const transferDetail of transferDetails){
+                                    
                                             const tokenAddress = transferDetail.tokenAddress;
-                                            try {
-                                                let processsed = await processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, publicKey);
-                                                if (processsed)
-                                                    return;
-                                                //startMonitoring(tokenData);// Exit the loop after buying
-                                            }
-                                            catch (buyError) {
-                                                console.error(`Failed to buy token ${tokenAddress}:`, buyError);
+                                            try{
+                                                let processsed = await processDetails(tokenAddress,firstRun,signature,connection,recipientPublicKey,watchedAccountsUsage,publicKey);
+                                                if(processsed)
+                                                    return ;
+                                                    //startMonitoring(tokenData);// Exit the loop after buying
+                                            } catch (buyError) {
+                                                    console.error(`Failed to buy token ${tokenAddress}:`, buyError);
                                             }
                                         }
-                                        /*if(Processing)
-                                            break;*/
                                     }
-                                    else {
-                                        console.log('This transaction does not appear to be a transfer.');
-                                    }
+                                 else {
+                                    console.log('This transaction does not appear to be a transfer.');
                                 }
+                            }*/
                             }
                             else {
                                 console.log(`Transaction ${signature} could not be fetched or was skipped.`);
@@ -235,12 +248,6 @@ async function processDetails(tokenAddress, firstRun, signature, connection, rec
                 console.log(`Ignoring token as it is not in database and cool down of {watchedAccount.toBase58()} period is not over`);
                 return false;
             }
-            const message = `
-                New Token Transfer Detected!
-                Signature: ${signature}
-                Token: ${tokenAddress}
-            `;
-            await (0, _utils_1.sendTelegramNotification)(message);
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

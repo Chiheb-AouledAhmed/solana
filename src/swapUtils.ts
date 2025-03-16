@@ -682,6 +682,46 @@ export async function processTransferTransaction(
     }
 }
 
+export async function processTransferSolanaTransaction(
+    transaction: ParsedTransactionWithMeta,
+): Promise<Set<TransferDetails> | null> {
+    try {
+        const transferInstructions = transaction.transaction.message.instructions.filter((instruction) => {
+            if ('programId' in instruction) {
+                return true;
+            }
+            return false;
+        });
+        
+        let transferDetails = new Set<TransferDetails>();
+        for(const transferInstruction of transferInstructions) {
+            if ('parsed' in transferInstruction && (transferInstruction.parsed.type === 'transfer' || transferInstruction.parsed.type === 'transferChecked' ) ) {
+                
+            const info = transferInstruction.parsed.info;
+
+            // Assuming the first account is the source and the second is the destination
+            const source = info.source;
+            const destination = info.destination;
+            const amount = info.lamports
+
+            // Fetch the transaction data to get the amount transferred
+            
+
+            transferDetails.add({
+                tokenAddress: "So11111111111111111111111111111111111111112",
+                amount: amount,
+                source: source,
+                destination: destination
+            });}
+        }
+
+        return transferDetails;
+    } catch (error) {
+        console.error(`Error processing transfer transaction:`, error);
+        return null;
+    }
+}
+
 interface TransferDetails {
     tokenAddress: string;
     amount: number;

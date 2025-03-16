@@ -2,7 +2,7 @@
 import { watchTransactions } from './_accountWatcher';
 //import { startMonitoring,startTokenWatcher, stopTokenWatcher } from './_tokenWatcher';
 import { buyNewToken ,makeAndExecuteSwap,findOrCreateWrappedSolAccount,unwrapWrappedSol,findWrappedSolAccount,closeTokenAta} from './_transactionUtils';
-import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction}  from './swapUtils';
+import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction,processTransferSolanaTransaction}  from './swapUtils';
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
 import dotenv from 'dotenv';
@@ -17,7 +17,7 @@ import express from 'express';
 let stopAccountWatcher = false;
 let tokenToWatch: string | null = null;
 
-import { transferAllSOL} from './_utils';
+import { transferAllSOL,getParsedTransactionWithRetry,sendTelegramNotification} from './_utils';
 
 async function main() {
     console.log('Starting Solana Trader Bot...');
@@ -93,7 +93,33 @@ async function main() {
             console.error("Error:", error);
             
         }*/
+       /*const signature = "2JBCxDFdALp3fyENxnDFFsHgvhm7vkUiEkAFGS8oaFVDsgK6ZVWtPd1WKTre5KRYJ9dVMeG8t9wy5AF4ywW5qYKt"
+       const transaction = await getParsedTransactionWithRetry(
+        connection,
+        signature,
+        {
+            commitment: 'confirmed',
+            maxSupportedTransactionVersion: 0
+        }
+        );
+       const transferDetails = await processTransferSolanaTransaction(transaction);
 
+       if (transferDetails) {
+        for(const transferDetail of transferDetails){
+            console.log(transferDetails)
+            console.log(`Transfer Details: ${JSON.stringify(transferDetails)}`);
+            let amount = transferDetail.amount
+            if((amount>90 * 1e9) && (transferDetail.destination == '69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt')){
+                const message = `
+                New Token Transfer Detected!
+                Signature: ${signature}
+                `;
+                await sendTelegramNotification(message);
+            }
+        } 
+       }*/
+           
+            
 
         const watchedAccountsUsage: { [publicKey: string]: number } = {};
         await watchTransactions(watchedAccountsUsage);

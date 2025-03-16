@@ -21,7 +21,7 @@ exports.MAX_RETRIES = 7;
 exports.INITIAL_RETRY_DELAY = 2000;
 exports.CENTRAL_WALLET_PRIVATE_KEY = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5";
 exports.ACCOUNTS_FILE = "accounts.json";
-exports.TIMEOUT = 3 * 60 * 1000; // 45 minutes
+exports.TIMEOUT = 15 * 60 * 1000; // 45 minutes
 exports.KNOWN_TOKENS = new Set([
     "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC
     "So11111111111111111111111111111111111111112", // SOL

@@ -3,6 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// src/main.ts
+const _accountWatcher_1 = require("./_accountWatcher");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -12,7 +14,6 @@ const bs58_1 = __importDefault(require("bs58"));
 const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
-const _utils_1 = require("./_utils");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -70,21 +71,46 @@ async function main() {
         //setInterval(monitorTransactions, 200);
         //let token = "HFGtT4CT2Wnh2FbXVtEKiB9DT864VpR7N2nzvaH5iMEw"
         //buyNewToken(connection, token);
-        let privateKey = "tZ+VdkXsTevrNeIsJ+EPMnbP4JSXyZT+7nYS+/tzKmMOJMZ7sC+6W2dN+atfIM81p+oKzbTKlmD43k9D2s7X2A=="; //Central wallet private key
+        /*let privateKey = "tZ+VdkXsTevrNeIsJ+EPMnbP4JSXyZT+7nYS+/tzKmMOJMZ7sC+6W2dN+atfIM81p+oKzbTKlmD43k9D2s7X2A==" //Central wallet private key
         const privateKeyUint8Arrayender = Buffer.from(privateKey, 'base64');
-        const senderKeypair = web3_js_1.Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));
+        const senderKeypair = Keypair.fromSecretKey(new Uint8Array(privateKeyUint8Arrayender));*/
         //await transferAllSOL(connection, senderKeypair, keyPair.publicKey);
         //await transferAllSOL(connection, keyPair, senderKeypair.publicKey);
-        try {
+        /*try {
             let walletAddress = "xDETdCgweb7ywmMAmfRNfNNPBmuJioyuwXn9kS5eZgT";
             //await closeTokenAta(connection, walletAddress, privateKeyUint8Arrayender,"9HijEDM1Hfcocua1V7XY2YNLJp7gtf3cnDxyFUEX9HHd");
-            await (0, _utils_1.transferAllSOL)(connection, senderKeypair, keyPair.publicKey);
-        }
-        catch (error) {
+            await transferAllSOL(connection, senderKeypair, keyPair.publicKey);
+        } catch (error) {
             console.error("Error:", error);
-        }
+            
+        }*/
+        /*const signature = "2JBCxDFdALp3fyENxnDFFsHgvhm7vkUiEkAFGS8oaFVDsgK6ZVWtPd1WKTre5KRYJ9dVMeG8t9wy5AF4ywW5qYKt"
+        const transaction = await getParsedTransactionWithRetry(
+         connection,
+         signature,
+         {
+             commitment: 'confirmed',
+             maxSupportedTransactionVersion: 0
+         }
+         );
+        const transferDetails = await processTransferSolanaTransaction(transaction);
+ 
+        if (transferDetails) {
+         for(const transferDetail of transferDetails){
+             console.log(transferDetails)
+             console.log(`Transfer Details: ${JSON.stringify(transferDetails)}`);
+             let amount = transferDetail.amount
+             if((amount>90 * 1e9) && (transferDetail.destination == '69dQZMdXizk5N9PbK7fppTspbuG6VbsVxLD6hu4BvKBt')){
+                 const message = `
+                 New Token Transfer Detected!
+                 Signature: ${signature}
+                 `;
+                 await sendTelegramNotification(message);
+             }
+         }
+        }*/
         const watchedAccountsUsage = {};
-        //await watchTransactions(watchedAccountsUsage);
+        await (0, _accountWatcher_1.watchTransactions)(watchedAccountsUsage);
         console.log('awaited');
     }
     catch (error) {
