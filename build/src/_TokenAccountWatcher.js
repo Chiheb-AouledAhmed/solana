@@ -10,6 +10,7 @@ const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _tokenWatcher_1 = require("./_tokenWatcher"); // Import startTokenWatcher
+const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -23,7 +24,7 @@ function setNotProcessing() {
     firstRun = true;
     console.log("watching another token ->>>");
 }
-async function watchTokenTransactions(tokenAccountAddress) {
+async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     // Initialize monitored accounts (accounts that will be buying tokens)
@@ -48,7 +49,7 @@ async function watchTokenTransactions(tokenAccountAddress) {
         return;
     }*/
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
-    let watchedAccounts = [new web3_js_1.PublicKey(tokenAccountAddress)];
+    let watchedAccounts = [new web3_js_1.PublicKey(accountaddress)];
     let cacheSignature = new Set();
     while (!stopWatching) {
         try {
@@ -62,75 +63,66 @@ async function watchTokenTransactions(tokenAccountAddress) {
             for (const account of watchedAccounts) {
                 const publicKey = new web3_js_1.PublicKey(account);
                 const signaturesAccount = await connection.getSignaturesForAddress(account, {
-                    limit: 10
+                    limit: 300
                 }, 'confirmed');
                 for (const signature of signaturesAccount) {
                     signatures.push({ signature: signature, account: publicKey });
                 }
             }
+            signatures.reverse();
             for (const signatureInfo of signatures) {
                 const signature = signatureInfo.signature.signature;
                 const publicKey = signatureInfo.account;
                 if (signature && !cacheSignature.has(signature)) {
                     cacheSignature.add(signature);
-                    {
-                        lastSignature = signature;
-                        /*console.log(`New transaction detected: ${signature}`);
-                        const message = `
-                        New Token Transfer Detected!
-                        Signature: ${signature}
-                        `;
-                        await sendTelegramNotification(message);*/
-                        try {
-                            console.log("waiting ...");
-                            await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));
-                            console.log("awaited");
-                            const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
-                                commitment: 'confirmed',
-                                maxSupportedTransactionVersion: 0
-                            });
-                            if (transaction) {
-                                console.log("Transaction", transaction);
-                                if ((0, swapUtils_1.isSwapTransaction)(transaction)) {
-                                    const swapDetails = await (0, swapUtils_1.processSwapTransaction)(connection, transaction, signature);
-                                    if (swapDetails) {
-                                        let tokenAddress = "";
-                                        if (!knownTokens.has(swapDetails.inToken)) {
-                                            tokenAddress = swapDetails.inToken;
-                                            allsum += swapDetails.amountIn;
-                                            const message = `
-                                            Token has been bought
-                                            Signature: ${signature}
-                                            `;
-                                            // Send Telegram notification
-                                            await (0, _utils_1.sendTelegramNotification)(message);
-                                        }
-                                        else if (!knownTokens.has(swapDetails.outToken)) {
-                                            tokenAddress = swapDetails.outToken;
-                                            allsum -= swapDetails.amountOut;
-                                            if (allsum = 0) {
-                                                const message = `
-                                            All tokens have been sold
-                                            Signature: ${signature}
-                                            Token: ${tokenAddress}
-                                            `;
-                                                // Send Telegram notification
-                                                await (0, _utils_1.sendTelegramNotification)(message);
-                                            }
-                                        }
+                    lastSignature = signature;
+                    /*console.log(`New transaction detected: ${signature}`);
+                    const message = `
+                    New Token Transfer Detected!
+                    Signature: ${signature}
+                    `;
+                    await sendTelegramNotification(message);*/
+                    try {
+                        const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
+                            commitment: 'confirmed',
+                            maxSupportedTransactionVersion: 0
+                        });
+                        if (transaction) {
+                            console.log("Transaction", transaction);
+                            const result = await (0, swapUtils_1.decodePumpFunTrade)(signature, transaction);
+                            if (result.length == 1 && result[0].tokenAddress == tokenAccountAddress) {
+                                for (const res of result) {
+                                    let amount = res.tokenAmount;
+                                    if (res.direction == 'buy') {
+                                        allsum += amount;
+                                        console.log("bought token");
+                                        console.log(`Total bought amount: ${allsum}`);
                                     }
-                                    else {
-                                        console.log("failed to fetch Swap details");
+                                    else if (res.direction == 'sell') {
+                                        allsum -= amount;
+                                        console.log("sold token");
+                                        console.log(`Total bought amount: ${allsum}`);
+                                    }
+                                    if (allsum < 1e5) {
+                                        console.log(`All tokens sold. Exiting...`);
+                                        console.log(`New pump fun token detected: ${signature}`);
+                                        const message = `
+                                    Buying new token
+                                    Token: ${tokenAccountAddress}
+                                    Signature: ${signature}
+                                    `;
+                                        await (0, _utils_1.sendTelegramNotification)(message);
+                                        return (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
                                     }
                                 }
                             }
                             else {
-                                console.log(`Transaction ${signature} could not be fetched or was skipped.`);
+                                console.log('This transaction is not a pump fun transaction of the chosen token');
                             }
                         }
-                        catch (error) {
-                            console.error("Error processing transaction:", error);
-                        }
+                    }
+                    catch (error) {
+                        console.error("Error processing transaction:", error);
                     }
                 }
             }

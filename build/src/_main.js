@@ -108,10 +108,9 @@ async function main() {
              }
          }
         }*/
-        /*let knownTokens = KNOWN_TOKENS;
-        let signature = "4B7jjaSUVs4JqfrqThPW8EtMBknhwzb6YGJbWDnkaq2MhNibhyoYA2A7LN1tzmVJZbUZq5xNkN3zFim7TUYzACnt"
-        let allsum = 0;
-        const transaction = await getParsedTransactionWithRetry(
+        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+        //await watchTokenTransactions(accountaddress,tokenaddress);
+        /*const transaction = await getParsedTransactionWithRetry(
                                     connection,
                                     signature,
                                     {
@@ -122,17 +121,19 @@ async function main() {
         
         if (transaction) {
             console.log("Transaction", transaction);
-
+            console.log(isPumpFunCreation(signature,transaction));
             if (isSwapTransaction(transaction)) {
-                const result = await decodePumpFunTrade(signature);
-                if(result){
+                const result = await decodePumpFunTrade(signature,transaction);
+                if(result.length>0){
+                    for(const res of result)
+                    {
                     let tokenAddress = result.tokenAddress;
-                    if(result.direction == "buy"){
-                        allsum += result.tokenAmount;
+                    if(res.direction == "buy"){
+                        allsum += res.tokenAmount;
                     }
-                    else {
-                        allsum -= result.tokenAmount;
-                        if(allsum == 0){
+                    else
+                        allsum -= res.tokenAmount;
+                    if(allsum <1e5){
                             const message = `
                             All tokens have been sold
                             Signature: ${signature}
@@ -141,15 +142,15 @@ async function main() {
 
                             // Send Telegram notification
                             await sendTelegramNotification(message);
-                        }
-                    }
+                            console.log(`All tokens have been sold. Exiting...`);}
+                    
                 }
             }
-        }
+        }}
         
         console.log("All sum",allsum);*/
         const watchedAccountsUsage = {};
-        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(watchedAccountsUsage);
+        //await watchPumpFunTransactions(watchedAccountsUsage);
         console.log('awaited');
     }
     catch (error) {

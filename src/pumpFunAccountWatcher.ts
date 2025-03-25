@@ -6,6 +6,7 @@ import { decodePumpFunTrade,processTransferTransaction, processTransferSolanaTra
 import { buyNewToken } from './_transactionUtils';
 import { startMonitoring } from './_tokenWatcher'; // Import startTokenWatcher
 import { TokenData,AccountData } from './_types';
+import { watchTokenTxs } from './TokenCreatorFinder';
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
@@ -39,7 +40,7 @@ function loadAccounts(filename: string): AccountData[] {
     }
 }
 
-export async function watchPumpFunTransactions(watchedAccountsUsage:{ [publicKey: string]: number }): Promise<void> {
+export async function watchPumpFunTransactions(): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     const accounts = loadAccounts(ACCOUNTS_FILE);
@@ -78,10 +79,6 @@ export async function watchPumpFunTransactions(watchedAccountsUsage:{ [publicKey
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
-    watchedAccounts.forEach(account => {
-        // Initialize the account in watchedAccountsUsage to 0 only if it doesn't exist
-        watchedAccountsUsage[account.toBase58()] ??= 0;
-    });
 
     const privateKey = process.env.PRIVATE_KEY;
 
@@ -141,9 +138,13 @@ export async function watchPumpFunTransactions(watchedAccountsUsage:{ [publicKey
                             console.log("Transaction", transaction);
 
                             const result = await decodePumpFunTrade(signature,transaction);
-                            if(result){
-                                let tokenAddress = result.tokenAddress;
-                                let processed = await processDetails(tokenAddress,firstRun,signature,connection,centralWalletKeypair,watchedAccountsUsage,publicKey);
+                            if(result.length>0){
+                                let tokenAddress = result[0].tokenAddress;
+                                let processed = await processDetails(tokenAddress,firstRun,signature,connection,centralWalletKeypair,publicKey);
+                                if(processed){
+                                    return watchTokenTxs(tokenAddress,signature);
+                                }
+                                    
                             }
                             
                             else {
@@ -170,7 +171,7 @@ export function stopAccountWatcher(): void {
     stopWatching = true;
 }
 
-async function processDetails(tokenAddress:string,firstRun:boolean,signature:string,connection:Connection,recipientPublicKey:Keypair,watchedAccountsUsage:{ [publicKey: string]: number },watchedAccount:PublicKey):Promise<boolean>{
+async function processDetails(tokenAddress:string,firstRun:boolean,signature:string,connection:Connection,recipientPublicKey:Keypair,watchedAccount:PublicKey):Promise<boolean>{
     {
     
         if(firstRun)
@@ -178,11 +179,7 @@ async function processDetails(tokenAddress:string,firstRun:boolean,signature:str
         
         if (!knownTokens.has(tokenAddress)) {
             knownTokens.add(tokenAddress);
-            if (!((watchedAccountsUsage[watchedAccount.toBase58()] === 0 || Date.now() - watchedAccountsUsage[watchedAccount.toBase58()] > COOL_DOWN_PERIOD) ))
-                {
-                    console.log(`Ignoring token as it is not in database and cool down of {watchedAccount.toBase58()} period is not over`);
-                    return false;
-                }
+            
             
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {

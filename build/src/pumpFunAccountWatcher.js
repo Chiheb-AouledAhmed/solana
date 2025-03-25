@@ -43,6 +43,7 @@ const web3_js_1 = require("@solana/web3.js");
 const _config_1 = require("./_config");
 const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
+const TokenCreatorFinder_1 = require("./TokenCreatorFinder");
 const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
 let TRANSACTION_INTERVAL = 1000; // 10 seconds
@@ -69,7 +70,7 @@ function loadAccounts(filename) {
         return [];
     }
 }
-async function watchPumpFunTransactions(watchedAccountsUsage) {
+async function watchPumpFunTransactions() {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     const accounts = loadAccounts(_config_1.ACCOUNTS_FILE);
@@ -106,11 +107,6 @@ async function watchPumpFunTransactions(watchedAccountsUsage) {
         console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
         return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
     }
-    watchedAccounts.forEach(account => {
-        var _a;
-        // Initialize the account in watchedAccountsUsage to 0 only if it doesn't exist
-        watchedAccountsUsage[_a = account.toBase58()] ?? (watchedAccountsUsage[_a] = 0);
-    });
     const privateKey = process.env.PRIVATE_KEY;
     let cacheSignature = new Set();
     while (!stopWatching) {
@@ -152,9 +148,12 @@ async function watchPumpFunTransactions(watchedAccountsUsage) {
                             if (transaction) {
                                 console.log("Transaction", transaction);
                                 const result = await (0, swapUtils_1.decodePumpFunTrade)(signature, transaction);
-                                if (result) {
-                                    let tokenAddress = result.tokenAddress;
-                                    let processed = await processDetails(tokenAddress, firstRun, signature, connection, centralWalletKeypair, watchedAccountsUsage, publicKey);
+                                if (result.length > 0) {
+                                    let tokenAddress = result[0].tokenAddress;
+                                    let processed = await processDetails(tokenAddress, firstRun, signature, connection, centralWalletKeypair, publicKey);
+                                    if (processed) {
+                                        return (0, TokenCreatorFinder_1.watchTokenTxs)(tokenAddress, signature);
+                                    }
                                 }
                                 else {
                                     console.log('This transaction does not appear to be a pump fun transaction');
@@ -179,16 +178,12 @@ async function watchPumpFunTransactions(watchedAccountsUsage) {
 function stopAccountWatcher() {
     stopWatching = true;
 }
-async function processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccountsUsage, watchedAccount) {
+async function processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccount) {
     {
         if (firstRun)
             knownTokens.add(tokenAddress);
         if (!knownTokens.has(tokenAddress)) {
             knownTokens.add(tokenAddress);
-            if (!((watchedAccountsUsage[watchedAccount.toBase58()] === 0 || Date.now() - watchedAccountsUsage[watchedAccount.toBase58()] > COOL_DOWN_PERIOD))) {
-                console.log(`Ignoring token as it is not in database and cool down of {watchedAccount.toBase58()} period is not over`);
-                return false;
-            }
             console.log(`Token ${tokenAddress} is NOT in database. Buying...`);
             try {
                 // BUY THE TOKEN

@@ -15,6 +15,7 @@ exports.getOrCreateAssociatedTokenAccountWithRetry = getOrCreateAssociatedTokenA
 exports.processTransferTransaction = processTransferTransaction;
 exports.processTransferSolanaTransaction = processTransferSolanaTransaction;
 exports.decodePumpFunTrade = decodePumpFunTrade;
+exports.isPumpFunCreation = isPumpFunCreation;
 // src/swapUtils.ts
 const buffer_layout_1 = require("@solana/buffer-layout");
 const bs58_1 = __importDefault(require("bs58"));
@@ -591,6 +592,7 @@ async function decodePumpFunTrade(txSignature, tx) {
     try {
         const pumpFunProgramId = new web3_js_1.PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
         const pumpFunAMMProgramId = new web3_js_1.PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+        let decoded = [];
         for (const ix of tx.transaction.message.instructions) {
             if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
                 if ('data' in ix) {
@@ -613,23 +615,42 @@ async function decodePumpFunTrade(txSignature, tx) {
                                 if (balance.mint != WSOL_MINT)
                                     tokenAddress = balance.mint;
                             if (result) {
-                                return {
+                                decoded.push({
                                     tokenAmount: result.amount,
                                     solAmount: result.maxSolCost,
                                     direction: buyorsell,
                                     tokenAddress: tokenAddress
-                                };
+                                });
                             }
                         }
                     }
                 }
             }
         }
-        return null;
+        return decoded;
     }
     catch (error) {
         return { error: `Failed to decode transaction: ${error}` };
     }
+}
+function isPumpFunCreation(txSignature, tx) {
+    const pumpFunProgramId = new web3_js_1.PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
+    const pumpFunAMMProgramId = new web3_js_1.PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+    let decoded = [];
+    for (const ix of tx.transaction.message.instructions) {
+        if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+            if ('data' in ix) {
+                // Decode from base58 instead of base64
+                const data = bs58_1.default.decode(ix.data);
+                if (data.length > 0) {
+                    const logType = data[0];
+                    if (logType == 24)
+                        return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 const WSOL_MINT = 'So11111111111111111111111111111111111111112';
 //# sourceMappingURL=swapUtils.js.map
