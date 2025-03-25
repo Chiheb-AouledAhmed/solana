@@ -3,8 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/main.ts
-const _accountWatcher_1 = require("./_accountWatcher");
+const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -109,8 +108,48 @@ async function main() {
              }
          }
         }*/
+        /*let knownTokens = KNOWN_TOKENS;
+        let signature = "4B7jjaSUVs4JqfrqThPW8EtMBknhwzb6YGJbWDnkaq2MhNibhyoYA2A7LN1tzmVJZbUZq5xNkN3zFim7TUYzACnt"
+        let allsum = 0;
+        const transaction = await getParsedTransactionWithRetry(
+                                    connection,
+                                    signature,
+                                    {
+                                        commitment: 'confirmed',
+                                        maxSupportedTransactionVersion: 0
+                                    }
+                                );
+        
+        if (transaction) {
+            console.log("Transaction", transaction);
+
+            if (isSwapTransaction(transaction)) {
+                const result = await decodePumpFunTrade(signature);
+                if(result){
+                    let tokenAddress = result.tokenAddress;
+                    if(result.direction == "buy"){
+                        allsum += result.tokenAmount;
+                    }
+                    else {
+                        allsum -= result.tokenAmount;
+                        if(allsum == 0){
+                            const message = `
+                            All tokens have been sold
+                            Signature: ${signature}
+                            Token: ${tokenAddress}
+                            `;
+
+                            // Send Telegram notification
+                            await sendTelegramNotification(message);
+                        }
+                    }
+                }
+            }
+        }
+        
+        console.log("All sum",allsum);*/
         const watchedAccountsUsage = {};
-        await (0, _accountWatcher_1.watchTransactions)(watchedAccountsUsage);
+        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(watchedAccountsUsage);
         console.log('awaited');
     }
     catch (error) {
@@ -128,5 +167,4 @@ main()
     .catch(error => {
     console.error("An error occurred:", error);
 });
-// Step 1: Find the Associated Token Account Address
 //# sourceMappingURL=_main.js.map

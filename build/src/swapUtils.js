@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeSwapInstruction = exports.getPoolKeys = exports.getPoolKeysFromParsedInstruction = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
+exports.logTypeToStructPumpFun = exports.swapDataStruct = exports.makeSwapInstruction = exports.getPoolKeys = exports.getPoolKeysFromParsedInstruction = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
 exports.pollTransactionsForSwap = pollTransactionsForSwap;
 exports.isSwapTransaction = isSwapTransaction;
 exports.processSwapTransaction = processSwapTransaction;
@@ -14,8 +14,10 @@ exports.executeVersionedTransaction = executeVersionedTransaction;
 exports.getOrCreateAssociatedTokenAccountWithRetry = getOrCreateAssociatedTokenAccountWithRetry;
 exports.processTransferTransaction = processTransferTransaction;
 exports.processTransferSolanaTransaction = processTransferSolanaTransaction;
+exports.decodePumpFunTrade = decodePumpFunTrade;
 // src/swapUtils.ts
 const buffer_layout_1 = require("@solana/buffer-layout");
+const bs58_1 = __importDefault(require("bs58"));
 // src/swapUtils.ts
 const web3_js_1 = require("@solana/web3.js");
 const spl_token_1 = require("@solana/spl-token");
@@ -71,15 +73,17 @@ function isSwapTransaction(transaction) {
     const logs = transaction.meta.logMessages;
     // Basic check: look for "program log: ray_log" in logs
     const rayLogPresent = logs.some(log => log.includes('Program log: ray_log'));
-    if (!rayLogPresent) {
+    /*if (!rayLogPresent) {
         return false;
-    }
+    }*/
     // More detailed check: Look for specific program IDs and instructions known to Raydium swaps
     const programIds = transaction.transaction.message.instructions.map(ix => ix.programId.toBase58());
     const raydiumProgramIds = [
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
         '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8', // Raydium AMM Program ID
         '2UcZYxtqz6uJZnWmXAaAcig5jVzVvHzNu19Ds3qNap2V',
-        "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4" // Raydium CLMM Program ID
+        "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+        "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P" // Raydium CLMM Program ID
     ];
     const isRaydiumSwap = programIds.some(programId => raydiumProgramIds.includes(programId));
     return isRaydiumSwap;
@@ -572,4 +576,60 @@ async function processTransferSolanaTransaction(transaction) {
         return null;
     }
 }
+// Define the struct for decoding
+exports.swapDataStruct = (0, buffer_layout_1.struct)([
+    (0, buffer_layout_1.nu64)('logType'),
+    (0, buffer_layout_1.nu64)('amount'),
+    (0, buffer_layout_1.nu64)('maxSolCost')
+]);
+// Map for different log types (if needed)
+exports.logTypeToStructPumpFun = new Map([
+    [102, exports.swapDataStruct],
+    [51, exports.swapDataStruct], // Assuming 0 is the log type for this structure
+]);
+async function decodePumpFunTrade(txSignature, tx) {
+    try {
+        const pumpFunProgramId = new web3_js_1.PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
+        const pumpFunAMMProgramId = new web3_js_1.PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+        for (const ix of tx.transaction.message.instructions) {
+            if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+                if ('data' in ix) {
+                    // Decode from base58 instead of base64
+                    const data = bs58_1.default.decode(ix.data);
+                    if (data.length > 0) {
+                        const logType = data[0];
+                        const logStruct = exports.logTypeToStructPumpFun.get(logType);
+                        if (logStruct && typeof logStruct.decode === 'function') {
+                            let result = logStruct.decode(Buffer.from(data));
+                            let buyorsell;
+                            if (logType == 102)
+                                buyorsell = "buy";
+                            else
+                                buyorsell = "sell";
+                            let tokenAddress;
+                            if (!tx.meta?.postTokenBalances)
+                                return null;
+                            for (const balance of tx.meta?.postTokenBalances)
+                                if (balance.mint != WSOL_MINT)
+                                    tokenAddress = balance.mint;
+                            if (result) {
+                                return {
+                                    tokenAmount: result.amount,
+                                    solAmount: result.maxSolCost,
+                                    direction: buyorsell,
+                                    tokenAddress: tokenAddress
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    catch (error) {
+        return { error: `Failed to decode transaction: ${error}` };
+    }
+}
+const WSOL_MINT = 'So11111111111111111111111111111111111111112';
 //# sourceMappingURL=swapUtils.js.map

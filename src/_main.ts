@@ -1,8 +1,9 @@
 // src/main.ts
 import { watchTransactions } from './_accountWatcher';
+import { watchPumpFunTransactions } from './pumpFunAccountWatcher';
 //import { startMonitoring,startTokenWatcher, stopTokenWatcher } from './_tokenWatcher';
 import { buyNewToken ,makeAndExecuteSwap,findOrCreateWrappedSolAccount,unwrapWrappedSol,findWrappedSolAccount,closeTokenAta} from './_transactionUtils';
-import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction,processTransferSolanaTransaction}  from './swapUtils';
+import { pollTransactionsForSwap,getPoolKeysFromParsedInstruction,processTransferSolanaTransaction,isSwapTransaction,processSwapTransaction,decodePumpFunTrade}  from './swapUtils';
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
 import dotenv from 'dotenv';
@@ -118,11 +119,48 @@ async function main() {
             }
         } 
        }*/
-           
-            
+        /*let knownTokens = KNOWN_TOKENS;
+        let signature = "4B7jjaSUVs4JqfrqThPW8EtMBknhwzb6YGJbWDnkaq2MhNibhyoYA2A7LN1tzmVJZbUZq5xNkN3zFim7TUYzACnt"   
+        let allsum = 0;
+        const transaction = await getParsedTransactionWithRetry(
+                                    connection,
+                                    signature,
+                                    {
+                                        commitment: 'confirmed',
+                                        maxSupportedTransactionVersion: 0
+                                    }
+                                );
+        
+        if (transaction) {
+            console.log("Transaction", transaction);
 
+            if (isSwapTransaction(transaction)) {
+                const result = await decodePumpFunTrade(signature);
+                if(result){
+                    let tokenAddress = result.tokenAddress;
+                    if(result.direction == "buy"){
+                        allsum += result.tokenAmount;
+                    }
+                    else {
+                        allsum -= result.tokenAmount;
+                        if(allsum == 0){
+                            const message = `
+                            All tokens have been sold
+                            Signature: ${signature}
+                            Token: ${tokenAddress}
+                            `;
+
+                            // Send Telegram notification
+                            await sendTelegramNotification(message);
+                        }   
+                    }
+                }
+            }
+        }
+        
+        console.log("All sum",allsum);*/
         const watchedAccountsUsage: { [publicKey: string]: number } = {};
-        await watchTransactions(watchedAccountsUsage);
+        await watchPumpFunTransactions(watchedAccountsUsage);
         console.log('awaited');
     } catch (error) {
         console.error("An error occurred:", error);
@@ -139,8 +177,3 @@ main()
     .catch(error => {
         console.error("An error occurred:", error);
     });
-
-  
-// Step 1: Find the Associated Token Account Address
-
-

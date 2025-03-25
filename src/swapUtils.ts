@@ -1,6 +1,7 @@
 // src/swapUtils.ts
 import { struct, u8, nu64 } from '@solana/buffer-layout';
 import { SwapDetails, SwapBaseInLog, SwapBaseOutLog, LogTypeToStruct } from './_types';
+import bs58 from 'bs58';
 // src/swapUtils.ts
 import {
     Connection,
@@ -36,7 +37,7 @@ import {
 } from "@raydium-io/raydium-sdk";
 import { Raydium } from '@raydium-io/raydium-sdk-v2'
 import BN from "bn.js";
-
+import { getParsedTransactionWithRetry} from './_utils';
 
 export async function pollTransactionsForSwap(
   tokenAddress: string,
@@ -102,16 +103,18 @@ export function isSwapTransaction(transaction: ParsedTransactionWithMeta): boole
     const logs = transaction.meta.logMessages;
     // Basic check: look for "program log: ray_log" in logs
     const rayLogPresent = logs.some(log => log.includes('Program log: ray_log'));
-    if (!rayLogPresent) {
+    /*if (!rayLogPresent) {
         return false;
-    }
+    }*/
 
     // More detailed check: Look for specific program IDs and instructions known to Raydium swaps
     const programIds = transaction.transaction.message.instructions.map(ix => ix.programId.toBase58());
     const raydiumProgramIds = [
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
         '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8', // Raydium AMM Program ID
         '2UcZYxtqz6uJZnWmXAaAcig5jVzVvHzNu19Ds3qNap2V',
-        "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4" // Raydium CLMM Program ID
+        "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+        "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"// Raydium CLMM Program ID
     ];
     const isRaydiumSwap = programIds.some(programId => raydiumProgramIds.includes(programId));
     return isRaydiumSwap;
@@ -728,3 +731,81 @@ interface TransferDetails {
     source: string;
     destination: string;
 }
+
+
+
+interface DecodedSwapData {
+  logType: number;
+  amount: bigint;
+  maxSolCost: bigint;
+}
+
+// Define the struct for decoding
+export const swapDataStruct = struct<DecodedSwapData>([
+  nu64('logType'),
+  nu64('amount'),
+  nu64('maxSolCost')
+]);
+
+// Map for different log types (if needed)
+export const logTypeToStructPumpFun = new Map<number, any>([
+  [102, swapDataStruct],
+  [51, swapDataStruct], // Assuming 0 is the log type for this structure
+]);
+export async function decodePumpFunTrade(txSignature: string,tx:ParsedTransactionWithMeta): Promise<{
+    tokenAmount: bigint;
+    solAmount: bigint;
+    direction: string;
+    tokenAddress: string;
+  } | any >{
+    
+    
+    try {
+       
+  
+      const pumpFunProgramId = new PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
+      const pumpFunAMMProgramId = new PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+      
+      for (const ix of tx.transaction.message.instructions) {
+        if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+            if ('data' in ix) {
+                // Decode from base58 instead of base64
+                const data = bs58.decode(ix.data);
+                if (data.length > 0) {
+                    const logType = data[0];
+                    const logStruct = logTypeToStructPumpFun.get(logType);
+    
+                    if (logStruct && typeof logStruct.decode === 'function') {
+                      let result = logStruct.decode(Buffer.from(data));
+                      let buyorsell;
+                      if(logType == 102)
+                        buyorsell = "buy";
+                      else
+                        buyorsell = "sell";
+                      let tokenAddress;
+                      if(!tx.meta?.postTokenBalances)
+                        return null;
+                      for (const balance of tx.meta?.postTokenBalances)
+                        if(balance.mint != WSOL_MINT)
+                          tokenAddress = balance.mint;
+                      if(result){
+                        return {
+                            tokenAmount: result.amount,
+                            solAmount: result.maxSolCost,
+                            direction: buyorsell,
+                            tokenAddress: tokenAddress
+                        };}
+                    }
+                }
+            }
+        }
+    }
+  
+      return null;
+    } catch (error) {
+      return { error: `Failed to decode transaction: ${error}` };
+    }
+  }
+
+
+  const WSOL_MINT = 'So11111111111111111111111111111111111111112';
