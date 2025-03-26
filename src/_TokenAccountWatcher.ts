@@ -46,7 +46,7 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
     let firstBuy = true;
     let allsum = 0;
     const COOLDOWN_PERIOD = 15 * 60 * 1000;
-    let lastCheckTime = 0;
+    let lastCheckTime = 100000000000000;
     /*const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
 

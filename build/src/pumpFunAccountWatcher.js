@@ -121,7 +121,7 @@ async function watchPumpFunTransactions() {
             for (const account of watchedAccounts) {
                 const publicKey = new web3_js_1.PublicKey(account);
                 const signaturesAccount = await connection.getSignaturesForAddress(account, {
-                    limit: 10
+                    limit: 50
                 }, 'confirmed');
                 for (const signature of signaturesAccount) {
                     signatures.push({ signature: signature, account: publicKey });
@@ -152,6 +152,7 @@ async function watchPumpFunTransactions() {
                                     let tokenAddress = result[0].tokenAddress;
                                     let processed = await processDetails(tokenAddress, firstRun, signature, connection, centralWalletKeypair, publicKey);
                                     if (processed) {
+                                        console.log("Finding Token Creator before signature : ", signature);
                                         return (0, TokenCreatorFinder_1.watchTokenTxs)(tokenAddress, signature);
                                     }
                                 }

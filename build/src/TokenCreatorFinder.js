@@ -11,6 +11,7 @@ const swapUtils_1 = require("./swapUtils");
 const _transactionUtils_1 = require("./_transactionUtils");
 const _tokenWatcher_1 = require("./_tokenWatcher"); // Import startTokenWatcher
 const _TokenAccountWatcher_1 = require("./_TokenAccountWatcher");
+const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -25,7 +26,7 @@ function setNotProcessing() {
     console.log("watching another token ->>>");
 }
 async function watchTokenTxs(tokenAccountAddress, signatureBefore) {
-    console.log('Monitoring Raydium transactions...');
+    console.log('Monitoring Start Token transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
@@ -97,6 +98,9 @@ async function watchTokenTxs(tokenAccountAddress, signatureBefore) {
             console.error("Error processing transaction:", error);
         }
     }
+    console.log("Start Token not found in the transactions");
+    console.log("restarting the process");
+    (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
 }
 // Call this function to stop watching transactions
 function stopAccountWatcher() {

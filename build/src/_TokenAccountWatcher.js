@@ -39,6 +39,8 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
     });*/
     let firstBuy = true;
     let allsum = 0;
+    const COOLDOWN_PERIOD = 15 * 60 * 1000;
+    let lastCheckTime = 100000000000000;
     /*const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
 
@@ -59,6 +61,11 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
                 continue;
             }*/
+            const currentTime = Date.now();
+            if ((currentTime - lastCheckTime) > COOLDOWN_PERIOD) {
+                console.log(`Cooldown period over. Checking for new transactions...`);
+                return (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+            }
             const signatures = [];
             for (const account of watchedAccounts) {
                 const publicKey = new web3_js_1.PublicKey(account);
@@ -76,6 +83,7 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
                 if (signature && !cacheSignature.has(signature)) {
                     cacheSignature.add(signature);
                     lastSignature = signature;
+                    lastCheckTime = Date.now();
                     /*console.log(`New transaction detected: ${signature}`);
                     const message = `
                     New Token Transfer Detected!
@@ -88,7 +96,7 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
                             maxSupportedTransactionVersion: 0
                         });
                         if (transaction) {
-                            console.log("Transaction", transaction);
+                            console.log("Transaction", signature);
                             const result = await (0, swapUtils_1.decodePumpFunTrade)(signature, transaction);
                             if (result.length == 1 && result[0].tokenAddress == tokenAccountAddress) {
                                 for (const res of result) {
