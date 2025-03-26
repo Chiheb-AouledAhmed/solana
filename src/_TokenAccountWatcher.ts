@@ -97,6 +97,7 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
                 const publicKey = signatureInfo.account;
                 if(signature && !cacheSignature.has(signature)){
                     cacheSignature.add(signature);
+                    console.log("adding signature to cache",signature);
                     
                     lastSignature = signature;
                     lastCheckTime = Date.now();
