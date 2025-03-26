@@ -45,6 +45,8 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
     });*/
     let firstBuy = true;
     let allsum = 0;
+    const COOLDOWN_PERIOD = 15 * 60 * 1000;
+    let lastCheckTime = 0;
     /*const centralWalletPrivateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
     const centralWalletKeypair = Keypair.fromSecretKey(centralWalletPrivateKeyUint8Array);
 
@@ -68,6 +70,11 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
                 continue;
             }*/
+            const currentTime = Date.now();
+            if ((currentTime - lastCheckTime) > COOLDOWN_PERIOD) {
+                console.log(`Cooldown period over. Checking for new transactions...`);
+                return watchPumpFunTransactions();
+            }
             const signatures = [];
             for (const account of watchedAccounts) {
                 const publicKey = new PublicKey(account);
@@ -92,6 +99,7 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
                     cacheSignature.add(signature);
                     
                     lastSignature = signature;
+                    lastCheckTime = Date.now();
                     /*console.log(`New transaction detected: ${signature}`);
                     const message = `
                     New Token Transfer Detected!
@@ -109,7 +117,7 @@ export async function watchTokenTransactions(accountaddress:String,tokenAccountA
                         );
 
                         if (transaction) {
-                            console.log("Transaction", transaction);
+                            console.log("Transaction", signature);
 
                             const result = await decodePumpFunTrade(signature,transaction);
                             if(result.length==1 && result[0].tokenAddress==tokenAccountAddress){ 
