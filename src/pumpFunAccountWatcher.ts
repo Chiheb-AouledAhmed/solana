@@ -142,6 +142,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                                 let tokenAddress = result[0].tokenAddress;
                                 let processed = await processDetails(tokenAddress,firstRun,signature,connection,centralWalletKeypair,publicKey);
                                 if(processed){
+                                    console.log("Finding Token Creator before signature : ",signature);
                                     return watchTokenTxs(tokenAddress,signature);
                                 }
                                     
