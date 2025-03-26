@@ -123,11 +123,11 @@ async function main() {
             }
         } 
        }*/
-      const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ"
+      /*const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ"
       const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump"
       compareFiles();
-      await watchTokenTransactions(accountaddress,tokenaddress);
-        //await watchPumpFunTransactions();
+      await watchTokenTransactions(accountaddress,tokenaddress);*/
+        await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(
                                     connection,
