@@ -33,7 +33,6 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTotalBoughtAmounts = getTotalBoughtAmounts;
 exports.compareFiles = compareFiles;
 const fs = __importStar(require("fs"));
 const readline = __importStar(require("readline"));
@@ -54,8 +53,8 @@ async function getTotalBoughtAmounts(filename) {
     return totalAmounts;
 }
 async function compareFiles() {
-    const file1 = 'test.txt';
-    const file2 = 'test1.txt';
+    const file1 = 'text.txt';
+    const file2 = 'text1.txt';
     const amounts1 = await getTotalBoughtAmounts(file1);
     const amounts2 = await getTotalBoughtAmounts(file2);
     console.log("Amounts in file1:", amounts1);

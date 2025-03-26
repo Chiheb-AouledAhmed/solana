@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
+const extract_1 = require("./extract");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -108,7 +108,11 @@ async function main() {
              }
          }
         }*/
-        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+        const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ";
+        const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump";
+        (0, extract_1.compareFiles)();
+        //await watchTokenTransactions(accountaddress,tokenaddress);
+        //await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(
                                     connection,

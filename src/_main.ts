@@ -3,6 +3,7 @@ import { watchTransactions } from './_accountWatcher';
 import { watchTokenTransactions } from './_TokenAccountWatcher';
 import { watchPumpFunTransactions } from './pumpFunAccountWatcher';
 import { watchTokenTxs } from './TokenCreatorFinder';
+import { compareFiles } from './extract';
 
 //import { startMonitoring,startTokenWatcher, stopTokenWatcher } from './_tokenWatcher';
 import { buyNewToken ,makeAndExecuteSwap,findOrCreateWrappedSolAccount,unwrapWrappedSol,findWrappedSolAccount,closeTokenAta} from './_transactionUtils';
@@ -122,7 +123,11 @@ async function main() {
             }
         } 
        }*/
-        await watchPumpFunTransactions();
+      const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ"
+      const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump"
+      compareFiles();
+      await watchTokenTransactions(accountaddress,tokenaddress);
+        //await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(
                                     connection,
