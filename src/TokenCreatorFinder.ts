@@ -70,7 +70,7 @@ export async function watchTokenTxs(tokenAccountAddress : String,signatureBefore
             
             {
                 before: signatureBefore,
-                limit: 2000
+                limit: 1000 
             },
             'confirmed'
         );
