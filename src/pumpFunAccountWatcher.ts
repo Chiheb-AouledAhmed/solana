@@ -102,7 +102,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                 const signaturesAccount = await connection.getSignaturesForAddress(
                     account,
                     {
-                        limit: 10
+                        limit: 50
                     },
                     'confirmed'
                 );

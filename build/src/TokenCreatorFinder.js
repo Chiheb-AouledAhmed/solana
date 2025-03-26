@@ -56,7 +56,7 @@ async function watchTokenTxs(tokenAccountAddress, signatureBefore) {
         const publicKey = new web3_js_1.PublicKey(account);
         const signaturesAccount = await connection.getSignaturesForAddress(account, {
             before: signatureBefore,
-            limit: 2000
+            limit: 1000
         }, 'confirmed');
         for (const signature of signaturesAccount) {
             signatures.push({ signature: signature, account: publicKey });

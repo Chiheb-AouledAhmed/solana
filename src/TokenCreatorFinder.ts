@@ -9,6 +9,7 @@ import { buyNewToken } from './_transactionUtils';
 import { startMonitoring } from './_tokenWatcher'; // Import startTokenWatcher
 import { TokenData,AccountData } from './_types';
 import { watchTokenTransactions } from './_TokenAccountWatcher';
+import { watchPumpFunTransactions } from './pumpFunAccountWatcher';
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
@@ -29,7 +30,7 @@ export function setNotProcessing(){
 
 
 export async function watchTokenTxs(tokenAccountAddress : String,signatureBefore:string): Promise<void> {
-    console.log('Monitoring Raydium transactions...');
+    console.log('Monitoring Start Token transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
 
 
@@ -124,6 +125,9 @@ export async function watchTokenTxs(tokenAccountAddress : String,signatureBefore
                     
                     
         }
+        console.log("Start Token not found in the transactions")
+        console.log("restarting the process")
+        watchPumpFunTransactions();
     }
     
         
