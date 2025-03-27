@@ -11,18 +11,25 @@ import { isPumpFunCreation,pollTransactionsForSwap,getPoolKeysFromParsedInstruct
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
 import dotenv from 'dotenv';
-import { Connection, Keypair, PublicKey, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';
+import {LAMPORTS_PER_SOL, Connection, Keypair, PublicKey, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID, MINT_SIZE, ACCOUNT_SIZE ,getAssociatedTokenAddress, closeAccount, ASSOCIATED_TOKEN_PROGRAM_ID} from '@solana/spl-token';
 import { NATIVE_MINT ,createCloseAccountInstruction ,createInitializeAccountInstruction,getAccount} from '@solana/spl-token';
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
 //import { Connection, Keypair,PublicKey } from '@solana/web3.js';
-import { SOLANA_RPC_URL, YOUR_PRIVATE_KEY, KNOWN_TOKENS ,CENTRAL_WALLET_PRIVATE_KEY} from './_config';
+import {SLIPPAGE_BASIS_POINTS, SOLANA_RPC_URL, YOUR_PRIVATE_KEY, KNOWN_TOKENS ,CENTRAL_WALLET_PRIVATE_KEY} from './_config';
 import bs58 from 'bs58';
 import express from 'express';
 let stopAccountWatcher = false;
 let tokenToWatch: string | null = null;
 
+import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
+import { AnchorProvider } from "@coral-xyz/anchor";
+import {
+    printSOLBalance
+  } from "./sdk/util";
+import {PumpFunSDK} from "./sdk/pumpfun";
 import { transferAllSOL,getParsedTransactionWithRetry,sendTelegramNotification} from './_utils';
+import { BondingCurveAccount } from './sdk';
 
 async function main() {
     console.log('Starting Solana Trader Bot...');
@@ -127,6 +134,39 @@ async function main() {
       const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump"
       compareFiles();
       await watchTokenTransactions(accountaddress,tokenaddress);*/
+    
+        /*const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
+        const provider = new AnchorProvider(connection, wallet, {
+          commitment: "finalized",
+        });
+      
+        let mint = "238VV3wEKEnL7thBFeLnZfpp6P7k2Qd6zduF6Wrapump";
+        await printSOLBalance(connection, keyPair.publicKey, "Test Account");
+      
+        const sdk = new PumpFunSDK(provider);
+      
+        const currentSolBalance = await connection.getBalance(keyPair.publicKey);
+        if (currentSolBalance === 0) {
+          console.log(
+            "Please send some SOL to the test account:",
+            keyPair.publicKey.toBase58()
+          );
+        }
+      
+        // Check if mint already exists
+        let boundingCurveAccount = await sdk.getBondingCurveAccount(new PublicKey(mint));
+        console.log(boundingCurveAccount)
+        const buyResults = await sdk.sell(
+            keyPair,
+            new PublicKey(mint),
+            BigInt(Math.floor(3528361133)),
+            SLIPPAGE_BASIS_POINTS,
+            {
+              unitLimit: 250000,
+              unitPrice: 250000,
+            }
+          );
+          console.log(buyResults);*/
         await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(

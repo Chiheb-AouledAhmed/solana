@@ -55,7 +55,7 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
     let cacheSignature = new Set();
     while (!stopWatching) {
         try {
-            //console.log("New Loop");
+            console.log("New Loop");
             /*if(Processing){
                 console.log("Processing another token");
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
@@ -79,11 +79,9 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
             signatures.reverse();
             for (const signatureInfo of signatures) {
                 const signature = signatureInfo.signature.signature;
-                const publicKey = signatureInfo.account;
                 if (signature && !cacheSignature.has(signature)) {
                     cacheSignature.add(signature);
                     console.log("adding signature to cache", signature);
-                    lastSignature = signature;
                     lastCheckTime = Date.now();
                     /*console.log(`New transaction detected: ${signature}`);
                     const message = `
@@ -128,6 +126,9 @@ async function watchTokenTransactions(accountaddress, tokenAccountAddress) {
                             else {
                                 console.log('This transaction is not a pump fun transaction of the chosen token');
                             }
+                        }
+                        else {
+                            console.log("Transaction not correctly loaded");
                         }
                     }
                     catch (error) {

@@ -37,13 +37,14 @@ export async function getParsedTransactionWithRetry(
         try {
             return await connection.getParsedTransaction(signature, options);
         } catch (error: any) {
-            if (error.message ) {
+            if (error.message && error.message.includes('429 Too Many Requests')) {
                 retries++;
                 const delay = Math.pow(2, retries) * INITIAL_RETRY_DELAY; // Exponential backoff
                 console.log(`Rate limited. Retrying transaction ${signature} in ${delay / 1000} seconds... (Attempt ${retries}/${maxRetries})`);
                 await new Promise(resolve => setTimeout(resolve, delay));
             } else if (error.message && error.message.includes('Transaction version (0) is not supported')) {
                 console.warn(`Transaction version 0 not supported for ${signature}. Skipping.`);
+                console.log('Error:', error);
                 return null; // Skip this transaction, don't retry.
             } else {
                 console.error(`Error fetching transaction ${signature}:`, error); // Log other errors

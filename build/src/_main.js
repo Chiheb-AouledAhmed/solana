@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const extract_1 = require("./extract");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -13,6 +12,10 @@ const bs58_1 = __importDefault(require("bs58"));
 const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
+const nodewallet_1 = __importDefault(require("@coral-xyz/anchor/dist/cjs/nodewallet"));
+const anchor_1 = require("@coral-xyz/anchor");
+const util_1 = require("./sdk/util");
+const pumpfun_1 = require("./sdk/pumpfun");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -108,10 +111,29 @@ async function main() {
              }
          }
         }*/
-        const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ";
-        const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump";
-        (0, extract_1.compareFiles)();
-        //await watchTokenTransactions(accountaddress,tokenaddress);
+        /*const accountaddress = "267KLVeSw2FBCcEYsLwnV8gxHh84BCK9JoSXgyqGaPBJ"
+        const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump"
+        compareFiles();
+        await watchTokenTransactions(accountaddress,tokenaddress);*/
+        const wallet = new nodewallet_1.default(keyPair); // Note: Replace with actual wallet
+        const provider = new anchor_1.AnchorProvider(connection, wallet, {
+            commitment: "finalized",
+        });
+        let mint = "238VV3wEKEnL7thBFeLnZfpp6P7k2Qd6zduF6Wrapump";
+        await (0, util_1.printSOLBalance)(connection, keyPair.publicKey, "Test Account");
+        const sdk = new pumpfun_1.PumpFunSDK(provider);
+        const currentSolBalance = await connection.getBalance(keyPair.publicKey);
+        if (currentSolBalance === 0) {
+            console.log("Please send some SOL to the test account:", keyPair.publicKey.toBase58());
+        }
+        // Check if mint already exists
+        let boundingCurveAccount = await sdk.getBondingCurveAccount(new web3_js_1.PublicKey(mint));
+        console.log(boundingCurveAccount);
+        const buyResults = await sdk.sell(keyPair, new web3_js_1.PublicKey(mint), BigInt(Math.floor(3528361133)), _config_1.SLIPPAGE_BASIS_POINTS, {
+            unitLimit: 250000,
+            unitPrice: 250000,
+        });
+        console.log(buyResults);
         //await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(

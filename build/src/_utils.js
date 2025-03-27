@@ -35,7 +35,7 @@ async function getParsedTransactionWithRetry(connection, signature, options, max
             return await connection.getParsedTransaction(signature, options);
         }
         catch (error) {
-            if (error.message && error.message.includes('429 Too Many Requests')) {
+            if (error.message) {
                 retries++;
                 const delay = Math.pow(2, retries) * _config_1.INITIAL_RETRY_DELAY; // Exponential backoff
                 console.log(`Rate limited. Retrying transaction ${signature} in ${delay / 1000} seconds... (Attempt ${retries}/${maxRetries})`);
