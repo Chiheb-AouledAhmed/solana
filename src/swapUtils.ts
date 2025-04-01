@@ -1,5 +1,5 @@
 // src/swapUtils.ts
-import { struct, u8, nu64 } from '@solana/buffer-layout';
+import { struct, u8, nu64 ,seq,u48} from '@solana/buffer-layout';
 import { SwapDetails, SwapBaseInLog, SwapBaseOutLog, LogTypeToStruct } from './_types';
 import bs58 from 'bs58';
 // src/swapUtils.ts
@@ -739,19 +739,48 @@ interface DecodedSwapData {
   amount: bigint;
   maxSolCost: bigint;
 }
-
 // Define the struct for decoding
 export const swapDataStruct = struct<DecodedSwapData>([
-  nu64('logType'),
-  nu64('amount'),
-  nu64('maxSolCost')
-]);
+    nu64('logType'),
+    nu64('amount'),
+    nu64('maxSolCost')
+  ]);
+
+
+interface DecodedSwapDatav2 {
+    mint: number[]; // Changed to number, to store the UInt that u48 is decoded into.
+    solAmount: bigint;
+    tokenAmount: bigint;
+    isBuy: number;
+    user: number[];
+    timestamp: bigint;
+    virtualSolReserves: bigint;
+    virtualTokenReserves: bigint;
+}
+
+
+
+export const swapDataStructv2 = struct<DecodedSwapDatav2>([
+    seq(u8(), 48, 'mint'),
+    nu64('solAmount'),
+    nu64('tokenAmount'),
+    u8('isBuy'),
+    seq(u8(), 44, 'user'),
+    nu64('timestamp'),
+    nu64('virtualSolReserves'),
+    nu64('virtualTokenReserves'),
+    
+  ]);
+
 
 // Map for different log types (if needed)
 export const logTypeToStructPumpFun = new Map<number, any>([
   [102, swapDataStruct],
-  [51, swapDataStruct], // Assuming 0 is the log type for this structure
+  [51, swapDataStruct],// Assuming 0 is the log type for this structure
 ]);
+export const logTypeToStructPumpFunv2 = new Map<number, any>([
+    [228 , swapDataStructv2] // Assuming 0 is the log type for this structure
+  ]);
 export async function decodePumpFunTrade(txSignature: string,tx:ParsedTransactionWithMeta): Promise<{
     tokenAmount: bigint;
     solAmount: bigint;
@@ -808,6 +837,90 @@ export async function decodePumpFunTrade(txSignature: string,tx:ParsedTransactio
     }
   }
 
+  const WSOL_MINT = 'So11111111111111111111111111111111111111112';
+  export async function decodePumpFunTradev2(txSignature: string,tx:ParsedTransactionWithMeta): Promise<{
+    tokenAmount: bigint;
+    solAmount: bigint;
+    direction: string;
+    tokenAddress: string;
+  } | any >{
+    
+    
+    try {
+       
+  
+      const pumpFunProgramId = new PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
+      const pumpFunAMMProgramId = new PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+      let decoded = [];
+      if(!tx.meta?.innerInstructions)
+        return null;
+      let tokenAddress;
+        if(!tx.meta?.postTokenBalances)
+        return null;
+        for (const balance of tx.meta?.postTokenBalances)
+        if(balance.mint != WSOL_MINT)
+            tokenAddress = balance.mint;
+      for (const instruction of tx.meta.innerInstructions) 
+        for(const ix of instruction.instructions){
+        if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+            if ('data' in ix) {
+                // Decode from base58 instead of base64
+                const data = bs58.decode(ix.data);
+                if (data.length > 0) {
+                    const logType = data[0];
+                    const logStruct = logTypeToStructPumpFunv2.get(logType);
+    
+                    if (logStruct && typeof logStruct.decode === 'function') {
+                        
+                      let result = logStruct.decode(Buffer.from(data));
+                      let str = convertBytesToString(result.mint);
+                      /*for (let i = 0; i < 250; i++) {
+                        let tmpresult = readU64Bytes(data, i, 1);
+                        console.log(`tmpresult[${i}]: ${tmpresult}`);
+                      }*/
+                      
+                      let buyorsell;
+                      if(result.isBuy == 0)
+                        buyorsell = "sell";
+                      else if(result.isBuy == 1)
+                        buyorsell = "buy";
+                      else
+                        continue;
+                      
+                      if(result){
+                        decoded.push({
+                            tokenAmount: result.tokenAmount,
+                            solAmount: result.solAmount,
+                            direction: buyorsell,
+                            tokenAddress: tokenAddress
+                        });}
+                        
+                    }
+                }
+            }
+        }
+    }
+  
+      return decoded;
+    } catch (error) {
+      return { error: `Failed to decode transaction: ${error}` };
+    }
+  }
+  function readU64Bytes(uint8Array: Uint8Array, startPosition: number, count: number = 8): bigint[] {
+    const dataView = new DataView(uint8Array.buffer, uint8Array.byteOffset, uint8Array.byteLength);
+    const u64Array: bigint[] = [];
+
+    for (let i = 0; i < count; i++) {
+        const offset = startPosition + i * 8; // Each u64 is 8 bytes
+        if (offset + 8 > uint8Array.byteLength) {
+            throw new Error('Uint8Array does not have enough data to read u64 values');
+        }
+        const value = dataView.getBigUint64(offset, true); // Use true for little-endian, false for big-endian
+        u64Array.push(value);
+    }
+
+    return u64Array;
+}
   export function isPumpFunCreation(txSignature: string,tx:ParsedTransactionWithMeta): boolean{
 
       const pumpFunProgramId = new PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
@@ -828,4 +941,10 @@ export async function decodePumpFunTrade(txSignature: string,tx:ParsedTransactio
         return false;
 }
         
-  const WSOL_MINT = 'So11111111111111111111111111111111111111112';
+function convertBytesToString(byteArray: number[]): string {
+    let result = '';
+    for (let i = 0; i < byteArray.length; i++) {
+        result += String.fromCharCode(byteArray[i]);
+    }
+    return result;
+}

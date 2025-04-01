@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logTypeToStructPumpFun = exports.swapDataStruct = exports.makeSwapInstruction = exports.getPoolKeys = exports.getPoolKeysFromParsedInstruction = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
+exports.logTypeToStructPumpFunv2 = exports.logTypeToStructPumpFun = exports.swapDataStructv2 = exports.swapDataStruct = exports.makeSwapInstruction = exports.getPoolKeys = exports.getPoolKeysFromParsedInstruction = exports.logTypeToStruct = exports.swapBaseOutLog = exports.swapBaseInLog = void 0;
 exports.pollTransactionsForSwap = pollTransactionsForSwap;
 exports.isSwapTransaction = isSwapTransaction;
 exports.processSwapTransaction = processSwapTransaction;
@@ -15,6 +15,7 @@ exports.getOrCreateAssociatedTokenAccountWithRetry = getOrCreateAssociatedTokenA
 exports.processTransferTransaction = processTransferTransaction;
 exports.processTransferSolanaTransaction = processTransferSolanaTransaction;
 exports.decodePumpFunTrade = decodePumpFunTrade;
+exports.decodePumpFunTradev2 = decodePumpFunTradev2;
 exports.isPumpFunCreation = isPumpFunCreation;
 // src/swapUtils.ts
 const buffer_layout_1 = require("@solana/buffer-layout");
@@ -583,10 +584,23 @@ exports.swapDataStruct = (0, buffer_layout_1.struct)([
     (0, buffer_layout_1.nu64)('amount'),
     (0, buffer_layout_1.nu64)('maxSolCost')
 ]);
+exports.swapDataStructv2 = (0, buffer_layout_1.struct)([
+    (0, buffer_layout_1.seq)((0, buffer_layout_1.u8)(), 48, 'mint'),
+    (0, buffer_layout_1.nu64)('solAmount'),
+    (0, buffer_layout_1.nu64)('tokenAmount'),
+    (0, buffer_layout_1.u8)('isBuy'),
+    (0, buffer_layout_1.seq)((0, buffer_layout_1.u8)(), 44, 'user'),
+    (0, buffer_layout_1.nu64)('timestamp'),
+    (0, buffer_layout_1.nu64)('virtualSolReserves'),
+    (0, buffer_layout_1.nu64)('virtualTokenReserves'),
+]);
 // Map for different log types (if needed)
 exports.logTypeToStructPumpFun = new Map([
     [102, exports.swapDataStruct],
     [51, exports.swapDataStruct], // Assuming 0 is the log type for this structure
+]);
+exports.logTypeToStructPumpFunv2 = new Map([
+    [228, exports.swapDataStructv2] // Assuming 0 is the log type for this structure
 ]);
 async function decodePumpFunTrade(txSignature, tx) {
     try {
@@ -633,6 +647,75 @@ async function decodePumpFunTrade(txSignature, tx) {
         return { error: `Failed to decode transaction: ${error}` };
     }
 }
+const WSOL_MINT = 'So11111111111111111111111111111111111111112';
+async function decodePumpFunTradev2(txSignature, tx) {
+    try {
+        const pumpFunProgramId = new web3_js_1.PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
+        const pumpFunAMMProgramId = new web3_js_1.PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
+        let decoded = [];
+        if (!tx.meta?.innerInstructions)
+            return null;
+        let tokenAddress;
+        if (!tx.meta?.postTokenBalances)
+            return null;
+        for (const balance of tx.meta?.postTokenBalances)
+            if (balance.mint != WSOL_MINT)
+                tokenAddress = balance.mint;
+        for (const instruction of tx.meta.innerInstructions)
+            for (const ix of instruction.instructions) {
+                if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+                    if ('data' in ix) {
+                        // Decode from base58 instead of base64
+                        const data = bs58_1.default.decode(ix.data);
+                        if (data.length > 0) {
+                            const logType = data[0];
+                            const logStruct = exports.logTypeToStructPumpFunv2.get(logType);
+                            if (logStruct && typeof logStruct.decode === 'function') {
+                                let result = logStruct.decode(Buffer.from(data));
+                                let str = convertBytesToString(result.mint);
+                                /*for (let i = 0; i < 250; i++) {
+                                  let tmpresult = readU64Bytes(data, i, 1);
+                                  console.log(`tmpresult[${i}]: ${tmpresult}`);
+                                }*/
+                                let buyorsell;
+                                if (result.isBuy == 0)
+                                    buyorsell = "sell";
+                                else if (result.isBuy == 1)
+                                    buyorsell = "buy";
+                                else
+                                    continue;
+                                if (result) {
+                                    decoded.push({
+                                        tokenAmount: result.tokenAmount,
+                                        solAmount: result.solAmount,
+                                        direction: buyorsell,
+                                        tokenAddress: tokenAddress
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        return decoded;
+    }
+    catch (error) {
+        return { error: `Failed to decode transaction: ${error}` };
+    }
+}
+function readU64Bytes(uint8Array, startPosition, count = 8) {
+    const dataView = new DataView(uint8Array.buffer, uint8Array.byteOffset, uint8Array.byteLength);
+    const u64Array = [];
+    for (let i = 0; i < count; i++) {
+        const offset = startPosition + i * 8; // Each u64 is 8 bytes
+        if (offset + 8 > uint8Array.byteLength) {
+            throw new Error('Uint8Array does not have enough data to read u64 values');
+        }
+        const value = dataView.getBigUint64(offset, true); // Use true for little-endian, false for big-endian
+        u64Array.push(value);
+    }
+    return u64Array;
+}
 function isPumpFunCreation(txSignature, tx) {
     const pumpFunProgramId = new web3_js_1.PublicKey('6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P');
     const pumpFunAMMProgramId = new web3_js_1.PublicKey('pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA');
@@ -652,5 +735,11 @@ function isPumpFunCreation(txSignature, tx) {
     }
     return false;
 }
-const WSOL_MINT = 'So11111111111111111111111111111111111111112';
+function convertBytesToString(byteArray) {
+    let result = '';
+    for (let i = 0; i < byteArray.length; i++) {
+        result += String.fromCharCode(byteArray[i]);
+    }
+    return result;
+}
 //# sourceMappingURL=swapUtils.js.map

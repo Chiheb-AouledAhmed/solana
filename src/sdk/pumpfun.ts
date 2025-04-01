@@ -361,6 +361,7 @@ export class PumpFunSDK {
     mint: PublicKey,
     commitment: Commitment = DEFAULT_COMMITMENT
   ) {
+    console.log(this.getBondingCurvePDA(mint))
     const tokenAccount = await this.connection.getAccountInfo(
       this.getBondingCurvePDA(mint),
       commitment

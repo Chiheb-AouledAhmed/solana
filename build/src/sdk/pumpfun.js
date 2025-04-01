@@ -127,6 +127,7 @@ class PumpFunSDK {
         return transaction;
     }
     async getBondingCurveAccount(mint, commitment = util_1.DEFAULT_COMMITMENT) {
+        console.log(this.getBondingCurvePDA(mint));
         const tokenAccount = await this.connection.getAccountInfo(this.getBondingCurvePDA(mint), commitment);
         if (!tokenAccount) {
             return null;

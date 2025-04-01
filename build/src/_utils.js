@@ -1,4 +1,37 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -7,13 +40,16 @@ exports.getSOLBalance = getSOLBalance;
 exports.sendTelegramNotification = sendTelegramNotification;
 exports.getParsedTransactionWithRetry = getParsedTransactionWithRetry;
 exports.transferSOL = transferSOL;
+exports.checkTransactionStatus = checkTransactionStatus;
 exports.transferAllSOL = transferAllSOL;
 exports.transferSOLToRandomAccount = transferSOLToRandomAccount;
 exports.transferAllSOLToRandomAccount = transferAllSOLToRandomAccount;
+exports.loadIgnoredAddresses = loadIgnoredAddresses;
 // src/utils.ts
 const web3_js_1 = require("@solana/web3.js");
 const _config_1 = require("./_config");
 const node_telegram_bot_api_1 = __importDefault(require("node-telegram-bot-api"));
+const fs = __importStar(require("fs"));
 const bot = new node_telegram_bot_api_1.default(_config_1.TELEGRAM_BOT_TOKEN, { polling: false });
 async function getSOLBalance(connection, publicKey) {
     const balance = await connection.getBalance(publicKey);
@@ -35,7 +71,7 @@ async function getParsedTransactionWithRetry(connection, signature, options, max
             return await connection.getParsedTransaction(signature, options);
         }
         catch (error) {
-            if (error.message) {
+            if (error.message && error.message.includes('429 Too Many Requests')) {
                 retries++;
                 const delay = Math.pow(2, retries) * _config_1.INITIAL_RETRY_DELAY; // Exponential backoff
                 console.log(`Rate limited. Retrying transaction ${signature} in ${delay / 1000} seconds... (Attempt ${retries}/${maxRetries})`);
@@ -43,6 +79,7 @@ async function getParsedTransactionWithRetry(connection, signature, options, max
             }
             else if (error.message && error.message.includes('Transaction version (0) is not supported')) {
                 console.warn(`Transaction version 0 not supported for ${signature}. Skipping.`);
+                console.log('Error:', error);
                 return null; // Skip this transaction, don't retry.
             }
             else {
@@ -68,6 +105,29 @@ async function transferSOL(connection, fromAccount, toAccount) {
     catch (error) {
         console.error('Error transferring SOL:', error);
         throw error;
+    }
+}
+function checkTransactionStatus(transaction, signature, isDebug = false) {
+    try {
+        if (!transaction) {
+            if (isDebug)
+                console.error(`Transaction ${signature} not found.`);
+            return false; // Transaction not found or still processing
+        }
+        // Check for errors in the transaction
+        if (transaction.meta?.err) {
+            if (isDebug)
+                console.error(`Transaction ${signature} failed with error:`, transaction.meta.err);
+            return false; // Transaction failed
+        }
+        if (isDebug)
+            console.log(`Transaction ${signature} succeeded.`);
+        return true; // Transaction succeeded
+    }
+    catch (error) {
+        if (isDebug)
+            console.error(`Error fetching transaction ${signature}:`, error);
+        throw error; // Handle unexpected errors
     }
 }
 async function transferAllSOL(connection, fromAccount, toAccount) {
@@ -142,5 +202,18 @@ async function transferAllSOLToRandomAccount(connection, centralWalletKeypair, a
         console.error('Error transferring SOL:', error);
         return null;
     }
+}
+function loadIgnoredAddresses(filePath) {
+    let ignoredAddresses = new Set();
+    try {
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        const addresses = fileContent.split('\n').map(line => line.trim().toLowerCase()).filter(line => line !== '');
+        addresses.forEach(addr => ignoredAddresses.add(addr));
+        console.log(`Loaded ${ignoredAddresses.size} addresses to ignore.`);
+    }
+    catch (error) {
+        console.warn(`Could not read addresses from ${filePath}. All addresses will be processed. Error:`, error);
+    }
+    return ignoredAddresses;
 }
 //# sourceMappingURL=_utils.js.map

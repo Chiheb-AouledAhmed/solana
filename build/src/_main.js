@@ -3,6 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const TokenBuyer_1 = require("./TokenBuyer");
+const serum_1 = require("@project-serum/serum");
+const swapUtils_1 = require("./swapUtils");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -14,8 +17,7 @@ let stopAccountWatcher = false;
 let tokenToWatch = null;
 const nodewallet_1 = __importDefault(require("@coral-xyz/anchor/dist/cjs/nodewallet"));
 const anchor_1 = require("@coral-xyz/anchor");
-const util_1 = require("./sdk/util");
-const pumpfun_1 = require("./sdk/pumpfun");
+const _utils_1 = require("./_utils");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -119,21 +121,122 @@ async function main() {
         const provider = new anchor_1.AnchorProvider(connection, wallet, {
             commitment: "finalized",
         });
-        let mint = "238VV3wEKEnL7thBFeLnZfpp6P7k2Qd6zduF6Wrapump";
-        await (0, util_1.printSOLBalance)(connection, keyPair.publicKey, "Test Account");
-        const sdk = new pumpfun_1.PumpFunSDK(provider);
+        let mint = "x8g2Hja2GU2MdAMDkhp5FAC9PDCzpqQm7vJCiJb4WZG";
+        let signature = "4xhPsEBiT6XcRzdVt5cwQBDX3BNfitVx2JE3xUT6y9YriQz3DZzWXSRi5iy5s9aAFDGmCcqCKsznuExLQaBReySr";
+        let fileName = "interacting_addresses.txt";
+        /*const pumpFunTrader = new PumpFunTrader();
+        pumpFunTrader.setSolanaRpcUrl(SOLANA_RPC_URL);
+        
+        // Buy tokens (AMM-based trade)
+        const buyTx = await pumpFunTrader.buy(
+          CENTRAL_WALLET_PRIVATE_KEY,
+          mint,
+          0.01, // SOL amount
+          0.25 // 25% slippage tolerance
+        );*/
+        //buyToken();
+        let exempleSignature = "4XsEpNpGBEy8tvci2ansdHdmWF2euEnE1otJ9ehKebQsb1ysye88STWE9szAC7J63fCYCWkJUh2fb5ubpQNE5gh";
+        const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, exempleSignature, {
+            commitment: 'confirmed',
+            maxSupportedTransactionVersion: 0
+        });
+        let result = await (0, swapUtils_1.decodePumpFunTradev2)(exempleSignature, transaction);
+        (0, _utils_1.checkTransactionStatus)(transaction, exempleSignature);
+        //await AnalysePumpFunTransactions(mint,signature,fileName);
+        await (0, TokenBuyer_1.watchTokenTxsToBuy)(mint, signature);
+        //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
+        /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
+      
+        const sdk = new PumpFunSDK(provider);
+      
         const currentSolBalance = await connection.getBalance(keyPair.publicKey);
         if (currentSolBalance === 0) {
-            console.log("Please send some SOL to the test account:", keyPair.publicKey.toBase58());
+          console.log(
+            "Please send some SOL to the test account:",
+            keyPair.publicKey.toBase58()
+          );
         }
+      
         // Check if mint already exists
-        let boundingCurveAccount = await sdk.getBondingCurveAccount(new web3_js_1.PublicKey(mint));
-        console.log(boundingCurveAccount);
-        const buyResults = await sdk.sell(keyPair, new web3_js_1.PublicKey(mint), BigInt(Math.floor(3528361133)), _config_1.SLIPPAGE_BASIS_POINTS, {
-            unitLimit: 250000,
-            unitPrice: 250000,
-        });
-        console.log(buyResults);
+        let boundingCurveAccount = await sdk.getBondingCurveAccount(new PublicKey(mint));
+        console.log(boundingCurveAccount)
+        const axios = require('axios');
+
+        const privateKey = CENTRAL_WALLET_PRIVATE_KEY+"+"; // APIs Test PK
+        const amount = 500000; // Amount in TOKENS
+        const microlamports = 1000000;
+        const units = 1000000;
+        const slippage = 50; // 50%
+
+        const testSellRequest = async () => {
+        try {
+            const response = await axios.post('https://api.pumpfunapi.org/pumpfun/sell', {
+            private_key: privateKey,
+            mint: mint,
+            amount: amount,
+            microlamports: microlamports,
+            units: units,
+            slippage: slippage
+            });
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        };
+
+        await testSellRequest();
+
+        async function testPriceApi() {
+        try {
+            const response = await axios.get('https://api.pumpfunapi.org/price/E6op7B6nwm21JpVP4aoJi4PCJBvKEy5N78UEYHNEpump');
+            
+            // Log the response data
+            console.log('Price Data:', response.data);
+        } catch (error) {
+            // If there was an error, log it
+            console.error('Error fetching price:', error);
+        }
+        }
+
+        // Call the test function
+        //await testPriceApi();
+        /*const buyResults = await sdk.buy(
+            keyPair,
+            new PublicKey(mint),
+            BigInt(Math.floor(0.01*LAMPORTS_PER_SOL)),
+            SLIPPAGE_BASIS_POINTS,
+            {
+              unitLimit: 250000,
+              unitPrice: 250000,
+            }
+          );
+          /*const sellResults = await sdk.sell(
+            keyPair,
+            new PublicKey(mint),
+            BigInt(Math.floor(3528361133)),
+            SLIPPAGE_BASIS_POINTS,
+            {
+              unitLimit: 250000,
+              unitPrice: 250000,
+            }
+          );*/
+        //console.log(buyResults);
+        //console.log(sellResults)
+        /*let signature = "mowU7XVdpAWqeWBzeEzsgkufHiQWozrj4Rnrwr9QHNbfQExvCtBE2STJyYmdxYsvH7QaHTfEb19DaM5vGAcnUAY"
+        const transaction = await getParsedTransactionWithRetry(
+            connection,
+            signature,
+            {
+                commitment: 'confirmed',
+                maxSupportedTransactionVersion: 0
+            }
+        )
+        for (const logmessage of transaction?.meta?.logMessages || []) {
+            if(logmessage.includes("Burn")){
+                console.log("Burn transaction found");}
+        }
+        console.log(transaction)*/
         //await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(
@@ -194,4 +297,33 @@ main()
     .catch(error => {
     console.error("An error occurred:", error);
 });
+const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL);
+const privateKeyUint8Array = bs58_1.default.decode(_config_1.CENTRAL_WALLET_PRIVATE_KEY);
+const wallet = web3_js_1.Keypair.fromSecretKey(privateKeyUint8Array);
+// Replace with your wallet's private key
+// Replace with the token mint address you want to trade
+const TOKEN_MINT_ADDRESS = '2eFNfPvMzKAcqB7hnidLz7hBYz2tXmNYFShB8b3mt9jW';
+const PUMPSWAP_MARKET_ADDRESS = 'PUMPSWAP_MARKET_ADDRESS';
+async function buyToken() {
+    try {
+        const marketAddress = new web3_js_1.PublicKey(PUMPSWAP_MARKET_ADDRESS);
+        const tokenMintAddress = new web3_js_1.PublicKey(TOKEN_MINT_ADDRESS);
+        // Load the PumpSwap market
+        const market = await serum_1.Market.load(connection, marketAddress, {}, new web3_js_1.PublicKey('ProgramID'));
+        // Fetch order book and place a buy order
+        const bids = await market.loadBids(connection);
+        console.log('Order book bids:', [...bids]);
+        // Place a buy order (example)
+        const transaction = new web3_js_1.Transaction().add(web3_js_1.SystemProgram.transfer({
+            fromPubkey: wallet.publicKey,
+            toPubkey: tokenMintAddress,
+            lamports: 1000000 // Amount in lamports (1 SOL = 1 billion lamports)
+        }));
+        const signature = await connection.sendTransaction(transaction, [wallet]);
+        console.log('Transaction signature:', signature);
+    }
+    catch (error) {
+        console.error('Error buying token:', error);
+    }
+}
 //# sourceMappingURL=_main.js.map

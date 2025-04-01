@@ -2,12 +2,18 @@
 import { watchTransactions } from './_accountWatcher';
 import { watchTokenTransactions } from './_TokenAccountWatcher';
 import { watchPumpFunTransactions } from './pumpFunAccountWatcher';
+import { AnalysePumpFunTransactions } from './pumpFunTokenAnalyser';
+import { AnalyseCommonAddressesTransactions } from './AnalyseCommonAddresses';
 import { watchTokenTxs } from './TokenCreatorFinder';
+import { watchTokenTxsToBuy } from './TokenBuyer';
 import { compareFiles } from './extract';
 
+import PumpFunTrader from '@degenfrends/solana-pumpfun-trader';
+
+import { Market } from '@project-serum/serum';
 //import { startMonitoring,startTokenWatcher, stopTokenWatcher } from './_tokenWatcher';
 import { buyNewToken ,makeAndExecuteSwap,findOrCreateWrappedSolAccount,unwrapWrappedSol,findWrappedSolAccount,closeTokenAta} from './_transactionUtils';
-import { isPumpFunCreation,pollTransactionsForSwap,getPoolKeysFromParsedInstruction,processTransferSolanaTransaction,isSwapTransaction,processSwapTransaction,decodePumpFunTrade}  from './swapUtils';
+import { isPumpFunCreation,pollTransactionsForSwap,getPoolKeysFromParsedInstruction,processTransferSolanaTransaction,isSwapTransaction,processSwapTransaction,decodePumpFunTradev2}  from './swapUtils';
 import { startMonitoring } from './radiumRugMonitor';
 import { monitorTransactions } from './signature';
 import dotenv from 'dotenv';
@@ -28,7 +34,7 @@ import {
     printSOLBalance
   } from "./sdk/util";
 import {PumpFunSDK} from "./sdk/pumpfun";
-import { transferAllSOL,getParsedTransactionWithRetry,sendTelegramNotification} from './_utils';
+import { transferAllSOL,getParsedTransactionWithRetry,sendTelegramNotification,checkTransactionStatus} from './_utils';
 import { BondingCurveAccount } from './sdk';
 
 async function main() {
@@ -135,13 +141,39 @@ async function main() {
       compareFiles();
       await watchTokenTransactions(accountaddress,tokenaddress);*/
     
-        /*const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
+        const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
         const provider = new AnchorProvider(connection, wallet, {
           commitment: "finalized",
         });
-      
-        let mint = "238VV3wEKEnL7thBFeLnZfpp6P7k2Qd6zduF6Wrapump";
-        await printSOLBalance(connection, keyPair.publicKey, "Test Account");
+        let mint = "x8g2Hja2GU2MdAMDkhp5FAC9PDCzpqQm7vJCiJb4WZG";
+        let signature = "4xhPsEBiT6XcRzdVt5cwQBDX3BNfitVx2JE3xUT6y9YriQz3DZzWXSRi5iy5s9aAFDGmCcqCKsznuExLQaBReySr"
+        let fileName = "interacting_addresses.txt";
+        /*const pumpFunTrader = new PumpFunTrader();
+        pumpFunTrader.setSolanaRpcUrl(SOLANA_RPC_URL);
+        
+        // Buy tokens (AMM-based trade)
+        const buyTx = await pumpFunTrader.buy(
+          CENTRAL_WALLET_PRIVATE_KEY,
+          mint,
+          0.01, // SOL amount
+          0.25 // 25% slippage tolerance
+        );*/
+        //buyToken();
+        let exempleSignature = "4XsEpNpGBEy8tvci2ansdHdmWF2euEnE1otJ9ehKebQsb1ysye88STWE9szAC7J63fCYCWkJUh2fb5ubpQNE5gh"
+        const transaction = await getParsedTransactionWithRetry(
+            connection,
+            exempleSignature,
+            {
+                commitment: 'confirmed',
+                maxSupportedTransactionVersion: 0
+            }
+        )
+        let result = await decodePumpFunTradev2(exempleSignature,transaction);
+        checkTransactionStatus(transaction,exempleSignature);
+        //await AnalysePumpFunTransactions(mint,signature,fileName);
+        await watchTokenTxsToBuy(mint,signature);
+        //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
+        /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
       
         const sdk = new PumpFunSDK(provider);
       
@@ -156,7 +188,58 @@ async function main() {
         // Check if mint already exists
         let boundingCurveAccount = await sdk.getBondingCurveAccount(new PublicKey(mint));
         console.log(boundingCurveAccount)
-        const buyResults = await sdk.sell(
+        const axios = require('axios');
+
+        const privateKey = CENTRAL_WALLET_PRIVATE_KEY+"+"; // APIs Test PK
+        const amount = 500000; // Amount in TOKENS
+        const microlamports = 1000000;
+        const units = 1000000;
+        const slippage = 50; // 50%
+
+        const testSellRequest = async () => {
+        try {
+            const response = await axios.post('https://api.pumpfunapi.org/pumpfun/sell', {
+            private_key: privateKey,
+            mint: mint,
+            amount: amount,
+            microlamports: microlamports,
+            units: units,
+            slippage: slippage
+            });
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        };
+
+        await testSellRequest();
+
+        async function testPriceApi() {
+        try {
+            const response = await axios.get('https://api.pumpfunapi.org/price/E6op7B6nwm21JpVP4aoJi4PCJBvKEy5N78UEYHNEpump');
+            
+            // Log the response data
+            console.log('Price Data:', response.data);
+        } catch (error) {
+            // If there was an error, log it
+            console.error('Error fetching price:', error);
+        }
+        }
+
+        // Call the test function
+        //await testPriceApi();
+        /*const buyResults = await sdk.buy(
+            keyPair,
+            new PublicKey(mint),
+            BigInt(Math.floor(0.01*LAMPORTS_PER_SOL)),
+            SLIPPAGE_BASIS_POINTS,
+            {
+              unitLimit: 250000,
+              unitPrice: 250000,
+            }
+          );
+          /*const sellResults = await sdk.sell(
             keyPair,
             new PublicKey(mint),
             BigInt(Math.floor(3528361133)),
@@ -165,9 +248,24 @@ async function main() {
               unitLimit: 250000,
               unitPrice: 250000,
             }
-          );
-          console.log(buyResults);*/
-        await watchPumpFunTransactions();
+          );*/
+          //console.log(buyResults);
+          //console.log(sellResults)
+        /*let signature = "mowU7XVdpAWqeWBzeEzsgkufHiQWozrj4Rnrwr9QHNbfQExvCtBE2STJyYmdxYsvH7QaHTfEb19DaM5vGAcnUAY"
+        const transaction = await getParsedTransactionWithRetry(
+            connection,
+            signature,
+            {
+                commitment: 'confirmed',
+                maxSupportedTransactionVersion: 0
+            }
+        )
+        for (const logmessage of transaction?.meta?.logMessages || []) {
+            if(logmessage.includes("Burn")){
+                console.log("Burn transaction found");}
+        }
+        console.log(transaction)*/
+        //await watchPumpFunTransactions();
         //await watchTokenTransactions(accountaddress,tokenaddress);
         /*const transaction = await getParsedTransactionWithRetry(
                                     connection,
@@ -226,3 +324,42 @@ main()
     .catch(error => {
         console.error("An error occurred:", error);
     });
+
+    const connection = new Connection(SOLANA_RPC_URL);
+    const privateKeyUint8Array = bs58.decode(CENTRAL_WALLET_PRIVATE_KEY);
+    const wallet = Keypair.fromSecretKey(privateKeyUint8Array);
+    // Replace with your wallet's private key
+    
+    
+    // Replace with the token mint address you want to trade
+    const TOKEN_MINT_ADDRESS = '2eFNfPvMzKAcqB7hnidLz7hBYz2tXmNYFShB8b3mt9jW';
+    const PUMPSWAP_MARKET_ADDRESS = 'PUMPSWAP_MARKET_ADDRESS'; 
+    async function buyToken() {
+        try {
+          const marketAddress = new PublicKey(PUMPSWAP_MARKET_ADDRESS);
+          const tokenMintAddress = new PublicKey(TOKEN_MINT_ADDRESS);
+      
+          // Load the PumpSwap market
+          const market = await Market.load(connection, marketAddress, {}, new PublicKey('ProgramID'));
+      
+          // Fetch order book and place a buy order
+          const bids = await market.loadBids(connection);
+          console.log('Order book bids:', [...bids]);
+      
+          // Place a buy order (example)
+          const transaction = new Transaction().add(
+            SystemProgram.transfer({
+              fromPubkey: wallet.publicKey,
+              toPubkey: tokenMintAddress,
+              lamports: 1_000_000 // Amount in lamports (1 SOL = 1 billion lamports)
+            })
+          );
+      
+          const signature = await connection.sendTransaction(transaction, [wallet]);
+          console.log('Transaction signature:', signature);
+        } catch (error) {
+          console.error('Error buying token:', error);
+        }
+      }
+      
+      

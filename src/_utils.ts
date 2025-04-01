@@ -4,12 +4,13 @@ import { Connection,
     Keypair,
     Transaction,
     SystemProgram,
-    sendAndConfirmTransaction } from '@solana/web3.js';
+    sendAndConfirmTransaction, 
+    ParsedTransactionWithMeta} from '@solana/web3.js';
 import { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, SOLANA_RPC_URL, MAX_RETRIES, INITIAL_RETRY_DELAY } from './_config';
 import TelegramBot from 'node-telegram-bot-api';
 // src/accountWatcher.ts
 import { AccountData } from './_types';
-
+import * as fs from 'fs';
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: false });
 
 export async function getSOLBalance(connection: Connection, publicKey: PublicKey): Promise<number> {
@@ -73,6 +74,33 @@ export async function transferSOL(connection: Connection, fromAccount: Keypair, 
     } catch (error) {
         console.error('Error transferring SOL:', error);
         throw error;
+    }
+}
+export function checkTransactionStatus(
+    transaction: ParsedTransactionWithMeta,
+    signature: string,
+    isDebug: boolean = false
+): boolean {
+    try {
+        if (!transaction) {
+            if(isDebug)
+                console.error(`Transaction ${signature} not found.`);
+            return false; // Transaction not found or still processing
+        }
+
+        // Check for errors in the transaction
+        if (transaction.meta?.err) {
+            if(isDebug)
+                console.error(`Transaction ${signature} failed with error:`, transaction.meta.err);
+            return false; // Transaction failed
+        }
+        if(isDebug)
+            console.log(`Transaction ${signature} succeeded.`);
+        return true; // Transaction succeeded
+    } catch (error) {
+        if(isDebug)
+            console.error(`Error fetching transaction ${signature}:`, error);
+        throw error; // Handle unexpected errors
     }
 }
 
@@ -168,3 +196,16 @@ export async function transferAllSOLToRandomAccount(connection: Connection, cent
     }
 }
 
+export function loadIgnoredAddresses(filePath: string ) {
+    let ignoredAddresses = new Set<string>();
+    try {
+        
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        const addresses = fileContent.split('\n').map(line => line.trim().toLowerCase()).filter(line => line !== '');
+        addresses.forEach(addr => ignoredAddresses.add(addr));
+        console.log(`Loaded ${ignoredAddresses.size} addresses to ignore.`);
+    } catch (error) {
+        console.warn(`Could not read addresses from ${filePath}. All addresses will be processed. Error:`, error);
+    }
+    return ignoredAddresses;
+}
