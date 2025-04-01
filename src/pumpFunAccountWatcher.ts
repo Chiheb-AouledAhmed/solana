@@ -7,6 +7,8 @@ import { buyNewToken } from './_transactionUtils';
 import { startMonitoring } from './_tokenWatcher'; // Import startTokenWatcher
 import { TokenData,AccountData } from './_types';
 import { watchTokenTxs } from './TokenCreatorFinder';
+import { watchTokenTxsToBuy } from './TokenBuyer';
+
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
@@ -143,7 +145,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                                 let processed = await processDetails(tokenAddress,firstRun,signature,connection,centralWalletKeypair,publicKey);
                                 if(processed){
                                     console.log("Finding Token Creator before signature : ",signature);
-                                    return watchTokenTxs(tokenAddress,signature);
+                                    return watchTokenTxsToBuy(tokenAddress,signature);
                                 }
                                     
                             }

@@ -141,7 +141,7 @@ async function main() {
       compareFiles();
       await watchTokenTransactions(accountaddress,tokenaddress);*/
     
-        const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
+        /*const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
         const provider = new AnchorProvider(connection, wallet, {
           commitment: "finalized",
         });
@@ -159,7 +159,7 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
-        let exempleSignature = "4XsEpNpGBEy8tvci2ansdHdmWF2euEnE1otJ9ehKebQsb1ysye88STWE9szAC7J63fCYCWkJUh2fb5ubpQNE5gh"
+        /*let exempleSignature = "4XsEpNpGBEy8tvci2ansdHdmWF2euEnE1otJ9ehKebQsb1ysye88STWE9szAC7J63fCYCWkJUh2fb5ubpQNE5gh"
         const transaction = await getParsedTransactionWithRetry(
             connection,
             exempleSignature,
@@ -171,7 +171,7 @@ async function main() {
         let result = await decodePumpFunTradev2(exempleSignature,transaction);
         checkTransactionStatus(transaction,exempleSignature);
         //await AnalysePumpFunTransactions(mint,signature,fileName);
-        await watchTokenTxsToBuy(mint,signature);
+        await watchTokenTxsToBuy(mint,signature);*/
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
         /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
       
@@ -307,7 +307,7 @@ async function main() {
         
         console.log("All sum",allsum);*/
         const watchedAccountsUsage: { [publicKey: string]: number } = {};
-        //await watchPumpFunTransactions(watchedAccountsUsage);
+        await watchPumpFunTransactions();
         console.log('awaited');
     } catch (error) {
         console.error("An error occurred:", error);
