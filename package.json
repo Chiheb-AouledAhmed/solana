@@ -29,7 +29,8 @@
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "jito-ts": "^4.2.0",
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "papaparse": "^5.5.2"
   },
   "devDependencies": {
     "@types/big.js": "^6.2.2",
@@ -37,6 +38,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
     "@types/node-telegram-bot-api": "^0.64.7",
+    "@types/papaparse": "^5.3.15",
     "dotenv": "^16.4.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"

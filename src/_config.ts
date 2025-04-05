@@ -4,7 +4,7 @@ dotenv.config();
 
 export const TELEGRAM_BOT_TOKEN = '7621406584:AAGdf5x4E6PwOimKHIWJt7zAzE2h7RgnqJ8'; // Replace
 export const TELEGRAM_CHAT_ID = '6414626849';   // Replace
-export const SOLANA_RPC_URL = "https://shy-thrilling-putty.solana-mainnet.quiknode.pro/16cb32988e78aca562112a0066e5779a413346cc"; // Replace
+export const SOLANA_RPC_URL = "https://mainnet.helius-rpc.com/?api-key=0999048a-e70c-4269-8c2a-456ceee2c969"; // Replace
 export const ACCOUNT_TO_WATCH = "4oJSHyviDy1dJus8nc2bqmxH8avBNiPSrPuzvvsaC2r7";
 export const ACCOUNTS_TO_WATCH = process.env.ACCOUNTS_TO_WATCH?.split(','); //["4oJSHyviDy1dJus8nc2bqmxH8avBNiPSrPuzvvsaC2r7"]
 export const YOUR_PRIVATE_KEY = "3NjEBhqBn1vGmpUWMYs2fvHxPMnAYqhfhAzatz2gPb9NRnoJ19nhKk8tyrDogC3zdkzovrCiW6EvswbpMAcGKNF5"; // Replace

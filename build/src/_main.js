@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const TokenBuyer_1 = require("./TokenBuyer");
+const pumpFunTokenAnalyser_1 = require("./pumpFunTokenAnalyser");
 const serum_1 = require("@project-serum/serum");
 const swapUtils_1 = require("./swapUtils");
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -121,8 +121,8 @@ async function main() {
         const provider = new anchor_1.AnchorProvider(connection, wallet, {
             commitment: "finalized",
         });
-        let mint = "x8g2Hja2GU2MdAMDkhp5FAC9PDCzpqQm7vJCiJb4WZG";
-        let signature = "4xhPsEBiT6XcRzdVt5cwQBDX3BNfitVx2JE3xUT6y9YriQz3DZzWXSRi5iy5s9aAFDGmCcqCKsznuExLQaBReySr";
+        let mint = "pWkzfDrPxfTNPdumQgzR79ismW3upvhmGQxh6Gspump";
+        let signature = "5BHXT1amNvHFEJt1AzUrFgVP8VhkE29iLUq62dGwcxtYckeDEYHTAbJTMPHtmGQ7cXNy1gjGwaPJrJQnxd166MWB";
         let fileName = "interacting_addresses.txt";
         /*const pumpFunTrader = new PumpFunTrader();
         pumpFunTrader.setSolanaRpcUrl(SOLANA_RPC_URL);
@@ -135,15 +135,15 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
-        let exempleSignature = "4XsEpNpGBEy8tvci2ansdHdmWF2euEnE1otJ9ehKebQsb1ysye88STWE9szAC7J63fCYCWkJUh2fb5ubpQNE5gh";
+        let exempleSignature = "2oKhejMRKpQN2pnBeYokVySbxq3qdPUVSdkZMdcBhKN8daEycqtc3rndTByEpKuRp6kYdiJduViqEcvyLAHTspKd";
         const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, exempleSignature, {
             commitment: 'confirmed',
             maxSupportedTransactionVersion: 0
         });
         let result = await (0, swapUtils_1.decodePumpFunTradev2)(exempleSignature, transaction);
         (0, _utils_1.checkTransactionStatus)(transaction, exempleSignature);
-        //await AnalysePumpFunTransactions(mint,signature,fileName);
-        await (0, TokenBuyer_1.watchTokenTxsToBuy)(mint, signature);
+        await (0, pumpFunTokenAnalyser_1.AnalysePumpFunTransactions)(mint, signature, fileName);
+        //await watchTokenTxsToBuy(mint,signature);
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
         /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
       
@@ -197,89 +197,11 @@ async function main() {
             // If there was an error, log it
             console.error('Error fetching price:', error);
         }
-        }
-
-        // Call the test function
-        //await testPriceApi();
-        /*const buyResults = await sdk.buy(
-            keyPair,
-            new PublicKey(mint),
-            BigInt(Math.floor(0.01*LAMPORTS_PER_SOL)),
-            SLIPPAGE_BASIS_POINTS,
-            {
-              unitLimit: 250000,
-              unitPrice: 250000,
-            }
-          );
-          /*const sellResults = await sdk.sell(
-            keyPair,
-            new PublicKey(mint),
-            BigInt(Math.floor(3528361133)),
-            SLIPPAGE_BASIS_POINTS,
-            {
-              unitLimit: 250000,
-              unitPrice: 250000,
-            }
-          );*/
-        //console.log(buyResults);
-        //console.log(sellResults)
-        /*let signature = "mowU7XVdpAWqeWBzeEzsgkufHiQWozrj4Rnrwr9QHNbfQExvCtBE2STJyYmdxYsvH7QaHTfEb19DaM5vGAcnUAY"
-        const transaction = await getParsedTransactionWithRetry(
-            connection,
-            signature,
-            {
-                commitment: 'confirmed',
-                maxSupportedTransactionVersion: 0
-            }
-        )
-        for (const logmessage of transaction?.meta?.logMessages || []) {
-            if(logmessage.includes("Burn")){
-                console.log("Burn transaction found");}
-        }
-        console.log(transaction)*/
-        //await watchPumpFunTransactions();
-        //await watchTokenTransactions(accountaddress,tokenaddress);
-        /*const transaction = await getParsedTransactionWithRetry(
-                                    connection,
-                                    signature,
-                                    {
-                                        commitment: 'confirmed',
-                                        maxSupportedTransactionVersion: 0
-                                    }
-                                );
-        
-        if (transaction) {
-            console.log("Transaction", transaction);
-            console.log(isPumpFunCreation(signature,transaction));
-            if (isSwapTransaction(transaction)) {
-                const result = await decodePumpFunTrade(signature,transaction);
-                if(result.length>0){
-                    for(const res of result)
-                    {
-                    let tokenAddress = result.tokenAddress;
-                    if(res.direction == "buy"){
-                        allsum += res.tokenAmount;
-                    }
-                    else
-                        allsum -= res.tokenAmount;
-                    if(allsum <1e5){
-                            const message = `
-                            All tokens have been sold
-                            Signature: ${signature}
-                            Token: ${tokenAddress}
-                            `;
-
-                            // Send Telegram notification
-                            await sendTelegramNotification(message);
-                            console.log(`All tokens have been sold. Exiting...`);}
-                    
-                }
-            }
-        }}
-        
-        console.log("All sum",allsum);*/
+        }*/
+        //const filename = "export_transfer_BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6_1743717772074.csv";
+        //await AnalyseExchangeAddresses(filename);
         const watchedAccountsUsage = {};
-        //await watchPumpFunTransactions(watchedAccountsUsage);
+        //await watchPumpFunTransactions();
         console.log('awaited');
     }
     catch (error) {

@@ -1,0 +1,1662 @@
+[
+  {
+    "address": "7jTYEfNxoxdqm1dmza8v5KnHpGpbLF6VELphicz6YV1d",
+    "buys": 17.195255191,
+    "sells": 0,
+    "signatures": [
+      "4uycZfFaYAWJv59rtCJP9SHpgDX5Zs6HRBFJXh8cCNBm2CDkwNe8js3MfnVMMdH64fhRaLwgUKypXUzLLcbQKoDT"
+    ],
+    "netValue": 17.195255191
+  },
+  {
+    "address": "2Fav2ymDfdsmNNusF31NNKME4C8fjreVRgUYMkHc8dHi",
+    "buys": 2.9564532430000003,
+    "sells": 0,
+    "signatures": [
+      "3LYrR9SQeskvG7s4sgS65uvdT67xsShmchw39NabtXDojue8Fia4Dc6EnCAGnLAJpFnAm7NE2ZgJmsezRWZKgWa6",
+      "2RT3PYHGAkA68tGU4hUpYtMXXYfWEocnExkktcrNUBCHZK3wpGQKHCebqwze3sUjLDpJsiSZVXqPAzfBzKSUV1ZM",
+      "4QGe7PAx7GYrusN9yCRa7HwtoJHn6SpFWCKEyAaZkN1UK8z9MJoKuEAGCSmJ1bTLX9vXf2NziPC9o3whu2VevCmo",
+      "5z8tHfm61ZGw8HZdY4zdYg3ED1gSnxwXTECrtsaskc6sZsraAr4CnvJRNMLzcZRYyTG8JutxYnZLBtFLmU5MQdNe"
+    ],
+    "netValue": 2.9564532430000003
+  },
+  {
+    "address": "9U9zQzc3iZp8RcHG8AyvCreykB6vNiQhdSF3Azd4vaF5",
+    "buys": 2.920419676,
+    "sells": 0,
+    "signatures": [
+      "2pHxPC5jjPePFdzFW6DhgBHkTshQmzJnjiF3GgLdAuejdqBVWhU8bxZV3fSK2hnJG9iJGNjVmf5s4oeuPH1UYi4E",
+      "BXWMLNR8k4GFRb5WTXk8knoS2bUS42p87zyM1WS7YV8AKqMf9HS1YsvgNTi4VkVEod7YML8GSy9SSGtFTfaQSGy",
+      "3G1pWVcWxm6MPUeu9rTfmFgu7KtaCro21foVKSvZ7TTNrSEMbLgKEABT9RerQdwnVjjyyk77bGUYuwJrYmQTiv44",
+      "2ANkjMCPgbgR1tDUDA5nC1ymuPqDp6CUkni4aioMNSdgZDU13vJRwJrEsniXLghad2eovN2KYmK8aTNark41nARf"
+    ],
+    "netValue": 2.920419676
+  },
+  {
+    "address": "RhQixGm1t4JfzmATjACDgDxxeLGtQH1YLhyYavwPq5X",
+    "buys": 2.910204228,
+    "sells": 0,
+    "signatures": [
+      "kjmEqvrWzecPGt7Rqk5pve9x55JyJT2JykyywLo3uLZbULERcdK7Drr1uqhH55mCvnJwbRSrDyt6xchBaLji1Sp",
+      "wFUmDGCRJZEJTvAPjiCVvRUJ3qXE9Ljucu9qnAAmhTJkrFkpRkzzDoqskBcZD5EzAmcygAsWvCJd55XXG9GFjnA",
+      "62qUZuNzNMZZhxLoecVCQDWR3cPNbZST5GDqoAFueoiHQxaVQaoGV1WmXCpxNtdipgvJnDqeyhexpaCRcNFnW631"
+    ],
+    "netValue": 2.910204228
+  },
+  {
+    "address": "EVmMnGzD1h8Wpc4wwbEAJbMXzsXX3RQcK2SYDgQ2pN8g",
+    "buys": 2.908072499,
+    "sells": 0,
+    "signatures": [
+      "4EdPEPDFTW6BHTuEu466tdkeKK94M34HtvaNQi5eiuY96prw6bN7qDrSgWwGyCDzaGZt3X1kDxi8Fk1aXvNecwnR",
+      "5Ne2qWekbX8TfbUezaYrUUA7eM5rvs9BUNh1X9BQoHHVfFXBZfNcrMXGG43BaiGeqNjwbGXk6n8dfB6SMCmGkkTo",
+      "5uPMaBXhn7wBhNpJWgsK4wvWW9ExTVaV2scdpWrJYLMvKzVsu5ALY8fMnV9HYnWqgV8JUJtsSV6xNpQr4cBuWEXd",
+      "XW1HvFe1CeAkuzN4isBfkoVMsq3Yhjk3RYM6F4MFacjKH4MKMiHh9boLrep1933kr5JjqxSVFJf8jKsXZPf32eN"
+    ],
+    "netValue": 2.908072499
+  },
+  {
+    "address": "DNUxcE4BNq9K5bXy49ZRhAf9FbKQghy4JvZZWuoyDuJB",
+    "buys": 2.906341119,
+    "sells": 0,
+    "signatures": [
+      "46RCjXurfNnNFE8h6WZXvRhReWxzPmJqqVrkCZj2LKptqBGuf5fTLi23bjnah92sGpJJMRvnBALxqTmebkqfZHCn",
+      "2WTEtUC1EPxdE9PgnoRKh28DDectedsm2zTfezQSFjon81JoDznpFfWgPxQzk2rk2cqJY1d3FYMovFKGHqqGV9MB",
+      "2AVhS64oEhXbMeyDogfKaHYkf8eDi5CseALm6zmEmsHRi9c8norgNrr4uJsK46mbj7B5jHRgMACiSPWawGFCt8Nd",
+      "3DWi1QgNfHaT4sdBxAdfR2rKsY6FE83bscWFxK3Kd6AS4BiCbdAYLj24AHGtcyxk1ZxpkZXVCjT47Py1C71St8eh"
+    ],
+    "netValue": 2.906341119
+  },
+  {
+    "address": "G8j4ZCNUo7yEwurHEBnLLfJppqh6J1B47WufcEXh15kP",
+    "buys": 2.890310958,
+    "sells": 0,
+    "signatures": [
+      "4Yvnipn5Bt35Zuaz2iktUyk4h9whx3p1NeH71R42JsU7KGC6pP8tT2NGdS8cTgMY3LFb7chxxhJxCTyQojWxYyrk",
+      "2q8QBKs9XDuSDFMhpaiokjGyjdsASvVHsmTRDByRVgRhSDyg37HdhGdHxsNKyBexth36B98CE5Z8ta5bz2vpgR4P",
+      "JHoJFEJghk1TCaE5Ucrdup55F9KPG1Qh1ZwJoHDwCbD51aw8AS6AWWi3pbqHJaCDg4cnPnGcq6zegd2psZeaWZv",
+      "2SAbeXw1FdG8UZP4A7qKgApung66GJnbcz2ybsww3AqDM8jLA9y4NqHfEEbZncWTwpvpywyPCk85Usb6QGpSg1pR"
+    ],
+    "netValue": 2.890310958
+  },
+  {
+    "address": "3dQEWYTWXyiAHmxZgZfJ4YCYtm6UFPguQsbBceu6gPAX",
+    "buys": 2.872300392,
+    "sells": 0,
+    "signatures": [
+      "2MoadoRhJeUjDJBqeHzWg6C71Mmq1mzghef4LpB3Kt513kKtGRRnj8VZGeEY3WySRuofMV1UjhvpjXfNW9Wmzjbj",
+      "4VHH3Ld1HRheG1rtV1qs8W46w1vS7quhsEy3RyUc3gCizoMiLsuSr5DPdd5ZpDiCCpb9AambQRgWaKhsqXDZQRYB",
+      "2goTZWtDmufk4JeKDr3hcsDLbTb89eAHEjKvNgtEX8AxGs37sNoZXeQ5nwD7qRJ6uXDhgCUmdBcvP93Eyanjf7rX",
+      "4EK4Q8DNr4RB7BeiPM4ZjWs3ELqDL8xrmzB913iD3X19xCuh6zWtyBQUXHaDEw5WWyccDcMtF5HM51M4kfwvgXH"
+    ],
+    "netValue": 2.872300392
+  },
+  {
+    "address": "G8R9thEwTsW4hNUqutJSTyuQsfrYt5sUncs3hopJzkpo",
+    "buys": 2.844977086,
+    "sells": 0,
+    "signatures": [
+      "4DYZLpgDeRE8syWZcpDpjFWmVteQDYmKcGTdYMhSQkvGvoN9Zu1CRofHRFx119c8HormpS5iGtG9USfmxeSdLo9f",
+      "EwEQA8Si3T8pss97kYY12QWVVdDajuRtw6Py3aTgesXBmYT8uRwDCzPJfDvtBQ16FUUbpVQizRpFWxjEv5EEjzb",
+      "2AHrDYaypep7jCmgqmND6QJSUeJtdkZyJLJfusodLm1expkaRhcqXRynGtfPH4nEzAdeTiHZYeM1YQgrHbe4ggxg",
+      "4HFrm7DiePi9auiYC6dHtWywtsKPXAvAhHVYn52YMdFY6vm26d7QK78bZDimvnR95ZF41pQvFH3YozsVVVVNzHh2"
+    ],
+    "netValue": 2.844977086
+  },
+  {
+    "address": "6nqF4UTzs2Xy21PFZjACJWyjq1K7z74WeJSY5HReZBz6",
+    "buys": 2.83775054,
+    "sells": 0,
+    "signatures": [
+      "67qMWv9aSUwYava97iuZimmryVK5EaywL6Hgo91kKL6FiTKYKmV42rqrtVE7qYn9wjDAGnTrxGiQX8ok8YtHLJsw",
+      "EqAUhtDeSg3eJKuw2MNP4zZ4rF5yDYAzuz5s1ApvEySkc934JqNHu9hb8NkyZbXn7wKA6GBnErArFZ4nkKwngjU",
+      "5jfeYRmaoCzRz7mKvUMft7wfgiLRma47UtYRatsFzDPh2wDf83TBthyS3zNoJ7RJyiExV91ZxGz8mYgXpYE2PG5W",
+      "5Pc7qrKnFDscqTkrpf1yCgchsghQEq4chJDm8dyyWeeNvqqf4m4waDWTVPUGuAwqUEk7Lks2vRuVk9JJa9q49W5U"
+    ],
+    "netValue": 2.83775054
+  },
+  {
+    "address": "5yay51AQ9pLRYyfk4KCCL4tyNLyeCvqC6QFfKaHxeahU",
+    "buys": 2.824666682,
+    "sells": 0,
+    "signatures": [
+      "2zMBCG7o4RtqqpNf9sdzeKbTWv3F1V6WNtQMmPUDaTumjrXSx9xhX5DQQtVfoZmwnWoMweCwdkDVnGmo1iTXw9mX",
+      "oUUjxwjTLvVY5XuPB6nQwGGXx4yibxxcoB85NgnuvCYu3mLkaWEBN32CkUhFJdUizpp77WZrpR9TrdAB51XJcGi",
+      "3u8cMGM1oiYf3wTnb5d4FSF6fEVzScKeo9Tao6WZEgBAxb17cnsBFtPLcmaVdiKEpvenHG6H3JYYau85zsPJpdHs",
+      "2Q9SDPry73MHozAjPVPWb5Tt8zcuH7JfbZBqWVpN1RrqzSeJmMWunCJKkSzVi7aDaasQFrX7dNEU43F2Sj3nGBhe"
+    ],
+    "netValue": 2.824666682
+  },
+  {
+    "address": "6Q24TyLLmpVvtQJWtenALYeJH4sL3QDSESgjH2VzLemi",
+    "buys": 2.816591604,
+    "sells": 0,
+    "signatures": [
+      "2WRYwYkAb2mqUWxacA4WtgRFj7MaFDKNF8TQwWR3PLvC3sj1xpVPP9NTt3tpNcvWG47XT335NCqn1v6EJUVFE598",
+      "2Uq7A9dJeqqAZf9DNHj1KsiQjDht1iCwk1WZrLHrg5Z7fmdVTbBNXGSGnXviVxdhMuNRcQBVqhTGNvaiPf9QYcwT",
+      "nwTp7MGqm7giDwBLAGx2Y16fvSJ7ngwtXcsKPKbEpAoqtj8jdmRV98gDyiv272PexSJzGxg6vNrRKJW2S2V5fqM",
+      "FZJmxQMfUDohc3cJG8YDE6U2RdPgpPrxac91nUm796QnKfWzhtPnJckS7xMW5FquiXCv2TpyDARrpMApo69eSmg"
+    ],
+    "netValue": 2.816591604
+  },
+  {
+    "address": "wbw39EzBJNEqesYwrfUauwY9YXEsxWazUeUPzWjMEB3",
+    "buys": 2.814004707,
+    "sells": 0,
+    "signatures": [
+      "41UzD9Vq8MsQS12RQxBWv8UVcvCc7rx2EoZ4WhgQN4Fv4NCsDQYuicuvY2ruKQyJ3Y6WkZSo88iJnqhdAsKXuQRZ",
+      "4XCN7ixGUDUJ3Mv4NvPC63krpfowpUehBphvgxhj4niESLNYM3Vdh25MzFF513gApQs9qMkvMj8cf1xKKFxEc6Ah",
+      "5MnGJsv4yuN8YTX2pbXhNa4XvQNGyJXu5enQrFdrApeNBXS6rPXU5P234HSyA3RZEchB2JyB52Gi356VRjumsQAt",
+      "5vRdWxNBYiDxEVCQxdc9gtGiWv4wcZQLJvEcjJVLHKAh67ec8TXM2ZYi6dLSBwgiP6c8BCJ5cRxo3USuCtkvb3Xu"
+    ],
+    "netValue": 2.814004707
+  },
+  {
+    "address": "Fne2LFRkWbCVxyUTe55AAudHcYHqWxkFcs6JE4D64tRG",
+    "buys": 2.800599441,
+    "sells": 0,
+    "signatures": [
+      "2oPTTv7HyGiovZnfGjmJXZT9Liz4vAh2EfsTHunEGrB8eBvNtzhmHjfZGkUhXV1baGCUCuUtRsF2EDgiB4cngZ9v",
+      "2aA1FdQGWKkSCR6rf2Gh3pwagMMswdSRnHKSt6KF4zr8xy34WXmCgGZtCDpsyKnuDySNC6jCbGVuFooS3Gb4JkhF",
+      "ZcnJ3SEUQYkzUMgVDhX7ffkDrE3PbuYfkGDeXtipv7at8SF5m6eukcGvLfvsXzsHsoUKZpwNVtULhNN3dcw1jbo",
+      "3nNgwpZahkQKLFx4o46BCWA5ZH4ZiLjTQtmw7mJLyryngBrn3QrE3GeGBnqxMTCwWUV9FgkPuTftr5T77j8oVefL"
+    ],
+    "netValue": 2.800599441
+  },
+  {
+    "address": "Ds8JxyZsZj2PSPnZwW6KqNkUcSftAxzpAKJY1Wn8iRGz",
+    "buys": 2.7577562660000003,
+    "sells": 0,
+    "signatures": [
+      "2ph26gwVyNmhfypsuftknENhT1VkTcVTYQ9cMuNBUf43qE2BXJyrqAwdj1dJYHsepdVNq4xY26LsN1eKhC4CtrgB",
+      "4k6Zr3jdJMaeAuFrzsAf3NowLrGYn3L5eZiU7UiLWF53TcKtmmiVeyTHm2b4BicPwPCrjDrUQwZtvSrDZQGjxiJJ",
+      "3UFhgJmuC8aRsvwn82FB2oWXdCSiHXmvpAX3jWG4DkUz6eFYJo2ftDZBRAmAK1r7iEjK86xh3VcUkFZvZGxN2ECP",
+      "2SzzQpKv8rHen8pwEDYntcopWYVQqfjykefo4jAb9Kz1Z9smHF4h3VA54LDM2XamgJXqfWjFpCJYVXwqcuD6SE9p"
+    ],
+    "netValue": 2.7577562660000003
+  },
+  {
+    "address": "48BsTeXAPkinR7aZswhiT5Yfr1yHwpCPWCw9hQZRBxhD",
+    "buys": 2.723622988,
+    "sells": 0,
+    "signatures": [
+      "3PLqNZXJTfX2FWgxrktj2sxuGviTuTrUT12paBUTRZ6X6zAumh6yspdZefRhCS49SxUjFfqzmotpbQGFbt52KZQr",
+      "3KpSB8AGa4w8JfWUayWsWUKzNXxW68orvJNFY5QcWgnQ1bJL8mkbNWjDvFZCgsBUUbNHDv6QWU5UHrWHV355eaZQ",
+      "3NDvDtUkZYiGN3GERmNxHyxVpANdbR1Q2FYtMVqA2rtbfgjVXq8Hi5DxyuF9JBjv4iHJ6q6ChWgu2VighszPunK1",
+      "vtzFVQQntwEdRsfm4g94Bhy97M1oxYr9bJUNgoxjvizT73YmGERo8SgTxJYFMiACRuWLkwnj9YtAFYhkHuc9888"
+    ],
+    "netValue": 2.723622988
+  },
+  {
+    "address": "2FwCgcJmPc1qgfyC9GVzNWctSowpySU8b9coSBikHbGN",
+    "buys": 2.721615587,
+    "sells": 0,
+    "signatures": [
+      "4oCxSb1KRninf35FWJwxMgjitJBdBsjDUbVPnASJWbR8iiJQDioX5TLCEpgucNWr3YFkyWPc7tmysuoVfwcMLPL8",
+      "9dLHybP7ofc1Bb1TsKRNb2yGa6gpiSAaBf1wS7M7cxHKQ2mEk1wX5RHvwB4yzcy7LhUQHwwV9ALY9fEtNqxxmze",
+      "reyf5p3TT1QX2p2NVNmmNu2ZCfDZwNNhdi3jDM7kP7xkdhB8bvGJmAvg9hRpuaSNU6Z1GKjvsDNdZw7kUxTPiML",
+      "5DKm3WsX3f6CboRFcHTiKCaWhXe3dqkwfaMQ1cwffRF3iyAmxjWuSj5Fh7FnKhsP1a3RYNy7QXgKF9qAqeAhxL2h"
+    ],
+    "netValue": 2.721615587
+  },
+  {
+    "address": "FxhQ5gvjuk9bJGULXMqf2LBTtqhrBiva3bGc8hcjcRAU",
+    "buys": 2.71893596,
+    "sells": 0,
+    "signatures": [
+      "2NLdXP17eXw3g4HZgNDx3HyDwgE9obvednTkgdNNo9kW3pHFACEMXB12Lj3a2dtpVxuiT9nceedrk7TiYWyjzU9d",
+      "XJztv1PzWAdUpwRJzi4qApzt1KVABrvia4HJbVE6rYeJKvXmghUPEiJfWxtog2eNmBAWC6uZAoapNk8goQNYjt6",
+      "3VJiqZomV4KiXoUtYnk1jDmD615QYZcRRqWNktV2JjwEDMWwzD99UUZAJDncw6yZTzgcsMimNUNFyrqF8ozSQE7Q",
+      "ERgeag1CpVu1rpLXbxvz2ZQNBVbjWzzhaXfPxQyysdAyhHcRV1BPiXTVwgzL4saS2jdFm8Kj53zs9c75QG78a94"
+    ],
+    "netValue": 2.71893596
+  },
+  {
+    "address": "QMmMnoyVrR1mfcqnoL275vX1VqkGd1JmKbVUYjYXhBm",
+    "buys": 2.701918191,
+    "sells": 0,
+    "signatures": [
+      "otEV15s26KJq7DYns6BJu9JsHsXoeEYmN558f12ESTT1vPLivHA6KYzB6akJzEfRtBdVNuiwWYRpGoWTuJfQAYi",
+      "64DKcypbtwWiHVJDnw6FuZbGrYdKoCU9aLKg2g3dyRhGQAM4AtqYKcdQdhcNen3wmErskLHpQr7tWKTnjsDeWbe9",
+      "2afAuA9K5UQJEbfoTR3wsyxBK7geBmuKvzihmQeYQBzC46TwDprjM79LS7Nxx6NjMwjRqG87VtFzhzquL6kxKnZ",
+      "4daZAup9d8SPv3VL8FiLXfLJKYrYW5ENAVXHNocgNwYif8UuX7dcQ82711hBzFet68FnDmXdgrMbhDi41WJ1MVk"
+    ],
+    "netValue": 2.701918191
+  },
+  {
+    "address": "Ckxe6jayFdQodbunW5f1r4s89SZd6rqP4D9NeHvQ75bK",
+    "buys": 2.701802722,
+    "sells": 0,
+    "signatures": [
+      "55i9HpxpEDpCjuBhkEFDE5vJVSMiY8NdfhMUUaQmr2LD1pJQV7pfqr4Ernpk8Bko5yxXpJLXHdusKEDZEr2yzDW4",
+      "3644z2D7XafkHoxY9fLx9GN7DiWwEMm2j3ibvzALe7g5XWgRxYCzr9tQeyCfNW1UXUGZ7vF5zxtPfoaEk46vY6yZ",
+      "2xpyk8cbYnPVx24PjJ8xYgxe2PHrRLBXVXtziwjeFCeSy9aae2vunRfb1oW9g2VBeyqARHQYSr8nhazop95HazNN",
+      "5zjMEsfWkQ5oavnphQDn9T6ifhQDki4ogftQxFuqujhMPp4VyKtgCkifKnUE17H1Czik5BqQjn8U3ZPbbKM9Ve5C"
+    ],
+    "netValue": 2.701802722
+  },
+  {
+    "address": "6ssfU8nofKKy2iCVGLGrH4EtNPXh2qQsCXFgjWnPHvFo",
+    "buys": 2.671189712,
+    "sells": 0,
+    "signatures": [
+      "4YVjUp1bJrZ1Z31K5ciV9R8JSbojpgGDqD16rbYKUZhkbmGWv8hAos2Tkc3pwdKA8ATnpo8NAumNbGwrC6UGjRoT",
+      "53PQsey1xKSKkT5duXPJ2mu9iRYpmS83Ncyy3vxbiAvHFJv2CBZbbzPUiCu6SDPGXRedFUiHN7446vuoogkUHkPi",
+      "4ChSdQwXcuw5xN5spUPg9VK4AoFLrxHC9gqH2ABCw1nC5X5gTyjNqVpq8dKnaDXEn8cK74hVSfeKxbLHdBAiGkqF",
+      "61xhbjMJYdqXCJeVgCN5SKwX6kKnJYNXQNLcjgEByekjQYwuULx92xddQrztZuPd4byPHZrViKLBZ3wk7bTKT4Ct"
+    ],
+    "netValue": 2.671189712
+  },
+  {
+    "address": "5Skrf2XRTw7K53uefTmzWmubGnM7dhJNzZsZSVFqHX4",
+    "buys": 2.6651852490000003,
+    "sells": 0,
+    "signatures": [
+      "57M7qh9xDDpYaAJWaC7Vgh5UQxYt2joGFzUYfcHVSvBwFwKW1XsRFiYNMdPRFybKZDGUXCPiZ5CvWRL4aXiGsDqJ",
+      "3ULtf2TsekbMhMBSF6BwFmHbsL9cZ82VQVcJPGu8uFc5vDd5L9B6QbdKbbJrE9apy1QbcHW85omBvb2DMZXrJZ1Q",
+      "47FhymDujQD89kKGbKJkHmU1sxhfNEkt9YpUFyJW3AhF4rJTapV3X9ecViXAqT11ConP4E842TzYoekmsejAwVjT"
+    ],
+    "netValue": 2.6651852490000003
+  },
+  {
+    "address": "8Gwm3Jjn6RpYRtVuTUoWXSxcAsLuEBLRMpnLL4yEde1h",
+    "buys": 2.652800477,
+    "sells": 0,
+    "signatures": [
+      "SZDzhxvXGc9KCFmBwRTFarQV6F18WTDjAxyjCWTW1ALJVwKt1QA5HGbiSiqQQJ5eP5FvuTLGtyajoaX9m11girS",
+      "3VMMeCLccRxdaAdRwgop9z5DdyQSxEkGMZeS4o6K5xKgN2TDdAmkxCJAB4uEnJ8x2ck6aZRRRjsAJFNakCbirk28",
+      "27x8xPncdFnXgrSfidGHWrdKEbmmgkoQML41qadPBc2GLoywKWMyG1dj2UJ7ceo4NF8p8FyvQS8dZaftjekkdBAY",
+      "5pUYRrch7JHBAfu57RK1iAFbWTrczeQBxNUaZcxi1U7YbeVuL1E7pRydmsBsVRopdLdaus89F5PiEAMzw8HFiWuX"
+    ],
+    "netValue": 2.652800477
+  },
+  {
+    "address": "HUCrY3QmFeD5uZ3QfXFsuxgJCJgvakArk1fm4WfBYV5N",
+    "buys": 2.650658662,
+    "sells": 0,
+    "signatures": [
+      "3KxD8a1f4TqPrsRhwdKuBPy4WAzXWUowDBWAPK4nc3Fh2GJNwhYfpGguK8wi4fzhKhHthuCeBGgGFEvh1atmHhY7",
+      "dRGJADr7yHvo147r1LzxER93vcmb6cPtNm6RYbnUAoEtBPRZ2rofx3JCgAPbDdtQoargboUiNSRmTFRZu5XwsrR",
+      "41RzdqohZLhG61SjuZUXWdisftW5TCtwvrjQZouggPrSMFdHwZMKXfTzcQQZs4iB66ERKWuNSao4STRBwS6VtLdV",
+      "64DfXZ2GyT5cqhBFbHYbEdet6CkyQaFV2XXkiUjQZRmWbmTSzntM1MXTMZAjEzNRchpcg8rQjcdX8T2Yf6rBp3gL"
+    ],
+    "netValue": 2.650658662
+  },
+  {
+    "address": "79gMEJXuC3sU1SUCvsEzwaaBMqfs2tey91oRGythsa78",
+    "buys": 2.650284086,
+    "sells": 0,
+    "signatures": [
+      "34dtFcbMH3W8fAUeDJzmv9j9Uv8V6fTzwAbwE7o3DZL1CaWgA5QRwEha3Qo8An4BfFfDXcLdZD2UdPcA3g5TThGG",
+      "4ceGWC1xLh4h2r7jzhhrqv3qQGV6pSDsV7TzxcFoyVuRBhbm5ivzJtx4pFHQh6AJCGscKCuxpvh2Bb5P8uw2gUyh",
+      "44C2x54oUczCSE7vn5WFa9LGP6HYNpvbhy2YZdLvVQ67TMJbtQ6SK1G8cquRxYhBjvfMt5ATZPjNrY8otQDydJWp",
+      "5SdyToEtrdS7Jg7wTpxLQLFZ5RxbG6jJ87EyxsreJpM95Y7fVsguY45UAH2izqjD2vEbXdKAfymYWP2v9w8fA8VB"
+    ],
+    "netValue": 2.650284086
+  },
+  {
+    "address": "HPXFDqkHuKrBjg1BXLnNjK1GW4DJ13AtFNhciAEyafSi",
+    "buys": 2.641430316,
+    "sells": 0,
+    "signatures": [
+      "5sjTxZeDXK5YwBUNWtytVgMWM83mEGnZ5ZvghjK3g9pJ4VY86oadXw2U3D41dR5NirRqt8AnfXVpaw4bMsRDaNay",
+      "5Ez8EGD99xRioZXnRqPGdL3rxembzcv8wd7HgPFzbeoDxGRogEVsAoKHmRNFjwPPU7NttW4Djy2cyXbHsDPgm8P8",
+      "28iGbZUGNEMA4iZpu9kNVxroCyJz6SCgUmHg9MJgjmZqkVwfC8As8jGJzYsNeJCkKtyCAAqQ52azxHDq8UsLbans",
+      "5LaqcQqhG6EbsDbHtyaA3M6RUZqWGZK7V54DuUu3Zc15cau9EM7kVLrYiHt39J3N2SNt4dzbCL2WBn2rjMuD3sVS"
+    ],
+    "netValue": 2.641430316
+  },
+  {
+    "address": "G4JiWkenJcEKkwnbXeVzfUeUPK22RM291sATexDYqgeg",
+    "buys": 2.626661823,
+    "sells": 0,
+    "signatures": [
+      "129LC74fotpqniiRtDvc23EtzBTB75Fp9taWp6knRV8rmso1ZZPByN2op8eoabgKT7H1r2BZ43j8ZTf4TX7ADQr8",
+      "4ufX8vF1kyrQmCbNjMgiywdsN56G5z2nNVDz331go25QytvNBZgLoBHMMACMdUJYMK5UaAVUeb6rKDfKjkKfrfMa",
+      "5wQGadyqXF7dWRyXi3ZMVGhZ9cxf15rfcSuSR7Wqf92GTXTRpRNfKYNAsYPk8MftpsUoLXX5TiozWPCJMUqcsBDg",
+      "aut8zCSsvXKMTzpXUoRh2xvbLX8jWwHqQAo3Cr5LkkTWH82WFFfUBCypjkHa49UjeddUbzDzXcq2d4omMJZY7pS"
+    ],
+    "netValue": 2.626661823
+  },
+  {
+    "address": "BifAjbu7myGmbCwE9naaoVhXcLGZxH6V6MThLH12Cpky",
+    "buys": 2.593675255,
+    "sells": 0,
+    "signatures": [
+      "439otDL5s5TNSGCKqygwBdvqvzV5nLK2HBkE8XySJxps9m9oruitYyyepzS9R8mtwSW5bX6r4CLniP29LoMvqd3t",
+      "2WcriUJzQr6ekcU15FGfTnVm9m8oTppmjK2V3eRCeYsZPdSrZMDKMUWEnKXa4RgvPQWHcGcQCx8KNRkmN5KtnHkG",
+      "4Ag7fTYHbzRuXvbG2shzn462RVahkyyHd1BVhKXP4Ak2LST3XPcpXMExBtR7LAhWP6bez1bv5Y3BBpUrnhZfQy8M"
+    ],
+    "netValue": 2.593675255
+  },
+  {
+    "address": "QZ1y35u8Tgd5yhgiFXgKmrdr5VRXnaDZQAjBAmL3jkj",
+    "buys": 2.579414488,
+    "sells": 0,
+    "signatures": [
+      "4wibiuaU34pgBVWRCoBBVkUyzZHfKENwQPGFSdbKCWNxRvSvxxKNHBsJaw7SZCJcXmnySgN8SMAwP8bUosBrAd4Q",
+      "5cMqgQa1z137fPh4SLj7modMnS6GfirzKT8i7UBpwTJAC3MBMRgSCWDHXbVH92HSX6WLBnc6jqHs5PsnhRE8aCbD",
+      "6zyDjPjVCEPqvCpJw4s2VjmTM18wXU7cAxBDtNQVXvJoR7CEAmBRCTwktcEwT11DMwe1ifDJ7p8voaNBDvaqer6"
+    ],
+    "netValue": 2.579414488
+  },
+  {
+    "address": "9dRxEVUZGrG3Vur6eEkz1DFEJNVjs2fCrMWkzQDSXQ2H",
+    "buys": 2.537376251,
+    "sells": 0,
+    "signatures": [
+      "4HJn9uJ5dzxymdF7AvUPbKCB72mb6hHENGV9VU77ChuetXnzeWjSDVdmRV3i5Ht3YwggdpYNkCoYrKRqwxpG7tg7",
+      "26fvnBAyYm8A1UT6W2Bh1Jmfqec6s9ioccwfe4cZsBeHgHsV5JC4jGdYYsikD17FWeumHaTLuaoUZgph5VXzjhoQ",
+      "4ru8Uow3EKCLpGBpG5eHvMSpfxjLG8rV1E1sNExhfNbujNmPKruc2WdU3CNzHUAVV5zxRF7KcUXqWvDQgrsaCLok"
+    ],
+    "netValue": 2.537376251
+  },
+  {
+    "address": "FjfJYGWRkvjs7PV77hycePeA7DvjRCvgLajDMG9rrRXz",
+    "buys": 2.513206306,
+    "sells": 0,
+    "signatures": [
+      "72n7WgVyLUT5T7Brh6aWwp6b78BVaEh8YuekWSR21AVvmrc2aHPWpTZcrd8sYBfU7yivheHnbQWyYc8TNsbXpAS",
+      "4dm7BVAnyhMgNNpPo3tVb5mumnNKeFxvVE4W4UJGdKRnfJguoEBn5SpJmnUUA4sfeZi99mjxv4mRwRYSDvSfaXiV",
+      "5P6JN8zsQhiWPgnWPbNYzMUA244X6rXiYgiJAoEQCc4pkLrr8BNdfggHuJrJk7M4vms7Qc2VagK2Zzp2vEtoiG9p"
+    ],
+    "netValue": 2.513206306
+  },
+  {
+    "address": "F4o9fK6ozUie5BvJK4XbeqYM895uHHfpYxeBHFvnZ58N",
+    "buys": 2.5101102739999996,
+    "sells": 0,
+    "signatures": [
+      "66P45gbxjtERYidPFoYprxg1YzxtdiMQ5dKsAhqy72BN5UQSAiUPRtzmac9pQDqn87YgRVAWyE2dzxMFfPEpCp1d",
+      "NJhrfLEdtN3WkWAaMx4Vfm4kYKKg5i6xKRMM8X6X7VHvwAbRC6VK2VjR7wrEyAPgMnHE4BvBdE1LLoXMPRqQMKF",
+      "P6ndh5iaZvSy83iZq1eAMuqkhJ8yZ21ZcPUpfVyfKje8X2MpfRxeNjaCF6TD7WMhH6f3BdUtzc8YJQJgWAUy1Yy"
+    ],
+    "netValue": 2.5101102739999996
+  },
+  {
+    "address": "Es62y7JMPUPSqLpkW42mshzpXYktVPyAS72Zaie5vWwZ",
+    "buys": 2.507578621,
+    "sells": 0,
+    "signatures": [
+      "25QQ9SzENLSieLDTUgh315YY3KfZ1MtMG1e1DSdTBWPtamkiTy73y3HF2tZ5jnD6fffVYjRx6fJV7iDVQ6mJnkRw",
+      "2NPox3pjZnhUuixWgZiaV78k3MMPR8vCpQ1dTCDPcT7RKy2GUQyeqAi845LUybPyEEUguW3d6pyxccbruU9x1PD7",
+      "mYrsjXP4UM9A3dxP8rc7fXu6KJqStrXCUedRAqxahYmtuwkv74B6ekVchurWNs6oiUWSqQdxkQQ7MydDwK17qeq"
+    ],
+    "netValue": 2.507578621
+  },
+  {
+    "address": "iokm6rJC9srRdYXoux6etPmYjUmMbrnMRYq3ey3pEPf",
+    "buys": 2.473757684,
+    "sells": 0,
+    "signatures": [
+      "5PCd5rotVRcDvxMjkFKzKuNJ6LbtUH5edQceg7XnqtQTSDdFqE8rKdS3MTSQBrcWLBvxU48PsDW8meAiNPpTayqg",
+      "2cMyMnqLuquxvp3xYBfMbS68skJpka5GtMXehB3iFCKqi27PQwNxL61GrJjDumiKqmcw3DnTnZMVa1eQAVSsMHZi",
+      "chExqNng3aehUaaGggcWZPqHhrNSCoVypm7G2PN3Vvc1GPNT5r8jcvewGPyMg5CLLCpifQnL9UWCuSzAt7PEder"
+    ],
+    "netValue": 2.473757684
+  },
+  {
+    "address": "2wSa32UWAZK6acuDmXz3m6gkUZFZu7C2Mvhc6UdDSUwT",
+    "buys": 2.4668464,
+    "sells": 0,
+    "signatures": [
+      "HFrzoXoaUP2U3cTLkUyD5KhE3ZkJ3kvjiMybVedGywgbiLqCNindfojLcxAzanuX1KAJUPxKs8LgQsoSP4YfQ1A",
+      "PJZ3RyiiXpDW9Gpgw54vFh5wC6vpyRuRkTK2HzNfwBzroPtQFDGFGRekxQRUX1bV3HXXudqWPAF92RDKzNYzWtr",
+      "2Lmo6mqeYZ1RfovaQtQ3JZcSNvUxdKBM5WuHBdiZYN2jKSYEEXxaZwpS3v4xixFgq3MPf3qAVDZkkMsQBVNKC9K"
+    ],
+    "netValue": 2.4668464
+  },
+  {
+    "address": "8ruRFKsaZZLgg7b3tGDkDrAhFARr7uuGJvivfdoPXCyZ",
+    "buys": 2.4573937580000003,
+    "sells": 0,
+    "signatures": [
+      "31gJEFc2KXVz4r6b3vu2qcTQRLU5bSijN24q8Y8xNAsT8rLqiPFBe3FRjtwEns8FxM29cUShhc7BLXZHc3JU7BLP",
+      "4JP85ECzHPZmWEe2EhmyQN2Yh3xMoEEgKmQZcWoQ5SAZArLgakNvdUeAtxaxVWLpqbHWWJ8RobQNMYtqgvKU6aJN",
+      "5DUqCzFoNy7QgTtUso9ZswVhC6PGQmEyu47r2sPFj87kLnpEGriNc15rk8oTJ1W8E6JqGZL3EwSQXhGLZSqK2LNB"
+    ],
+    "netValue": 2.4573937580000003
+  },
+  {
+    "address": "7EJ6zbTMrriuSgQ2vp7tBi572xBkNabkVpBHR7sPsec9",
+    "buys": 2.441082784,
+    "sells": 0,
+    "signatures": [
+      "2T1zvNrSwL8kzVwqR8GDaXDi4Agj39Hgn3asDeHqxe8PgNsxzShLcWNksmQDRgSEPgvc8AQA9C59idLAYL74k6nu",
+      "488Zh42zpZJdHsrbkrvDi8Mu2EvGLsP5v4rPhgEU1sMP7pFQe8sRxJtMffmDpMTYfAECv781ByTbjAiBZrgJEBug",
+      "67DLyn6Kn29hfrPavca63KNyJPeyEG1gkr44PdYzmG6HDjT1sjJGhWB9eo7cKPK9AKVSewdZXNPhK3oMc4hHUf8"
+    ],
+    "netValue": 2.441082784
+  },
+  {
+    "address": "2y4Swqqeg6yrudQxjzq6cF8PGtMuwwndjwrQzkiPCHc9",
+    "buys": 2.400011373,
+    "sells": 0,
+    "signatures": [
+      "34uKQoGzKxiUNPGnxjF3FuxBd27VesXhafipKphmr2mrWLGGYdqZgThpnLuvs3mjZJQo8989aBqK3NoUJLmgRdEM",
+      "2ekA5otiPPeBpNeUqv7AFLMgrfS3tRTkf4ZbkVqyXbfPhfv3iqYSvzD1sCdzqDf2QJ4ZwjCJZuTzGpHxpNT6fDme",
+      "4y287ZUxySRysC2J3DsM3yj93yd8PEcDg55cYBQTNgv8X2QNyyNELStSq4VdyYuXSxf5D6hyEEUgSFyVBpKcHLfL"
+    ],
+    "netValue": 2.400011373
+  },
+  {
+    "address": "BAAKgsBSu2Gt4BcVaRsGBphb8LRBczA6DuWdvY3bkNMk",
+    "buys": 2.396128176,
+    "sells": 0,
+    "signatures": [
+      "4zfLq6wqoHrtaMa9Uc2VSJcHNq4jodYFpX35RfxK288eh1i9vqmULBc17k5FjAeUizXEWd4CHEChXsuFfUwnd7Ua",
+      "3CawT8ai2gXjv8r8qxJDYrqj9BegX78Y42pXTk3TxL3kychw6yJQeFZaBYMwpG22xSS5y6e1BxwYwQT89DKsjbnP",
+      "5upUSad3JX7WaPZb1rC2L9mStihwqfY2BBcJ5xLj3d87XgMCzBnrkgMg5ognBmbWCQyXMN2UmCrHvFuTVkjoxk7k"
+    ],
+    "netValue": 2.396128176
+  },
+  {
+    "address": "AyCTfhfTFmph51hhAGVHTkATMK9VqWzcu9ovbLYwkT8s",
+    "buys": 2.37027359,
+    "sells": 0,
+    "signatures": [
+      "5nCeENhb6DqFXq5pyGGaaWSjzUX7esUaSfuz3PTA7JeSJbGhzfVmfTheakiL99xQc5SB8vcqP6cJY7redqASyVzz",
+      "59FZd8fQ6TEb2pChGvD3kPBtx1G8nAgyV6j1MatzvRGuW7wesg1RC1tmhEgye3Be2seHCX7EReTMQp6EPGNJJm2A",
+      "7NKjGkUXm5CrtPA144aAXnWac4jRi46fLvfG98pLkRRTpFXqVaWuCUhghquZnukN8LV6vaZfnQ5oqaM2fDHPZ7z"
+    ],
+    "netValue": 2.37027359
+  },
+  {
+    "address": "3bCF2CtVNH1N12d46zVB4pHCvRYd3P4uwmq4xc9gMqz4",
+    "buys": 2.327766465,
+    "sells": 0,
+    "signatures": [
+      "58BPRkDkzGYLtGnXxesWMcJbikQ7n2y8jbosMe5hL4DZi6W8h9RxPuV7rpCDZC5ji5Yf6nxEZ6zwRQfMhqbFAJr5",
+      "5qw2huvFytRr5UP8hkGCdYH9DvSfLewVHhAozQDCLj2KG9MdV28nyeGd9sX5HyyaPqVLecNHsth6Gq4Qzk98GjA7",
+      "Tokokn5qBj265E3uGeoP9jW7EZ5gP9ydzR7QB41xYjgyiwf1D4KbHqu285cpgqAHk1nsNNkSRiVpKFCGkD2AvVA"
+    ],
+    "netValue": 2.327766465
+  },
+  {
+    "address": "H5GgqYTji35sRAuPpkJMFPeGCSC6eDneuq6Kbs6R1xCL",
+    "buys": 2.323159292,
+    "sells": 0,
+    "signatures": [
+      "5NdeBbNvMiSmrf3VesEbYuK49DRG23fM5ChmjoGZyUkVSPJ23jpAHc34cHd2DcdT7bMPEnexxqhxJg5BePYwxGj9",
+      "4yrNYTxq62exHg3T7VFudEPAea4kkSAta2hKPCBhEVexDQyiMofkVzjkUJu4warm8acX1maWHUsSLtQH5qDgQExr",
+      "HRuQe9D9QTVpABRL91X5Fuv5nnnpUuShM4SRTf7byGJC8ScxfkMhpTGLrnLmSGh8UpRLyG1zUGBr6qtZ49dRK4J"
+    ],
+    "netValue": 2.323159292
+  },
+  {
+    "address": "Dt8G2hughThivt1Sv7A5yfpvs2XWf8cJDqpaC81nTzyf",
+    "buys": 2.292802195,
+    "sells": 0,
+    "signatures": [
+      "66UyLKrJqwGrxPUpxRCLnUAHZqj3Aw25mHqxXjtyeTNuFkrLJmEZoX1c4tWBeT52bamPT7yhjYXjKGTLu2gQh4B8",
+      "4tNC4MKAi8HQ4vdJEaFLf4VTd9oKoaRXjzSDCcam2Cj3dbsUVNQLWJmUVwm3u2zhBBfkrVVSpfgoYjAARp2DW6tV",
+      "5wztuqJkjHCyCm2B9HkjMmhu7UJ6ZhivTXSDE4je81Q7EEBp3FqJ4C4g8ndmpPLyHpeE69B73nXELmCe837PUMke"
+    ],
+    "netValue": 2.292802195
+  },
+  {
+    "address": "A5HpA7UECZdg5bPHdDZQxcKQRAXjGGtV2r5cpW8pRwpG",
+    "buys": 2.286466882,
+    "sells": 0,
+    "signatures": [
+      "3CFQM7gq94rh4PaoY3bJfb9DFQ37yaxrHTR2XDswJ8Hos4XvT4HAYKMHRsAxwec95kG2Jag4M1x5GaVMnW6c8noc",
+      "5BKtfW2LmPcsvg6hR64r48DdGgm2vcbMppaACQ17vYikgaLYQ58pP3XQCXEA2cTMCZEuNb2yhq6QvHBgxqonGT5K",
+      "5mXUEaH3T6bk25JCyb2kxxuxgWz5eMCYuU594tHKFrVX8oaqVHr2iDpiUjooL5hJKfgJV7VfR1dPF8ybYx761Bi1"
+    ],
+    "netValue": 2.286466882
+  },
+  {
+    "address": "FpznNmrU1WN4ciTdmUPnMuNCqxqmY3aRgyXSRpTMcZZB",
+    "buys": 2.283904779,
+    "sells": 0,
+    "signatures": [
+      "5cMdtYijFE4yBnSdgvjCrtwAgUeefs5Ea2xA7ZEwXSXcYPswBQAGaUJMCgh4MAQY6eCqaEFkwt3rSaixguBt2CiS",
+      "3jr5VuteCP8cwzbU5ENUEMYPVFQMP6nrRJMqF5SAxKWtP7MssNuG8EH8kuMDTzz9KBwL4MgSgi6K9mmxwLz3yw67",
+      "4KE8nNmgtDe78kfHDvnEts3LHCppwYxK1vVrZR8NpaQrcA69PwasJUgCdQni1bXkQDABmKbLW6QMjswyJSsaYrYs"
+    ],
+    "netValue": 2.283904779
+  },
+  {
+    "address": "B4iJscybCWWtDR8bzd8bVUktvLQD8HqgKnKm6dMbfw28",
+    "buys": 2.2802148,
+    "sells": 0,
+    "signatures": [
+      "eopD1pFTaXvePcBvGA83XnHTVmzehgjKnYB2xEA6tTBbJdmKHMEo4dDfwkX9SnaLcbBHjVLVTKxVhXkecPqfcvk",
+      "4HUN6Kvbdi1WrJzFsBJ9hxB6VD9ae57YmXzmgHdba5XNdTZdCzRWsppGcx4JrazQkG3Ve5NzqbzwfnAmbSW1NH64",
+      "2qDiUR9BQdiTzF3d6RB6AKaCLdnwqZXM1XrytDH4JDRnWAzRWNBkgZYgtA1hHXCyPm8aemhD8Bgg8bQz2Jbw8BEt"
+    ],
+    "netValue": 2.2802148
+  },
+  {
+    "address": "5yimc86WN8DNc1nmXaANX2ocTHa1GzxytHW4kJ11Mpun",
+    "buys": 2.245187207,
+    "sells": 0,
+    "signatures": [
+      "4Kaayfmpi6HEnCLZFxQh7g8Y8ZZ4uz921hnSrRCpzR3tQhMgPojLZTSD2mALiGg8AYraQAFdW6pBNFZFi3DrdzX6",
+      "2rxKdNRJuCMcv9hRdxDFsCPFn7dPdtH4SvRWMERoaogeyb7f1UCvD1PvL9U71xy757eG4ZTPf6nTXZy3WR5bNA6t"
+    ],
+    "netValue": 2.245187207
+  },
+  {
+    "address": "ArT2BWpJp8qMmFL2iEC8hJz76LNSaghNWV4iMjAnxtRx",
+    "buys": 2.227522586,
+    "sells": 0,
+    "signatures": [
+      "5TzN1w8K67Ac1YxCskdctj7VMhc2Qyv5EBPn2yKFjg4xwiy73ZckyvAmpEs2rxa1UkTkc8bskdPm4Lc2FkpoVSr5",
+      "y3NXmB1ge7QrMsvtuqf3vFL9pNpj8WXQvKHWzj2UTAkoKpqZtrzDfR1DGnXDJ7mE2EU4138Vf5TZ7qb77tF5VrY",
+      "66VfYkwRxdM5Vnwn829WJLBxLonQWZKgwV2ABDvFfrjai3ngLKXttUXRDsCSHxnQaWXjcjf5FjHxXTQKidFZ5Ypn"
+    ],
+    "netValue": 2.227522586
+  },
+  {
+    "address": "Hp4LaGGsmzm2moSJQDAH9jXD1H6pgYUUZQMMD9sFpqxj",
+    "buys": 2.2164648160000002,
+    "sells": 0,
+    "signatures": [
+      "2EJ6ZumjgAF6X44ngbL7XsQ6oTvAfFv1265RYdkcrvmK3x2zW67JVRMcuuXY75JsHQzD6zfQy4yQNYfCEqpbb93d",
+      "24jLMHnHdThFhAxVZj21rYSVo2HKxJgNcWC1tJ1bHK6Afh2pnLGTKYgyvX3Aqq6oLMk6zwUMc5whmbJSTDPZSf13",
+      "3WM9g4EZMpitme95Z7Fnuu7iuWbbL3Z1233UK64u754TsRhwugzwE7CZmcnR2bkdgv3hv8w3yqkvMtJsZBMzXJe1"
+    ],
+    "netValue": 2.2164648160000002
+  },
+  {
+    "address": "8VvH9hAHfBYgT1nNfy6ibvPry36xzhNTRS2bNDgkttku",
+    "buys": 2.205171137,
+    "sells": 0,
+    "signatures": [
+      "1qh3jMyPyjAKotkYE3jEDfNVm9iHvoWhY333gxJJAtkxPsW27TMiD73A4ihXjHYiTgdYLHVp258qMz4HE5pE3Tg",
+      "5YtrwifJUR21otaMASjBrFmPfucTnPte9h7fZjo2S85q19bNPyBMDamXtXUUTpftey5U8eS5q73YwtfkbuRo1VYq"
+    ],
+    "netValue": 2.205171137
+  },
+  {
+    "address": "52ASLrHCpy9mn1CZEJcJFpt1fJaFTV6w1TAXn6KFZELT",
+    "buys": 2.201859142,
+    "sells": 0,
+    "signatures": [
+      "4NDybF2Bi2xvFn8woFvpoMP2EwQAm96gTqhGWhQYwTTGHonCvG1GedcVg4eM1tYifoCLBzXbCAx7bVKHTPbKnaR8",
+      "2RtcSed9fMPksvbRVS82Js3y2BnGkEPafEMp3evdxDFXtfWjzfvNKEQhP3hFwYAv7p28BJQQ5qdNBYgv2PYKNRyj",
+      "2tTZ588ZEsBEoXEd2hzJoPM7NxRsEfS8BpEACPRM29Qpf8EQGbLZnF9T7eRT3BSqtEHdxf17krerDNEnqRXYSBTb"
+    ],
+    "netValue": 2.201859142
+  },
+  {
+    "address": "9y8TsmzXFNB4hwgJqxzzjWkn27Ve1QEMVZmt2CMfUUYJ",
+    "buys": 2.200119129,
+    "sells": 0,
+    "signatures": [
+      "38vFrqRoLWKnwkM2tos59qgKnMxX6BPVKdCafkhzDAkRbJqLyxeSPLC1GSe8nc2KDgmF3qi5zB2Fn9iC9VmGVJfz",
+      "4pWs1qBwoKTUophWqjVePVJi1fTPnZDuHM3AvLEbLh33eWsv1NQ9Uhi9VY92XxeLMkirGQw7iDffxGGcsAZxprK8",
+      "5QD6zoctP6fjCwpsnMmEWfAFfLZK3DT8toVAj9YK5pHCyUtFCwBEH2aJCcRRH3qYW4BjQsqJBorvRaq5V8qU7U9K"
+    ],
+    "netValue": 2.200119129
+  },
+  {
+    "address": "7aFvjQm1VB7RU4F9gDot8cHP8PgPrvCg71sxYZJMCWcm",
+    "buys": 2.196069887,
+    "sells": 0,
+    "signatures": [
+      "2263RvMk9PBr67dz9ajr2xmkd7UdTsFuy12MRR53z6Vd5a7YhjrboLJjAJyXaUeb3g6pLmgwQaTFHnpuzAVc2qta",
+      "xpHKScmLZF4E1Kvqq1FjcjL8LpCZZKDEo97PwCpSvyRoP3CUipKS2zz2Q3hPpkHkdSiZjx6V3TRyhmK7HWGzNzk",
+      "2jM1zyLsRpbshFDtS45WBBeC7r7cfbAg9UbfWStzqPFT9Rm9a7Qtp968d8JuFnnQJvmcR7NLBgJ1mV4EwHkHnwLz"
+    ],
+    "netValue": 2.196069887
+  },
+  {
+    "address": "BEoozA8zxXAiGnuCCHDUXuKRsTkYMRmFyeThN1SAxxPH",
+    "buys": 2.1624083,
+    "sells": 0,
+    "signatures": [
+      "573VjcxV8m4d6aH7LbWqJUEugkWGkZ54Bi2V4zxsmW9X4K7FMTxsmMvzNR3Ur7GE9GPX91KZikkithkD7vo2KPY6",
+      "5wm1uSVE93ngn47nCACpLraikxddqZhxgbrivsfiwggf7fCAgvQCJCaM3CV4xoaq9cHEkA5hQMWt9W25fC9tzopG",
+      "3c3FwVxeNwZw88WTi1zLR16hzCc2sP69nwtWLao2izuoCXg2kyxsZ5fg6rVGhPczLEQZimJEtEf5jxwzEYgtoxZA"
+    ],
+    "netValue": 2.1624083
+  },
+  {
+    "address": "GNxhrcB7xDvScioqxa6DVttYDC4PUEeLhxmHE2ozXkCY",
+    "buys": 2.137604944,
+    "sells": 0,
+    "signatures": [
+      "aQfnRFjWTzgp2PMvgHnibgfHvXagxm8vH2CFks1hX3he21ssdncMWJSdopgptd462FKmGGvSe6RTvf2XsxYDQYL",
+      "33yHtJpvkfaqESiTMJ14ya7hu9br9ehNUjH5N1Q9pP8SUopRkcWUAFe9QowhaFghdNdt4KdpLa4cjaBzk2qjBnWu",
+      "4TkpMfFCvcKjXDyTXYm8A6yAkJKZ8ZMkBjSV1nt3SSHj2swbgDf2sXuCZvcimjgVJpjmQx3jVAk7Me3UTXGX8c6d"
+    ],
+    "netValue": 2.137604944
+  },
+  {
+    "address": "2sDfNsiESVsED8f4fTPS2akVAP4ctAhfN5Vy34gpqQ4B",
+    "buys": 1.907801627,
+    "sells": 0,
+    "signatures": [
+      "5qDZxmDQGwDXMkhzD1tdXqj3fq7kL1jNwhadvsMHSsfmjrLUnSyvRiR6tCrqNaYgWSAkRQqEVAQ7vWEcMnpoWufJ",
+      "C5BBnh2YVGpYkfx7Cgqek7HkkRAEzS8g7EyAtB7gA5QrMMAqiEXg1uWGtrSQWby2tijTDJaFWoe56ZswbmMcdFR"
+    ],
+    "netValue": 1.907801627
+  },
+  {
+    "address": "9PLxCRMJnRbsftKsZRgRafnkxqFYb8B6QyjJ3ApmmAMt",
+    "buys": 1.885604333,
+    "sells": 0,
+    "signatures": [
+      "k7619TQaP5qhftdsuqRss3LeQDzMY9TodkfZticoydye21CGC7t4QZps5hst2Uz3h6ust1ngJtkzfj2Si2u9shG",
+      "2MNQW4kTuUqUYve1ALyeTMFywm7pjpiwJtAUwHY2WkRr5L75nwBm6aeJHPEu6bsaM2GxFqUiEvhJKxW5zR5EVpKk"
+    ],
+    "netValue": 1.885604333
+  },
+  {
+    "address": "Gd1zNeARscrunMBiP3LYpTWy6b1r9GVvVqdu6K1CtFe6",
+    "buys": 1.869277152,
+    "sells": 0,
+    "signatures": [
+      "2EYaPNZE28f57MjRJZMzfzu9pT8QaaX7sWZCLjwvbngkDpHjk5eqPpfM6VmCqZ7XgYyDCtEfwMsHQkyFiJQm5vcm",
+      "2au48P6jAPsPZdUVfkyFL6P9b4VNWMkXtbaUzCPkp6nVxc7bGPpcJMS4F2sVmHkZqy7RQUxHDFof36HPUuqdAzbb"
+    ],
+    "netValue": 1.869277152
+  },
+  {
+    "address": "EZYdke7669QdXaQimcg4oxsiZ4cF3nGqhmg38gdAwdVh",
+    "buys": 1.862207063,
+    "sells": 0,
+    "signatures": [
+      "61yk8ZDZhPiPjnpZjyHQYW7jUTwxPVQ1MJTrBYveMj3rbBYZZZ892MRQ7hQMXVj2PoW1NqQhgR6TgnVZggKQcgzy",
+      "3G27b3532pCHrcBQUyxZFfm1zsQB7ZqmsjT8aUimZEwpibCZ1DbVjVZMVyK3tXJQBeQzb8YbbcuyVXYHij33oroZ"
+    ],
+    "netValue": 1.862207063
+  },
+  {
+    "address": "2GtBoiU6EAu9bDZFkQZ8E5BdqkFdj7uFPuVPYGXRBx1H",
+    "buys": 1.8528425990000001,
+    "sells": 0,
+    "signatures": [
+      "3oRv2mh4L3qamGhyNYeUvPW48ie72w6vTNHniCKfLQeAZKDRxswTM9kTif5bN6SY5BwDYaVTw8azmHuz1b2eLr4F",
+      "5J2mCYg8EHKKzXPc7BEeLvpFFXhaMgVrfB6DUHbhf9JYEarDpqrFW3RRXyeaj8ryWcDZk84UHeRKYhJjXxrPfzUt"
+    ],
+    "netValue": 1.8528425990000001
+  },
+  {
+    "address": "BUub5JrhcZbEuKCsavGFiGdchERgGUCM7Ce9chUJTnA2",
+    "buys": 1.8485004100000002,
+    "sells": 0,
+    "signatures": [
+      "3154TmmPc46UPyGyWfGZ9BymNVNPur8oDCdccHbJPpVNgyYYJn6DmcZtKVvkKQs5AQfumsCHP1462f7t3BXhAjTD",
+      "36eL31y8phAEnnrknj4UWggoTZZvrSSYi9myD9mvf3tc2AbG5GBqtAFWeqs3Vact7dsdnTgb8fHS2Hv3N21MquQ7"
+    ],
+    "netValue": 1.8485004100000002
+  },
+  {
+    "address": "BQA6sox6Ukxep819Q2jnTFJisu81e8zyyqrKn9Bot8fA",
+    "buys": 1.8477450640000002,
+    "sells": 0,
+    "signatures": [
+      "3YMGHbY4VNq6kQXDuQdiG7tordFpE8yJXYE79VJgr3ogTexjtYUAvydaZQyf3AoLLLpLgwPz48gHENyXz1MQpEwn",
+      "pcvudJKSW8K5kCetr4j9ahJ89YvxUrtYFZt6GFZ4JpwEYbc1gfVmr6DwSqBJshQkN8HaK3mMZ1b1g3tvoyBm1oS"
+    ],
+    "netValue": 1.8477450640000002
+  },
+  {
+    "address": "989y8o39rALrhtRN6kHVVa63utgqRSfZZ9ZSuc965tHz",
+    "buys": 1.840498597,
+    "sells": 0,
+    "signatures": [
+      "3yuQsEvKgNFswsfvPUdGSBLUxpifezSz6s9Kn462Z2Kaucyxji2WBDVthJYGrGCN2sJUfRKRUG5vFhcQybwGkkce",
+      "2vGNWGkiFnjwakRRBuyD1Zjw23hfw9Bw561nNbrkykZUgEkhtBdeT96qnLiHiBXHGWJ9FNY4StgrD7tc88zmw47h"
+    ],
+    "netValue": 1.840498597
+  },
+  {
+    "address": "6TMtYr3XboYAKKfRE78x5ksy6ydMoekYHdwHG2fCdsLY",
+    "buys": 1.838978391,
+    "sells": 0,
+    "signatures": [
+      "4APUgRqgQH9B6maKuGAcovALiCt1VWXTNbqpTFZCCAmrMaafmRKM2xfz2TTWi7Tw1roTAwtxCCCoD8zspMHpUZyx",
+      "4L4HDUMaxUsAmNjBHUrEvPg3gusjzB6DqYPu16RFPsXsPnuM4X6GgVTkMpcWUERzf5odhESkYbnNcNLPjPDyuQvp"
+    ],
+    "netValue": 1.838978391
+  },
+  {
+    "address": "HUJdUa4HQN2s7DYircGDWcFXNZfo69eiAjtz76y5B3HT",
+    "buys": 1.8363697069999998,
+    "sells": 0,
+    "signatures": [
+      "65UFhbeLxQPDmb8fiB35KVPkNvgWBnEbJgprZ91mS2ogeZBYwtWLVRMCyUTvAZPKunhW7Sc8vfDivn2mdk3mEPAX",
+      "4xtRJqVjQt9Qgaa7r3vgfh9z2QqyDhpyzWUqc9dgiHDUtPFiYG29EQN4SSGYe5oV89W8QLpXiPVqkcZcwz5rn6eM"
+    ],
+    "netValue": 1.8363697069999998
+  },
+  {
+    "address": "5BxorgGoYDv2kjpajfyf4b3XVu4dDCuB3RXeEj5o4TDh",
+    "buys": 1.8273253550000002,
+    "sells": 0,
+    "signatures": [
+      "zbKLd5WdHX2KjmpdLDH5mNSLogDgGS6c5ebSK68ecyXokz6w7i69LYLRQ7rTHpbEfTmc4yq6X81Jps3z7pgmFBX",
+      "4UkWD75d7y288Abh4uF6u7CTTqYkGC5QH5YftzdM2Hn2sQLbv5EfmBoKxvCrbvvspb6GQLXrToNst1RGnXAFjtSg"
+    ],
+    "netValue": 1.8273253550000002
+  },
+  {
+    "address": "7BqcPXgQjKgYASQbzcPqTtNcXwg99GHQkYqtw7NeEFGq",
+    "buys": 1.8215664729999999,
+    "sells": 0,
+    "signatures": [
+      "4yex8UrKiG6X2JdM1hL5w4N9y3UzReXDDByS2rtb1RMRUotR8n6kC5Fqd4nLLqaZ8ZYMkRzhnJDEDLxn7N3wpzkN",
+      "RzyZDLThn6jSbAU9t5dKV9cbVqM5e5eGvJwNBQs4iaTr57QfPFEFjxrwAT7fMVQrXz49f2et5vgaRmQXvRKvbor"
+    ],
+    "netValue": 1.8215664729999999
+  },
+  {
+    "address": "FVCsLi7XaXzkKFxis2KE9iaMVNArM7yDuTHuMwC4BSsy",
+    "buys": 1.81695829,
+    "sells": 0,
+    "signatures": [
+      "2dk6gZ89ERDvZ4rmuYC46XNYdgXx8hhkQASj9QypwShR2DcW1HeP6bZucRNt9uJJkvy2AjgjbVHXd6yXNAiHh4cB",
+      "3WM2dLoAAgHrLmgwuWkHqjA1LdTQiEUMgLwc3EEYfCJ1UsUC5hJa5YPNcVcAXG45wVHvkmoNUtEoaxaURVdMZBNS"
+    ],
+    "netValue": 1.81695829
+  },
+  {
+    "address": "37td2Ekr7zRAMuZRc1wL9QNFhSCKHFV4iQfEirKZdufc",
+    "buys": 1.811185611,
+    "sells": 0,
+    "signatures": [
+      "5T9QQFqhPtWEXzzr2TH8vQYKkSXG2Sobpno6FoD8PN3qziaAsm8xGNCfat3m9MHphR6mrxrkLD4KCMRs7QmY1YeV",
+      "o9rKyDDBGA7NCLeT86dFSLD6W4CCtnCZfMxrMbufVVyv4HE8dLtibDfSAECjwj9gZeKm6pvxAAy4WdvqnNE65Bw"
+    ],
+    "netValue": 1.811185611
+  },
+  {
+    "address": "31MAFg9WGRqJSSch5D4pkUjuTGHWx8h7BtK67tArRQkF",
+    "buys": 1.8046776850000001,
+    "sells": 0,
+    "signatures": [
+      "v8MP2ZvM6F5uWiBtnjyQsvRmWdC1vG3DNn5tibA1aLvmsWsi1fCgV9cHgg3bZrpFWKLHNdpZZ45UT85yS5V7bfw",
+      "2YxmibpFmVZqn3NqoPELx83RKWPJNLN1jmJQvbmdWCvX3nRJKsisG7BrS2nsa8BBXXvA8QSgiSDdUXsuT2Vcgy66"
+    ],
+    "netValue": 1.8046776850000001
+  },
+  {
+    "address": "FKTUF7yEkZiCa174Y22pCqWebco7B6g2sE8KYxwpyo6j",
+    "buys": 1.802954452,
+    "sells": 0,
+    "signatures": [
+      "FQD8LZBrCCXqbCrEYCkiXR64unhUQMjQKBHasco43UgwMy3uaFnvr6AMsJNYaH9UdqEXHFGYzdEKawsDKFpVwDb",
+      "3k8j3FYRmW2kuAHE44PhnpHgzVdyh8mA1ufuCBitYy4UGN8VRSQMmrdmUTGDn3vgfRELF8fGLYYSKU5HcTCorjCs"
+    ],
+    "netValue": 1.802954452
+  },
+  {
+    "address": "2E4vXUY7cYdaeKk9mQqAVtzKihfTYzoWkYg4ePY71U8c",
+    "buys": 1.8028420120000002,
+    "sells": 0,
+    "signatures": [
+      "XfRsziP3csWMmbro26nPqidjHGNLxdtgy5uPr1YFARqeYuHyg69iRPNEKmfS3ac2VxwKeyba2nU75aHheVk6XGm",
+      "5EFbmhXLpREMM4ZCaETiabHK4ssvv5otoEoHWvZSrY4AbYEk3GiSjZJYCzzhgk3cLd4BC8vW78DyShn5NNqaQKx"
+    ],
+    "netValue": 1.8028420120000002
+  },
+  {
+    "address": "2FbQnQGRhJLo42Nuzc8cis8F2yazAT2vpCiRSKeH68iT",
+    "buys": 1.8004502740000001,
+    "sells": 0,
+    "signatures": [
+      "55KJgYPBN2JJqryGFPU75yDi5uj25CxrDhk36uD9wpFpp1ZidT4r98XkZzBeM1eQaUaL69oZAB1ayDAEPcqbXRqv",
+      "2qve9vertEPb57HBMDcEo7j5kWLSoBkAF7cGChtragahyTNrcWn1TdgpW1Cmyxce3MWg6NdZ2duUtjH3gvNRv9hp"
+    ],
+    "netValue": 1.8004502740000001
+  },
+  {
+    "address": "HTJVXRqs8qJq8RGCPM4BCSvEAY3SG1HnuwtBoDHMR97j",
+    "buys": 1.798040243,
+    "sells": 0,
+    "signatures": [
+      "5n7gsi448op6Fhz8QM4XuEDZRW8KHsHRXasyEf6TdxATA2MocdGRJTn9B7dp6SmfLx7mMsKGQ9k7DMvv7RKkKfDz",
+      "5LtcLKfqTR1PJvMPbF5ghTETbaXaC2ggSXT9UVhDosV99mTnNpDSEFe36NYwNUwhRDRF6x5NURwcvbB3a1ae9cwn"
+    ],
+    "netValue": 1.798040243
+  },
+  {
+    "address": "BDFyeEQu42Gq2AKXy21c6jmLwgUVkjzXCb42UqHdPjCD",
+    "buys": 1.546344807,
+    "sells": 0,
+    "signatures": [
+      "2bemK5EXfgvfvi7XdvKteHRhEswS9Zqyx35T7MR8p74zj5VNPGarRgc6xrDwxb8aTHegBrNv7HeoHSbwGYVi5Ssz",
+      "QnnnJBRrBTvkCa45YtL25z6ar6haR7ZsSfA1HvgG2swUGDJxoA9aLYa3Gf1WsvdGPY7CpkvS935VbgvpAM4CHak"
+    ],
+    "netValue": 1.546344807
+  },
+  {
+    "address": "DWuoJvAXEciANsuqPfH2BAvXsXdAvUwNqZeJ3ceAPyGR",
+    "buys": 1.5321475759999998,
+    "sells": 0,
+    "signatures": [
+      "4XWJDCJsyYWTebFhKMZnyo3ZjQb4DgrEuVS2yvemJHbWZyiHCkuJKt2JAswpouqrr2D8LxyTQUQZ4aQHQgCFX63p",
+      "5175jaK3UeMDQ6dEdhwQNuCnK7fVFDXqkkt3YAAroH1wJhEXUCokpGkAFWr45F4Kc8FJieSHjLEazB6QzB4nBGS2"
+    ],
+    "netValue": 1.5321475759999998
+  },
+  {
+    "address": "DEuvj7XaL3dsCKCYdHpHBEziVvyJGxDmUtL6ZTYEzz2E",
+    "buys": 1.500836936,
+    "sells": 0,
+    "signatures": [
+      "4P1zShKbxeELm15j4qxrHbYwjw1Dw1FN559xuqVDXjkLVR8YbN9BKt5RhFdUD4xR7eoYpF8fZ2MJMGGX4DQwCwb"
+    ],
+    "netValue": 1.500836936
+  },
+  {
+    "address": "7mP4WQRhZaneUqd8rg1BckPbjNgvz1cgGGgga4AhGwR7",
+    "buys": 1.498977108,
+    "sells": 0,
+    "signatures": [
+      "3iVGwKauv6wNdFk8VF17GrMk1Gj3sqa5Nzqyig2RJg9jUxmhG1Yc2CourzZ32NoJ4U7rau2EauXxTncF52kA8ELT",
+      "4c5eudQVoGc5SA3iNESLszyEmAnwRed1cez7eqMUKJ9azYbozFSdo2U7aXwnaifudJwTEgQ3T9dGeMiY7qwjeBGP"
+    ],
+    "netValue": 1.498977108
+  },
+  {
+    "address": "4jDWjhn7Tt3naYFKEwPKaWDN2pMqVYLg475AsqyoeqQp",
+    "buys": 1.495433615,
+    "sells": 0,
+    "signatures": [
+      "3bezSPbhArtMcVZunhmsUa4Fr2kGAJqwY8z3joFhZqkF7pkNxDwXhGvkbZ8Bccz2wXdci3NGCwiQGPb82nrNA6Q5",
+      "3eCCTnw5XFaQXCu2wWzU6ov4HtQtxpXs2JhkMMr8iqPQU3bdHMFjBfvS4xqpYvXxivNb5rgQRvYFo8dhiGXHfNAa"
+    ],
+    "netValue": 1.495433615
+  },
+  {
+    "address": "A6MtHEBEKbT5DX1bAgu7V7eTZmDJvQGPdUTdChvS27fw",
+    "buys": 1.381151655,
+    "sells": 0,
+    "signatures": [
+      "2PFhsS8MgPjJkB38Y1NJbU7xD4xfw1FFuFyDbgDMKGhPco1DMTQ1ESN4MwuR7ip8Q3KHSdaH53RedvgH6oNFGtBy",
+      "2t5fd2uonqsVoQAAgyAANpKhWA5YZor2Ym6eKk9zSigbG5RSMxioztafwQrthvaDSPNJfriU45tT9t8o1MwynFSW"
+    ],
+    "netValue": 1.381151655
+  },
+  {
+    "address": "EPf9CCVTGgMqme1sXoczF1nMJXfj5M1697NDpYmibTUc",
+    "buys": 1.121153686,
+    "sells": 0,
+    "signatures": [
+      "4RWBKVboTMMJhR7idQiKFt5FipmDxvccQpXcbEjY2Hf8h9uy1irSJWPGGt64WxjGSV8ckqiz2Nb2RuBYAehfMmRb"
+    ],
+    "netValue": 1.121153686
+  },
+  {
+    "address": "642LAnAyxUuokiU4KY8T6deFcG8w7roicaBYskL6SJP8",
+    "buys": 1.118493264,
+    "sells": 0,
+    "signatures": [
+      "MyAdaW4u7bgg5CVJXa93EuLQjYqDenqwimDVs18t8Te9U3VYPZB4hpzhHX5EnP7iozztwYazzQazomn7jz7wmqC"
+    ],
+    "netValue": 1.118493264
+  },
+  {
+    "address": "7xYndoeaRmUaUSpEJZZBDdNxbzGov3vxs5pD6tsVfwkX",
+    "buys": 1.118105541,
+    "sells": 0,
+    "signatures": [
+      "59FFq8YqdnQoGbrKUHQ2QaDHLC92zf5rDCd3nEaegg6mC8KcH4eAmw27wdDG1ZuKKERUcW8sTQqCvNYe8qcQx937"
+    ],
+    "netValue": 1.118105541
+  },
+  {
+    "address": "9LFB1qKZ8wQPh8iMkoF4TEiMhkTUvfwu6bjy2oCEFC4x",
+    "buys": 1.115892386,
+    "sells": 0,
+    "signatures": [
+      "3YNjFjMV1hUZ6UPfdwS8fT3trGGPc33dpXdwhHp3Xgww14dqChrRnwWtinpuyoyhJpn5VU573o1xMbyDD3uKGf7"
+    ],
+    "netValue": 1.115892386
+  },
+  {
+    "address": "GKiUtfmFAFnzfqFWU6bZrcySFb4vqXUFRwZavE8WCotA",
+    "buys": 1.1,
+    "sells": 0,
+    "signatures": [
+      "zJcyC9g4R2teGKRXdoySFbMK8MsDh3zXaWHxRBN3Pkhpchyi4gUj6s2eRzuqzYemhGCFPegziQov1DLCJP3p8qr"
+    ],
+    "netValue": 1.1
+  },
+  {
+    "address": "qpSWxV5FKmPcpbEBUXBLemHKJ2QfRg8dHqxEaEKPVyF",
+    "buys": 1.079086963,
+    "sells": 0,
+    "signatures": [
+      "5NfShMkyDqtqeC3eKcvxuJFg3Q5YMK7RdPhKMXaATQBGDtcQ9dGZte3j64iv35hJDgaSrxcE2L2LM5XNLDDcuz49"
+    ],
+    "netValue": 1.079086963
+  },
+  {
+    "address": "7TifwjBQruKrLUnYYmam7ss88eytnoBQypdL5fXMa8Xy",
+    "buys": 1.074167405,
+    "sells": 0,
+    "signatures": [
+      "imH1e4ceYbaejWrHfvbNX1cu98GF75mbDmKHB5Uyw4ExasFLS3KuFgMTYz3CuTi5n923VZP1SdASqTVAGXCzF7X"
+    ],
+    "netValue": 1.074167405
+  },
+  {
+    "address": "HMcqNZMipqh3ugXvJAurq6Eaa9CBHToP8h1Q6J68bhDw",
+    "buys": 1.062042573,
+    "sells": 0,
+    "signatures": [
+      "3eJoGCwF22WrYRXpSGvmfvbWaXYmbESnZhqKbMuLXztTS7Tvi3SFf79N5pw8YoDRkJdz8WmGnp9k3D9PGFaBgDgf"
+    ],
+    "netValue": 1.062042573
+  },
+  {
+    "address": "3sar2rGmVDzAbMRNSaMxJqNap6e8JpkbNbP4Yzu2fwFn",
+    "buys": 1.053707237,
+    "sells": 0,
+    "signatures": [
+      "4WUZj99UczoQebWxZkLYV9awXDNoXt5zW15PVegUMGBNGPokzGYjxDcHf61iqZWaQx7jARj1tkqwMZqYd5eU2iL4"
+    ],
+    "netValue": 1.053707237
+  },
+  {
+    "address": "CK5k4cUixgkcYQFDFVran7SacLRfPsuZDkC48LNqyeHF",
+    "buys": 1.022908163,
+    "sells": 0,
+    "signatures": [
+      "251NtWaZVKgBG1FjuShTk8dXhBbJTYXn1FdyDSqSijk93HmSQGwszcMQmC4SgZKyhXWJhFFnmbkw9ZXmZWj5uh7e"
+    ],
+    "netValue": 1.022908163
+  },
+  {
+    "address": "6GY3m2Yt1HvjpKVsyz3taiUktkaXskzVHQfFVGSAR1x8",
+    "buys": 0.839823173,
+    "sells": 0,
+    "signatures": [
+      "wLJ6k8JW7T5DsUZuAFEnPBF8NhxqZoWpjANLnrumWkf5eJj6rB4aqX8oMJq2y6xqv4ZaY4Z1B5a1bbDHptYmeeA"
+    ],
+    "netValue": 0.839823173
+  },
+  {
+    "address": "EWZREjDGAguwVV1rdt8RbkbuNqAnXhtVQXpCd26dLA8o",
+    "buys": 0.836237086,
+    "sells": 0,
+    "signatures": [
+      "5iuychAj9kYJhHSpd3V6W4G8C3VNkbTu7Y18vYv2WNeJyjYwCZ3unvxaSWH54nEPkXVRSJJ7DgiyavSja23GAxT9"
+    ],
+    "netValue": 0.836237086
+  },
+  {
+    "address": "E5941vykHrMkUDU1iaAf1znsHyBukt5VGmUCNr6DV7qm",
+    "buys": 0.824904816,
+    "sells": 0,
+    "signatures": [
+      "8S8ad9zhDJYt5jEdAx5U6pdNPnoV72Vpk6mPZug4Z6hbJBUyLbJudug9JxwtXhkDGLnJdkSJwa9AnBC7AcVGDck"
+    ],
+    "netValue": 0.824904816
+  },
+  {
+    "address": "D2nP53nX5gbSg2A2mJpMUmK5SrhHsYW68enNV3hoCeJ7",
+    "buys": 0.8210647,
+    "sells": 0,
+    "signatures": [
+      "2GSKodUbzkyxH896uyfeJCKzwBLPjVXsHmvewmBxmwfxcUtT84vFgPZcFXY1BJLG6Shxtc5wyvXy4G7vRxcvAwPU"
+    ],
+    "netValue": 0.8210647
+  },
+  {
+    "address": "HHrdhCSebFxtQs2MPh3or8KeFZQnCvvEsGRyyFLETFuC",
+    "buys": 0.818418028,
+    "sells": 0,
+    "signatures": [
+      "4zKBZHbWTRxxg5jDPemivBpoKZhZ179CcEZkWQxAviZ8pTdePx9yzBFXrTqUH2UFBaMA68dRyhYQcjQEmbfiutuf"
+    ],
+    "netValue": 0.818418028
+  },
+  {
+    "address": "BNcZCafXTyetofikZW18dZ5xTUPp7JtcPtYwgMbPDZ4g",
+    "buys": 0.815718749,
+    "sells": 0,
+    "signatures": [
+      "4z5PiBN6WnhByXa36KiPvF97MUJAqMkeVVZbaP2Xfubkus33cVRbuc5DydWpr3azUELzaeFzExkmA8dEeoVmUuKm"
+    ],
+    "netValue": 0.815718749
+  },
+  {
+    "address": "8qF62D3NYayyU4Tpz5Vs1cV1uXmfdu7TVEDptXJrp93h",
+    "buys": 0.815388098,
+    "sells": 0,
+    "signatures": [
+      "3DvGcHPC19A7VqX1z1ZqFTeBXF85RNbQzFpj4KVYFNGkyRnH2gL4ARCs2FGpa5CPNuak9FKqKceFVopVFMBp581z"
+    ],
+    "netValue": 0.815388098
+  },
+  {
+    "address": "4fUXU7cTavKRYeTZbgKAy6hWJAAKWdLdGdRmvVyLd55F",
+    "buys": 0.811747882,
+    "sells": 0,
+    "signatures": [
+      "56Y6nFFeg477LUuhgYVSktDiWu99DsJ6veUnz68gKsj3H3aVT1wHQ8k8XqVXeUZtB9AXsH14r87pcyCxoUpM9boz"
+    ],
+    "netValue": 0.811747882
+  },
+  {
+    "address": "Drw85TC1bwHDnNRd2mHb4ArTnXvRpp5XVybTRtVRAhpu",
+    "buys": 0.804694165,
+    "sells": 0,
+    "signatures": [
+      "e1gCXqpv2brNA95dx1WjQQ3DCJP7wmCgsNGe4zCWgN87Sf6PF1NM4h1zsX82KXD4U7WrogGLGLyBHMhgZDRNAqM"
+    ],
+    "netValue": 0.804694165
+  },
+  {
+    "address": "35oT5C1D8vVjezkdjVkgPXvbKrf6LwvsBuFigCva7KGS",
+    "buys": 0.800559702,
+    "sells": 0,
+    "signatures": [
+      "MpW4MpFAkuUZr6mGLoszHNGTmvkxT9DJWcC3teWuV21gTAUDHKtHUWinn1dXYrsDkLvFiWQET5Rys5KQCJwFXFv"
+    ],
+    "netValue": 0.800559702
+  },
+  {
+    "address": "ANLQUmUsrUxwLVp8p9YrA96azTEJocesNFj57BST3wY",
+    "buys": 0.711332929,
+    "sells": 0,
+    "signatures": [
+      "5XDhCMcCvC5MZPLG1npfAEXW6WoF4i4jCCVBtHgj9z6yUkT3FzsJQ4GoFiAyAYzNnmrD3aUezCpr95iKxVF9gtEM",
+      "BdzEUQo87Yzop4cwGvUBhspmNQNYxfctsJahqWuFKprfFu5Sycu4iReUmt18KtTaE8DbvUxusVNDPnxFWVUU9dL"
+    ],
+    "netValue": 0.711332929
+  },
+  {
+    "address": "CvNSEgtrUfXhuCdFbKnuEGgTha5HDyRKY2f9wLZBfvst",
+    "buys": 0.701624311,
+    "sells": 0,
+    "signatures": [
+      "3NAnPWL4FtCzwd22q9CBSNErA4QNMvm2KsdBgihB4eeChEbnN1MzecwEKni99ti9hAEshZSbsuZBHALwz1CYjkPc"
+    ],
+    "netValue": 0.701624311
+  },
+  {
+    "address": "5NahHcWH4o27diQat4uQaxW19qLTz4gUk9KQpCAcnjh7",
+    "buys": 0.5,
+    "sells": 0,
+    "signatures": [
+      "4AnBGLR1Ctzx8nvT7sMEngP5eTuqShCYPvDCejnujap1oZYf16ujS9qbev7dmwZB3FSkr5cJtdR79Z3AxNxa24wB"
+    ],
+    "netValue": 0.5
+  },
+  {
+    "address": "Du69ZMKYwJFqr3uDrwWp4pCEuW2h6BLUXuBAUSV52hj3",
+    "buys": 0.453551801,
+    "sells": 0,
+    "signatures": [
+      "64WPwSYkLJyKd9KmYBW4SnqztMcaemQhHG57kQnNUP3nu6DErm5GicqraURQaMSZUwDocvbWwEWZfW2uaUDjsbYD",
+      "2DvXDNu387rM9biK4np3HvRQ4SYHiSP6dwUKRvHVMqt8fa67A4FhvR5gJzXeDLUCQJTszM7Y4x83oCbLi4KAuKKv"
+    ],
+    "netValue": 0.453551801
+  },
+  {
+    "address": "6y58HMWE4qxYwF1vH96wbQpc8LYTKS5JfDntAANj2LQ6",
+    "buys": 0.343069306,
+    "sells": 0,
+    "signatures": [
+      "4SpibEqkz3ZNh7ty3ELe3LxjT55bnEXJXzPLoLG8zEekZ6mDBKz7SNRwdTjd3kP2xSUDPaGvV8zKsfhVZgwxs9Es"
+    ],
+    "netValue": 0.343069306
+  },
+  {
+    "address": "6AhvFETkF3WHShBC1cnpbNK2tHVyTHhTF7Gf5ZwKj1vh",
+    "buys": 0.306407542,
+    "sells": 0,
+    "signatures": [
+      "4FVCp6A7PkTKEEHTmk88SQxHdAtRBt18u6AvewRoZMDxpnb9TQctBmP6F5ft6dxCDb92GJaVaqmXhfAsyDrArqeK"
+    ],
+    "netValue": 0.306407542
+  },
+  {
+    "address": "SZkUwebm8ptYNdGpLxG3Uyv1sucksXEnaB6y7PrDUEN",
+    "buys": 0.294059403,
+    "sells": 0,
+    "signatures": [
+      "3KG1eEJLqU4thEfD13T6YShRXvFmgADTUwgiga1b15aQKGDch7X6VTb58mLyKHrstg4X6oArmxmQSmcECnNWywTY",
+      "3JURX2NHvBCnzRKSgDkkirRuaP6o1tc259BcVcHvqe2BsDgXpqKzHyYZTWU8JKw2DK4yVNCeHRvtSc2TS1B3wnBb",
+      "5cxSZ1LMo65JpBEwJC3RmZ6XakCiyF1YgFdUTphu7X7hzFGectZ29uBz3HKA1egnmJpqb4cEjSWNYX4YHxKPfJrs"
+    ],
+    "netValue": 0.294059403
+  },
+  {
+    "address": "23tEsqtSRSPAiJTa1WEiZqmNRLc9KWeeLwnKDUMh2ahv",
+    "buys": 0.253646096,
+    "sells": 0,
+    "signatures": [
+      "ojZXMS9gYVQNnbDYPbsGMb9EHBXADKa4iTLhrs6sYW5UMPEQrBjUdyK8xVc3Ud9nTJZwrAXvUuQoExfRBhmRm9E"
+    ],
+    "netValue": 0.253646096
+  },
+  {
+    "address": "AKB2Yy2brBrwiFuG8s4jVrL24LztW9bUtcL1BfuYYX2r",
+    "buys": 0.253349289,
+    "sells": 0,
+    "signatures": [
+      "33tzM4XjRUZCSoYKw6LgyjBqTZ6h75ZAhcHUEaCZtmXHzhtfGVmA2BoHs1vM2y8R4WN1Rn1YLeSYBV2PE4cVRs2e"
+    ],
+    "netValue": 0.253349289
+  },
+  {
+    "address": "88NjQvAcJxVdQXCZRZWjAN5vcnRHye6vd4MSV8uhGoEK",
+    "buys": 0.21555195400000002,
+    "sells": 0,
+    "signatures": [
+      "5XauBJcDewQbun15pezQMSfSYf2ZGSxCY3mkucyYcSgdiUQecsP3ifc9JLYyhJ4fQfLSHiAWyF58epF1bDTKDB2m",
+      "4ycyHfShuybYL66EKa5SXUwJJr7z8vEAjqSUWQVGRPqYGkSW9TkwKuotLTteXcn5hmmNzWSYPJJDJ53D858YfGUA",
+      "4PuDChXh6hXUdHEAqcYBQfW6QG1n8bkCceYgPWFyZsWDyJhwUcmiUGYNrKxBDSCtATjHFDfNBg9qRoCR36rAV4NC",
+      "ogcA9QcffFSZeL1SeQhXffsdM3tm8cEc46JzJpcfukfw3JTQykjK1MHhh2wBWdp7T2DTyJhcWYRCrANAfxbK1SG"
+    ],
+    "netValue": 0.21555195400000002
+  },
+  {
+    "address": "FVqd9EFtU9gHmYwiC5BAUDzeFCdvk7ibQ2fzuPWGXRjS",
+    "buys": 0.210000001,
+    "sells": 0,
+    "signatures": [
+      "64JAk2NpbRKH3Zq7NgHbhAd5RWihgMWVKwfeTJxDJRSMzQC5zR75QBaqcVZPMAqnYecz2HfkFqwxAdeUDSW1RgVU"
+    ],
+    "netValue": 0.210000001
+  },
+  {
+    "address": "4TzXvUsPbBMaL1tr8VV2nNYbAeQKjxadajmjNqW8ECb4",
+    "buys": 0.2,
+    "sells": 0,
+    "signatures": [
+      "3cNHQCtJYBgrzCFGwo93qD4g44GM7jDSTHEpi8q52KAC7rpMCi8jjTqtwkSqq6k4Hg1mHet2m3UiHh7B3yRXJsLj"
+    ],
+    "netValue": 0.2
+  },
+  {
+    "address": "6gn7TTMC3gXDQeMvNSfJY7eNvbvmDeZHbneWDPEdzgkj",
+    "buys": 0.2,
+    "sells": 0,
+    "signatures": [
+      "4gndNVSRnSm5Y5t16MA4ZpaLodMA1BwAky7Ss7fnLdihVsB6z7EvZQ2mnXoqt2vLbGZJTbTMjax9YqFucPTAhxnJ"
+    ],
+    "netValue": 0.2
+  },
+  {
+    "address": "G5n4Ca4ZRCdSn3DDWvQNAb3TS6YGG6YAUBsnBUutT4L6",
+    "buys": 0.1998,
+    "sells": 0,
+    "signatures": [
+      "5qMPVGGPYA5188pxYoTqJZiWNVrdxY74veH3JWm14Wi7n4ThTpyhZbEB5MFBq3khThZFdGbJUxeW7UTK1uApHcv9"
+    ],
+    "netValue": 0.1998
+  },
+  {
+    "address": "FJaiiunnUVNM8V583THnvPGLSdhgnX9e5jNFTiSHvXtL",
+    "buys": 0.198,
+    "sells": 0,
+    "signatures": [
+      "63q4WpU1JysbFEU1GokeQH48sv4CsHex2yfGCmxZLCKrhRBeRkpa9BrnXizDU5UQhk9X588dtTE5M2wHyKAr3eL3"
+    ],
+    "netValue": 0.198
+  },
+  {
+    "address": "FCwFfrcVNwqUq1F5PhsyxGQXJoZmFkNxqPoLPgtttpFs",
+    "buys": 0.200414149,
+    "sells": 0.002801375,
+    "signatures": [
+      "5Btfwmhb4SaoZCQyGhxhpUKsupLmbTEuJmmeRcsbaU8zzv44r8zocwN3iyVR6LjjWdPFijKZdagYQcDpcqgp3Hf7",
+      "38QsMU7ZYPrapMadgP2EfgVrhK2grxU7aB1tZvtfucVaq9P36GBM8esyC7ebXGaM7Y7exjqnwjG735E2y4vno39B"
+    ],
+    "netValue": 0.19761277400000002
+  },
+  {
+    "address": "855pc8FiKxWHfQ32ed88LoAm5HvDNhVXRTYqaUGHeXG",
+    "buys": 0.160000001,
+    "sells": 0,
+    "signatures": [
+      "5tg5qeJ7nAS7CDB3XUNTHdCaRsYuKeidE7r4JYkRjktDaSMHzt6FG3cqVZLo8scp382fdc2uSKcdQXS4k4JZjGVY"
+    ],
+    "netValue": 0.160000001
+  },
+  {
+    "address": "HaHkCCvEahzBrsvT6AwgpNPVzrVASfUxMaJxY4fgyCfr",
+    "buys": 0.20584158300000002,
+    "sells": 0.10187876500000001,
+    "signatures": [
+      "5NxZjNBeGnXuyYwRTjKYtdNNXkApZdm4JmkdBNFBmLoX9qzfBDNXymRDvp9DPacGuHm1NHsz9UH4EYEXQ3CkMWFW",
+      "vHJNhZ9P8ppaWjxdLtrxSxsSAgRcdjekEs5m5iWJq1mmTp7J8bjRSqMdroNtkR2DVUtXKfZJrZbbzCHYMRnCD2F",
+      "4VqAwvU88uHBd2q4SEVWG5QEU5ABxehW6WqX3hEkEgzHug2nPKxioVdVp99bqPXPfpPqtEE5AqTnWB6SjtQHBpD4",
+      "3ghCHRLLhpvsZfaXTVgVbcy6jbNXFABk5RVoKkMfhaGithrSmtKLgBxBbx1x4XUa3qDrPVxhZHwRHj5Jd9uejDJU",
+      "5gCvLcJq5tZtitWQ4i8q5Msmw32YxvtVCUuDKV1fUiCoRszL8Y1PWWCxZ1tzLx7TeT2hA9g7BzHjbZjYgEsVEGmr",
+      "5kDijHNXZjZQWCmx1L4UZeZSykAndWjMtorfHYq1QPbzS6fLLkSUbEc7EhNhnfiTgdNX1GEA2izqoKiE1n3EC8zL"
+    ],
+    "netValue": 0.10396281800000001
+  },
+  {
+    "address": "AxuH4aKWeb64nmUsNxwBtbP5Gf1bTL9CeXF6iMmtDYGx",
+    "buys": 0.10124037,
+    "sells": 0,
+    "signatures": [
+      "3a1QxqaBXZ1TWyosdqP3pBpGneiDGAHuf8amD8PfwyfhJRJWQs28dx6hTRLJUeiHpWiETQw2nrJEzXGZLz9fZGft"
+    ],
+    "netValue": 0.10124037
+  },
+  {
+    "address": "F3wfvrvhqVfFJX8QRdtacPZE772ZRsmS2XDd9sp5KAoc",
+    "buys": 0.100177093,
+    "sells": 0,
+    "signatures": [
+      "3mCHK9coPpishFLPTHV3xQnakQiAjeujakvHGKAjJ14HS4swy2VutbabT2cH988HenJxLqssiKePL4sBYEfcgbb"
+    ],
+    "netValue": 0.100177093
+  },
+  {
+    "address": "4bEyp7LEWMn3JN3xLcmdZfh8hSwUYtqmFjnksyYciWAe",
+    "buys": 0.098721244,
+    "sells": 0,
+    "signatures": [
+      "5JF5bz56E2cfBcSjKzBa95cKMBcnvcy31Dnm2RsZ8RfDW9kwVa1i2Zk2cvWbbNcT8iLmdWEvVdcRja2WybQehZzj",
+      "3v5scMaH2mQE2CKkWBdijy232E7ejCH7QGdGq2oNWfPpbCYtrUmz61RXYPmZo8tvKQtoa52Yxs9Ni3tp6HcB4o1M"
+    ],
+    "netValue": 0.098721244
+  },
+  {
+    "address": "GMmdfeNatAv7nCjDWqch2TesnQDUbmWh9rX6oCP933qX",
+    "buys": 0.097265069,
+    "sells": 0,
+    "signatures": [
+      "3BwLku4XPTxTCQsHrMDtyJW6XYx9qr9SB9mo7JCrGpoqgaN9EaMv8kmThddAmChewZnT7o7CjAvuf5Bui8pWKjka"
+    ],
+    "netValue": 0.097265069
+  },
+  {
+    "address": "G9GtbgfpjoiJkMr5AQe6d9C8BEcLb8Sq6PAyTGVbvLWm",
+    "buys": 0.097151696,
+    "sells": 0,
+    "signatures": [
+      "44ghePGikhaHeUiLtdM8htz8teNQurs29yXKD433pm7wrYwLMq3JpwPz6KfkXsaEr5pdCzcc8qM8H56pzwmFuGia"
+    ],
+    "netValue": 0.097151696
+  },
+  {
+    "address": "12gPMJ4scbxk2ocAXC7eSJVSQRZQ3vnQfeDDpzR4GBjo",
+    "buys": 0.073656,
+    "sells": 0,
+    "signatures": [
+      "2YdBeiL856d6WzwWcg8eLKu2SMmDgyan9G3EBmwRavRyLPmTxFMNQjVhbQWkWCEWHb2AoAKUkZqHtnyDQ8TuTnuQ"
+    ],
+    "netValue": 0.073656
+  },
+  {
+    "address": "FKUn1iFYVdK2jycg465jBMmZgj5YuU5NZKpJ8SABraNi",
+    "buys": 0.0490099,
+    "sells": 0,
+    "signatures": [
+      "3zYja19WbQiqvZVepDuVfTw7ZaJQ4mKUtpPE3WuGn1pQgkAEzsXQJfnMqrhZNcFKaYLGucH5pXq8YJpgMjLmBc2t"
+    ],
+    "netValue": 0.0490099
+  },
+  {
+    "address": "FBN5zYzFDLaRRVqQhVZFamBt1bTWuTtwJwvdod1YXgg",
+    "buys": 0.0296703,
+    "sells": 0,
+    "signatures": [
+      "5sa9eeRrkxt7jRZKSy91wDGy9NvRnAnDu5TPCkrpskpyvNuFxmxcBrxqFPA14z3SsEj79dxXxdGBkGBEwcWHkwbW"
+    ],
+    "netValue": 0.0296703
+  },
+  {
+    "address": "7MMk2qYmVkZQY51CZPMUQ3pGFcX4Dmp5A4rUoesGTBDg",
+    "buys": 0.029388303,
+    "sells": 0,
+    "signatures": [
+      "5vyqqiBryLj27xSM2t8tjF1iHHD9puhYBumKG3cyA5M5fup8PDNijbNWkyaCeRgz8Bavd1r4Dp1vqnMXuFpkLHB3"
+    ],
+    "netValue": 0.029388303
+  },
+  {
+    "address": "2rvYJ6SMeAfzBmuE1PPChE7CJhJ2dufAphfpGFvB5x6M",
+    "buys": 0.058811880000000004,
+    "sells": 0.030033526,
+    "signatures": [
+      "3FHsxfGyuuc3ecHdeidFsSs1RzvJnnRTVzxohtpSyNR2bmkgrynHaUP5tUqgcaE88d6SgicYdN9D8nqsc8RMZNaL",
+      "3j2JP7kjEW2fw9PxLHP6HMdFNCoTmZgow4dU6pPT1BbYp8TvWuBcTCupc7cLFZSjVKJokJkQbnztXoSCNMwSm5tz",
+      "3FmPCRwd2VfeFctgwfg74ze9LSmr71tjpx8YbUfNSQXpgChFREQBPvnE6zWAZMoJUeMi9eYzHVDp18dLgGkH4g5H",
+      "hHXfwcHsgcLoq5UCUdcxCM2C84rg3TLiy3mUAbgtztM9ADinxt7A9uSTUR442s2CwFDSF9kk4ErbeoWeQ27A7aD",
+      "625sYVqmJksfRAXMU5czXavaVKBiHpvn7pkEBhCtsXXvEAvxtD73vVfwAouYK2ysR4uNuUDtrzeuWfSFsVxwkBPr",
+      "5gkA2WtoYGWSSR41rUpvpvj5iD6XRDX6C5BLL2JV3hLUdH7fgyJgJurG3peSXQC3fDq34Ezff6MGaxGB4EpyrqcD",
+      "4EvXj91Z6tzr7d57RCA7TCrroPvS2wZGiuVapSdXUBorXXYUG8sUbXn4ieKaBvSCnbmidfhgC3SoSXL9jh3w4mDB"
+    ],
+    "netValue": 0.028778354000000003
+  },
+  {
+    "address": "DX8zDAxxrjjDxVAM78YMvmMK8fpSuFiPY9aervzZZchB",
+    "buys": 0.026422343,
+    "sells": 0,
+    "signatures": [
+      "3EwavKpQX44gVtF1bnVnHwU7GX117dAJrgu8UJHESBWp9x1iNU3fNRAtg1neDYgq1fmhs5gNoVhWeUNU67dqL7tk"
+    ],
+    "netValue": 0.026422343
+  },
+  {
+    "address": "7jd7KyxVX1ViNcY9DoqmeKfxihun5EUrBzVxXbGePFYL",
+    "buys": 0.0490099,
+    "sells": 0.024862436,
+    "signatures": [
+      "DHjNJw5KnUBUVWNYHeSKLR3WnPUf4GrR1TqqjqsbQrF54ckHUTQbjgsmdz5nmUjwpChPMdxj3DAN6YYpKe2Pmw4",
+      "3eufgbrT4HHftPMFWuDJgLAoXz1SWXaqwgHc4gFarCQ7LbuY7Tp3Vif9USM3ZRgT3BYD19syNowut4gof42wg91K"
+    ],
+    "netValue": 0.024147464
+  },
+  {
+    "address": "HT7dE7GtdGVza9CTcDF1PpZUd7R68VsTVThJcWqUnVkq",
+    "buys": 0.020357035,
+    "sells": 0,
+    "signatures": [
+      "3NDNp8Z7Vmo7y8bJVJtyEzu7YTzNMTyrVdM8KMVZ182AdumRPxuaZAjCfWM8VyYHrJevQHguCkH3Su8YR6cXKuDt"
+    ],
+    "netValue": 0.020357035
+  },
+  {
+    "address": "7w3uSg2URf2UvzsgvSCEtNNhooHrBenjNVBuZwCo61U3",
+    "buys": 0.010183854,
+    "sells": 0,
+    "signatures": [
+      "5LMo1F8tf6pwc3STQaD5bAC6M9a9b3eddK64jYXADmfpXMj2SDvxH71xH7JS2cFHinoKTFaqGEc6RmxztJW7yz9u"
+    ],
+    "netValue": 0.010183854
+  },
+  {
+    "address": "HUmWjMfdLLjWLPoKajCG5GrXTQJ4Xrn5jCceiBnMdCL4",
+    "buys": 0.00980198,
+    "sells": 0,
+    "signatures": [
+      "2H8SKKAZFRziLyk6G9yv6P5aSe6bTWErEhXNmnmXJHKC5hTetvBDxXixkS3fyzkrasManBYzvYT676Sj66JSkDxw"
+    ],
+    "netValue": 0.00980198
+  },
+  {
+    "address": "HxJbfKCKQWYpCEar9VBJLaGSm2uDR6HT86qE1c9u6CCZ",
+    "buys": 0.00980198,
+    "sells": 0,
+    "signatures": [
+      "2JjaKLSYqbYoPS8jibD5BShKwY16kZdCSGR6eTs6SeH2BiZyZZH3zRK4CZBFX2MYD4SmAFrsxGQP79nMLmtA4VWR"
+    ],
+    "netValue": 0.00980198
+  },
+  {
+    "address": "dwgLC8FLoTckGAntgtK7LyiepLKyACCR2E9QDTsyaCn",
+    "buys": 0.009749952,
+    "sells": 0,
+    "signatures": [
+      "GCUTCRsJ77bKuPRYtHcV98JFyuer7TBQYUoHrDg3FDXxbZ8Zpa4J45FkycpjjJ1jcqpNqAyJZQvY46hUFiBJtE6"
+    ],
+    "netValue": 0.009749952
+  },
+  {
+    "address": "DRWAPuasNEZXGrw6AxS6bhqRvAVQExAdHfUptTXcbtix",
+    "buys": 0.196039603,
+    "sells": 0.190653224,
+    "signatures": [
+      "5h35gF4kqJ9DS6YA83ZctTU3iPo2XPQud9vhzfXVBZJWkBrGQm5kHZ76xBoQDg4Qex3JymFUijMy3sths4cNmTxS",
+      "9BCiB7TzJCqaz5YJQWCwZLZx3PVMECfBrcjCR12a8yVzXRHrF6DWK6E8Vm4sw1tp2sRT5Py9YAE2TPfntqXT7mC"
+    ],
+    "netValue": 0.005386378999999997
+  },
+  {
+    "address": "GqvaRUX4798skK7FN6PyGRuYH9KGHHEa9DpJW4GcvMDE",
+    "buys": 0.00410581,
+    "sells": 0,
+    "signatures": [
+      "gxaWnzazSkRGvJ6AFf328ndNEG2fh1YaFUZTH2bagtfuRcqM7iCKRdS6tc5tUi6vQiRbXPoPVoEtkEfuJuwYsY7"
+    ],
+    "netValue": 0.00410581
+  },
+  {
+    "address": "F9ZXzUAV1YLJBdkvruL9irDP6qmE3cEavk9ut3ZACrkH",
+    "buys": 0.002940594,
+    "sells": 0,
+    "signatures": [
+      "2iuvj1z4Nc5KaGaJXcsFFCabScHxTmLDkaWmXzS3x6NU7LPLBvjaEqJUA188yky3LsVS9sfJ8poEiD1oRqin3NwQ"
+    ],
+    "netValue": 0.002940594
+  },
+  {
+    "address": "FKth3ANhrrDKoQaZLu7cmziZxwVZhNUDSX7ZvJME56Xj",
+    "buys": 0.301966579,
+    "sells": 0.300310492,
+    "signatures": [
+      "2Xhzw6bGyFc8HLyV7ZjJST9rwoN8y2ruYkW8HAnLnAgtCTLAXisNiWJwCtcc9Wst5QkLSQeMfi6cE3Z9HUgeioay",
+      "3XCLAR5kXFT3iri5oNWKk17NLPbbpYZ282C6e9ee7khn5Fev9n92yL24SvBPV239NtfRKQexB6kLx99ws7oHoe2i"
+    ],
+    "netValue": 0.0016560870000000283
+  },
+  {
+    "address": "E8E5CB7cUwvurwyEke4HNE15ajxeagiMwt273t5pU8JG",
+    "buys": 0.067447111,
+    "sells": 0.068822326,
+    "signatures": [
+      "3MvBfBM1a9MPjFFPnTsCyLKB1PVuexSfQ1DLnrERW2cNZeFT3ZAtrkVLAFXbWwsd9TR5zSHiXjQxj5q3sCGLVvXX",
+      "3NBBNNW9Wxxsmi9JV8dQSbrJ7xmUd1pjGdXr5mbPgrthWGaQdLaEeWUsuh2gswvD9hqamr5a1HQmXgKYmMThb8gk"
+    ],
+    "netValue": -0.001375214999999999
+  },
+  {
+    "address": "B6KrC1jtVAo2FEqDpGFXoTnHoV9UGdeeBfdUyHh7yBwp",
+    "buys": 0.099,
+    "sells": 0.101076433,
+    "signatures": [
+      "2w9NXXDYiPGxC3a8XUnPyoLwvp94cCXhhetRrZ4EvLYwzAUmDVaLT5ZSVLUweAeB6i539GiFPrHD7yQNRMcjYTYA",
+      "UwvKdSdwKupA7a4QhLotYpGQYDX3xtbsTwx3mXfbNKq2WAxkh4FQcbjYzQeSEETUJBDNepMpw368Ri1MXQGodE7"
+    ],
+    "netValue": -0.0020764329999999886
+  },
+  {
+    "address": "3DWS5FfNpeohEiW87pd9WgNZaMUYYn5ufbqwt6dM6Zfr",
+    "buys": 0.5,
+    "sells": 0.502911222,
+    "signatures": [
+      "4A6RgUeUVvF5DFWJ87d6bQPFRppQrTxfSx6K4qbhsWiG2ZvDbk5ou3svQkRpJWEY2iYzWHFQm69AMonj2jqMMaY5",
+      "4TL9r9X4UQ6s9RoosUD8b2pYsNQ3evhEpHXZq837FUCMqj3NGyKSkHX5Yk7BfS8PALuYbtSSWC3sNjhVVc2aCUqs"
+    ],
+    "netValue": -0.0029112220000000466
+  },
+  {
+    "address": "F6eXSVipa2byCwM6WjCZvA7iqMixPU54C6uXRqJdimsx",
+    "buys": 0,
+    "sells": 0.010516657,
+    "signatures": [
+      "DjpBKcpgbxwCtNpegvVK2ahzGA9XskyCijaUps8YybSTLRh9LRnZmZhdM4KrjXFBLG4kw32hZPG4xQsWFWjGbvh"
+    ],
+    "netValue": -0.010516657
+  },
+  {
+    "address": "CdmYcTSC934WCQebwceGb6VQUimeYZhiMDWjkg7CSsu9",
+    "buys": 0,
+    "sells": 0.01071245,
+    "signatures": [
+      "4uEpknt4uRiCBJFMrB7EYgZb1GPsXMhhFEunJs2XFHvuetFhx9jw8jTRSFQYPYcP4hA7cKPpuaitZtcZaLD2hQDA"
+    ],
+    "netValue": -0.01071245
+  },
+  {
+    "address": "CcqgHPXTFjX7gPfNq7CjuTbffDMz71qGHBquSNiupoWr",
+    "buys": 0.207537775,
+    "sells": 0.227001958,
+    "signatures": [
+      "59v9TZRWuAjoSWFmCQZeftks3bYcqctG9qhqyfLqwiSTRaa2yFRnHADZ1T2PYqkpinaA8xpwV2gbec2Aw8za6Lzx",
+      "5rLtRJv5FqRsiAZotsiNqz3Hp8rndaSgzbDJJqo4EUPCcbfpHckn5N39uo5BfxmrSFjPt214kCKd17DwcqaFCHA7",
+      "5bok1tdSz3YNP5jHS1xCpD9F8LMspNyXcGBPRHsfUoq262uRDzRqKM49WND72HsFrwCZnwTfTvYjH8mNbzitbEpq"
+    ],
+    "netValue": -0.019464182999999996
+  },
+  {
+    "address": "9VmaFZ8a1Sxx6bsh4Gt5TAqNrxiNLcgL2Et4WfuVWSd3",
+    "buys": 0,
+    "sells": 0.020797854,
+    "signatures": [
+      "HohdNeQVVCz4Q6tGvvLbcBwcH9xsXbTf49x2ALqhHrEiKA39NTn2n9wBw87xyDshBFYhStDfG9YEozQLKqPgT9T"
+    ],
+    "netValue": -0.020797854
+  },
+  {
+    "address": "7edFajMLREJeN9yYMGF5Hrua7dqLHX5kzevSpvSwsXvv",
+    "buys": 0,
+    "sells": 0.10734317,
+    "signatures": [
+      "237UbNSHAGe3Ta1K8NMtbTm5CPqC4MJJxfpUZQ7pxp8jMtsWiNpMXdAWkxR4t7jP1f8WMRKMJSUzNd6Z9k9boKGH"
+    ],
+    "netValue": -0.10734317
+  },
+  {
+    "address": "GgSbV75Au6BBg8uow4Bpt6g4Z4QgwmE5mPgCCZjaXh73",
+    "buys": 0,
+    "sells": 0.166372407,
+    "signatures": [
+      "48uC5xTdPs6kzFiuiGtHv4uN6Dih3gtWvwUxrEvHj8yXaP976pUheChMtQCUPHu8R9Ln4sq1GQKJ8WGGtzqYaaCC"
+    ],
+    "netValue": -0.166372407
+  },
+  {
+    "address": "5FeiJQfCCnaEYSPoiNRkzvtGnctH1HGspttyGJYBmPbH",
+    "buys": 0,
+    "sells": 0.23117818,
+    "signatures": [
+      "4AV2xC3DHamZ4tkogJUfC3e8r3ifH7Kt9gYQsKYWp6BPPENJYLej6baHFVLAttnVj9cox7z91NnpSfvPtMytbKx8"
+    ],
+    "netValue": -0.23117818
+  },
+  {
+    "address": "6QVYSUiJDGoVeQzFnWbCuvzgySNekyzEendzP4xrg6Qe",
+    "buys": 0,
+    "sells": 0.522577808,
+    "signatures": [
+      "54Mf9NPpt1axYu17ErHYU6JUwSmJSAuGk5XHbJ6XiqCZs6mQqcjKWmQHm2udF5pg7bJFEcKeUXc3zWYnQXGPt7Lc"
+    ],
+    "netValue": -0.522577808
+  },
+  {
+    "address": "GwmhBv2YpVBbf7V93EwhPA2hb1XXqbx3d6xhEhZbvUra",
+    "buys": 0,
+    "sells": 202.28191536199998,
+    "signatures": [
+      "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"
+    ],
+    "netValue": -202.28191536199998
+  }
+]

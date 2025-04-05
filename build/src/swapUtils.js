@@ -663,7 +663,7 @@ async function decodePumpFunTradev2(txSignature, tx) {
                 tokenAddress = balance.mint;
         for (const instruction of tx.meta.innerInstructions)
             for (const ix of instruction.instructions) {
-                if (ix.programId.equals(pumpFunProgramId) || ix.programId.equals(pumpFunAMMProgramId)) {
+                if (ix.programId.equals(pumpFunProgramId)) {
                     if ('data' in ix) {
                         // Decode from base58 instead of base64
                         const data = bs58_1.default.decode(ix.data);

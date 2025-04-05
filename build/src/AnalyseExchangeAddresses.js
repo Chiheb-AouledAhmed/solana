@@ -37,13 +37,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setNotProcessing = setNotProcessing;
-exports.watchPumpFunTransactions = watchPumpFunTransactions;
+exports.AnalyseExchangeAddresses = AnalyseExchangeAddresses;
 exports.stopAccountWatcher = stopAccountWatcher;
 const web3_js_1 = require("@solana/web3.js");
 const _config_1 = require("./_config");
 const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
-const TokenBuyer_1 = require("./TokenBuyer");
 const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
 let TRANSACTION_INTERVAL = 1000; // 10 seconds
@@ -60,6 +59,35 @@ function setNotProcessing() {
     console.log("watching another token ->>>");
 }
 let monitoredAccounts = {};
+async function parseCsvTwoColumns(filePath, column1, column2, delimiter = ",") {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, 'utf-8', (err, data) => {
+            if (err) {
+                return reject(err);
+            }
+            const lines = data.trim().split("\n"); // Split by newlines and trim extra spaces
+            if (lines.length < 2) {
+                return reject(new Error("CSV must have at least one header row and one data row."));
+            }
+            const headers = lines[0].split(delimiter).map(header => header.trim()); // Extract headers
+            const rows = lines.slice(1); // Extract rows (excluding the header)
+            // Find indices of the specified columns
+            const column1Index = headers.indexOf(column1);
+            const column2Index = headers.indexOf(column2);
+            if (column1Index === -1 || column2Index === -1) {
+                return reject(new Error(`Columns "${column1}" or "${column2}" not found in CSV headers.`));
+            }
+            const result = rows.map(row => {
+                const values = row.split(delimiter).map(value => value.trim()); // Split row by delimiter
+                return {
+                    [column1]: values[column1Index] || "",
+                    [column2]: values[column2Index] || "",
+                };
+            });
+            resolve(result);
+        });
+    });
+}
 function loadAccounts(filename) {
     try {
         const data = fs.readFileSync(filename, 'utf-8');
@@ -70,14 +98,22 @@ function loadAccounts(filename) {
         return [];
     }
 }
-async function watchPumpFunTransactions() {
+let ignoredAddresses = new Set();
+function loadIgnoredAddresses(filePath) {
+    try {
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        const addresses = fileContent.split('\n').map(line => line).filter(line => line !== '');
+        addresses.forEach(addr => ignoredAddresses.add(addr));
+        console.log(`Loaded ${ignoredAddresses.size} addresses to ignore.`);
+    }
+    catch (error) {
+        console.warn(`Could not read addresses from ${filePath}. All addresses will be processed. Error:`, error);
+    }
+}
+async function AnalyseExchangeAddresses(filename) {
     console.log('Monitoring Raydium transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
-    const accounts = loadAccounts(_config_1.ACCOUNTS_FILE);
-    if (accounts.length === 0) {
-        console.warn('No accounts loaded.  Exiting.');
-        return;
-    }
+    const extractedData = await parseCsvTwoColumns(filename, 'Signature', 'To');
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
         try {
@@ -97,83 +133,36 @@ async function watchPumpFunTransactions() {
         console.error('Failed to transfer SOL to a random account.');
         return;
     }*/
-    //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
-    let watchedAccounts = [];
-    if (_config_1.ACCOUNTS_TO_WATCH && Array.isArray(_config_1.ACCOUNTS_TO_WATCH)) {
-        watchedAccounts = _config_1.ACCOUNTS_TO_WATCH.map(account => new web3_js_1.PublicKey(account));
-    }
-    else {
-        console.log("ACCOUNTS_TO_WATCH", _config_1.ACCOUNTS_TO_WATCH);
-        console.warn("ACCOUNTS_TO_WATCH is not properly configured.  Ensure it's a comma-separated list of public keys.");
-        return; // Stop execution if ACCOUNTS_TO_WATCH is not valid
-    }
     const privateKey = process.env.PRIVATE_KEY;
+    let allsum = 0;
     let cacheSignature = new Set();
-    while (!stopWatching) {
-        try {
-            //console.log("New Loop");
-            /*if(Processing){
-                console.log("Processing another token");
-                await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
-                continue;
-            }*/
-            const signatures = [];
-            for (const account of watchedAccounts) {
-                const publicKey = new web3_js_1.PublicKey(account);
-                const signaturesAccount = await connection.getSignaturesForAddress(account, {
-                    limit: 50
-                }, 'confirmed');
-                for (const signature of signaturesAccount) {
-                    signatures.push({ signature: signature, account: publicKey });
-                }
-            }
-            for (const signatureInfo of signatures) {
-                const signature = signatureInfo.signature.signature;
-                const publicKey = signatureInfo.account;
-                if (signature && !cacheSignature.has(signature)) {
-                    cacheSignature.add(signature);
-                    {
-                        lastSignature = signature;
-                        /*console.log(`New transaction detected: ${signature}`);
-                        const message = `
-                        New Token Transfer Detected!
-                        Signature: ${signature}
-                        `;
-                        await sendTelegramNotification(message);*/
-                        try {
-                            const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
-                                commitment: 'confirmed',
-                                maxSupportedTransactionVersion: 0
-                            });
-                            if (transaction) {
-                                console.log("Transaction", transaction);
-                                const result = await (0, swapUtils_1.decodePumpFunTrade)(signature, transaction);
-                                if (result.length > 0) {
-                                    let tokenAddress = result[0].tokenAddress;
-                                    let processed = await processDetails(tokenAddress, firstRun, signature, connection, centralWalletKeypair, publicKey);
-                                    if (processed) {
-                                        console.log("Finding Token Creator before signature : ", signature);
-                                        return (0, TokenBuyer_1.watchTokenTxsToBuy)(tokenAddress, signature);
-                                    }
-                                }
-                                else {
-                                    console.log('This transaction does not appear to be a pump fun transaction');
-                                }
-                            }
-                        }
-                        catch (error) {
-                            console.error("Error processing transaction:", error);
-                        }
-                    }
+    // Data structure to hold address specific information
+    const addressData = {};
+    let res = [];
+    try {
+        for (const accountData of extractedData) {
+            let signature = accountData['Signature'];
+            let account = new web3_js_1.PublicKey(accountData['To']);
+            const signaturesAccount = await connection.getSignaturesForAddress(account, {
+                limit: 300
+            }, 'confirmed');
+            signaturesAccount.reverse();
+            if ((signaturesAccount.length < 300) && (signaturesAccount[0].signature == signature)) {
+                for (let i = 0; i < Math.min(signaturesAccount.length, 10); i++) {
+                    const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signaturesAccount[i].signature, {
+                        commitment: 'confirmed',
+                        maxSupportedTransactionVersion: 0
+                    });
+                    if ((0, swapUtils_1.isPumpFunCreation)(signature, transaction))
+                        res.push({ signature: signature, account: account });
                 }
             }
         }
-        catch (error) {
-            console.error("Error fetching signatures:", error);
-        }
-        firstRun = false;
-        await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
+    catch (error) {
+        console.error("Error fetching signatures:", error);
+    }
+    console.log("res", res);
 }
 // Call this function to stop watching transactions
 function stopAccountWatcher() {
@@ -221,4 +210,4 @@ async function processDetails(tokenAddress, firstRun, signature, connection, rec
         return false;
     }
 }
-//# sourceMappingURL=pumpFunAccountWatcher.js.map
+//# sourceMappingURL=AnalyseExchangeAddresses.js.map

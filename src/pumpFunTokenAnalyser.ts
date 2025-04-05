@@ -10,7 +10,7 @@ import { watchTokenTxs } from './TokenCreatorFinder';
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
-let TRANSACTION_INTERVAL = 1000; // 10 seconds
+let TRANSACTION_INTERVAL = 50; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
@@ -195,6 +195,7 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
                     }
                 }
             }
+            await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL)); // Wait 5 seconds before polling again
         }
     } catch (error) {
         console.error("Error fetching signatures:", error);

@@ -45,7 +45,7 @@ const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
 const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
-let TRANSACTION_INTERVAL = 1000; // 10 seconds
+let TRANSACTION_INTERVAL = 50; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -193,6 +193,7 @@ async function AnalysePumpFunTransactions(tokenAddress, lastSignature, filename)
                     }
                 }
             }
+            await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL)); // Wait 5 seconds before polling again
         }
     }
     catch (error) {
