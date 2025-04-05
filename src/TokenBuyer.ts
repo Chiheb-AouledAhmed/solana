@@ -64,11 +64,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
     let allSum= 0;
     while(true){
     const signatures = [];
-    if((!firstRun) && (tokenCreator))
-    {
-        allsum-=addressData[tokenCreator].buys;
-        allsum+=addressData[tokenCreator].sells;
-    }
+    
     for (const account of watchedAccounts) {
         const publicKey = new PublicKey(account);
         let signaturesAccount ;
@@ -216,6 +212,11 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
         console.log("restarting the process")
         watchPumpFunTransactions();
         }
+        if((firstRun) && (tokenCreator))
+    {
+        allsum-=addressData[tokenCreator].buys;
+        allsum+=addressData[tokenCreator].sells;
+    }
         firstRun = false;
     }
 }
