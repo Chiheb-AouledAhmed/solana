@@ -57,7 +57,49 @@ export async function getParsedTransactionWithRetry(
     return null; // Indicate failure after all retries
 }
 
-
+export async function getSignaturesWithRetry(
+    connection: Connection,
+    account: PublicKey,
+    options: { limit?: number; before?: string; until?: string } = {},
+    retries = 5,
+    delay = 1000
+  ): Promise<any[]> {
+    let attempt = 0;
+  
+    while (attempt < retries) {
+      try {
+        // Attempt to fetch signatures
+        const signatures = await connection.getSignaturesForAddress(account, options, "confirmed");
+        return signatures; // Return the result if successful
+      } catch (error:any) {
+        attempt++;
+  
+        // Log the error
+        console.error(`Attempt ${attempt} failed:`, error.message);
+  
+        // Handle specific errors
+        if (error.message.includes("rate limit") || error.code === -32019) {
+          console.warn("Rate limit or long-term storage issue detected. Retrying...");
+        } else {
+          // Re-throw non-retryable errors
+          throw error;
+        }
+  
+        // If max retries reached, throw the error
+        if (attempt >= retries) {
+          console.error("Max retries reached. Unable to fetch signatures.");
+          throw error;
+        }
+  
+        // Wait before retrying (exponential backoff)
+        const backoffDelay = delay * Math.pow(2, attempt - 1); // Exponential backoff
+        console.log(`Retrying in ${backoffDelay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, backoffDelay));
+      }
+    }
+  
+    return []; // Fallback return (should never reach here)
+  }
 export async function transferSOL(connection: Connection, fromAccount: Keypair, toAccount: PublicKey): Promise<void> {
     const balance = await connection.getBalance(fromAccount.publicKey);
     const transaction = new Transaction().add(

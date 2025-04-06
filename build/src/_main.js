@@ -33,6 +33,7 @@ async function main() {
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
+        console.log("RPC Endpoint:", connection.rpcEndpoint);
         /*let signature =  "428meFyUbrENa4Ryy2Mrc2x6dyn6RKAoLxqnoS3emMo6SZJkRUMTLpYqf7UNEUwkuepttgnBxbT4ULGk3uVuVh6j"
         const transaction = await connection.getParsedTransaction(signature, {
             maxSupportedTransactionVersion: 0,

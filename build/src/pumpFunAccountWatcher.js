@@ -125,9 +125,9 @@ async function watchPumpFunTransactions() {
             const signatures = [];
             for (const account of watchedAccounts) {
                 const publicKey = new web3_js_1.PublicKey(account);
-                const signaturesAccount = await connection.getSignaturesForAddress(account, {
+                const signaturesAccount = await (0, _utils_1.getSignaturesWithRetry)(connection, account, {
                     limit: 50
-                }, 'confirmed');
+                });
                 for (const signature of signaturesAccount) {
                     signatures.push({ signature: signature, account: publicKey });
                 }

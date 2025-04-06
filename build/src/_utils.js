@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSOLBalance = getSOLBalance;
 exports.sendTelegramNotification = sendTelegramNotification;
 exports.getParsedTransactionWithRetry = getParsedTransactionWithRetry;
+exports.getSignaturesWithRetry = getSignaturesWithRetry;
 exports.transferSOL = transferSOL;
 exports.checkTransactionStatus = checkTransactionStatus;
 exports.transferAllSOL = transferAllSOL;
@@ -90,6 +91,39 @@ async function getParsedTransactionWithRetry(connection, signature, options, max
     }
     console.error(`Failed to get transaction ${signature} after ${maxRetries} retries.`);
     return null; // Indicate failure after all retries
+}
+async function getSignaturesWithRetry(connection, account, options = {}, retries = 5, delay = 1000) {
+    let attempt = 0;
+    while (attempt < retries) {
+        try {
+            // Attempt to fetch signatures
+            const signatures = await connection.getSignaturesForAddress(account, options, "confirmed");
+            return signatures; // Return the result if successful
+        }
+        catch (error) {
+            attempt++;
+            // Log the error
+            console.error(`Attempt ${attempt} failed:`, error.message);
+            // Handle specific errors
+            if (error.message.includes("rate limit") || error.code === -32019) {
+                console.warn("Rate limit or long-term storage issue detected. Retrying...");
+            }
+            else {
+                // Re-throw non-retryable errors
+                throw error;
+            }
+            // If max retries reached, throw the error
+            if (attempt >= retries) {
+                console.error("Max retries reached. Unable to fetch signatures.");
+                throw error;
+            }
+            // Wait before retrying (exponential backoff)
+            const backoffDelay = delay * Math.pow(2, attempt - 1); // Exponential backoff
+            console.log(`Retrying in ${backoffDelay}ms...`);
+            await new Promise(resolve => setTimeout(resolve, backoffDelay));
+        }
+    }
+    return []; // Fallback return (should never reach here)
 }
 async function transferSOL(connection, fromAccount, toAccount) {
     const balance = await connection.getBalance(fromAccount.publicKey);

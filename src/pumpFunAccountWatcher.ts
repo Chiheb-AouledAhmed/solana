@@ -1,6 +1,6 @@
 import { Connection, PublicKey, Keypair,ParsedInstruction,TransactionInstruction,ParsedTransactionWithMeta } from '@solana/web3.js';
 import { SOLANA_RPC_URL,CENTRAL_WALLET_PRIVATE_KEY,YOUR_PRIVATE_KEY, ACCOUNTS_FILE,ACCOUNT_TO_WATCH, POLLING_INTERVAL, KNOWN_TOKENS , ACCOUNTS_TO_WATCH } from './_config';
-import { getParsedTransactionWithRetry, sendTelegramNotification ,transferAllSOLToRandomAccount} from './_utils';
+import { getSignaturesWithRetry,getParsedTransactionWithRetry, sendTelegramNotification ,transferAllSOLToRandomAccount} from './_utils';
 import { TOKEN_PROGRAM_ID, getMint } from '@solana/spl-token';
 import { decodePumpFunTrade,processTransferTransaction, processTransferSolanaTransaction,isSwapTransaction, processSwapTransaction,parseSwapInfo, determineInOutTokens, logTypeToStruct } from './swapUtils';
 import { buyNewToken } from './_transactionUtils';
@@ -108,12 +108,11 @@ export async function watchPumpFunTransactions(): Promise<void> {
                 const publicKey = new PublicKey(account);
                 
 
-                const signaturesAccount = await connection.getSignaturesForAddress(
+                const signaturesAccount = await getSignaturesWithRetry(connection,
                     account,
                     {
                         limit: 50
-                    },
-                    'confirmed'
+                    }
                 );
                 for(const signature of signaturesAccount){
                     signatures.push({signature:signature,account:publicKey});
