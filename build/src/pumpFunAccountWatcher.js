@@ -46,7 +46,7 @@ const swapUtils_1 = require("./swapUtils");
 const TokenBuyer_1 = require("./TokenBuyer");
 const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
-let TRANSACTION_INTERVAL = 1000; // 10 seconds
+let TRANSACTION_INTERVAL = 100; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -165,6 +165,7 @@ async function watchPumpFunTransactions() {
                                     console.log('This transaction does not appear to be a pump fun transaction');
                                 }
                             }
+                            await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));
                         }
                         catch (error) {
                             console.error("Error processing transaction:", error);
@@ -172,14 +173,14 @@ async function watchPumpFunTransactions() {
                     }
                 }
             }
+            if (firstRun) {
+                console.log("First run finished !");
+            }
+            firstRun = false;
         }
         catch (error) {
             console.error("Error fetching signatures:", error);
         }
-        if (firstRun) {
-            console.log("First run finished !");
-        }
-        firstRun = false;
         await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
 }

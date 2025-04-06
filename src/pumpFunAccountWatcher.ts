@@ -12,7 +12,7 @@ import { watchTokenTxsToBuy } from './TokenBuyer';
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
-let TRANSACTION_INTERVAL = 1000; // 10 seconds
+let TRANSACTION_INTERVAL = 100; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
@@ -161,6 +161,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                                 console.log('This transaction does not appear to be a pump fun transaction');
                             }
                         }
+                        await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));
                     }
                  catch (error) {
                         console.error("Error processing transaction:", error);
