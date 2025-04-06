@@ -3,9 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const pumpFunTokenAnalyser_1 = require("./pumpFunTokenAnalyser");
+const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 const serum_1 = require("@project-serum/serum");
-const swapUtils_1 = require("./swapUtils");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -15,9 +14,6 @@ const bs58_1 = __importDefault(require("bs58"));
 const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
-const nodewallet_1 = __importDefault(require("@coral-xyz/anchor/dist/cjs/nodewallet"));
-const anchor_1 = require("@coral-xyz/anchor");
-const _utils_1 = require("./_utils");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -117,12 +113,12 @@ async function main() {
         const tokenaddress = "8MSMWUw113qmQbasc3ip9VWN5MrqXLFP4cL28txbpump"
         compareFiles();
         await watchTokenTransactions(accountaddress,tokenaddress);*/
-        const wallet = new nodewallet_1.default(keyPair); // Note: Replace with actual wallet
-        const provider = new anchor_1.AnchorProvider(connection, wallet, {
-            commitment: "finalized",
+        /*const wallet = new NodeWallet(keyPair); // Note: Replace with actual wallet
+        const provider = new AnchorProvider(connection, wallet, {
+          commitment: "finalized",
         });
         let mint = "pWkzfDrPxfTNPdumQgzR79ismW3upvhmGQxh6Gspump";
-        let signature = "5BHXT1amNvHFEJt1AzUrFgVP8VhkE29iLUq62dGwcxtYckeDEYHTAbJTMPHtmGQ7cXNy1gjGwaPJrJQnxd166MWB";
+        let signature = "5BHXT1amNvHFEJt1AzUrFgVP8VhkE29iLUq62dGwcxtYckeDEYHTAbJTMPHtmGQ7cXNy1gjGwaPJrJQnxd166MWB"
         let fileName = "interacting_addresses.txt";
         /*const pumpFunTrader = new PumpFunTrader();
         pumpFunTrader.setSolanaRpcUrl(SOLANA_RPC_URL);
@@ -135,14 +131,18 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
-        let exempleSignature = "2oKhejMRKpQN2pnBeYokVySbxq3qdPUVSdkZMdcBhKN8daEycqtc3rndTByEpKuRp6kYdiJduViqEcvyLAHTspKd";
-        const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, exempleSignature, {
-            commitment: 'confirmed',
-            maxSupportedTransactionVersion: 0
-        });
-        let result = await (0, swapUtils_1.decodePumpFunTradev2)(exempleSignature, transaction);
-        (0, _utils_1.checkTransactionStatus)(transaction, exempleSignature);
-        await (0, pumpFunTokenAnalyser_1.AnalysePumpFunTransactions)(mint, signature, fileName);
+        /*let exempleSignature = "2oKhejMRKpQN2pnBeYokVySbxq3qdPUVSdkZMdcBhKN8daEycqtc3rndTByEpKuRp6kYdiJduViqEcvyLAHTspKd"
+        const transaction = await getParsedTransactionWithRetry(
+            connection,
+            exempleSignature,
+            {
+                commitment: 'confirmed',
+                maxSupportedTransactionVersion: 0
+            }
+        )
+        let result = await decodePumpFunTradev2(exempleSignature,transaction);
+        checkTransactionStatus(transaction,exempleSignature);
+        await AnalysePumpFunTransactions(mint,signature,fileName);*/
         //await watchTokenTxsToBuy(mint,signature);
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
         /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
@@ -201,7 +201,7 @@ async function main() {
         //const filename = "export_transfer_BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6_1743717772074.csv";
         //await AnalyseExchangeAddresses(filename);
         const watchedAccountsUsage = {};
-        //await watchPumpFunTransactions();
+        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
         console.log('awaited');
     }
     catch (error) {

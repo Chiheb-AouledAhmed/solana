@@ -57,10 +57,6 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
     let allSum = 0;
     while (true) {
         const signatures = [];
-        if ((!firstRun) && (tokenCreator)) {
-            allsum -= addressData[tokenCreator].buys;
-            allsum += addressData[tokenCreator].sells;
-        }
         for (const account of watchedAccounts) {
             const publicKey = new web3_js_1.PublicKey(account);
             let signaturesAccount;
@@ -178,6 +174,10 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
             console.log("Start Token not found in the transactions");
             console.log("restarting the process");
             (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+        }
+        if ((firstRun) && (tokenCreator)) {
+            allsum -= addressData[tokenCreator].buys;
+            allsum += addressData[tokenCreator].sells;
         }
         firstRun = false;
     }

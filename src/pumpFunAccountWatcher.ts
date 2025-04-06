@@ -90,6 +90,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
     
     while (!stopWatching) {
         try {
+            
             //console.log("New Loop");
             /*if(Processing){
                 console.log("Processing another token");
@@ -163,6 +164,10 @@ export async function watchPumpFunTransactions(): Promise<void> {
         }
         } catch (error) {
             console.error("Error fetching signatures:", error);
+        }
+        if(firstRun){
+            console.log("First run finished !");
+
         }
         firstRun = false;
         await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
