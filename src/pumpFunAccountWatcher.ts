@@ -168,14 +168,15 @@ export async function watchPumpFunTransactions(): Promise<void> {
                 }
             }
         }
-        } catch (error) {
-            console.error("Error fetching signatures:", error);
-        }
         if(firstRun){
             console.log("First run finished !");
 
         }
         firstRun = false;
+        } catch (error) {
+            console.error("Error fetching signatures:", error);
+        }
+        
         await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
     }
 }
