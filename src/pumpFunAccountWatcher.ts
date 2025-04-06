@@ -44,7 +44,13 @@ function loadAccounts(filename: string): AccountData[] {
 
 export async function watchPumpFunTransactions(): Promise<void> {
     console.log('Monitoring Raydium transactions...');
+    // Add health check
+    
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
+    if (!(await checkNodeHealth(connection))) {
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        return watchPumpFunTransactions(); // Restart
+    }
     const accounts = loadAccounts(ACCOUNTS_FILE);
     if (accounts.length === 0) {
         console.warn('No accounts loaded.  Exiting.');
@@ -178,7 +184,36 @@ export async function watchPumpFunTransactions(): Promise<void> {
 export function stopAccountWatcher(): void {
     stopWatching = true;
 }
-
+async function checkNodeHealth(connection: Connection) {
+    try {
+      const health = await getHealth(connection);
+      if (health !== 'ok') throw new Error('Node unhealthy');
+      const slot = await connection.getSlot('confirmed');
+      return true;
+    } catch (error) {
+      console.error('Node health check failed:', error);
+      return false;
+    }
+  }
+  async function getHealth(connection: Connection): Promise<string> {
+    const rpcUrl = connection.rpcEndpoint; // Get the RPC endpoint from the connection
+    const response = await fetch(rpcUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        id: 1,
+        method: "getHealth",
+      }),
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Failed to fetch health status: ${response.statusText}`);
+    }
+  
+    const result = await response.json();
+    return result.result; // Should return "ok" if the node is healthy
+  }
 async function processDetails(tokenAddress:string,firstRun:boolean,signature:string,connection:Connection,recipientPublicKey:Keypair,watchedAccount:PublicKey):Promise<boolean>{
     {
     

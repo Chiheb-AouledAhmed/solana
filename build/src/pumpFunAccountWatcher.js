@@ -72,7 +72,12 @@ function loadAccounts(filename) {
 }
 async function watchPumpFunTransactions() {
     console.log('Monitoring Raydium transactions...');
+    // Add health check
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
+    if (!(await checkNodeHealth(connection))) {
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        return watchPumpFunTransactions(); // Restart
+    }
     const accounts = loadAccounts(_config_1.ACCOUNTS_FILE);
     if (accounts.length === 0) {
         console.warn('No accounts loaded.  Exiting.');
@@ -171,6 +176,9 @@ async function watchPumpFunTransactions() {
         catch (error) {
             console.error("Error fetching signatures:", error);
         }
+        if (firstRun) {
+            console.log("First run finished !");
+        }
         firstRun = false;
         await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
@@ -178,6 +186,36 @@ async function watchPumpFunTransactions() {
 // Call this function to stop watching transactions
 function stopAccountWatcher() {
     stopWatching = true;
+}
+async function checkNodeHealth(connection) {
+    try {
+        const health = await getHealth(connection);
+        if (health !== 'ok')
+            throw new Error('Node unhealthy');
+        const slot = await connection.getSlot('confirmed');
+        return true;
+    }
+    catch (error) {
+        console.error('Node health check failed:', error);
+        return false;
+    }
+}
+async function getHealth(connection) {
+    const rpcUrl = connection.rpcEndpoint; // Get the RPC endpoint from the connection
+    const response = await fetch(rpcUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            jsonrpc: "2.0",
+            id: 1,
+            method: "getHealth",
+        }),
+    });
+    if (!response.ok) {
+        throw new Error(`Failed to fetch health status: ${response.statusText}`);
+    }
+    const result = await response.json();
+    return result.result; // Should return "ok" if the node is healthy
 }
 async function processDetails(tokenAddress, firstRun, signature, connection, recipientPublicKey, watchedAccount) {
     {
