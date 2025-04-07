@@ -96,9 +96,6 @@ export async function watchPumpFunTransactions(): Promise<void> {
     
     while (!stopWatching) {
         try {
-            
-            console.log("New Loop");
-            console.log("timestamp",Date.now());
             /*if(Processing){
                 console.log("Processing another token");
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));

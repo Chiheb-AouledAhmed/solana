@@ -116,7 +116,6 @@ async function watchPumpFunTransactions() {
     let cacheSignature = new Set();
     while (!stopWatching) {
         try {
-            //console.log("New Loop");
             /*if(Processing){
                 console.log("Processing another token");
                 await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));

@@ -1,5 +1,38 @@
 "use strict";
 // src/accountWatcher.ts
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setNotProcessing = setNotProcessing;
 exports.watchTokenTxsToBuy = watchTokenTxsToBuy;
@@ -9,6 +42,7 @@ const _config_1 = require("./_config");
 const _utils_1 = require("./_utils");
 const swapUtils_1 = require("./swapUtils");
 const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
+const fs = __importStar(require("fs"));
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -145,6 +179,18 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                                             Token Creator ${address} has no more transactions and sum is above threshold ! : ${allsum}
                                             Rejecting !!
                                             `;
+                                    const filteredAddressArray = Object.entries(addressData)
+                                        .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase())); // Filter addresses based on the set
+                                    const addressArray = filteredAddressArray.map(([address, data]) => ({
+                                        address,
+                                        ...data,
+                                        netValue: data.buys - data.sells // Calculate net buy/sell amount
+                                    }));
+                                    // Sort the array by net buy/sell amount in descending order
+                                    addressArray.sort((a, b) => b.netValue - a.netValue);
+                                    let output_file = 'token_logs/address_data_sorted_' + tokenAccountAddress + '.json';
+                                    // Save the sorted address data to a JSON file
+                                    fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
                                     (0, _utils_1.sendTelegramNotification)(message);
                                     return (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
                                 }

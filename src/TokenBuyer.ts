@@ -175,6 +175,20 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                                             Token Creator ${address} has no more transactions and sum is above threshold ! : ${allsum}
                                             Rejecting !!
                                             `;
+                                const filteredAddressArray = Object.entries(addressData)
+                                    .filter(([address]) => 
+                                        !ignoredAddresses.has(address.trim().toLowerCase())) // Filter addresses based on the set
+                                    const addressArray=filteredAddressArray.map(([address, data]) => ({
+                                        address,
+                                        ...data,
+                                        netValue: data.buys - data.sells // Calculate net buy/sell amount
+                                    }));
+                                
+                                    // Sort the array by net buy/sell amount in descending order
+                                    addressArray.sort((a, b) => b.netValue - a.netValue);
+                                    let output_file = 'token_logs/address_data_sorted_' + tokenAccountAddress + '.json';
+                                    // Save the sorted address data to a JSON file
+                                    fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
                                 sendTelegramNotification(message);
                                 return watchPumpFunTransactions();
                             }

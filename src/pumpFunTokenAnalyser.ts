@@ -203,7 +203,10 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
     console.log("Total Amount: ", allsum);
 
     // Convert addressData to an array for sorting
-    const addressArray = Object.entries(addressData).map(([address, data]) => ({
+    const filteredAddressArray = Object.entries(addressData)
+    .filter(([address]) => 
+        !ignoredAddresses.has(address.trim().toLowerCase())) // Filter addresses based on the set
+    const addressArray=filteredAddressArray.map(([address, data]) => ({
         address,
         ...data,
         netValue: data.buys - data.sells // Calculate net buy/sell amount
@@ -211,7 +214,7 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
 
     // Sort the array by net buy/sell amount in descending order
     addressArray.sort((a, b) => b.netValue - a.netValue);
-    let output_file = 'address_data_sorted_' + tokenAddress + '.json';
+    let output_file = 'token_logs/address_data_sorted_' + tokenAddress + '.json';
     // Save the sorted address data to a JSON file
     fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
     console.log('Sorted address data saved to address_data_sorted.json');
