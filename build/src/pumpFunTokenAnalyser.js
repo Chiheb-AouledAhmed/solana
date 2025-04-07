@@ -108,96 +108,103 @@ async function AnalysePumpFunTransactions(tokenAddress, lastSignature, filename)
     let cacheSignature = new Set();
     // Data structure to hold address specific information
     const addressData = {};
-    try {
-        //console.log("New Loop");
-        /*if(Processing){
-            console.log("Processing another token");
-            await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
-            continue;
-        }*/
-        const signatures = [];
-        let watchedAccounts = [new web3_js_1.PublicKey(tokenAddress)];
-        for (const account of watchedAccounts) {
-            const publicKey = new web3_js_1.PublicKey(account);
-            const signaturesAccount = await connection.getSignaturesForAddress(account, {
-                before: lastSignature,
-                limit: 1000
-            }, 'confirmed');
-            for (const signature of signaturesAccount) {
-                signatures.push({ signature: signature, account: publicKey });
+    while (!stopWatching) {
+        try {
+            //console.log("New Loop");
+            /*if(Processing){
+                console.log("Processing another token");
+                await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
+                continue;
+            }*/
+            const signatures = [];
+            let watchedAccounts = [new web3_js_1.PublicKey(tokenAddress)];
+            for (const account of watchedAccounts) {
+                const publicKey = new web3_js_1.PublicKey(account);
+                const signaturesAccount = await connection.getSignaturesForAddress(account, {
+                    before: lastSignature,
+                    limit: 1000
+                }, 'confirmed');
+                if (signaturesAccount.length < 1000) {
+                    stopWatching = true;
+                }
+                else
+                    lastSignature = signaturesAccount[signaturesAccount.length - 1].signature;
+                for (const signature of signaturesAccount) {
+                    signatures.push({ signature: signature, account: publicKey });
+                }
             }
-        }
-        let cnt = 0;
-        for (const signatureInfo of signatures) {
-            cnt++;
-            if (cnt % 100 == 0)
-                console.log("Processed ", cnt, " signatures");
-            const signature = signatureInfo.signature.signature;
-            const publicKey = signatureInfo.account;
-            if (signature && !cacheSignature.has(signature)) {
-                cacheSignature.add(signature);
-                {
-                    /*console.log(`New transaction detected: ${signature}`);
-                    const message = `
-                    New Token Transfer Detected!
-                    Signature: ${signature}
-                    `;
-                    await sendTelegramNotification(message);*/
-                    try {
-                        const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
-                            commitment: 'confirmed',
-                            maxSupportedTransactionVersion: 0
-                        });
-                        if ((0, _utils_1.checkTransactionStatus)(transaction, signature)) {
-                            console.log("Transaction", signature);
-                            const result = await (0, swapUtils_1.decodePumpFunTradev2)(signature, transaction);
-                            if (result.length > 0) {
-                                let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58();
-                                for (const res of result) {
-                                    console.log("Result: ", res);
-                                    {
-                                        if (res.direction == "buy") {
-                                            let solAmount = (res.solAmount / web3_js_1.LAMPORTS_PER_SOL);
-                                            console.log("Buy Amount: ", solAmount);
-                                            if (!ignoredAddresses.has(address.trim().toLowerCase()))
-                                                allsum += solAmount;
-                                            // Update addressData for buy
-                                            if (!addressData[address]) {
-                                                addressData[address] = { buys: 0, sells: 0, signatures: [] };
+            let cnt = 0;
+            for (const signatureInfo of signatures) {
+                cnt++;
+                if (cnt % 100 == 0)
+                    console.log("Processed ", cnt, " signatures");
+                const signature = signatureInfo.signature.signature;
+                const publicKey = signatureInfo.account;
+                if (signature && !cacheSignature.has(signature)) {
+                    cacheSignature.add(signature);
+                    {
+                        /*console.log(`New transaction detected: ${signature}`);
+                        const message = `
+                        New Token Transfer Detected!
+                        Signature: ${signature}
+                        `;
+                        await sendTelegramNotification(message);*/
+                        try {
+                            const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, signature, {
+                                commitment: 'confirmed',
+                                maxSupportedTransactionVersion: 0
+                            });
+                            if ((0, _utils_1.checkTransactionStatus)(transaction, signature)) {
+                                console.log("Transaction", signature);
+                                const result = await (0, swapUtils_1.decodePumpFunTradev2)(signature, transaction);
+                                if (result.length > 0) {
+                                    let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58();
+                                    for (const res of result) {
+                                        console.log("Result: ", res);
+                                        {
+                                            if (res.direction == "buy") {
+                                                let solAmount = (res.solAmount / web3_js_1.LAMPORTS_PER_SOL);
+                                                console.log("Buy Amount: ", solAmount);
+                                                if (!ignoredAddresses.has(address.trim().toLowerCase()))
+                                                    allsum += solAmount;
+                                                // Update addressData for buy
+                                                if (!addressData[address]) {
+                                                    addressData[address] = { buys: 0, sells: 0, signatures: [] };
+                                                }
+                                                addressData[address].buys += solAmount;
+                                                addressData[address].signatures.push(signature);
                                             }
-                                            addressData[address].buys += solAmount;
-                                            addressData[address].signatures.push(signature);
-                                        }
-                                        else if (res.direction == "sell") {
-                                            let solAmount = (res.solAmount / web3_js_1.LAMPORTS_PER_SOL);
-                                            if (!ignoredAddresses.has(address.trim().toLowerCase()))
-                                                allsum -= solAmount;
-                                            console.log("Sell Amount: ", solAmount);
-                                            // Update addressData for sell
-                                            if (!addressData[address]) {
-                                                addressData[address] = { buys: 0, sells: 0, signatures: [] };
+                                            else if (res.direction == "sell") {
+                                                let solAmount = (res.solAmount / web3_js_1.LAMPORTS_PER_SOL);
+                                                if (!ignoredAddresses.has(address.trim().toLowerCase()))
+                                                    allsum -= solAmount;
+                                                console.log("Sell Amount: ", solAmount);
+                                                // Update addressData for sell
+                                                if (!addressData[address]) {
+                                                    addressData[address] = { buys: 0, sells: 0, signatures: [] };
+                                                }
+                                                addressData[address].sells += solAmount;
+                                                addressData[address].signatures.push(signature);
                                             }
-                                            addressData[address].sells += solAmount;
-                                            addressData[address].signatures.push(signature);
                                         }
                                     }
                                 }
-                            }
-                            else {
-                                console.log('This transaction does not appear to be a pump fun transaction');
+                                else {
+                                    console.log('This transaction does not appear to be a pump fun transaction');
+                                }
                             }
                         }
-                    }
-                    catch (error) {
-                        console.error("Error processing transaction:", error);
+                        catch (error) {
+                            console.error("Error processing transaction:", error);
+                        }
                     }
                 }
+                await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL)); // Wait 5 seconds before polling again
             }
-            await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL)); // Wait 5 seconds before polling again
         }
-    }
-    catch (error) {
-        console.error("Error fetching signatures:", error);
+        catch (error) {
+            console.error("Error fetching signatures:", error);
+        }
     }
     console.log("Total Amount: ", allsum);
     // Convert addressData to an array for sorting

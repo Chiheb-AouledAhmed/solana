@@ -89,7 +89,7 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
     // Data structure to hold address specific information
     const addressData: { [address: string]: { buys: number, sells: number, signatures: string[] } } = {};
 
-
+    while(!stopWatching) {
     try {
         //console.log("New Loop");
         /*if(Processing){
@@ -111,6 +111,13 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
                 },
                 'confirmed'
             );
+            if(signaturesAccount.length <1000){
+                
+                stopWatching = true;
+            }
+            else
+            lastSignature = signaturesAccount[signaturesAccount.length - 1].signature; 
+                
             for (const signature of signaturesAccount) {
                 signatures.push({ signature: signature, account: publicKey });
             }
@@ -199,7 +206,7 @@ export async function AnalysePumpFunTransactions(tokenAddress: string, lastSigna
         }
     } catch (error) {
         console.error("Error fetching signatures:", error);
-    }
+    }}
     console.log("Total Amount: ", allsum);
 
     // Convert addressData to an array for sorting
@@ -269,5 +276,6 @@ async function processDetails(tokenAddress: string, firstRun: boolean, signature
             }
         }
         return false;
+        
     }
 }
