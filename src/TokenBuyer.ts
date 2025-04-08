@@ -40,11 +40,12 @@ export function setNotProcessing(){
     console.log("watching another token ->>>")
 }
 let ignoredAddresses = new Set<string>();
-const addressData: { [address: string]: { buys: number, sells: number, TokenBuys:number,TokenSells:number,signatures: string[] } } = {};
+
 export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureBefore:string,filename:string ='interacting_addresses.txt'): Promise<void> {
     console.log('Monitoring Start Token transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     ignoredAddresses=loadIgnoredAddresses(filename);
+    const addressData: { [address: string]: { buys: number, sells: number, TokenBuys:number,TokenSells:number,signatures: string[] } } = {};
 
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
