@@ -205,7 +205,8 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                         console.log("Signautre Found: ",signature)
                         let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58()
                         console.log("Address found : ",address)
-                        tokenCreator = address;    
+                        tokenCreator = address;
+                        ignoredAddresses.add(tokenCreator.trim().toLowerCase())    
                         //return watchTokenTransactions(address,tokenAccountAddress);
                     }
                         
