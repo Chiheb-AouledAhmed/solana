@@ -13,6 +13,17 @@ import { watchPumpFunTransactions } from './pumpFunAccountWatcher';
 import bs58 from 'bs58';
 import * as fs from 'fs';
 
+const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
+
+// Custom logger function to replace console.log
+function logToFile(message: string): void {
+  const timestamp = new Date().toISOString();
+  logStream.write(`[${timestamp}] ${message}\n`);
+}
+
+// Replace console.log with logToFile
+console.log = logToFile;
+
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
@@ -132,7 +143,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                                     let solAmount = (res.solAmount / LAMPORTS_PER_SOL)
                                     console.log("Buy Amount: ", solAmount);
                                     if (!ignoredAddresses.has(address.trim().toLowerCase())) 
-                                    allsum += solAmount;
+                                        allsum += solAmount;
 
                                     // Update addressData for buy
                                     if (!addressData[address]) {
@@ -148,7 +159,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                                 else if (res.direction == "sell") {
                                     let solAmount = (res.solAmount / LAMPORTS_PER_SOL)
                                     if (!ignoredAddresses.has(address.trim().toLowerCase())) 
-                                    allsum -= solAmount;
+                                        allsum -= solAmount;
                                     console.log("Sell Amount: ", solAmount);
                                     // Update addressData for sell
                                     if (!addressData[address]) {
@@ -164,17 +175,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                         if((tokenCreator == address)){
                             console.log("Already processed this transaction")
                             if(Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells )< 1e5){
-                                let message;
-                                if(allsum<BUY_THRESHHOLD)
-                                    message =`
-                                        Token Creator ${address} has no more transactions and sum is sufficiently low !: ${allsum}
-                                        Buying
-                                        `;
-                                else
-                                    message =`
-                                            Token Creator ${address} has no more transactions and sum is above threshold ! : ${allsum}
-                                            Rejecting !!
-                                            `;
+                                
                                 const filteredAddressArray = Object.entries(addressData)
                                     .filter(([address]) => 
                                         !ignoredAddresses.has(address.trim().toLowerCase())) // Filter addresses based on the set
@@ -183,14 +184,25 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                                         ...data,
                                         netValue: data.buys - data.sells // Calculate net buy/sell amount
                                     }));
-                                
+                                    const tmpsum = addressArray.reduce((acc, data) => acc + data.netValue, 0);
                                     // Sort the array by net buy/sell amount in descending order
                                     addressArray.sort((a, b) => b.netValue - a.netValue);
                                     let output_file = 'token_logs/address_data_sorted_' + tokenAccountAddress + '.json';
                                     // Save the sorted address data to a JSON file
                                     fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
-                                sendTelegramNotification(message);
-                                return watchPumpFunTransactions();
+                                    let message;
+                                    if(tmpsum<BUY_THRESHHOLD)
+                                        message =`
+                                            Token Creator ${address} has no more transactions and sum is sufficiently low !: ${tmpsum} => supposed sum : ${allsum}
+                                            Buying
+                                            `;
+                                    else
+                                        message =`
+                                                Token Creator ${address} has no more transactions and sum is above threshold ! : ${allsum} => supposed sum : ${allsum}
+                                                Rejecting !!
+                                                `;
+                                    sendTelegramNotification(message);
+                                    return watchPumpFunTransactions();
                             }
                             
                         }

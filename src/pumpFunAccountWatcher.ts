@@ -30,7 +30,16 @@ export function setNotProcessing(){
 
 let monitoredAccounts: { [publicKey: string]: { lastActive: number | null, keypair: Keypair } } = {};
 
+const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
 
+// Custom logger function to replace console.log
+function logToFile(message: string): void {
+  const timestamp = new Date().toISOString();
+  logStream.write(`[${timestamp}] ${message}\n`);
+}
+
+// Replace console.log with logToFile
+console.log = logToFile;
 
 function loadAccounts(filename: string): AccountData[] {
     try {

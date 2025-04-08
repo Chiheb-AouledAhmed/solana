@@ -60,6 +60,14 @@ function setNotProcessing() {
     console.log("watching another token ->>>");
 }
 let monitoredAccounts = {};
+const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
+// Custom logger function to replace console.log
+function logToFile(message) {
+    const timestamp = new Date().toISOString();
+    logStream.write(`[${timestamp}] ${message}\n`);
+}
+// Replace console.log with logToFile
+console.log = logToFile;
 function loadAccounts(filename) {
     try {
         const data = fs.readFileSync(filename, 'utf-8');
