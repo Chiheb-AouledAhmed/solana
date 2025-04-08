@@ -1,0 +1,876 @@
+[
+  {
+    "address": "2XtRBSVRZmbQad6imBS1rnWwnV3C22UrDkEPeE6B7utw",
+    "buys": 0.503199344,
+    "sells": 0,
+    "TokenBuys": 1880879962611,
+    "TokenSells": 0,
+    "signatures": [
+      "5EmAcaWmasaj6xDFVv53Pa1Bv16vvPaQDSsqYXD5eovWrVeBpgmq1batJpmBWw6GzaftnfLWR7Q4h4scCL4h8vDZ",
+      "epXuuSxSVvdBhbuw3J4bVSFsGoS2iXjSXLq7UNSme6BmGADE7wPF6qN5p5BCZrdt5TMmrfKWLtWc6UjQQaXYyaT"
+    ],
+    "netValue": 0.503199344
+  },
+  {
+    "address": "5NahHcWH4o27diQat4uQaxW19qLTz4gUk9KQpCAcnjh7",
+    "buys": 0.5,
+    "sells": 0,
+    "TokenBuys": 1811407735389,
+    "TokenSells": 0,
+    "signatures": [
+      "5TLUdAi3GKHsw487X1LXmskCAoiaEwQhzR3aZ7ihk19a9R3JpWxRFtypWTYrGuhEp9WDZjnVF9qdiaZcJkivroy2"
+    ],
+    "netValue": 0.5
+  },
+  {
+    "address": "723PkbJ3u54gHAVQLcmUTKHC7hC62cD14uN33h3GigpY",
+    "buys": 0.4955,
+    "sells": 0,
+    "TokenBuys": 1768506372763,
+    "TokenSells": 0,
+    "signatures": [
+      "3MhbvG6nQk4425ee1d9HYBrXQi3yo8oG4b6Yz2Bj1PLgJe5Zsmufb61B1ezWkrtMgRghSHK6g85tQpRvAaAs9UR5"
+    ],
+    "netValue": 0.4955
+  },
+  {
+    "address": "GyW4ztE91HB2tFg5x3Q1SpcDqRePXyV1cMHmLu27ARLQ",
+    "buys": 0.37505796199999997,
+    "sells": 0,
+    "TokenBuys": 1305564457222,
+    "TokenSells": 0,
+    "signatures": [
+      "4HmKx3hxp74FnBBXcyoYiqFt2xkSHdySEE8uQxTN3fCtoJ29UCreZUzwFsrkbBBRMYvBNsqcYtc18bdfJa5Pxtoz",
+      "4i8783RRSgopt8DY79F4c2JbJDZzrbYiZpNpAj9cfz6ZTiNpnhUCD9Dq58tes3b9VrYMQULiptPDCCF8MgXXY6YF",
+      "2roQ71ZNYuVMdzsLgRwwrxuZo8yXUfB3nEdFuR2MqDrmR78sG89Be8v56QcBgaRVw1d7ZsSpv9xEmLNF5ZyUdGtH"
+    ],
+    "netValue": 0.37505796199999997
+  },
+  {
+    "address": "BGMfd3ZiMBcemiDtePFRtgMHYKyt7bzsLTdh8wPBcGMr",
+    "buys": 0.343069306,
+    "sells": 0,
+    "TokenBuys": 1196112576129,
+    "TokenSells": 0,
+    "signatures": [
+      "63mXzwKnQwSmsRJE8hdoiePoKMyb5y4MdKR6VEGBE2AgJWmkfbyzMSYvbMkTS5WAnETPm8KioZyUeFHMLcgaxJLM"
+    ],
+    "netValue": 0.343069306
+  },
+  {
+    "address": "AKB2Yy2brBrwiFuG8s4jVrL24LztW9bUtcL1BfuYYX2r",
+    "buys": 0.2997,
+    "sells": 0,
+    "TokenBuys": 1051749346006,
+    "TokenSells": 0,
+    "signatures": [
+      "4F1ihkwAjv7oxn6enuKqg6g6PfhPhGcPwPRcsvhSAVh9gRYGMfXKV7CAxxMbRfU5qUcxgSUsEnv7Fvbtx8bYjFmH"
+    ],
+    "netValue": 0.2997
+  },
+  {
+    "address": "YkRRRY1C7JuVMo1xjQvP7aVzzq8agZdaGZYSJe1cCLT",
+    "buys": 0.297275856,
+    "sells": 0,
+    "TokenBuys": 1066902586795,
+    "TokenSells": 0,
+    "signatures": [
+      "4Qgns7A2WQJFc6RhNmMescMVZv4FkQkZj4jhGv6EoWaDPbamTHHxG5XpA4gcjSfxRHT3pYRVz6usZoFiKcsggrjL",
+      "2xzuiD74xKGufEML6sZAc6PqBPksN5pLoBTghgDdaHf1KjVZYHP6Szf4MghXkik63P1Aww6xr36SLoLJf6WYWJbY",
+      "4tUALL6nkaWTYGtHBi2axxgVXP1DVEbZJJRi34rsj9JSdGFMYdCLBHAzCzEMkdqXAJt169x2a11YL9mWJraiWHrw"
+    ],
+    "netValue": 0.297275856
+  },
+  {
+    "address": "88EWRunasCETUARJ9aCMJNu2qbtKoEydrmEJtARowB84",
+    "buys": 0.24023835999999998,
+    "sells": 0,
+    "TokenBuys": 854919568132,
+    "TokenSells": 0,
+    "signatures": [
+      "5et6RkVU8SvTFeq2dtUiERG3twiRsamPieZTdTmNmCdfiNJtPruvgafFKDmR923ap7nacAW3j63YzufK8q9x3mor",
+      "3aeRKzXN8TkmRJxrk63hDULo7yYuM2ERi41RzaE8YyS4apKfaFf7dxidj1UiBumHA6wKmDczoEPXVJG83TNdctGT",
+      "5M682kMerak3GV9c2fM48FpZ297uc56crTpDfYRsjXw8uhgQVQ1R9PRb14bNeCbyYsMg1Wo5JjSa5WvHqif1qfdG"
+    ],
+    "netValue": 0.24023835999999998
+  },
+  {
+    "address": "4bEyp7LEWMn3JN3xLcmdZfh8hSwUYtqmFjnksyYciWAe",
+    "buys": 0.20135063,
+    "sells": 0,
+    "TokenBuys": 713192329047,
+    "TokenSells": 0,
+    "signatures": [
+      "338kvXAGWkN6YXiyW8z7Mct1MTYE7uS2PYsCerisGtt1EkiKWmeJyahQ2NHT2iXJ4YHAgX5Nek9NC92JyDV5zAvY",
+      "5x9mgHsLUvRdvwcZd9jQSbAMJwoa5FHtVFpduSMaCQq4xwxtLefg2nNcKG5MBAa4D7SXu2QpFkHuQvkSEXYPD8Qt"
+    ],
+    "netValue": 0.20135063
+  },
+  {
+    "address": "9Bw3nb8kyLpcsisCWWQV5jVzCMFp8STGt61NrA3NRjws",
+    "buys": 0.162429899,
+    "sells": 0,
+    "TokenBuys": 583878836394,
+    "TokenSells": 0,
+    "signatures": [
+      "8VANXCoFC1mTZw9LE3V66FQWdzZ14PSuLZ2EXnT2C6UT5RxrQBsF6MQxzzZ4iHpTNANFJHec82CH97Vccg7BxfZ"
+    ],
+    "netValue": 0.162429899
+  },
+  {
+    "address": "3GFyWAyTnVV6zchv3Tj6HbA26jTZpqkKQzRiLmTUaCES",
+    "buys": 0.153539086,
+    "sells": 0,
+    "TokenBuys": 547132454625,
+    "TokenSells": 0,
+    "signatures": [
+      "4QxgPvYygKsKfxjBmuAZ6ewevd7fZiN8HQrWtnvp4mt8CnumrWyFgdwUUPPWcZxFVDuoJKM5scX268XJLnmCEv87"
+    ],
+    "netValue": 0.153539086
+  },
+  {
+    "address": "DwH3LdoZ3gYueB4FdJdvJf5frfXuhJeVq5yRYPFQ9NaP",
+    "buys": 0.146335536,
+    "sells": 0,
+    "TokenBuys": 541947403670,
+    "TokenSells": 0,
+    "signatures": [
+      "1DAYYp1VnMg44iE5D5WSKaEudnck1NiY8VLtXmZymwTTYSBLvkxEWTSggCiQP8QrSeF4jP14RgF6JuUNBF5u7Tn",
+      "2w9irxXPd2fk8kzhN5XXB2refTUWWFxzpAEErfzAn4JtyGYT88sfY6SnKh1XAiws8HSP8p9XxiAbZ9xTDgFXpWre"
+    ],
+    "netValue": 0.146335536
+  },
+  {
+    "address": "4tsgTFKGUAgmMjtKB53hx6gUPT3vZYwvAFrxq8jp3iyh",
+    "buys": 0.14520612700000002,
+    "sells": 0,
+    "TokenBuys": 533955960694,
+    "TokenSells": 0,
+    "signatures": [
+      "5wFiPJpUrHaxpsmy9Dp8umNQokU2t43gJJt2RQ1eUaGoATNEEwEYgyzWnHU5hXpN6oK23MuochQxmXtFgPPGqNJC",
+      "5fxQmw9d9hxtkFvWecBNiATUNzivyTJtxHTAWuFus4i2LY2q8THgZvGW6JvSo8fq5ofVc5WczqLjNMvowQvNsPqE",
+      "FTvGqTJFxjrHX6oHH5tEgKX4NSyAcVYKHAgmeGD8yeVdYbYCVFvsJsVHAMLuLxmFfw1WBh5x6zAKXiumE6HmARG"
+    ],
+    "netValue": 0.14520612700000002
+  },
+  {
+    "address": "8mrN35AFu1qM2htzYqLwbb44beAKD3Pbt8QryE1rShEj",
+    "buys": 0.131385664,
+    "sells": 0,
+    "TokenBuys": 490238388288,
+    "TokenSells": 0,
+    "signatures": [
+      "QMyT3Mv4chgg2KvAkGWXuZ5ZcffCvwG9kXZQ4NMCqHDXsWhr4oK3nFQfDRKpr1QiC1AUhA8qK5D2BQotiz8aGue"
+    ],
+    "netValue": 0.131385664
+  },
+  {
+    "address": "BiYRKrCGRzSUa6KNdMErsbF8YSepH4xgDW9UdV5XiGXf",
+    "buys": 0.121942385,
+    "sells": 0,
+    "TokenBuys": 456246247328,
+    "TokenSells": 0,
+    "signatures": [
+      "26cVJpFCkkqxhmpm5bmwfXgRacJnG8cjd4wCFzaGXN8oNR7cDdGeqEiVtcrKETKjx37n84TpkABW398yVjCs7jy1"
+    ],
+    "netValue": 0.121942385
+  },
+  {
+    "address": "35zM1Sq6BALJvRNRBsBeXnGjUNAQkE97Yg2TAVGS3u2z",
+    "buys": 0.111140617,
+    "sells": 0,
+    "TokenBuys": 416878414907,
+    "TokenSells": 0,
+    "signatures": [
+      "gmNmu2Y1KLpFHcgwDqYXvuXrMLsUzey2KEiSvVkN6hFJys9j5Wo3vCEmypPJUetpDEU9B8csEHrckbWSpf1gzqK"
+    ],
+    "netValue": 0.111140617
+  },
+  {
+    "address": "B58qawA8hFYLrxe7yN8xnK9Dw5ytxwGV6szCd2x4557P",
+    "buys": 0.100479433,
+    "sells": 0,
+    "TokenBuys": 366593134119,
+    "TokenSells": 0,
+    "signatures": [
+      "4CR2V1t1chKT3psy3X7WmZVSaRAYuAbfBtdR1qWtXiMYWA3rLJVwR6aFRxRiDm37QYDc8pkxG6ug5E2Yc6dneKp6"
+    ],
+    "netValue": 0.100479433
+  },
+  {
+    "address": "9CNBs3ofDR8BzhCweqAsA1bzxTLVVXMhpw71sQJZFj8n",
+    "buys": 0.1,
+    "sells": 0,
+    "TokenBuys": 354460891242,
+    "TokenSells": 0,
+    "signatures": [
+      "5bSZBPBPeSvcrA6Y3bu5STjz1ar1XyimAbqSQxhHbP1SXKR6Y85N9nZQHP2g2sJua7iRRLHE6WnTRRaDpKrW3u9Z"
+    ],
+    "netValue": 0.1
+  },
+  {
+    "address": "G9GtbgfpjoiJkMr5AQe6d9C8BEcLb8Sq6PAyTGVbvLWm",
+    "buys": 0.099574181,
+    "sells": 0,
+    "TokenBuys": 355880216952,
+    "TokenSells": 0,
+    "signatures": [
+      "2Jvfc3F69u1eKqyacwUDpsoUEaf4gXMXFikw3wSKvzqk7ipjXZFqnwvVyUiw5yqprAx5BXF5e9nDjGKc5C2Bfeq4"
+    ],
+    "netValue": 0.099574181
+  },
+  {
+    "address": "BdQXPKfeSgUgHZQPVs81i9DJGP7JiKGUSE4LbUnA7wZ7",
+    "buys": 0.198,
+    "sells": 0.098928954,
+    "TokenBuys": 706431884423,
+    "TokenSells": 358698349656,
+    "signatures": [
+      "2F337K5Lm7SvYLyusHWNxN3tqtb2KBXL7naSVyeJAf1jUpNVvws7RaQYGNeCGUwdCwPnt2DnrMQw6ETVSDhBwfTx",
+      "2fQe5Gr3Ax6pcAkBxTNXictr4pGULtfSKV3VTxcyBVZD7z4AQYQdrTKD11JResiZRh6Xh4sXc2x3cVgv7mxzZnyG",
+      "65tf3q4CnoWi9VP27TeddMrVNgHbbhVu6tLdfQnktk2Lf9782G3twE3kZsCUmY2itecc4hst4ETYBXBuwGrPBy4i"
+    ],
+    "netValue": 0.09907104600000001
+  },
+  {
+    "address": "EWNKwtby4RcZuVEjm5zaJkLsU5mVcmHVbytsJutfGkVr",
+    "buys": 0.099,
+    "sells": 0,
+    "TokenBuys": 351158869291,
+    "TokenSells": 0,
+    "signatures": [
+      "5y3C4fSqfE5F93DaJeUqj9gGh8kEf2VreHWsypSgDzdwnEdYeMeLGW8wynR92hagveDux8nhP4ToHpnCGa48CCD3"
+    ],
+    "netValue": 0.099
+  },
+  {
+    "address": "odeTsRikpY2TEFXM4fvtA2UivApm6sXjSgHtNvBcUhJ",
+    "buys": 0.098029603,
+    "sells": 0,
+    "TokenBuys": 347183437660,
+    "TokenSells": 0,
+    "signatures": [
+      "4mC3sZa24u7xQXFDP4VxxuRoAb5V1JdWwSauEnjPM7VQCy7nJ1WLvjP9PSse8hDzbFHgBXZyn9Xde3XZ61TuhtjT"
+    ],
+    "netValue": 0.098029603
+  },
+  {
+    "address": "6J21cs9tRtxa8PxHxstB9w6THjvXaNMYHJtqasMAU5WL",
+    "buys": 0.098019801,
+    "sells": 0,
+    "TokenBuys": 359046425049,
+    "TokenSells": 0,
+    "signatures": [
+      "3C39Qo4MMSVCz8q1gn5hrsfuqifjvDzLUM34ybmsRmYLX8CdqkDr85gKCQAMuXZMjmhTW4zAKFeZy1AoZwYX6FGU"
+    ],
+    "netValue": 0.098019801
+  },
+  {
+    "address": "F3wfvrvhqVfFJX8QRdtacPZE772ZRsmS2XDd9sp5KAoc",
+    "buys": 0.097914924,
+    "sells": 0,
+    "TokenBuys": 354337501354,
+    "TokenSells": 0,
+    "signatures": [
+      "38tDQrgymBMCgDLyviEv5CxkWUhc6QtRH8ePm1gDjACAKYswERh9ymeiS2zC5NHtP2FmzfECTNXY87o3t3cMZzq4"
+    ],
+    "netValue": 0.097914924
+  },
+  {
+    "address": "DmJTZUZWnpGoGtUk8jnUvnZwBXDtnkx9RXV48LfszY3y",
+    "buys": 0.097640261,
+    "sells": 0,
+    "TokenBuys": 371295713004,
+    "TokenSells": 0,
+    "signatures": [
+      "xf4w1TXpaP9ZvosJY9CGRATZgCrn7nDaZcbq5ukMCrXPvu5J9ehhEAuTzmrzFoDZuWssZ5GEU2VSBhf8mZo3ywv"
+    ],
+    "netValue": 0.097640261
+  },
+  {
+    "address": "28pvU7XhxejDHrKTe3rPrmpKDezPqHiEfPv6VWE1iFLP",
+    "buys": 0.097488356,
+    "sells": 0,
+    "TokenBuys": 350447176366,
+    "TokenSells": 0,
+    "signatures": [
+      "CrdXGc2NZRvyBrU3oTESv1TjPU996tFSpdz4WBdQncN6xzmRDABmXagwKvi5GRhPJ4gfHVNZBkc2MgrrKRAt5gR"
+    ],
+    "netValue": 0.097488356
+  },
+  {
+    "address": "HJrt4dLjGpQCdaS5HcTwzGFcD6BhVfno8YM74xDX2ZdD",
+    "buys": 0.19023806199999999,
+    "sells": 0.092858427,
+    "TokenBuys": 675969193707,
+    "TokenSells": 330582194816,
+    "signatures": [
+      "37q6rci6SXed5pMVH2GSth9NTrHNmL38zZiUU8JgkvkTo8brPNZWXqCBcDos2mcij4Wc1g3U8THQAVBXjU4dYMoF",
+      "4u2tWFNzn5SAQeykf2Y1yFz5j5ZB1rFNVrmoRD12dAedE6qZFQd8f4CiKAda7E3ZeaHrDL8Xau4z65VxkTPqpDZ5",
+      "67rfMAGPXV9JfmiKSyMh1eDBkTuVEtfFgUuYG5tGR9ajxZ29RH58Kxr4DkxudEwF49NUnRHS3C9XSTSAydAEDHLq"
+    ],
+    "netValue": 0.09737963499999999
+  },
+  {
+    "address": "HJZ51cMDJ2hcgdddX8hqQqGM3gSbj2XA9wFWxszTFdsX",
+    "buys": 0.078415841,
+    "sells": 0,
+    "TokenBuys": 281866896951,
+    "TokenSells": 0,
+    "signatures": [
+      "4S7hasP9y4rGrXhWJyrQozxZZswGBBpezkiLFNJf9sRBcdjvToH45jhXXQLSdqF29sMLXmVZE5eaHPgHrkJtSYWc"
+    ],
+    "netValue": 0.078415841
+  },
+  {
+    "address": "8ETgsmBQbiXHCKoia56aZXmpKQKxhK2ERLi75VxdwuYZ",
+    "buys": 0.05775512,
+    "sells": 0,
+    "TokenBuys": 212618944297,
+    "TokenSells": 0,
+    "signatures": [
+      "tEPtWdYcXTgPfxaGLPBBu5Ezw8f1eF1jPfX4EN95tUEHMT65qD7TYP1jADs4S4MoPEzZgzkoDezWjCUtKmX9fY7"
+    ],
+    "netValue": 0.05775512
+  },
+  {
+    "address": "ZFn1cuC8wpbRLjqLkjk5vGnBubd6Ff3be8jTe9kCjk1",
+    "buys": 0.04907925,
+    "sells": 0,
+    "TokenBuys": 173213172427,
+    "TokenSells": 0,
+    "signatures": [
+      "4bCVrasxKJ5UqMFQLShJCoXLnRFDXNUrjLvX1zqyp2xioDR8t7apC4txEpGy7JMVwFHU7DXz9nbGdb2zeCk63z2C"
+    ],
+    "netValue": 0.04907925
+  },
+  {
+    "address": "EHfddmjN8EfnNfMzYRP7vTRPUskK1XcsArfjBAQi45SB",
+    "buys": 0.0490099,
+    "sells": 0,
+    "TokenBuys": 175226952658,
+    "TokenSells": 0,
+    "signatures": [
+      "3aV6wLTJ1hgPj3Z4pxaAS1nWBZZTcupdfCnAmAWoY6mdLwRU79DA5aL7EjrwqnRMgGxMnnRvFAydq9ccPtfow7Qd"
+    ],
+    "netValue": 0.0490099
+  },
+  {
+    "address": "w8jxPoxRb6SGSweaUBYjFToZaVXVio4r6MFtM1w2WBC",
+    "buys": 0.040884752,
+    "sells": 0,
+    "TokenBuys": 144513918408,
+    "TokenSells": 0,
+    "signatures": [
+      "4hjrMquHJMzdJGZmX5DbQe6oUByCzTCk3d72ZEVzcp5Eyng3GtXYBN8oDqtf6oknSyeqv9NY7CoRmPvrN2zfXCzV"
+    ],
+    "netValue": 0.040884752
+  },
+  {
+    "address": "7xWMV4CtWrqtLKwZKAh7Zr3vMqjPevcJfHamcuhT2Tg",
+    "buys": 0.030000001,
+    "sells": 0,
+    "TokenBuys": 105043874705,
+    "TokenSells": 0,
+    "signatures": [
+      "45wEry6HY7e4emYaZqB5ppZvfMnmj7TmtKf5PjLq3UDZeioMbiJBaQKxN9EHH8UY7EM8qM6MMRZhs4DX6Aw5xNWb"
+    ],
+    "netValue": 0.030000001
+  },
+  {
+    "address": "3aBkwYRRM4FTadAPvM4hE3uh3VRp4JVRp6FD95e8VLvU",
+    "buys": 0.03,
+    "sells": 0,
+    "TokenBuys": 111862142809,
+    "TokenSells": 0,
+    "signatures": [
+      "3bwntd3tsrdXxLhQkVsaXGBoiFQDnCui8u4tkHstjQnufpt7WJqfhs992EiqL6ewVKHQwq63BAw4qFPZePPZNiUP"
+    ],
+    "netValue": 0.03
+  },
+  {
+    "address": "DX8zDAxxrjjDxVAM78YMvmMK8fpSuFiPY9aervzZZchB",
+    "buys": 0.026226179,
+    "sells": 0,
+    "TokenBuys": 97682827651,
+    "TokenSells": 0,
+    "signatures": [
+      "5KoEbuzF6tzW5mrkZyEfuKSr7urhbGRf5wk3MsXCLoCDwHmhAruEgnYdA2mM4e4n76NN41BBRDXwJg7ggW8cXdNp"
+    ],
+    "netValue": 0.026226179
+  },
+  {
+    "address": "4boGc2zbLDKW4kksikogBDAVEe8pBuFaY4F34fB5WS4d",
+    "buys": 0.025352004,
+    "sells": 0,
+    "TokenBuys": 90821461627,
+    "TokenSells": 0,
+    "signatures": [
+      "4Gj567Rv7dwMuLSyC6dz2oJuapMsg7mQxdKX1A2rfCMWDvHMNj7S3jaTRNAQzzy8PGe2APQaWvpvvoHqF1a44LA4"
+    ],
+    "netValue": 0.025352004
+  },
+  {
+    "address": "75fb8jPSmG4Ko1LgiVpRXbZa3JaLth4hSmMaDub5gP5i",
+    "buys": 0.024141159,
+    "sells": 0,
+    "TokenBuys": 89868202631,
+    "TokenSells": 0,
+    "signatures": [
+      "2sAF2p4wgpXszGJ6Jzoq97eWGeF9iSrTKWWFW8KrAFEj5of4J1fphWEaifW7B6xqyX2tn5qTpwCJxxQGQQqZE2jM"
+    ],
+    "netValue": 0.024141159
+  },
+  {
+    "address": "7A3eyuEoHXgcFXMovAjudtrQ2rvUU5ThgpqkL8vXpNji",
+    "buys": 0.019395346,
+    "sells": 0,
+    "TokenBuys": 70249198942,
+    "TokenSells": 0,
+    "signatures": [
+      "cBEs7Jt4sRpN4kgybNnkVYH5QmRrKNSmx5hKL887B5kEPky6gsFFQfAYPiw1FXYY9WdaQYv68sqGS4ibErNRh3A"
+    ],
+    "netValue": 0.019395346
+  },
+  {
+    "address": "CAexMoE2zfwRKNadMyPdB36xepZWvFpVkBvZ9ZC4TF5L",
+    "buys": 0.02450495,
+    "sells": 0.013321736,
+    "TokenBuys": 94612524703,
+    "TokenSells": 47306262351,
+    "signatures": [
+      "5PT6qVLgigdoArQLZ64iYGTC2oFW7wEcNAD6MqPppmx8m2FX34JV3sunK9hTrgmv5NyBwnH6V6uvKryaYCF5a1tK",
+      "7Up96n62yCF21zofQTE2tUtndSA2m9bdbf9LXjJ7jCJEDKv6MfDG699HjnKe8fZdMLLbv2t5CmA32JSypg36ZC4"
+    ],
+    "netValue": 0.011183214
+  },
+  {
+    "address": "EMBgDY4eE4yDc7cW4cdVkZB25rkVfxWpXeuA1AqbzWyP",
+    "buys": 0.00494505,
+    "sells": 0,
+    "TokenBuys": 18022322263,
+    "TokenSells": 0,
+    "signatures": [
+      "651GrBeUzxjeGnoHjqkMtGKGRdGx1GSDYmoS6U8pMDCcg9HXYHCUXfZnBwPS4a1cnBKSNde3T4xdHLv1utMcW34Y"
+    ],
+    "netValue": 0.00494505
+  },
+  {
+    "address": "BoBo3rgrjVwkNCjTd7EqB6sn3kzDbnew4KSKPFVByKjK",
+    "buys": 0.499967093,
+    "sells": 0.495173765,
+    "TokenBuys": 1921751295850,
+    "TokenSells": 1921751295850,
+    "signatures": [
+      "4cnvCvxYTXGPbaUH6hvhRwp829HsxFk56qhmMzxZQvte7aTFYvvRtroSJUweUwR2HZZdVxTpReHkkGRpDu1vQTR1",
+      "3PpagjHfXSfsaGVAFgTfhX5fhF52AcmAMGNSmvYgEdvS6ejEVxZRWkJPSUERpout6DA56DtTN6g7WKCdZzxaMeJm"
+    ],
+    "netValue": 0.004793327999999986
+  },
+  {
+    "address": "BgercTs2tTQ7gPjtMEzLD9skxhhVFGr8jrsuQPutuhqi",
+    "buys": 0.063913031,
+    "sells": 0.060365118,
+    "TokenBuys": 223952685975,
+    "TokenSells": 223952685975,
+    "signatures": [
+      "2c1iGYfF6CZBS6gYF3b8WfEWMs7hRcLLhLv9uDeYqVm3zhdzFNKs6MPkhSWUedujARSABD9KNXcwuvJYnZ1Ai8CH",
+      "67RTn9EuSv3inc8qbqJVAskgYa3hJJETT6PB8XCHHbf8trsg8jBixLAiqpiUKdPw5xrYWecRmGcSjDrao5FwXXcL"
+    ],
+    "netValue": 0.003547912999999993
+  },
+  {
+    "address": "B1rmpLYY8F2p6bUagYFf3oXxB6kebe8Cu833q3MnHLgS",
+    "buys": 0.401801075,
+    "sells": 0.398561375,
+    "TokenBuys": 1442683769333,
+    "TokenSells": 1442683769333,
+    "signatures": [
+      "2AXHNKiMJCad7C5onm5qGcJfKYw8hdbRVjDy5Lrt3RURH27n62FFrxVDj4ADMSqMPWz4h3MYWJhAREFFDAZLRqTq",
+      "5rX5VMSTdi6WRvoDdUZGMhimA7PEGZZc6wAe5CuF5jtyG1pKFbH7pRneinuEd3E3fEUCag6Lt838f3rKmL3RQai6"
+    ],
+    "netValue": 0.003239700000000012
+  },
+  {
+    "address": "3dSrc9cKwEuxXBBGuQdM55WmnKHELuxCBS3j3vz3v17g",
+    "buys": 0.40089812300000005,
+    "sells": 0.397729916,
+    "TokenBuys": 1438384241893,
+    "TokenSells": 1438384241893,
+    "signatures": [
+      "2sjB2s769agebDPs3hFXREy6oJ6DfYaXqpLSiWszNtkTWqPkA7TuEU8hQzqHJQUAf49qJBDHekoLm2EGUvvzNKk4",
+      "5NZMWwJzUhCVE9CszNBXE5HMxRRirrqcF2cfLDp1jEukjYuCNT3gVWnJhih45rsG4dMPP1Hbj4f9Pk2GWmQqC9ro",
+      "4AgH95jU98712PGx9qqXhR3jboqCqntNShVvipHGJK5rzj3W5auHgLv6oCXpWA4ZgwfZznsASujUFoZ4c1ajC8MH",
+      "2KiYKTPFenXSNiar9jrVcPqKDDmRmQJUm9WQAoh66pKNF6jMCDPi1dKmzwy154RTrgtshAW6MoYK57JKT7FszonW",
+      "3ibj3V2hNfBC1W3uxFJHiT56g9G2yd4UPT1QSywrGpzKYmteoT2qBRsonxDrZSYqenumy71fGjmSnPNsYjBmhYQs",
+      "3qEBatF84ZXN31q6gzwHJqoiLeRTGdZr3mJKWs6LLHT8EctdJ9hGFR7QshGr5DPsFG9MFr5mU2kxFT7g5RJfRoX8"
+    ],
+    "netValue": 0.003168207000000034
+  },
+  {
+    "address": "5oq2T8CEHUjmmdTNcWbk4oQXwcP7iucXMR8speGkda5o",
+    "buys": 0.01960396,
+    "sells": 0.018929993,
+    "TokenBuys": 69870780740,
+    "TokenSells": 69870780740,
+    "signatures": [
+      "2ot8WDLi6ujoVJJhpwkbbbKSDqVUvggMpqUXvYQRRY745beG6B4MaLDLj3cPqa7Es2cXT34GjA48CfG7tDkw8TM8",
+      "3dRUd2neaQHn1483bXiEzZ6QmngANkT1y7PQV6tz2gbVrPBaJ8c7yeqiT6bjkoHWSGuykvmCfY19xc4CJgH84h6d",
+      "3vZptvBFwQeqiLs59yRb2LgQ2RBoc4UaR6QUK7Q8w4ThepzBPrwVHCjW8wXQFxGBcCGJAcTGoHDJAM6vtiNKvjpx"
+    ],
+    "netValue": 0.000673967000000001
+  },
+  {
+    "address": "BzBq6Dagcm5vhydqVQwi492q5U1JyYxsMEvAc1PBpDcW",
+    "buys": 1.000000001,
+    "sells": 0.999683576,
+    "TokenBuys": 3737908224650,
+    "TokenSells": 3737908224650,
+    "signatures": [
+      "2hdRHTjaVmua9rpdnchCgMJDZu6wBr1a4Q3sJjzes5vA3uFrPPLyHsMdk8Agz1D6S2xgPqZCjzzm2R7CKnx2MLxK",
+      "4suUmdHi5MaNKstfExH3JPd2upud8rSqYMLgqRno8yTVKu9e4jtVCGB8YwKT6dk2NRnNaYv16iBbvpVKvVJa9ry7"
+    ],
+    "netValue": 0.00031642500000006457
+  },
+  {
+    "address": "8YypwHgv3mtqgm5QXbVNBvRvZth65ro8jQmTNM6N7Edk",
+    "buys": 0.0198,
+    "sells": 0.019670164,
+    "TokenBuys": 71540065765,
+    "TokenSells": 70931975206,
+    "signatures": [
+      "gmTjG3ZVfXMyXV2kCDqoxN8BXUEka5NG5yRnCa6Y5cAsXQeUmbnQ4HixxVReNkQN8oEE5JALwQFq7VeHRwEDurf",
+      "5VG8UECkQ9MNjEqb3kbxQAbR4M5RvEX6LzArYpmJ6rMLEw4a4uWEDNtsYPmbmSKSvCaFE6h6ZzGndq6j1zhjxXZY"
+    ],
+    "netValue": 0.00012983600000000123
+  },
+  {
+    "address": "4WBDg4mncgb1oeFfVcN7bsy97wz9zagHsFBjQkLLDJLo",
+    "buys": 0.01960396,
+    "sells": 0.01947733,
+    "TokenBuys": 71475870085,
+    "TokenSells": 71475866457,
+    "signatures": [
+      "2vEbfD8fe9GsrRe8xNhm7pFyLAJnWqBHzePPZmVEM5bgWof2goe9Aeqbi23UFUNGsBa7MNzihqJsqTYSMcyWJCYx",
+      "3EBQrRj8dytMsFxDDN51ko1fNLLvJxZLBU3n8MGBcbF5TgK99MaCCgzRRK4pLXXeQYG8guYwvjq4G7UkspMukMcB",
+      "3SxmrxbePPd8owkAd5FKdmH2kVKjqEQvq7c6aCczFHj1QhWPzaYQmz2wNgvKDoU8Q4UTXSYbo4ivkSCzHUGswsrp"
+    ],
+    "netValue": 0.0001266299999999991
+  },
+  {
+    "address": "a8fZdgPDXoKSs7BCKH6kfFkayE3gW2rRKtbW3Ec6Bv3",
+    "buys": 1e-9,
+    "sells": 0,
+    "TokenBuys": 1,
+    "TokenSells": 0,
+    "signatures": [
+      "3VbG1ct9KnwSvjdFTWj5B4CfZjYmjBLKsX7JYRvLyS2T6E5cs5qkNWfkNNDNvwaBU8kJtvXiPo9fd9h432xi4Uoa"
+    ],
+    "netValue": 1e-9
+  },
+  {
+    "address": "H9ZTpwjppgEHZoHHcc8V7UequN6z2zR2McpNTr9raQ1C",
+    "buys": 0.098019801,
+    "sells": 0.0980198,
+    "TokenBuys": 386262520672,
+    "TokenSells": 386262520672,
+    "signatures": [
+      "31opJZzxx28FMYTuaSxigFMmpVNtVnck94BRkZpnzZsuCF8dPkYNexhky6JcpH29Qa6gjcnbgM9y13yS18jgXCiS",
+      "3Khc9dBW6iN6Wi3vSnTTkDUTksu4GDT7Y16brWWw1shTpHfnRMDtrPLDvwvkert1nuuVUA7XwBghj6LLpQYEZP7X"
+    ],
+    "netValue": 9.999999994736442e-10
+  },
+  {
+    "address": "EBHuTSX5abCMjDfEx7CtcN45wvMmYaEcpzPi2F9zN4zv",
+    "buys": 0.0099,
+    "sells": 0.009900241,
+    "TokenBuys": 39051520018,
+    "TokenSells": 39051520018,
+    "signatures": [
+      "3TTyycyhR8KHD8rU8hMuZZqb9j46GEwxrTaG17iFE5usNYMBgtc9wNc8XFFj1PU9dXXxoyaQr9VX6GjGBomVZQJm",
+      "5DYvSMqck9iHvBXj89FUhUVY6XkAKQTv8dm3eDpV2Ajf5yQfAzRT3u81yNrqSUzy31KNXTxfa8xgNZBhJaxcyfou"
+    ],
+    "netValue": -2.4099999999978305e-7
+  },
+  {
+    "address": "2tsshum1D7CZ2rnBsAqnQZuPzjPwHnNxhvrX1FgpGsVy",
+    "buys": 0.000471182,
+    "sells": 0.000477579,
+    "TokenBuys": 1685336880,
+    "TokenSells": 1685336880,
+    "signatures": [
+      "25weogACvZJQhiJqZDDtducgcfUoaiw2BXWUukTEVZxAsfY4hmouXp6QQo2U2EKQsVRnqjH5qLNcyLqgnkudK8Yo",
+      "2Jbqdo2Bm5Kkaz41KvtdBSK56THuth9UWn9wENRCt5kgWAfJmiriJfnmw24aDDbx9B4YkbMu6C43u2PM2NtfbHBw"
+    ],
+    "netValue": -0.000006397
+  },
+  {
+    "address": "HXDvs55X5NcF8rZWja3T7rCBhANAeHJ1zaSkyDHSCwKq",
+    "buys": 0.00490099,
+    "sells": 0.004918361,
+    "TokenBuys": 17584709518,
+    "TokenSells": 17584709518,
+    "signatures": [
+      "39Ax4r62MniV1dNu7cbQgUZg8i322MqFRU8robqYoBDV76icDcArbBtKr3UWtQCKjyNv825mAikmf1GvNguH2dzg",
+      "3VqP18HbiCohjc8spfbMuafN2NNWbmpqgTXe1E6Dj2P6ukyujbWqVMEJerNnMpKGaN9WoZwSYYqMm87DCobxGPgK",
+      "22LSzk3T4NUTtFPd5uDJSFT3HPF12ZxQUtDRDow6Kg5JLVBHzxPYc5vEbXASrHChfFTm48uWZ6toguxs5rU3ztju",
+      "3tDtNJrTrvPwKaBwHTh2izwPGuBqkStkZ4UmntUnEjZJj5j3KK8fUPTw3JNM3pSSd75GogYy4uoMPYbozsT4iX9e"
+    ],
+    "netValue": -0.000017370999999999533
+  },
+  {
+    "address": "GXujAxAh1URMnXLd2FNvkeotMgjz1RMxCVAR7VVyjGS8",
+    "buys": 0.001101376,
+    "sells": 0.001145911,
+    "TokenBuys": 4343953624,
+    "TokenSells": 4343953624,
+    "signatures": [
+      "3mYu2xUMmHRLqEcX2hEFAiSqT452VAK4tEfwK5XJTPrKKLRS6fZVbaV1USAJKgF6RpYCzgXzTn5hMTTK992M6YJp",
+      "4S7fpYjPmmegT99exqcp6t5BGz4Q2NCTJi25NH58cTLADqAtTUd4zk65pDsY8StUmKfJb9jWZ2bEKZwz7JPuKHfc",
+      "4Gtk5UKUuAX4aSuPEJ3rHbyAJ4eLoE4ZhzXdTYK5WcrXkPqW4WwRtNf5RhprGSTN94KMFrhkow1A9N7PxLhTN5nQ"
+    ],
+    "netValue": -0.00004453500000000006
+  },
+  {
+    "address": "GSNTVd7edJJpGjDfSGE1T1VeVX1wD3uFJDPpuN6xbyLM",
+    "buys": 0.00980198,
+    "sells": 0.010055165,
+    "TokenBuys": 34784795667,
+    "TokenSells": 34784795667,
+    "signatures": [
+      "5w4yLcvHGx69wkyyi1FbPnbviKVvbm6V7hsZ3saXBhSADCbhuTRDc8MaAoNRUMJ4KtUwHSCuQxkrewkxZDJtT44E",
+      "67ac1ddfHETjkinDzHCfcghycvoZuyqtLrYxDBxnBPximzvwWRRZeF2tfJyCH8xRnmgXSTTwvXt9saKjjrQmRLAz"
+    ],
+    "netValue": -0.0002531849999999995
+  },
+  {
+    "address": "BhzfaKdJq1syAyCcfao18ULA14tYL4aLCBg2vhJXkUi2",
+    "buys": 0.010464621,
+    "sells": 0.010939666,
+    "TokenBuys": 38713204276,
+    "TokenSells": 38713204276,
+    "signatures": [
+      "5e7byfUb5JfcAFF81oqnGF4NYHXBMPAvrdQkYL5Ldt9F9uiwMMzJwqyv2dALbTP8dUFsbzA5mNorXnn37hq6kFA1",
+      "3fpxECHp7GhZE16iS9iCsMV3tFKaTQjM8daVWxGnTkkBZK3pWJWjq2HHWWSN9zjd784CwqqZFSfbjftvyn7HGqXg"
+    ],
+    "netValue": -0.00047504500000000033
+  },
+  {
+    "address": "Eq61sYrNwDFZxadeAzwk3BrXHZgrPkfTCm4o2uSTHsr",
+    "buys": 0.10184369,
+    "sells": 0.10236089,
+    "TokenBuys": 372167770550,
+    "TokenSells": 372167770550,
+    "signatures": [
+      "M562Ps7B3W8P6mWWoTtc85WnxKbiF6RUYhZFHAuARkaqoz6PXDELTwBbxomAuxMsGzXNgKFExm7qsTXjJMWAXyf",
+      "5uP9GBgVicFTHbE1sfom9Lf3JeHDXnq8vmayUEWMUUDCn1LqGBNnrjJhLVQsUivFdbPxPyBod3s7gM2exgjCak3i"
+    ],
+    "netValue": -0.0005171999999999954
+  },
+  {
+    "address": "2YHzPLrH9a5DE16tdUYfVdJ718hXc48VP6mFhhh3WDMn",
+    "buys": 0.0490099,
+    "sells": 0.049949868,
+    "TokenBuys": 175136494623,
+    "TokenSells": 175136494623,
+    "signatures": [
+      "3rLPkd2iv6mUSAY5P1CBz6GCdsrpZ2rrnLXaGDSskzGMdwx6KSrAgDXmsSw8U6db4wdF1o2jF5QBMeoBsCguAdvr",
+      "3GEJPjMSZX2onxfj9tgK4ae1yJz26ZJeH2mb5YWWFG3apQporEPM1LfweJCHkVD1CKWhxmCfXchAgnet1wSMYQen"
+    ],
+    "netValue": -0.0009399679999999994
+  },
+  {
+    "address": "2AH2vNsDz5cGacwfgSkrFMVmveAyAEUTtUpqEHwWSM4K",
+    "buys": 0.245049504,
+    "sells": 0.246486742,
+    "TokenBuys": 874387288855,
+    "TokenSells": 874387288855,
+    "signatures": [
+      "EUvXRubHc9dQKsH8QrnWryTWFT5MYCbCBVYZ68KrhXogS4CcDYGJ9VdnXksoV1esyyiZwsAimuCx7sdDtmAkU8U",
+      "8HgPcz67wYWBnAStWVyKKoHKCViuEEjfinfj5gpFMW4aWr1mcsgRaQq67UkigAGBtaacGefo7ozmpxBMipkyNgk"
+    ],
+    "netValue": -0.0014372380000000073
+  },
+  {
+    "address": "DEvsJtZ5y88b3mHRDcHAR4mcZpAV8CcKj36whkrfeQ2E",
+    "buys": 0.099641781,
+    "sells": 0.101133672,
+    "TokenBuys": 358333193048,
+    "TokenSells": 358333193048,
+    "signatures": [
+      "LUtR2BNZHt1jPuTGmozywaCmeCYxwgyNosop53ZeK8aG64Zcg337nWLpREHAcZaNQCN9W37SaxAorTrxgFWrUWt",
+      "2Ma9SM7AjgqAphZvvAis2tiVQKpBP5X8J7MrqemPKofNJoVzN2NAgur5jvFNebRSxcuqPByYixSnAzLsECb7tWcq"
+    ],
+    "netValue": -0.0014918909999999952
+  },
+  {
+    "address": "FKth3ANhrrDKoQaZLu7cmziZxwVZhNUDSX7ZvJME56Xj",
+    "buys": 0.14976429800000002,
+    "sells": 0.15136443300000002,
+    "TokenBuys": 572807146815,
+    "TokenSells": 572807146815,
+    "signatures": [
+      "vnCo83kiv9aNK1dTTwMW7BXCNNRpG3fc3gCdB2rVVvUHA13kshiJXrUxF7xQy9kvGGPVi8VvnALAawQ7LWrXmvo",
+      "37jntb2y6J5qx5LD3VAo13jLUUpVKFgdjHwmycw3u8spPSiq1s2w4SZT1ztNPVqkrEeYQZDDBF7brsWyin3mLuEG",
+      "3z7VvfMLySe8iLXB6XBN29eVhT4TiGL4nDPxni83NY2XgfC4qtV5xXWMw6puMYzNRpKFq7AsYGGiXjv4b5QhbTYd",
+      "5h5DiNkwSVYNa2xYMQBNjxFpJsLmU7B8JeqaZCPPndD2HxRSu1RkbxG5EtHwSNMLqN458mf64WooHEtqBDu2VVPk"
+    ],
+    "netValue": -0.0016001350000000025
+  },
+  {
+    "address": "BsokWvhL2Nyybp6cp8Arfie4A2JVvhJ8C4QPfbijL18j",
+    "buys": 0.100000001,
+    "sells": 0.101696537,
+    "TokenBuys": 358500132046,
+    "TokenSells": 358500132046,
+    "signatures": [
+      "2tNjHPtHipuS2mguKDAemUENryTncUKNPH3axua9tjHKeN1ABq6QJm4px4TYeLjQmS2KvWLN7PVhqdTMoR8K4eq2",
+      "37ZAoauLaoh7aC3qaPfn72dU9YN1XgEMdv6rPJXkSTXY6zaT6ApV5hU3UMBYg5PRfo8nCc625ZtVUkLitJPmbedX"
+    ],
+    "netValue": -0.0016965359999999985
+  },
+  {
+    "address": "H96emj7qMv9JkLwXZMftqpuqqVHg1zVZQtfVjxesV4Zc",
+    "buys": 0.02940594,
+    "sells": 0.031397356,
+    "TokenBuys": 112658840613,
+    "TokenSells": 112658840613,
+    "signatures": [
+      "59ME6Xd3JPdcGkx6tP2NuvAgvKTRZL9MBr6vkv3Zfa5sZ3SGa6Xmi4Y1NjgpxPw8p9L2cpgyeHTULcUBxpqgLjoB",
+      "55b56t2mA14S47XBtN5FKXwgzUj44vh4LBEabZWUSuQDZwf1Qc8naaaLXc2eyX1NECbgFUwzqEDVFoNEJXk5AibE"
+    ],
+    "netValue": -0.001991416000000003
+  },
+  {
+    "address": "GXSD3bNZeR4ZFMztEHgZPPCZVPqYFzJGbZ8aotYjxjKJ",
+    "buys": 0.20101756,
+    "sells": 0.205551246,
+    "TokenBuys": 736482602598,
+    "TokenSells": 736482602598,
+    "signatures": [
+      "CHY8ZkPWjNmauVqQmcRedGyhp8n2JV4qqjo242muntLgvvSdwe9XLqkT8JW66TLsnVJuySY3FuFxDgWENa9dxN6",
+      "2k6uqPzGTz9Lyh7ELABNR5WN9sGFRj43Rw5cpNHhTPBb8nwtgLuEqZHqzwuVjB2CA57nAp292sdvMpmhXTNes2KB"
+    ],
+    "netValue": -0.004533685999999981
+  },
+  {
+    "address": "GZkXP5bTFHVBfUsR2AUpZeJ9DNFq3z2KuWV4fyXZ6xBW",
+    "buys": 0.294059405,
+    "sells": 0.299381225,
+    "TokenBuys": 1130577415950,
+    "TokenSells": 1130577415950,
+    "signatures": [
+      "3PRcrbsZbbdDSJaNcSjMV9YLnnT4MDKuasCV139C8sXDJrtk2SpraiqgosxcYeR54CHB3osskDWe9Nwb388sJwsv",
+      "FDkPXFnUxzhke5AW71QGj4QwT4SEkHPRgX5Mhr5j9C86mmVnGD6hN42M1oSkq7SMsFSvnjZJyyEg3Q1RMZPuaXL"
+    ],
+    "netValue": -0.005321819999999977
+  },
+  {
+    "address": "8sMPhZjZgspe69P572W9t9CMgfZVctso48Gon4BzcNip",
+    "buys": 0.076087638,
+    "sells": 0.084914936,
+    "TokenBuys": 304416902414,
+    "TokenSells": 304416902414,
+    "signatures": [
+      "3QE9siD7LYpkSckXZoMdzJNFJbEEy4hRNVGKFEojvkAaVwv4svumuif7LJe94JB6GSCZrqG8SrMrzHabYaAbGU75",
+      "61TowejLRS8xRiHjChP8ZUebBpKS6YPHFvmeDhG1sbSMkKRzQVxYMUoF1vBt66BRy6urJuvM3S67XNXG28gPKXuq"
+    ],
+    "netValue": -0.008827297999999997
+  },
+  {
+    "address": "Aud8hNoFmpyYSe2WsrmLzjv4EwUGQQqcMReRyfqxmWzJ",
+    "buys": 0.203847937,
+    "sells": 0.218957096,
+    "TokenBuys": 787243819058,
+    "TokenSells": 787243819058,
+    "signatures": [
+      "4NrYZdQVNKY9ZhYrarfJSrTcVHtiCFA8xyqWzpU28ytqWeWQkNVgBQ32DzZHDCuC9s4d86KCchUHeZTWZdfRC7rd",
+      "4xqfPGcpATy5mMDvfNY7xhLK6XeZf3iRDyBoYcmW6DW576vNgek2WSzRqN2CHTADJPbvhnhghEw42QAKveAokgC"
+    ],
+    "netValue": -0.015109158999999983
+  },
+  {
+    "address": "6QVYSUiJDGoVeQzFnWbCuvzgySNekyzEendzP4xrg6Qe",
+    "buys": 0.494289294,
+    "sells": 0.509413473,
+    "TokenBuys": 1965087208899,
+    "TokenSells": 1965087208899,
+    "signatures": [
+      "3BRbgi9MTAbTWupKh5KtB2vKTVhKM7Nu66gdBYAnBpDoNLWXepqAc8FYUuHfYk2EYKob3GZugNcZnSQefPCpvxy1",
+      "3eNREG9Mu6woN79RuCaUoNeR3m3SUe49y1bXpPjYZMuLhapdHn5ZSTcH25TL3ExTvxFXRK6VUAkHH2dbFB182Xaz"
+    ],
+    "netValue": -0.01512417899999996
+  },
+  {
+    "address": "o7RY6P2vQMuGSu1TrLM81weuzgDjaCRTXYRaXJwWcvc",
+    "buys": 0.0826,
+    "sells": 0.100245161,
+    "TokenBuys": 359159366614,
+    "TokenSells": 359159360099,
+    "signatures": [
+      "2cH1j9EXjtmM6AVKau2TRfHFcrgdnFYFmKds1A4gp3eg28GMRbhdUcextweYXDhvTyU3MRz3EMWdqG6gHmDENWiM",
+      "3CsXdYVZ3TsDpBrXtegzfnDnaZ8UdVw84fEoreBA1z3LxSuzaXyCdLfmpB23GWZAahaJus9uGdEKXcP9CF8ur7Nd"
+    ],
+    "netValue": -0.017645160999999993
+  },
+  {
+    "address": "DjS7BSa2B85JPtJ4cWeqZrQ1ts5EnEJpadFpoKcennPJ",
+    "buys": 0.204761294,
+    "sells": 0.22256291,
+    "TokenBuys": 787243819058,
+    "TokenSells": 787243819058,
+    "signatures": [
+      "4KfcDQvYQWr5Q7iSRkuMhVu5jsocBR7V3JCKwAJ6YZSq33Uau3HhRdUtrpmVbC9waGbDEmDVu7HAkMsu4TUVbGzM",
+      "3u1iV4RmFG9sdiEeriE7ybJfzHVsDJEXjY9ofBoxtusZhKQXuiXV2Zq5B9QTHocPq5P9NdcY1998ESpeKjpsJRTZ"
+    ],
+    "netValue": -0.017801615999999992
+  },
+  {
+    "address": "9QXRZqQE6gTXM24xE8Zo6Swszu1wpTp1SNiARtQhkuZL",
+    "buys": 0.201785803,
+    "sells": 0.219781103,
+    "TokenBuys": 781021377182,
+    "TokenSells": 781021377182,
+    "signatures": [
+      "e1patYbHniMqDJdysjkfACoVmKwPwuHh4jFKJ24LhaUnShk7vABiUUocPkomBftwrJGTEbs4rHxjb8K2b86mbtZ",
+      "3g8JnQ48GFWN6Aocqb2ne9aVXdhgxYAJbej72LfqP1oth1meH8LB1TwQhLASrNAr11oz5D52bkzF8UpMDCsvSfoF"
+    ],
+    "netValue": -0.017995299999999992
+  },
+  {
+    "address": "123AeVTHAdw69tznPwyK7XrrqBp8GFnTnGx3qM4PSiaW",
+    "buys": 0.541979749,
+    "sells": 0.567624946,
+    "TokenBuys": 2183430232558,
+    "TokenSells": 2183430232558,
+    "signatures": [
+      "5jo7m5256MU4aRb1gDJzGcag4fXdcE61MbaVYwAhSe62VHHNB485CU4C15rzGx4TqU9PLn6TE159EJvXycsPJ1uu",
+      "44wNpenzvYHeAUEhb8jsUheopGyo5VTT4zS6g6n122wUDjoTGarrao3cYe5kKWYV2nzGPLDvrYfZnsMggHgG5WoN"
+    ],
+    "netValue": -0.02564519700000001
+  },
+  {
+    "address": "12152Yo4Rk18kZtudaeayKyjmdZLBmb44TUqntrnfb5S",
+    "buys": 0.535466768,
+    "sells": 0.568470123,
+    "TokenBuys": 2183430232558,
+    "TokenSells": 2183430232558,
+    "signatures": [
+      "48kqfwKtsHcjamgWByBfKpcwciMwjBU7oMJ4TspkK6TjDTDieNgnRbDfwG16gwS9u3D5FN2mWUtoaufAS8jh45Jj",
+      "4PMZ4eLdhuEMDaKL1Dmmp6pwHBDL1gJe28VfeHNpP3XixiSbumkxbJH2TXqxbcLVWn3ixmMSraJjZcWcq2PvaBcz"
+    ],
+    "netValue": -0.033003354999999956
+  },
+  {
+    "address": "8g9eXBNtSUVjRZR35f4LCvFzcLCFUbeUUEMCtg9a6wae",
+    "buys": 2.5,
+    "sells": 2.944793589,
+    "TokenBuys": 10553516328680,
+    "TokenSells": 10553516328680,
+    "signatures": [
+      "5UikRf511YVMmbVoCUz8i19X6qYAQaqAzoY762hG2VCk3qE7P3bcVgQwfssw3RNujUjVpH5tScgoV345qNwiH8JT",
+      "4XnkqW8ykvSX1amYivaRfKhdshzWPwbdpXpct35JVE7wedJ2m3wBLoyEee8tBtFLDNiPhMEqRPA4CeiDuySK2bFg"
+    ],
+    "netValue": -0.4447935890000001
+  }
+]

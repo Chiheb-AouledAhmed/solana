@@ -204,6 +204,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                             let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58();
                             console.log("Address found : ", address);
                             tokenCreator = address;
+                            ignoredAddresses.add(tokenCreator.trim().toLowerCase());
                             //return watchTokenTransactions(address,tokenAccountAddress);
                         }
                     }
