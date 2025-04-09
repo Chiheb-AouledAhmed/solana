@@ -33,13 +33,32 @@ let monitoredAccounts: { [publicKey: string]: { lastActive: number | null, keypa
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
 
 // Custom logger function to replace console.log
-function logToFile(message: string): void {
-  const timestamp = new Date().toISOString();
-  logStream.write(`[${timestamp}] ${message}\n`);
-}
-
-// Replace console.log with logToFile
-console.log = logToFile;
+function logToFile(...args: any[]): void {
+    const timestamp = new Date().toISOString();
+    const formattedMessage = args
+      .map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      )
+      .join(' ');
+  
+    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+  }
+  
+  // Custom logger function for errors
+  function errorToFile(...args: any[]): void {
+    const timestamp = new Date().toISOString();
+    const formattedMessage = args
+      .map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      )
+      .join(' ');
+  
+    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+  }
+  
+  // Replace console.log and console.error with custom loggers
+  console.log = logToFile;
+  console.error = errorToFile;
 
 function loadAccounts(filename: string): AccountData[] {
     try {

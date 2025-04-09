@@ -45,12 +45,24 @@ const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 const fs = __importStar(require("fs"));
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
 // Custom logger function to replace console.log
-function logToFile(message) {
+function logToFile(...args) {
     const timestamp = new Date().toISOString();
-    logStream.write(`[${timestamp}] ${message}\n`);
+    const formattedMessage = args
+        .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
+        .join(' ');
+    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
 }
-// Replace console.log with logToFile
+// Custom logger function for errors
+function errorToFile(...args) {
+    const timestamp = new Date().toISOString();
+    const formattedMessage = args
+        .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
+        .join(' ');
+    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+}
+// Replace console.log and console.error with custom loggers
 console.log = logToFile;
+console.error = errorToFile;
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;

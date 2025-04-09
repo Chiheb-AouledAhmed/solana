@@ -16,13 +16,32 @@ import * as fs from 'fs';
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
 
 // Custom logger function to replace console.log
-function logToFile(message: string): void {
-  const timestamp = new Date().toISOString();
-  logStream.write(`[${timestamp}] ${message}\n`);
-}
-
-// Replace console.log with logToFile
-console.log = logToFile;
+function logToFile(...args: any[]): void {
+    const timestamp = new Date().toISOString();
+    const formattedMessage = args
+      .map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      )
+      .join(' ');
+  
+    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+  }
+  
+  // Custom logger function for errors
+  function errorToFile(...args: any[]): void {
+    const timestamp = new Date().toISOString();
+    const formattedMessage = args
+      .map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      )
+      .join(' ');
+  
+    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+  }
+  
+  // Replace console.log and console.error with custom loggers
+  console.log = logToFile;
+  console.error = errorToFile;
 
 let stopWatching = false;
 let lastSignature = '';
@@ -75,6 +94,13 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
     let cacheSignature = new Set<string>();
     let allSum= 0;
     while(true){
+        if(tokenCreator != null)
+        {
+            console.log("Token Creator: ",tokenCreator)
+            console.log("Token Creator Buys: ",addressData[tokenCreator].TokenBuys)
+            console.log("Token Creator Sells: ",addressData[tokenCreator].TokenSells)
+        }
+
     const signatures = [];
     
     for (const account of watchedAccounts) {
