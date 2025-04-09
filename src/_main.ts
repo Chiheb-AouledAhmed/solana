@@ -161,7 +161,7 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
-        /*let exempleSignature = "2oKhejMRKpQN2pnBeYokVySbxq3qdPUVSdkZMdcBhKN8daEycqtc3rndTByEpKuRp6kYdiJduViqEcvyLAHTspKd"
+        let exempleSignature = "5oDFGBnbjpVXFkzpvcTTWYYK3733rSYR8H9zCUTW5oyiDwm7usJMBkExDfQaG4krmYqN35g1xnfuZHsCAVdHkhas"
         const transaction = await getParsedTransactionWithRetry(
             connection,
             exempleSignature,
@@ -171,8 +171,8 @@ async function main() {
             }
         )
         let result = await decodePumpFunTradev2(exempleSignature,transaction);
-        checkTransactionStatus(transaction,exempleSignature);
-        await AnalysePumpFunTransactions(mint,signature,fileName);*/
+        console.log(checkTransactionStatus(transaction,exempleSignature))
+        //await AnalysePumpFunTransactions(mint,signature,fileName);
         //await watchTokenTxsToBuy(mint,signature);
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
         /*await printSOLBalance(connection, keyPair.publicKey, "Test Account");
@@ -233,7 +233,7 @@ async function main() {
         //const filename = "export_transfer_BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6_1743717772074.csv";
         //await AnalyseExchangeAddresses(filename);
         const watchedAccountsUsage: { [publicKey: string]: number } = {};
-        await watchPumpFunTransactions();
+        //await watchPumpFunTransactions();
         console.log('awaited');
     } catch (error) {
         console.error("An error occurred:", error);

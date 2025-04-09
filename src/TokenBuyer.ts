@@ -120,7 +120,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
             signaturesAccount = await connection.getSignaturesForAddress(
                 account,
                 {
-                    limit: 300 
+                    limit: 1000 
                 },
                 'confirmed'
             );
@@ -155,9 +155,9 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                     }
                 );
 
-                
+                console.log("signature: ",signature)
                 if (checkTransactionStatus(transaction, signature)) {
-                    console.log("Transaction", signature);
+                    console.log('checkTransactionStatus succeeded for transaction: ', signature);
 
                     const result = await decodePumpFunTradev2(signature, transaction);
                     if (result.length > 0) {
@@ -200,8 +200,8 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                             }
                         }
                         if((tokenCreator == address)){
-                            console.log("Already processed this transaction")
-                            if(Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells )< 10000000000000){
+                            console.log("TokenCreator signature found: ",signature)
+                            if(Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells )< 1e13){
 
                                 
                                 const filteredAddressArray = Object.entries(addressData)
@@ -253,7 +253,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
 
                 }
                 else {
-                    console.log('This transaction is not a pump fun transaction of the chosen token');
+                    console.log('checkTransactionStatus failed for transaction: ', signature);
                 }
             }
         catch (error) {    
