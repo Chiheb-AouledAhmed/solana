@@ -66,11 +66,11 @@ function setNotProcessing() {
     console.log("watching another token ->>>");
 }
 let ignoredAddresses = new Set();
-const addressData = {};
 async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename = 'interacting_addresses.txt') {
     console.log('Monitoring Start Token transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     ignoredAddresses = (0, _utils_1.loadIgnoredAddresses)(filename);
+    const addressData = {};
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
         try {
