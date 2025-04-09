@@ -50,7 +50,7 @@ function logToFile(...args) {
     const formattedMessage = args
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
-    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}\n`);
 }
 // Custom logger function for errors
 function errorToFile(...args) {
@@ -58,7 +58,7 @@ function errorToFile(...args) {
     const formattedMessage = args
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
-    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}\n`);
 }
 // Replace console.log and console.error with custom loggers
 console.log = logToFile;
@@ -70,7 +70,7 @@ let Processing = false;
 let stopcurrWatch = false;
 const COOL_DOWN_PERIOD = 3 * 30 * 60 * 1000;
 let firstRun = true;
-let TRANSACTION_INTERVAL = 2000;
+let TRANSACTION_INTERVAL = 200;
 let BUY_THRESHHOLD = 8;
 function setNotProcessing() {
     Processing = false;
@@ -78,11 +78,64 @@ function setNotProcessing() {
     console.log("watching another token ->>>");
 }
 let ignoredAddresses = new Set();
-async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename = 'interacting_addresses.txt') {
+async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, filename = 'interacting_addresses.txt') {
     console.log('Monitoring Start Token transactions...');
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     ignoredAddresses = (0, _utils_1.loadIgnoredAddresses)(filename);
+    function saveAddressData() {
+        try {
+            const filteredAddressArray = Object.entries(addressData)
+                .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase()));
+            const addressArray = filteredAddressArray.map(([address, data]) => ({
+                address,
+                ...data,
+                netValue: data.buys - data.sells, // Calculate net buy/sell amount
+            }));
+            const tmpsum = addressArray.reduce((acc, data) => acc + data.netValue, 0);
+            console.log("SUM is:", tmpsum);
+            // Sort by netValue in descending order
+            addressArray.sort((a, b) => b.netValue - a.netValue);
+            const output_file = `token_logs/address_data_sorted_${tokenAccountAddress}.json`;
+            // Write sorted data to a file
+            fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
+            console.log(`Data saved to ${output_file}`);
+        }
+        catch (error) {
+            console.error('Error during cleanup:', error);
+        }
+    }
     const addressData = {};
+    process.on('SIGINT', () => {
+        console.log('Keyboard interrupt detected (Ctrl+C). Cleaning up...');
+        try {
+            const filteredAddressArray = Object.entries(addressData)
+                .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase()));
+            const addressArray = filteredAddressArray.map(([address, data]) => ({
+                address,
+                ...data,
+                netValue: data.buys - data.sells, // Calculate net buy/sell amount
+            }));
+            const tmpsum = addressArray.reduce((acc, data) => acc + data.netValue, 0);
+            console.log("SUM is:", tmpsum);
+            // Sort by netValue in descending order
+            addressArray.sort((a, b) => b.netValue - a.netValue);
+            const output_file = `token_logs/address_data_sorted_${tokenAccountAddress}.json`;
+            // Write sorted data to a file
+            fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
+            console.log(`Data saved to ${output_file}`);
+        }
+        catch (error) {
+            console.error('Error during cleanup:', error);
+        }
+        // Close the server to release the port
+        process.stdout.write('Flushing logs...\n');
+        server.close(() => {
+            console.log('Server closed.');
+            process.exit(0); // Exit the process
+            // Perform any additional cleanup here
+            // Call your custom cleanup function
+        });
+    });
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
         try {
@@ -127,7 +180,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
             }
             else {
                 signaturesAccount = await connection.getSignaturesForAddress(account, {
-                    limit: 300
+                    limit: 1000
                 }, 'confirmed');
             }
             for (const signature of signaturesAccount) {
@@ -154,8 +207,9 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                         commitment: 'confirmed',
                         maxSupportedTransactionVersion: 0
                     });
+                    console.log("signature: ", signature);
                     if ((0, _utils_1.checkTransactionStatus)(transaction, signature)) {
-                        console.log("Transaction", signature);
+                        console.log('checkTransactionStatus succeeded for transaction: ', signature);
                         const result = await (0, swapUtils_1.decodePumpFunTradev2)(signature, transaction);
                         if (result.length > 0) {
                             let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58();
@@ -191,8 +245,8 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                                 }
                             }
                             if ((tokenCreator == address)) {
-                                console.log("Already processed this transaction");
-                                if (Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells) < 10000000000000) {
+                                console.log("TokenCreator signature found: ", signature);
+                                if (Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells) < 1e13) {
                                     const filteredAddressArray = Object.entries(addressData)
                                         .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase())); // Filter addresses based on the set
                                     const addressArray = filteredAddressArray.map(([address, data]) => ({
@@ -218,7 +272,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                                                 Rejecting !!
                                                 `;
                                     (0, _utils_1.sendTelegramNotification)(message);
-                                    return (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+                                    return (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(server);
                                 }
                             }
                         }
@@ -226,7 +280,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                             console.log('This transaction does not appear to be a pump fun transaction');
                         }
                         if ((0, swapUtils_1.isPumpFunCreation)(signature, transaction)) {
-                            console.log("Signautre Found: ", signature);
+                            console.log("Signature Found: ", signature);
                             let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58();
                             console.log("Address found : ", address);
                             tokenCreator = address;
@@ -235,18 +289,19 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                         }
                     }
                     else {
-                        console.log('This transaction is not a pump fun transaction of the chosen token');
+                        console.log('checkTransactionStatus failed for transaction: ', signature);
                     }
                 }
                 catch (error) {
                     console.error("Error processing transaction:", error);
                 }
+                await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));
             }
         }
         if (tokenCreator == null) {
             console.log("Start Token not found in the transactions");
             console.log("restarting the process");
-            (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)();
+            (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(server);
         }
         if ((firstRun) && (tokenCreator)) {
             allsum -= addressData[tokenCreator].buys;

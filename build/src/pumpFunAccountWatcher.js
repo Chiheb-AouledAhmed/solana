@@ -46,7 +46,7 @@ const swapUtils_1 = require("./swapUtils");
 const TokenBuyer_1 = require("./TokenBuyer");
 const bs58_1 = __importDefault(require("bs58"));
 const fs = __importStar(require("fs"));
-let TRANSACTION_INTERVAL = 100; // 10 seconds
+let TRANSACTION_INTERVAL = 200; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
@@ -67,7 +67,7 @@ function logToFile(...args) {
     const formattedMessage = args
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
-    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [INFO] AccountWatcher::${formattedMessage}\n`);
 }
 // Custom logger function for errors
 function errorToFile(...args) {
@@ -75,7 +75,7 @@ function errorToFile(...args) {
     const formattedMessage = args
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
-    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [ERROR] AccountWatcher::${formattedMessage}\n`);
 }
 // Replace console.log and console.error with custom loggers
 console.log = logToFile;
@@ -90,13 +90,13 @@ function loadAccounts(filename) {
         return [];
     }
 }
-async function watchPumpFunTransactions() {
+async function watchPumpFunTransactions(server = null) {
     console.log('Monitoring Raydium transactions...');
     // Add health check
     const connection = new web3_js_1.Connection(_config_1.SOLANA_RPC_URL, 'confirmed');
     if (!(await checkNodeHealth(connection))) {
         await new Promise(resolve => setTimeout(resolve, 10000));
-        return watchPumpFunTransactions(); // Restart
+        return watchPumpFunTransactions(server); // Restart
     }
     const accounts = loadAccounts(_config_1.ACCOUNTS_FILE);
     if (accounts.length === 0) {
@@ -170,14 +170,14 @@ async function watchPumpFunTransactions() {
                                 maxSupportedTransactionVersion: 0
                             });
                             if (transaction) {
-                                console.log("Transaction", transaction);
+                                console.log("Transaction", signature);
                                 const result = await (0, swapUtils_1.decodePumpFunTrade)(signature, transaction);
                                 if (result.length > 0) {
                                     let tokenAddress = result[0].tokenAddress;
                                     let processed = await processDetails(tokenAddress, firstRun, signature, connection, centralWalletKeypair, publicKey);
                                     if (processed) {
                                         console.log("Finding Token Creator before signature : ", signature);
-                                        return (0, TokenBuyer_1.watchTokenTxsToBuy)(tokenAddress, signature);
+                                        return (0, TokenBuyer_1.watchTokenTxsToBuy)(tokenAddress, signature, server);
                                     }
                                 }
                                 else {

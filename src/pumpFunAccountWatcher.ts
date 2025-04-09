@@ -11,8 +11,9 @@ import { watchTokenTxsToBuy } from './TokenBuyer';
 
 import bs58 from 'bs58';
 import * as fs from 'fs';
+import { s } from '@raydium-io/raydium-sdk-v2/lib/api-373aef5f';
 
-let TRANSACTION_INTERVAL = 100; // 10 seconds
+let TRANSACTION_INTERVAL = 200; // 10 seconds
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
@@ -41,7 +42,7 @@ function logToFile(...args: any[]): void {
       )
       .join(' ');
   
-    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [INFO] AccountWatcher::${formattedMessage}\n`);
   }
   
   // Custom logger function for errors
@@ -53,7 +54,7 @@ function logToFile(...args: any[]): void {
       )
       .join(' ');
   
-    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [ERROR] AccountWatcher::${formattedMessage}\n`);
   }
   
   // Replace console.log and console.error with custom loggers
@@ -70,14 +71,14 @@ function loadAccounts(filename: string): AccountData[] {
     }
 }
 
-export async function watchPumpFunTransactions(): Promise<void> {
+export async function watchPumpFunTransactions(server:any=null): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     // Add health check
     
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     if (!(await checkNodeHealth(connection))) {
         await new Promise(resolve => setTimeout(resolve, 10000));
-        return watchPumpFunTransactions(); // Restart
+        return watchPumpFunTransactions(server); // Restart
     }
     const accounts = loadAccounts(ACCOUNTS_FILE);
     if (accounts.length === 0) {
@@ -169,7 +170,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                         );
 
                         if (transaction) {
-                            console.log("Transaction", transaction);
+                            console.log("Transaction", signature);
 
                             const result = await decodePumpFunTrade(signature,transaction);
                             if(result.length>0){
@@ -177,7 +178,7 @@ export async function watchPumpFunTransactions(): Promise<void> {
                                 let processed = await processDetails(tokenAddress,firstRun,signature,connection,centralWalletKeypair,publicKey);
                                 if(processed){
                                     console.log("Finding Token Creator before signature : ",signature);
-                                    return watchTokenTxsToBuy(tokenAddress,signature);
+                                    return watchTokenTxsToBuy(tokenAddress,signature,server);
                                 }
                                     
                             }

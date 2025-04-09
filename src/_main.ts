@@ -57,7 +57,7 @@ async function main() {
             console.log("service running");
           });
 
-        app.listen(PORT, () => {
+        const server =app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
         console.log("RPC Endpoint:", connection.rpcEndpoint);
@@ -161,6 +161,7 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
+        /*let mint = "GjPKe9zH3L9YU2HWkjR7tJYmJbSgnGnqQdFyAFyKaoTG"
         let exempleSignature = "5oDFGBnbjpVXFkzpvcTTWYYK3733rSYR8H9zCUTW5oyiDwm7usJMBkExDfQaG4krmYqN35g1xnfuZHsCAVdHkhas"
         const transaction = await getParsedTransactionWithRetry(
             connection,
@@ -172,6 +173,7 @@ async function main() {
         )
         let result = await decodePumpFunTradev2(exempleSignature,transaction);
         console.log(checkTransactionStatus(transaction,exempleSignature))
+        await watchTokenTxsToBuy(mint,exempleSignature,server);*/
         //await AnalysePumpFunTransactions(mint,signature,fileName);
         //await watchTokenTxsToBuy(mint,signature);
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
@@ -233,7 +235,7 @@ async function main() {
         //const filename = "export_transfer_BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6_1743717772074.csv";
         //await AnalyseExchangeAddresses(filename);
         const watchedAccountsUsage: { [publicKey: string]: number } = {};
-        //await watchPumpFunTransactions();
+        await watchPumpFunTransactions(server);
         console.log('awaited');
     } catch (error) {
         console.error("An error occurred:", error);

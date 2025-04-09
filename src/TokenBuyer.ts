@@ -24,7 +24,7 @@ function logToFile(...args: any[]): void {
       )
       .join(' ');
   
-    logStream.write(`[${timestamp}] [INFO] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}\n`);
   }
   
   // Custom logger function for errors
@@ -36,7 +36,7 @@ function logToFile(...args: any[]): void {
       )
       .join(' ');
   
-    logStream.write(`[${timestamp}] [ERROR] ${formattedMessage}\n`);
+    logStream.write(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}\n`);
   }
   
   // Replace console.log and console.error with custom loggers
@@ -50,7 +50,7 @@ let Processing = false;
 let stopcurrWatch = false;
 const COOL_DOWN_PERIOD = 3 * 30 * 60 * 1000;
 let firstRun = true;
-let TRANSACTION_INTERVAL = 2000;
+let TRANSACTION_INTERVAL = 200;
 let BUY_THRESHHOLD = 8;
 
 export function setNotProcessing(){
@@ -60,12 +60,74 @@ export function setNotProcessing(){
 }
 let ignoredAddresses = new Set<string>();
 
-export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureBefore:string,filename:string ='interacting_addresses.txt'): Promise<void> {
+export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureBefore:string,server:any,filename:string ='interacting_addresses.txt'): Promise<void> {
     console.log('Monitoring Start Token transactions...');
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     ignoredAddresses=loadIgnoredAddresses(filename);
+    function saveAddressData() {
+        try {
+            const filteredAddressArray = Object.entries(addressData)
+                .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase()));
+    
+            const addressArray = filteredAddressArray.map(([address, data]) => ({
+                address,
+                ...data,
+                netValue: data.buys - data.sells, // Calculate net buy/sell amount
+            }));
+    
+            const tmpsum = addressArray.reduce((acc, data) => acc + data.netValue, 0);
+            console.log("SUM is:", tmpsum);
+    
+            // Sort by netValue in descending order
+            addressArray.sort((a, b) => b.netValue - a.netValue);
+    
+            const output_file = `token_logs/address_data_sorted_${tokenAccountAddress}.json`;
+            
+            // Write sorted data to a file
+            fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
+            console.log(`Data saved to ${output_file}`);
+        } catch (error) {
+            console.error('Error during cleanup:', error);
+        }
+    }
+    
     const addressData: { [address: string]: { buys: number, sells: number, TokenBuys:number,TokenSells:number,signatures: string[] } } = {};
-
+    process.on('SIGINT', () => {
+        console.log('Keyboard interrupt detected (Ctrl+C). Cleaning up...');
+    
+        try {
+            const filteredAddressArray = Object.entries(addressData)
+                .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase()));
+    
+            const addressArray = filteredAddressArray.map(([address, data]) => ({
+                address,
+                ...data,
+                netValue: data.buys - data.sells, // Calculate net buy/sell amount
+            }));
+    
+            const tmpsum = addressArray.reduce((acc, data) => acc + data.netValue, 0);
+            console.log("SUM is:", tmpsum);
+    
+            // Sort by netValue in descending order
+            addressArray.sort((a, b) => b.netValue - a.netValue);
+    
+            const output_file = `token_logs/address_data_sorted_${tokenAccountAddress}.json`;
+    
+            // Write sorted data to a file
+            
+            fs.writeFileSync(output_file, JSON.stringify(addressArray, null, 2));
+            console.log(`Data saved to ${output_file}`);
+        } catch (error) {
+            console.error('Error during cleanup:', error);
+        }
+        // Close the server to release the port
+        server.close(() => {
+            console.log('Server closed.'); // Exit the process
+            // Perform any additional cleanup here
+            // Call your custom cleanup function
+    
+        });
+    });
     // Initialize monitored accounts (accounts that will be buying tokens)
     /*accounts.forEach(accountData => {
         try {
@@ -230,19 +292,19 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                                                 Rejecting !!
                                                 `;
                                     sendTelegramNotification(message);
-                                    return watchPumpFunTransactions();
+                                    return watchPumpFunTransactions(server);
                             }
                             
                         }
 
                     }
-
+                    
                     else {
                         console.log('This transaction does not appear to be a pump fun transaction');
                     }
                     if(isPumpFunCreation(signature,transaction)){
                             
-                        console.log("Signautre Found: ",signature)
+                        console.log("Signature Found: ",signature)
                         let address = transaction.transaction.message.accountKeys[0].pubkey.toBase58()
                         console.log("Address found : ",address)
                         tokenCreator = address;
@@ -261,11 +323,12 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
         }
                     
                     
-        }}
+        await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));    
+    }}
         if(tokenCreator == null){
         console.log("Start Token not found in the transactions")
         console.log("restarting the process")
-        watchPumpFunTransactions();
+        watchPumpFunTransactions(server);
         }
         if((firstRun) && (tokenCreator))
     {
