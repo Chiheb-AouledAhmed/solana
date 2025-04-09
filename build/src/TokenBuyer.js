@@ -192,7 +192,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
                             }
                             if ((tokenCreator == address)) {
                                 console.log("Already processed this transaction");
-                                if (Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells) < 1e5) {
+                                if (Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells) < 10000000000000) {
                                     const filteredAddressArray = Object.entries(addressData)
                                         .filter(([address]) => !ignoredAddresses.has(address.trim().toLowerCase())); // Filter addresses based on the set
                                     const addressArray = filteredAddressArray.map(([address, data]) => ({
