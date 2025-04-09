@@ -110,6 +110,11 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, filename
     let cacheSignature = new Set();
     let allSum = 0;
     while (true) {
+        if (tokenCreator != null) {
+            console.log("Token Creator: ", tokenCreator);
+            console.log("Token Creator Buys: ", addressData[tokenCreator].TokenBuys);
+            console.log("Token Creator Sells: ", addressData[tokenCreator].TokenSells);
+        }
         const signatures = [];
         for (const account of watchedAccounts) {
             const publicKey = new web3_js_1.PublicKey(account);
