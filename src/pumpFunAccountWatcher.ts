@@ -28,7 +28,8 @@ export function setNotProcessing(){
     console.log("watching another token ->>>")
 }
 
-
+const originalConsoleLog = console.log.bind(console);
+const originalConsoleError = console.error.bind(console);
 let monitoredAccounts: { [publicKey: string]: { lastActive: number | null, keypair: Keypair } } = {};
 
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
@@ -43,6 +44,7 @@ function logToFile(...args: any[]): void {
       .join(' ');
   
     logStream.write(`[${timestamp}] [INFO] AccountWatcher::${formattedMessage}\n`);
+    originalConsoleLog(`[${timestamp}] [INFO] AccountWatcher::${formattedMessage}`);
   }
   
   // Custom logger function for errors
@@ -55,11 +57,11 @@ function logToFile(...args: any[]): void {
       .join(' ');
   
     logStream.write(`[${timestamp}] [ERROR] AccountWatcher::${formattedMessage}\n`);
+    originalConsoleLog(`[${timestamp}] [ERROR] AccountWatcher::${formattedMessage}`);
   }
   
   // Replace console.log and console.error with custom loggers
-  console.log = logToFile;
-  console.error = errorToFile;
+
 
 function loadAccounts(filename: string): AccountData[] {
     try {
@@ -74,7 +76,8 @@ function loadAccounts(filename: string): AccountData[] {
 export async function watchPumpFunTransactions(server:any=null): Promise<void> {
     console.log('Monitoring Raydium transactions...');
     // Add health check
-    
+    console.log = logToFile;
+    console.error = errorToFile;
     const connection = new Connection(SOLANA_RPC_URL, 'confirmed');
     if (!(await checkNodeHealth(connection))) {
         await new Promise(resolve => setTimeout(resolve, 10000));

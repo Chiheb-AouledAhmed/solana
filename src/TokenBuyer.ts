@@ -14,7 +14,8 @@ import bs58 from 'bs58';
 import * as fs from 'fs';
 
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
-
+const originalConsoleLog = console.log.bind(console);
+const originalConsoleError = console.error.bind(console);
 // Custom logger function to replace console.log
 function logToFile(...args: any[]): void {
     const timestamp = new Date().toISOString();
@@ -25,6 +26,7 @@ function logToFile(...args: any[]): void {
       .join(' ');
   
     logStream.write(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}\n`);
+    originalConsoleLog(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}`);
   }
   
   // Custom logger function for errors
@@ -37,18 +39,18 @@ function logToFile(...args: any[]): void {
       .join(' ');
   
     logStream.write(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}\n`);
+    originalConsoleError(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}`);
   }
   
   // Replace console.log and console.error with custom loggers
-  console.log = logToFile;
-  console.error = errorToFile;
+  
 
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = KNOWN_TOKENS;
 let Processing = false;
 let stopcurrWatch = false;
-const COOL_DOWN_PERIOD = 3 * 30 * 60 * 1000;
+const COOL_DOWN_PERIOD = 15 * 60 * 1000;
 let firstRun = true;
 let TRANSACTION_INTERVAL = 200;
 let BUY_THRESHHOLD = 8;
@@ -90,7 +92,8 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
             console.error('Error during cleanup:', error);
         }
     }
-    
+    console.log = logToFile;
+    console.error = errorToFile;
     const addressData: { [address: string]: { buys: number, sells: number, TokenBuys:number,TokenSells:number,signatures: string[] } } = {};
     process.on('SIGINT', () => {
         console.log('Keyboard interrupt detected (Ctrl+C). Cleaning up...');
@@ -152,7 +155,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
     }*/
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
     let watchedAccounts: PublicKey[] = [new PublicKey(tokenAccountAddress)];
-    
+    let lastcheckTime = Date.now();
     let cacheSignature = new Set<string>();
     let allSum= 0;
     while(true){
@@ -198,6 +201,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
         cnt++;
         const signature = signatureInfo.signature.signature;
         if(signature && !cacheSignature.has(signature)){
+            lastcheckTime = Date.now();
             cacheSignature.add(signature);
         if(cnt %100 == 0)
             console.log("Processed ",cnt," signatures");
@@ -325,8 +329,11 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
                     
         await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));    
     }}
-        if(tokenCreator == null){
-        console.log("Start Token not found in the transactions")
+        if((tokenCreator == null) ||(lastcheckTime + COOL_DOWN_PERIOD < Date.now())){
+            if((tokenCreator == null))
+            console.log("Start Token not found in the transactions")
+        else
+            console.log("Last check time exceeded the cooldown period")
         console.log("restarting the process")
         watchPumpFunTransactions(server);
         }
@@ -336,6 +343,7 @@ export async function watchTokenTxsToBuy(tokenAccountAddress : String,signatureB
         allsum+=addressData[tokenCreator].sells;
     }
         firstRun = false;
+        await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL));
     }
 }
     
