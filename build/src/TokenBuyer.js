@@ -128,10 +128,8 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
             console.error('Error during cleanup:', error);
         }
         // Close the server to release the port
-        process.stdout.write('Flushing logs...\n');
         server.close(() => {
-            console.log('Server closed.');
-            process.exit(0); // Exit the process
+            console.log('Server closed.'); // Exit the process
             // Perform any additional cleanup here
             // Call your custom cleanup function
         });

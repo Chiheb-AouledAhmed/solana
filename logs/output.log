@@ -1,0 +1,2480 @@
+[2025-04-10T08:00:09.509Z] [INFO] AccountWatcher::Starting Solana Trader Bot...
+[2025-04-10T08:00:09.607Z] [INFO] AccountWatcher::RPC Endpoint: https://mainnet.helius-rpc.com/?api-key=0999048a-e70c-4269-8c2a-456ceee2c969
+[2025-04-10T08:00:09.607Z] [INFO] AccountWatcher::Monitoring Raydium transactions...
+[2025-04-10T08:00:09.616Z] [INFO] AccountWatcher::Server is running on port 3000
+[2025-04-10T08:00:10.680Z] [INFO] AccountWatcher::Transaction 3LEMFDZJSNCHEkdazbQkXNyLZN3GGwUZDQ5xrSycoEG2FuHqQm2DH9wZbXEUhni3JxCmHERHTG7gJ72oXMSxZnjc
+[2025-04-10T08:00:10.681Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:11.072Z] [INFO] AccountWatcher::Transaction 2884HhMJLWq1HGNxRZotZSooJ3Um14BzV3nYrSGi31KnK6f4cizgQZoxa4kraF6hFB6yJTNKW3E9vZ6UBg56hMsR
+[2025-04-10T08:00:11.072Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:11.480Z] [INFO] AccountWatcher::Transaction 3MEXNxdW1iwLXMXrZKQTh6XbPY9FskA5DaZ4Qmc39ZnuLRKBsX2HSy31iMzrP1fuiMjjVNWw98REA8rYNvCziWdq
+[2025-04-10T08:00:11.481Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:11.854Z] [INFO] AccountWatcher::Transaction 26DaxiHuEWBBfpsWEcmc28FkfvzkvLTXBYUsdixdiyJ4MQPv8sRU7kLco6J3XiJxNJ5EfSBgNf3tAkKxY1hGfs8D
+[2025-04-10T08:00:11.855Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:12.254Z] [INFO] AccountWatcher::Transaction 4NxBKQ8JNgPka4Bg1sUhVdXsWuQv1Kr8kcHvJSeQbwCwYfF7f11JwtzFUdy3DAFeU59cgV5VTUhMhHe1KwKfbryC
+[2025-04-10T08:00:12.254Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:12.633Z] [INFO] AccountWatcher::Transaction 4okjZ4zKGdU4Mnocyx7isvndb1HN6TmWw3mGiQzyaCnLLME2S3qqCs5ecHiG7vaMwHoYyJg4DWWg4AMceC8ZurQk
+[2025-04-10T08:00:12.633Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:13.036Z] [INFO] AccountWatcher::Transaction 4VaKUS817bUXqY2HjBKVmgDyY8Hv1Y2mDoVJeaB5V57onMGf3nymemSJxYc7BmGaXG3VdF7SuHKLkfYEygwnrW5R
+[2025-04-10T08:00:13.036Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:13.436Z] [INFO] AccountWatcher::Transaction 3zf2kaP1XCQEk4zCV81EtdN38R7f1QF4P7VyiQhVm2EAjgRXQ7aJmeDzwtHcZGhF8QkVxYpeRzjZiXAN9JZAtx3G
+[2025-04-10T08:00:13.438Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:13.823Z] [INFO] AccountWatcher::Transaction 48KrCb7S97qSbjsBykJj36NJNGzQSuJo68q3UL6AQ57315gZjbzSLMBQ3MTGvqm38X72yhgqYpe2b5qeQjFuiRUZ
+[2025-04-10T08:00:13.823Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:14.221Z] [INFO] AccountWatcher::Transaction 5MKmqyPUBnDzQLqekb9dXfnfphaACtWZEhdNiQa6WU3TtpedTDnfCC7Ab6kHjiyxwHSxLewX1kJrw7zsseyjSshn
+[2025-04-10T08:00:14.221Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:14.590Z] [INFO] AccountWatcher::Transaction 2awqETzbn3ziGSM8wrsMmqyKdpJ4SzDLn3cJJQa881Li4fh4jFihXXEFWizHC221NDXLdM1Jzsb5wncQzrjwWtE7
+[2025-04-10T08:00:14.590Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:14.960Z] [INFO] AccountWatcher::Transaction 4ovB1AfQzuEF1QKu4mGbUJcEK48q4B5oMsc2KUMALRnHohBf2gaAHrZALbjeigAgeLTSUbBXNGWymo78QV9wVZnJ
+[2025-04-10T08:00:17.871Z] [INFO] AccountWatcher::Transaction 5saebBst9PirNvpR7ui3eSMv2GkSyBb6s9CgYcuvGEtnTAatT7MTHyC8eadW5n3nK147H9WKenmLi9pbZoDWH1b6
+[2025-04-10T08:00:18.246Z] [INFO] AccountWatcher::Transaction sb71Gvoc5wKijwqpQroMJLuNVHfPu67GnN3nEhUL572fgDPtYjfpuv7HU811Py5Ai7FKwpJukcCVBLLBwBZ5hzW
+[2025-04-10T08:00:18.646Z] [INFO] AccountWatcher::Transaction 2XzxaPTbKwpAuoHoKYFUbYY4R2KvSqDaC7RNMWLjmPu8NH8PXRWgWT5Gs2y9qgwv31viFwEdhgAt55Gn4roZrfeh
+[2025-04-10T08:00:18.646Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:19.022Z] [INFO] AccountWatcher::Transaction 4myzKJ21UCEuNBnRJuWNGuMAfuNUAjnAgJ2ZakEh6s6BrTYfYm5CZS6vn1g1bdSVT9teNaDaGMXHHpsUyTKMLaR4
+[2025-04-10T08:00:19.022Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:19.405Z] [INFO] AccountWatcher::Transaction yHK79s2rmTH5W6JAofuz9orc2UoWJhShMpb299tKWjve58DwnWZfDtn7uRDguFBJhmzakN4orTj1xnZkP5EWt5c
+[2025-04-10T08:00:19.405Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:19.799Z] [INFO] AccountWatcher::Transaction 4HcMPC1GsExDuTzeedKDcirsgPVAc4hVCoKNGgSJgPwitKJKEZAutXqzwPdmnPYhxsrmcaS4zsDLGHggyBK1DQd1
+[2025-04-10T08:00:19.800Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:20.170Z] [INFO] AccountWatcher::Transaction ngkdpVk12rdqT9z5ZvXbaa1kCrPzqAjnQbM7o1SHtCXQukrzpKhyBWLADUsen6HdjGy5K5iQfPk4FR2X8Kp8V5a
+[2025-04-10T08:00:20.551Z] [INFO] AccountWatcher::Transaction EQatqZ4KtUj7rsbriCdSYGh9g9YKcu4VKVLbckFNgNSCq52LtoGPSRnJ56TNyiXEmy3dV16R1r4SRZiNBLKA9a5
+[2025-04-10T08:00:20.934Z] [INFO] AccountWatcher::Transaction zpnfhYue6jLgNbt84gBKkJwej4k7SzT7Qvj15zYmEqKtdBobVUaGAAC6K7zRHzaHdLxE8NFtNzmXbXLx2uHiZkg
+[2025-04-10T08:00:20.934Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:21.316Z] [INFO] AccountWatcher::Transaction 3thfkb9p7yG2NJwTr1uYWV3CWZ5o9tDRvXCphvkrguL8Px9XjMF5bj1oerVQdADmgeCxrBGwYaDqQRns2AdtuYvP
+[2025-04-10T08:00:21.316Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:21.810Z] [INFO] AccountWatcher::Transaction 2pVBa4ufuCv7RyG4HrC3Ym9aEZrJjPUg4QftW9DLcz3ZvnLCS5BKvVBR1BcSsmBD97b8gi2MnyS12JVccrGDMujz
+[2025-04-10T08:00:22.188Z] [INFO] AccountWatcher::Transaction VkBfYk4kksmNWUEvwwa5aMVR3ZtHujHm7qW1PDXqcWMRLv4rFbVFAf21GxYZY3sq8NGcorWtgtmfUbe61gqty6m
+[2025-04-10T08:00:22.188Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:22.564Z] [INFO] AccountWatcher::Transaction 3GDkEpVQSGHxKfSGA7yEQ7sRRHH5FYJVXKaJvmeqHByEyWyNjgg8ku2LN73gsiLbdHdUGkdu3p5JJRHyhozfwzvR
+[2025-04-10T08:00:22.565Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:22.979Z] [INFO] AccountWatcher::Transaction 59D3A34oDNNPthPzDS3RzQCThrxDXbbRhu6AR3oU7pvKwCEGNnNbJYDmeB7MG7cFqouDv6hKSg3YFLKcVrb2KdGq
+[2025-04-10T08:00:23.385Z] [INFO] AccountWatcher::Transaction 3HQPHktcAwk7D1wcvVTK6hHdLNXjebVxC4Dsf3q876KyfYvCm2xHo2Zy4JgzWLYixP5cyQuVxw2iKrFCPdc4WYTu
+[2025-04-10T08:00:23.805Z] [INFO] AccountWatcher::Transaction SLR7joBWw7DauB9iH3rTeoBuTCcSqTcXg6urbajDwiuCibD3hwnfa64vHVwMs1xfiWArNVJNC1QVupzQwrVsD1o
+[2025-04-10T08:00:23.805Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:24.196Z] [INFO] AccountWatcher::Transaction 2CmuhNEaVPQwmWeduvXjrMYPo1VDVXXGqeTdKVDTThR828sXWAp4KXL178wEkteJxjfoT8hSaqKLs8zHy1sYxyBU
+[2025-04-10T08:00:24.196Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:24.575Z] [INFO] AccountWatcher::Transaction pjosiEsq5p6XPpXgSoTnSzJSK95adtCHmozEPPSScVfPGEba8bAc8ZCZxeM5K5ZWbdRDZFFkT2ZEac4R7SvUwfg
+[2025-04-10T08:00:24.575Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:24.945Z] [INFO] AccountWatcher::Transaction 2ZgQs3f2Jf77TVnvsUyrJJWdGwW9vWoCxVjzJSkYDVzYoYQ8cqZwTB2keEaorBxsF4bxgxmaMcpTptG7WS3DLtmr
+[2025-04-10T08:00:24.945Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:25.327Z] [INFO] AccountWatcher::Transaction 5EuzeRZ3hWP4SfVetQ5Nt4b6EzMADvasV5RCUHbDtSomT57E7AxPCN95WhGXss2d1ukXPJN5FAUmGLzE3TYivij7
+[2025-04-10T08:00:25.327Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:25.720Z] [INFO] AccountWatcher::Transaction 5x4AAsDbvc2yGsL7dFhBwhPqvh2tVGeRr92xXex79bhYaM5vuhMEhd1PqvTvDh4NxibsD7dreBEr8xmwhULBa1oq
+[2025-04-10T08:00:26.086Z] [INFO] AccountWatcher::Transaction Pyu3K3MkUo7sRtwDUUy75gkptZKbzhpcQiCSnhxHT6o8q5xYHB45cWdQZuVjoHdK9vQ6tfiwKrVEfCEpgFrviT6
+[2025-04-10T08:00:26.461Z] [INFO] AccountWatcher::Transaction 4bwYSvyBU9uXd51BhiZTFEbH54TH1t5qMEC4hFSP24HkyqznapxeYMnPg3PQicLyEgWyWxRWKyq6ExNtiNzVLkz2
+[2025-04-10T08:00:26.461Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:26.867Z] [INFO] AccountWatcher::Transaction 4io8Ybzr7g7ZrH8VcoBgPrxc17QYk1GnQ1bKZfZqkaxtqEcVvcwTuZsywvAVDR1Yie2ADFhFphPcGxT5WXkwyVvS
+[2025-04-10T08:00:26.867Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:27.242Z] [INFO] AccountWatcher::Transaction cPhtokhyjrc9qLt8wQXiKWRuTrog2gy2N2vfQQjdH3xJTwowNcv5XuciH8ep5pMp7NXBgwsGMs7MyoDsVy29H33
+[2025-04-10T08:00:27.653Z] [INFO] AccountWatcher::Transaction 3EYMcg71K7QgsfZuUre7uGySDcHVEnBDMngWa8JXa8PoXdgEzGqcD2PSiZLDuQnJNYKtzykNSq7a1vqk3RC3FwnJ
+[2025-04-10T08:00:27.653Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:28.014Z] [INFO] AccountWatcher::Transaction 27mGP2zXFJtrYNmRjJ5RgXxn6JRZ8Grs3wL29A8cVnBjpJUYmsevFs8KhMKTGtCpr7wtwEbcLmb5mzRdnv5k1vtJ
+[2025-04-10T08:00:28.014Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:28.385Z] [INFO] AccountWatcher::Transaction 4cAbX7JSXSnnBXjLeZ9nFASP59VpDRrS6oyLjPhN8tavoYKQfUr8SZzTAb5QLeZX4Wn6FNMtRYaJsFcJgFBiBVHP
+[2025-04-10T08:00:28.762Z] [INFO] AccountWatcher::Transaction 5vHBAc9M6RHmDRLiGbQL9wvyogtU4uw32VTijXB22FWpsGURAWkKBkf9pHxphucxh6UAyeqzxBTguVVeAV7gH5nN
+[2025-04-10T08:00:29.138Z] [INFO] AccountWatcher::Transaction YD8McQovWfSnvkffeo6apF85oB7MYcp9vB3CiSEBXkLYKjeVB1sBJVxoxoS2zJa6xFXUGDMhdUWMGJkAj2WYDJr
+[2025-04-10T08:00:29.544Z] [INFO] AccountWatcher::Transaction 2r47xxTNvTsThCgwY3Et8siABKJVFEqVM4iK84ArPraBszrzRCCbZgiWTr6nJQqnchWe3MGL8dvpzSH4k4UKnmRX
+[2025-04-10T08:00:29.936Z] [INFO] AccountWatcher::Transaction 2fY3mhjZ4yxkhKC4p8CPGMin99GaB19dhaQukLaS7FigVvXXZXAYK9k27NMfAgqCXpo9fTMipHRi8T6XWh25EB24
+[2025-04-10T08:00:29.936Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:30.295Z] [INFO] AccountWatcher::Transaction 54wu7peXQpqzQVxFfRoUFaDzmzQ54wX2NNArb2FqcQ4ywMQkiVSWiBW2RApdmM4tsZKigNcfuPfYH7QW4zqmadUp
+[2025-04-10T08:00:30.296Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:30.679Z] [INFO] AccountWatcher::Transaction 5v7jCSFm3z95jdbxEX1Eus86vmsU81RSqmQeWUyA9X43XET3gKh7YEVEWSdT4mi152urvxUQcsZt3ux2xzt7ENmT
+[2025-04-10T08:00:31.057Z] [INFO] AccountWatcher::Transaction 5afWxzx3UwkMvqzPzwKQ3vfXQXTWVLpUwoJ5tZVsEVXi3bGhUNPRhMfhhtw719eScib7pmhWhUF3mYSHw6chjnLw
+[2025-04-10T08:00:31.473Z] [INFO] AccountWatcher::Transaction 52kKmRdMaME3yMcDfEWT5P1n9Xop2DFZJBNwgGvKEzPvNKUo4S3nnJRdV4QPZoNZttHYKc9wqqc2ePyDV1qjFFUd
+[2025-04-10T08:00:31.473Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:31.873Z] [INFO] AccountWatcher::Transaction 4ALs5e4YYmGxvLQLB1LCpyXBXYd2yJmK7QnbcsNiurnjDUDVxjFPBQcuo9XS6yZzsZVciFmpVyqiE2pA643hxnAN
+[2025-04-10T08:00:31.873Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:32.285Z] [INFO] AccountWatcher::Transaction 5ewEXg5csaGbAkMMPhcBxySwVAQ3nRozs6Tr6Wc8nxmimNj9KaxDfJoheyeNUh3ozSzbxLMcrzYg9gwAq6JasCHP
+[2025-04-10T08:00:32.653Z] [INFO] AccountWatcher::Transaction 5XSZWkH41grXpVHhZugvDT4F7TvZSuYSwBdpApYZLY9GrKsNoPCkkvFCtT4fUMZULWz3mG5MLK6AipucixEyMyKR
+[2025-04-10T08:00:33.023Z] [INFO] AccountWatcher::Transaction F4jDYCr3efu2niFuHenDtE4kpDv7pq2ARZXuUidKuBp9vkpomiwGDtw7w6PSWvqqMkhNxoBbtF47nwD4QMaTSxp
+[2025-04-10T08:00:33.388Z] [INFO] AccountWatcher::Transaction 5rsfHrsUwwL68RggQPPo1dMadMaeW5ZgkWea5PdfbK3uouDRVFEJmetaYLsNXfD2QnLiNMD3rJ1NpGviLCbgqXFs
+[2025-04-10T08:00:33.730Z] [INFO] AccountWatcher::Transaction 8mSLiFvmPaNyCytyqALHRbEspfqTUYrGEHjeCZGQTuEJzLhs7jTpwMHpafjBNN1EWMMnMs7vaaXtRMsevXoE2wy
+[2025-04-10T08:00:34.110Z] [INFO] AccountWatcher::Transaction jM3LiFAgiz6qTWcaQMbwMZBgtRa3NdhUumZL1vgDL7YqD77kSH3V9mQQMdyzmG3HxBKqQHmz8LwPeeKunhK3yVb
+[2025-04-10T08:00:34.454Z] [INFO] AccountWatcher::Transaction 3XR16zsT8RSGy82EvTkKtv3wCExXk7vPUAgFkWVwe8WznKRswAajPmZDmZ48tkQRFU9kQBi1shtqBk25YHAyfRAC
+[2025-04-10T08:00:34.799Z] [INFO] AccountWatcher::Transaction 5DYBpLqCdgWaWzHbCgiWRBSvMP89gY7sx6SmyiBtrnbh6RH4FFABFRtRXw5D5DKj8U4GEMKrLa4Btb1En6a7iCs3
+[2025-04-10T08:00:35.174Z] [INFO] AccountWatcher::Transaction 5MicLNSvGiDoxbgtAt7QZ1ESS7ii5xS8fPuomV85VM3iiT3qL98tsa8zzxQmNxWkXMrLxHfRrNGEQmrEEgHkCJcK
+[2025-04-10T08:00:35.531Z] [INFO] AccountWatcher::Transaction 5V1igPsgpjXrBp19KWJJiv59ufLi5Cd8UK4LmDt4toYg4LyT564N61AWcBdZrYjtDavf2R4zuyw6YhAYJDdgKUcK
+[2025-04-10T08:00:35.531Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:35.882Z] [INFO] AccountWatcher::Transaction 4yMgffBiXafnnVZV8odC5D11eqF4t5F9UzaGuvEWbbCLHuSDZGg6BjTrRkoxEXbmstkNcALs4AYiw1ddnkDGawMH
+[2025-04-10T08:00:35.883Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:36.255Z] [INFO] AccountWatcher::Transaction 27qgtQq32fkTfgNpd9ATpXhhuKAXsjaKKLnGMkCpZzvdfRU1z2QRHKddmKGe6yqcuqFifyMNJFRtW3MaSeZng8e6
+[2025-04-10T08:00:36.659Z] [INFO] AccountWatcher::Transaction 5VJhodMVf5L5wbbq3azX5kFdr4642qGKo9yvgf27zZfRXncJkmSKfmNRiimtJC2y2xZPLHSUrn22PgnsqrZ7Tq88
+[2025-04-10T08:00:37.021Z] [INFO] AccountWatcher::Transaction 3kSfjyZc6VnoCMtF38wWH1KRqRH5tCcyaES1BYudcJ1vjHdsKkWqWGPaPCKnQa3FLAog1BK28Q8qMenFGzqVzEN7
+[2025-04-10T08:00:37.021Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:37.373Z] [INFO] AccountWatcher::Transaction 2rJ7uMVDDcuZPcdG4hiXvWJR6EYYmftoQ3pMnjcGotAU2BDM1uHzi6A7H3md9SEfK4hzJVeGB9CEfUJ8KycTV7QW
+[2025-04-10T08:00:37.373Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:37.731Z] [INFO] AccountWatcher::Transaction 272gq4wemgYjTx9TUuzHL7ptw9efa13Y3jTQe4fd5XGQPxdt9hvh7yCQMDVrmijj7BZhJfPvqdUaYnQACjY4sD5D
+[2025-04-10T08:00:37.732Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:38.089Z] [INFO] AccountWatcher::Transaction 4Rzr6ZEwrwrKz4RG93Fn4RAFcKzAcbb82CoryEiLQTVT7cZbaYS2v3RCmsfTRua1pgY6dzU3FFQuhwrZT5vVHnwR
+[2025-04-10T08:00:38.089Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:38.456Z] [INFO] AccountWatcher::Transaction 2qYgVQCsPfUX643eFMbQWjX7PVHnYC2BwDh1XL746BF6PRUknXhVv6E1QuXAvmYqmhDVzBXDuEZxKasgMEDbhBa2
+[2025-04-10T08:00:38.456Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:38.809Z] [INFO] AccountWatcher::Transaction ykEhmCbyjpScAMP3rEdYDs73RQsSmGGBC6Zqbxxr2h2kJ9XrzAynWjvHFHgZNwRJrwFhMDRmDQ1wrh2pRxxyDhv
+[2025-04-10T08:00:38.810Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:39.189Z] [INFO] AccountWatcher::Transaction 3RkKRQVVzs8fDn14TVNXsfKvEfvcL9nWd8V8TMX9rt2kV2i3papGVdKD619zgMY42DjbxzfLnTwiiY9vQspgW5K8
+[2025-04-10T08:00:39.189Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:39.528Z] [INFO] AccountWatcher::Transaction 2Lcpbc7UAH2aBSQ1QA5VHgk1r3KbAuT9xBwJ2iHrVjMwMyKihSEoMA1a3P4HA8L27DtEUQFoJcW48Gmrn4zVLWwS
+[2025-04-10T08:00:39.528Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:39.877Z] [INFO] AccountWatcher::Transaction 2PJQzLeTT5FeoAHazHXyrv36WoUeophUEW6KEpyb8nBy8hCjUGL1pDr269ep7Axh95kdUpm5oaDmfbKcLSWXBwKH
+[2025-04-10T08:00:39.877Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:40.226Z] [INFO] AccountWatcher::Transaction 2PvW5RDQJFFxwioTnmXiyVGpXDrNQnGoYhcWKFVCZKx9dk5aUN999Cv5JP1rLRWqXQUGHVJ6JXrGrVdpCUAzMzsd
+[2025-04-10T08:00:40.226Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:40.577Z] [INFO] AccountWatcher::Transaction jk2WBRioChCwMzn5gbfd1gH3Mprp6Nomxy3wYowxsuqCDWEjEVJzD6Ypz2yfLtB2ZCuvThjVM8wuhKgo5Riv6RC
+[2025-04-10T08:00:40.578Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:40.930Z] [INFO] AccountWatcher::Transaction FMHj2mMrXH3HKZLb323su674JjLzZ3ArRdEQdrK2YUPj3Shw22KfBhduUWP71EGif8BvpuX73oKhR5rJnpBhHtu
+[2025-04-10T08:00:40.930Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:41.307Z] [INFO] AccountWatcher::Transaction 3Jv5r6osxyGqGi6ZevWSYTTWa9smH9TAp2xRn1p18m876ZAULeeXjZgXnnhi9VtP9gRaBY3u5Me1WJiYcnU9cnU2
+[2025-04-10T08:00:41.307Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:41.702Z] [INFO] AccountWatcher::Transaction 2jFn9j66Ye6FUJ8jzPY6GaRLEzA6waNzmrfCcJezYFf1Y5aQHq1oi6Yqerob7rUFeMxefBRvDyBgchrQbkZzvzVS
+[2025-04-10T08:00:41.702Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:42.059Z] [INFO] AccountWatcher::Transaction 3V8aFQjbRN2FLQk5zLTd1BSSz86EbLvZumwD8xjcDnaSwSNYnB8NaZRoN1kkXN2E95i36cNQacHKMXH4TWtbrtXa
+[2025-04-10T08:00:42.059Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:42.409Z] [INFO] AccountWatcher::Transaction 3RWBwMxC747hcKsn6xa2XGrJYDHX3RiZiBDa7uEsUjreCoF8fRxvQq3sHwCsEuHVNfEc2KRAzr7Uc1ruQ3sqqye1
+[2025-04-10T08:00:42.409Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:42.788Z] [INFO] AccountWatcher::Transaction 3LoHvRvCyQsbNLf9bF6zLvkag3cyjLT48agJ1u7Ua6kqR7uu7WVV3C67vMvx3nehMQTq8wACVERiuyM25BtEqxxa
+[2025-04-10T08:00:42.788Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:43.163Z] [INFO] AccountWatcher::Transaction 5c9z8UkN2PvDixU351a8oqZaGzTjx2dVE2BxvorGCosTyw3RLxM6JVnRQqkfgcKoYjKbvUSof9fWfZyGUMDuPsKx
+[2025-04-10T08:00:43.163Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:43.541Z] [INFO] AccountWatcher::Transaction 4ho6VBVzAUpDLAGxGSCsWmSDNaR54F2naaBx5wqeUVzFCK2QhvRiS98hszvgk2ZwE2LsWZu4oSwn4jbvUzpgYCh4
+[2025-04-10T08:00:43.541Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:00:43.921Z] [INFO] AccountWatcher::Transaction 4Hvn9o6o3LFvDtsvbhCs8JCywHcjJtYdC8kdviHsfPx6vx49EEG7uWHBQ1Y1PKCoBhoTuJ8C9avApGJHhkNEjReE
+[2025-04-10T08:00:44.294Z] [INFO] AccountWatcher::Transaction eakqubQ1baJKXHoJudwpEzaPbbQdQBpa7FxGQ1BDeT692XePjG73EAhceMVALBKRUuEqSGvY2G5nn8DFycCDpga
+[2025-04-10T08:00:44.696Z] [INFO] AccountWatcher::Transaction 5ecDKRLT3sDUbFZbacHx9ANqibmcEmmR2F5YmQRioLT7pUS2YKK7xGTT9WmsM9JjNzShYUAu27j7et51SFn7gQmz
+[2025-04-10T08:00:45.247Z] [INFO] AccountWatcher::Transaction 4k9QF47AudBrwjB5NVPhGz3vGf8qUgQzvZwDBRDe9HgtS4caP4vX765UVAyk65fr3vEH4bmVHPP9mkXDMqeDirDc
+[2025-04-10T08:00:45.674Z] [INFO] AccountWatcher::Transaction 4HxC4859u3DjGx3Bjm2YPwkg1rE7gTS9E9y6AephyCkeSy7mUVXWNtTasXKqVH2AgRqwkRiz5sccga71hhc3i1Gy
+[2025-04-10T08:00:46.115Z] [INFO] AccountWatcher::Transaction 2ZdkWuDardEAbhs3Ewcuc9wQcnK6y9tX15YSJ6pPBHf7irUfLaZjQk8ot4A9HJ2ywnFYipwV2rPn1GaecxWTLbp
+[2025-04-10T08:00:46.492Z] [INFO] AccountWatcher::Transaction 22WDzeZc1J7pdWqCnxhTvrePb1jrVvJWR6CDRbJRtKtyYWd8Vqfh4TQL956bchn9fESo8y3ARvCegGgZbPoKtMyi
+[2025-04-10T08:00:46.895Z] [INFO] AccountWatcher::Transaction 4D6VJqUKs3EztXQwT65jh24dq3JJAZsEto3fdgYmYvbT2KJZv8ntdXeLR65FfrqUTkFszZRWXkhVD9QamMmeVrNv
+[2025-04-10T08:00:47.324Z] [INFO] AccountWatcher::Transaction 5xUYwDQKkzjRuLyTQJ6VxHUCKPwXWWHMwmAJhLvCrY2u9XmZ2Qr721DmrEKcociqjAFGMw2L9rfdNkstsLTCjuVT
+[2025-04-10T08:00:47.726Z] [INFO] AccountWatcher::Transaction 3F3S6Wg9tsF47ioGQtuMS16VD6K5zvBk31AAkUYNEKfHLaUGgzkCjbQiCsxBkPpaXjqY53gcrrhFH6VTDxZFHvQy
+[2025-04-10T08:00:48.105Z] [INFO] AccountWatcher::Transaction 64rPEwVXbPmAwzFYpnmSVBvV8VugL6LdkQFYF3MXFcXYjdRwrvxtxmLtVYpMuAesxPUE1KQJgVm9TqEehqAiv5TZ
+[2025-04-10T08:00:48.494Z] [INFO] AccountWatcher::Transaction 2oBKJJfE53u6ELz9mpKqRAb4MzwrVD5Rye8eSqNCTeYqwnZrMY3FPbUmaaSnRh1yTkBZJgTVQ1dr8NSH7ybMSYnM
+[2025-04-10T08:00:48.872Z] [INFO] AccountWatcher::Transaction 4AjMTjjj9DyePRdLt2fnwYBxwBrHyc6MERWsWYTnvrH11Zc9gitjmEr1nrC7xYz7CWG9T4kC5Gj8LPbWT2zcB3K7
+[2025-04-10T08:00:49.251Z] [INFO] AccountWatcher::Transaction 2yRwKJ5pv1eQJuDpCwcgWhjQ3XGrPuzw2jnyMRxtP9u7AdCrp39pWBzJK1Zcfzq3GkWTTawAcfJfhDW98ZJgm4hP
+[2025-04-10T08:00:49.640Z] [INFO] AccountWatcher::Transaction 5nMHWe5Tt5ZLKirpYgi4o1BFZprxoQYmyembeNd6fLk7Jq1d3iVbtmfTws8KvMqMGZkfhZx9nbgUR7TJ947CDCGA
+[2025-04-10T08:00:50.058Z] [INFO] AccountWatcher::Transaction 3rgBCdYANb3BunwzZ8wtqDgHChMRN7EmWMuuSB6yQnd4vVbgr2z3vsdaKmgyL1LtP2n2fqCq7mRGGqyibaBQYbeN
+[2025-04-10T08:00:50.422Z] [INFO] AccountWatcher::Transaction 3DKcFdYTzEohAmBzK8rzQ2oKaEKpWiu5iSgxG8dHEySGKgDYFhjnhespnWzCzdJY7TvzkT77z5i8PW6Vf8jhpNQB
+[2025-04-10T08:00:50.822Z] [INFO] AccountWatcher::Transaction 2g9vvM1R6joKgN5fBV5JFt2t3KcRyHBb7ZrskRfZ5VsRug7ZXwJyQ3vTTcwaRjfiK3gp9nYv8o89T4koQXgrrnW6
+[2025-04-10T08:00:51.191Z] [INFO] AccountWatcher::Transaction 2XNg9KBhkBsvt7BfCEZTeM9Xn2YvNrQFwM4SUt7ovqo4gFXM5J9hRBiZ9pahKbAsnPnmRj9fmPxVX15J7DWwFWZ7
+[2025-04-10T08:00:51.391Z] [INFO] AccountWatcher::First run finished !
+[2025-04-10T08:01:02.068Z] [INFO] AccountWatcher::Transaction 2XY3NvwECVrxAuCJaob8U3jW8QqR1rSdyAjuXFTryhtZs5uhjYBwYte7LZtrcqaCqNm8iiLJL7wJ2ewy1FZgWkoX
+[2025-04-10T08:01:23.396Z] [INFO] AccountWatcher::Transaction 5AqBSi29ws9Qn4gATR1Zh69jrNo9KsFYeBcqt6kyucjro6raDgfZUB4MrtqqiqsCTRZfK6NqtTrxjUm5yTdR1ipb
+[2025-04-10T08:02:37.206Z] [INFO] AccountWatcher::Transaction 4etQvuD1YQ2qYmTdBi9cJorxnNCBtfaGqjHyuyk8Sb7xLgtgvKpXE3U7KNqAMb6QgnSNet4ruJpVxrRevV7gWvQa
+[2025-04-10T08:05:14.694Z] [INFO] AccountWatcher::Transaction 4TAL6PpsVFeUGRLg3XwVm9gdU5D33o2zGaMgS8Gw7g4pyP2EC4wqVnM6nbU7CkL8hs7FsjttAYWjyuQdsP4XiU7v
+[2025-04-10T08:06:17.513Z] [INFO] AccountWatcher::Transaction 3nxDohmGhbLpFps7ZzNp4HEHc8TdUQnadiMNhBsuVwuAnpKvPbNBbFbXC48KD8zEYMzQodSKUzynDe71RDzRR8cy
+[2025-04-10T08:06:17.513Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:17:40.785Z] [INFO] AccountWatcher::Transaction 5Bz5QgASxbqi4MAtk6u6kWqKiAtWrRRM3ppqcfFCDpkrHHPPCrq8ay9uwwV8khh2KKeuDrPgSRwWigqXkgsB5TtE
+[2025-04-10T08:17:40.785Z] [INFO] AccountWatcher::Token DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump is NOT in database. Buying...
+[2025-04-10T08:17:40.785Z] [INFO] AccountWatcher::New pump fun token detected: 5Bz5QgASxbqi4MAtk6u6kWqKiAtWrRRM3ppqcfFCDpkrHHPPCrq8ay9uwwV8khh2KKeuDrPgSRwWigqXkgsB5TtE
+[2025-04-10T08:17:40.917Z] [INFO] AccountWatcher::Telegram notification sent successfully.
+[2025-04-10T08:17:40.917Z] [INFO] AccountWatcher::Finding Token Creator before signature :  5Bz5QgASxbqi4MAtk6u6kWqKiAtWrRRM3ppqcfFCDpkrHHPPCrq8ay9uwwV8khh2KKeuDrPgSRwWigqXkgsB5TtE
+[2025-04-10T08:17:40.918Z] [INFO] AccountWatcher::Monitoring Start Token transactions...
+[2025-04-10T08:17:40.919Z] [INFO] AccountWatcher::Loaded 659 addresses to ignore.
+[2025-04-10T08:17:41.878Z] [INFO] AccountWatcher::signature:  5Ve8uyhMBCx2XYa7Vh1C7WvsrW8YQZT6SwKRe5BAsmHbGrNhhnqo8Nx3ssGZgceuFZaTX2NtfFsKD7mz2khcpcLA
+[2025-04-10T08:17:41.878Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5Ve8uyhMBCx2XYa7Vh1C7WvsrW8YQZT6SwKRe5BAsmHbGrNhhnqo8Nx3ssGZgceuFZaTX2NtfFsKD7mz2khcpcLA
+[2025-04-10T08:17:41.879Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 680439024390243,
+  "solAmount": 52000000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:41.879Z] [INFO] AccountWatcher::Buy Amount:  52
+[2025-04-10T08:17:41.879Z] [INFO] AccountWatcher::Signature Found:  5Ve8uyhMBCx2XYa7Vh1C7WvsrW8YQZT6SwKRe5BAsmHbGrNhhnqo8Nx3ssGZgceuFZaTX2NtfFsKD7mz2khcpcLA
+[2025-04-10T08:17:41.879Z] [INFO] AccountWatcher::Address found :  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:17:42.234Z] [INFO] AccountWatcher::signature:  5WDKiHjjXL1PrkojY3aL7wW6Y34p7xnEWBE3cn2kuoxYqMpnAMNtZTkLiBwji4dy8QoELVhZzv4k59bkvTr78qUR
+[2025-04-10T08:17:42.234Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5WDKiHjjXL1PrkojY3aL7wW6Y34p7xnEWBE3cn2kuoxYqMpnAMNtZTkLiBwji4dy8QoELVhZzv4k59bkvTr78qUR
+[2025-04-10T08:17:42.234Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 363022251943,
+  "solAmount": 75900000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:42.234Z] [INFO] AccountWatcher::Buy Amount:  0.0759
+[2025-04-10T08:17:42.596Z] [INFO] AccountWatcher::signature:  3DPVcEHZTcL821R2hcGa9qqAJ7uyzQ6Zi4XLD1BWcFteEArMxWSfchDssHgsCg1uxJTWmm8xpq6cUJZ5JxpAkqBR
+[2025-04-10T08:17:42.596Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  3DPVcEHZTcL821R2hcGa9qqAJ7uyzQ6Zi4XLD1BWcFteEArMxWSfchDssHgsCg1uxJTWmm8xpq6cUJZ5JxpAkqBR
+[2025-04-10T08:17:42.959Z] [INFO] AccountWatcher::signature:  5TXGo3iPUYKBAHbJ3ZNh6QkoGFAFCVCimVzwC4hd9fCGYXn7GaG1YbYyqgFanZq3vu4veWV4hKrDrYXTcCMymKLQ
+[2025-04-10T08:17:42.959Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5TXGo3iPUYKBAHbJ3ZNh6QkoGFAFCVCimVzwC4hd9fCGYXn7GaG1YbYyqgFanZq3vu4veWV4hKrDrYXTcCMymKLQ
+[2025-04-10T08:17:43.321Z] [INFO] AccountWatcher::signature:  4dGHMshemNuk1a3VAbcPRnnMFiCPFVMZiJ8qp667xsCjFNuCTXNAriaAQhTofsqDBQdixyARDWv3LsM26dueLtsz
+[2025-04-10T08:17:43.322Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  4dGHMshemNuk1a3VAbcPRnnMFiCPFVMZiJ8qp667xsCjFNuCTXNAriaAQhTofsqDBQdixyARDWv3LsM26dueLtsz
+[2025-04-10T08:17:43.675Z] [INFO] AccountWatcher::signature:  2mmWQSErXF4iedXP65t9dYHFLjYU5w4nAx6e2RveHDn4cFsHBUn7ZSauV8jHayrraAMwxAJzaGYZeBE2pEFmi7Lu
+[2025-04-10T08:17:43.675Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  2mmWQSErXF4iedXP65t9dYHFLjYU5w4nAx6e2RveHDn4cFsHBUn7ZSauV8jHayrraAMwxAJzaGYZeBE2pEFmi7Lu
+[2025-04-10T08:17:44.042Z] [INFO] AccountWatcher::signature:  owTpooF6iH8XMjmpcZCVSizQo48ExWn87b2dhs6QqSfq6h6EkPtgxs6ohx6t6kdY4ZGo8aBLRkYzVe37QSbsSYk
+[2025-04-10T08:17:44.042Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  owTpooF6iH8XMjmpcZCVSizQo48ExWn87b2dhs6QqSfq6h6EkPtgxs6ohx6t6kdY4ZGo8aBLRkYzVe37QSbsSYk
+[2025-04-10T08:17:44.413Z] [INFO] AccountWatcher::signature:  3mNbeSeE4qRvyTr1SH9iTqAUdTXFJKw2ARY88C2GuqbQ75Wh65ktpqLNYm2hw3MWs7ZA5b1QPXD2qABWNzQWy73E
+[2025-04-10T08:17:44.413Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  3mNbeSeE4qRvyTr1SH9iTqAUdTXFJKw2ARY88C2GuqbQ75Wh65ktpqLNYm2hw3MWs7ZA5b1QPXD2qABWNzQWy73E
+[2025-04-10T08:17:44.764Z] [INFO] AccountWatcher::signature:  5iM3LMPq86rnYvwxaGhhoNQ1zSiUbfFjSMCZQCmYcwL1MHQ84ZZTj55em7zm8KQuNXXAM1Rce3eqC1zUN39jNTZv
+[2025-04-10T08:17:44.765Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5iM3LMPq86rnYvwxaGhhoNQ1zSiUbfFjSMCZQCmYcwL1MHQ84ZZTj55em7zm8KQuNXXAM1Rce3eqC1zUN39jNTZv
+[2025-04-10T08:17:45.116Z] [INFO] AccountWatcher::signature:  25k4NPrv8BtJUEnVKAE4heBn2qzKZqgg2wJmLFKxmr6G6RBvPeEUYkibwweGAPV7gRoKtkuWUwN1GW5WKDfUtLXe
+[2025-04-10T08:17:45.116Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  25k4NPrv8BtJUEnVKAE4heBn2qzKZqgg2wJmLFKxmr6G6RBvPeEUYkibwweGAPV7gRoKtkuWUwN1GW5WKDfUtLXe
+[2025-04-10T08:17:45.473Z] [INFO] AccountWatcher::signature:  Rd9GmfXzt1cjgUoBQS4rjf98fvQ4TKmgG1zZVHvQQNsajAno4uzZtCFQM3e72pTf2RG4KPHcWKRtyK8LqAWwaTU
+[2025-04-10T08:17:45.473Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  Rd9GmfXzt1cjgUoBQS4rjf98fvQ4TKmgG1zZVHvQQNsajAno4uzZtCFQM3e72pTf2RG4KPHcWKRtyK8LqAWwaTU
+[2025-04-10T08:17:45.846Z] [INFO] AccountWatcher::signature:  57EsZ8H2ayBAZQS6gCsg9NwiGkGftprA4jF6H1qHxRb3xn4JsZNZiaLxdLHX3UWZ6o1ZC6jNmqj4p74H1U4ZVXyR
+[2025-04-10T08:17:45.846Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  57EsZ8H2ayBAZQS6gCsg9NwiGkGftprA4jF6H1qHxRb3xn4JsZNZiaLxdLHX3UWZ6o1ZC6jNmqj4p74H1U4ZVXyR
+[2025-04-10T08:17:46.237Z] [INFO] AccountWatcher::signature:  2vHAPSyBs4hAKzGE9Cs68UKBwcXNPFNsvDVjFj51XnNA3Ko2QqytkK4xFRqJ2GuJafan2rpW38iGPswTtQ2uFiJN
+[2025-04-10T08:17:46.237Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2vHAPSyBs4hAKzGE9Cs68UKBwcXNPFNsvDVjFj51XnNA3Ko2QqytkK4xFRqJ2GuJafan2rpW38iGPswTtQ2uFiJN
+[2025-04-10T08:17:46.238Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 934123197436,
+  "solAmount": 195952185,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:46.238Z] [INFO] AccountWatcher::Buy Amount:  0.195952185
+[2025-04-10T08:17:46.614Z] [INFO] AccountWatcher::signature:  2gbPZkU1UZsEetT7JYAEMAEkpYRJZCCRbdsw24swx1ww4yaxo2gfogrGayfTbHvyP8jvXYMx34DPrzj1SRmv4Ktd
+[2025-04-10T08:17:46.614Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2gbPZkU1UZsEetT7JYAEMAEkpYRJZCCRbdsw24swx1ww4yaxo2gfogrGayfTbHvyP8jvXYMx34DPrzj1SRmv4Ktd
+[2025-04-10T08:17:46.614Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 239366448542,
+  "solAmount": 50362888,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:46.614Z] [INFO] AccountWatcher::Buy Amount:  0.050362888
+[2025-04-10T08:17:46.970Z] [INFO] AccountWatcher::signature:  2Q7BV335XV7hYyFdCndjC89wRWwToSw2Au4F8yhLBhscJnEzHEXaoBwgWXYfaXKkDKtAbbrooLj2pf26HPKxN932
+[2025-04-10T08:17:46.971Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  2Q7BV335XV7hYyFdCndjC89wRWwToSw2Au4F8yhLBhscJnEzHEXaoBwgWXYfaXKkDKtAbbrooLj2pf26HPKxN932
+[2025-04-10T08:17:47.352Z] [INFO] AccountWatcher::signature:  23qw7xUsS1hSFJJeEYxZSYy6w94bL4UGoHgTG42sGNyBA6oF9qN28i4g73TwWxqpd8m57uArB3p2ahoA5NUE6R5A
+[2025-04-10T08:17:47.352Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  23qw7xUsS1hSFJJeEYxZSYy6w94bL4UGoHgTG42sGNyBA6oF9qN28i4g73TwWxqpd8m57uArB3p2ahoA5NUE6R5A
+[2025-04-10T08:17:47.722Z] [INFO] AccountWatcher::signature:  5BBGBUYxM1yv8zwMfGQqrUN9WhmPLCjrwUShC57oTP59k5VfWJeywSkTjC2RvG4Jw95oU8ZBFr1UzszMamjEBRGW
+[2025-04-10T08:17:47.722Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5BBGBUYxM1yv8zwMfGQqrUN9WhmPLCjrwUShC57oTP59k5VfWJeywSkTjC2RvG4Jw95oU8ZBFr1UzszMamjEBRGW
+[2025-04-10T08:17:48.094Z] [INFO] AccountWatcher::signature:  3oUX9U6T1Mz6NdD9Nbc4nZPaXUkcpJBXyUr8gNKnrKBi5xB98r6V53bbKtUoikUgYyTokmg1E1LFXudDncAhoz7Q
+[2025-04-10T08:17:48.094Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  3oUX9U6T1Mz6NdD9Nbc4nZPaXUkcpJBXyUr8gNKnrKBi5xB98r6V53bbKtUoikUgYyTokmg1E1LFXudDncAhoz7Q
+[2025-04-10T08:17:48.457Z] [INFO] AccountWatcher::signature:  hkS2HYKGmMgqabfUMNr4kuGwa8cPhA8h1Jcs4ns3qsttx74mrgHuJbab5hjRSqjhKf9xgaEFfnEg5qUf6fL3V3f
+[2025-04-10T08:17:48.458Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  hkS2HYKGmMgqabfUMNr4kuGwa8cPhA8h1Jcs4ns3qsttx74mrgHuJbab5hjRSqjhKf9xgaEFfnEg5qUf6fL3V3f
+[2025-04-10T08:17:48.458Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 474416349239,
+  "solAmount": 100000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:48.458Z] [INFO] AccountWatcher::Buy Amount:  0.1
+[2025-04-10T08:17:48.832Z] [INFO] AccountWatcher::signature:  RU217DJyyS16EU48gtLS7cFzoxsvQxWXxMk1JyUwJZ2uqhSH2Fj5EzY5rSXjjHxYzLAbnnqrk1h6PihviEY1GvR
+[2025-04-10T08:17:48.832Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  RU217DJyyS16EU48gtLS7cFzoxsvQxWXxMk1JyUwJZ2uqhSH2Fj5EzY5rSXjjHxYzLAbnnqrk1h6PihviEY1GvR
+[2025-04-10T08:17:48.832Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 14334912627,
+  "solAmount": 3025371,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:48.832Z] [INFO] AccountWatcher::Buy Amount:  0.003025371
+[2025-04-10T08:17:49.192Z] [INFO] AccountWatcher::signature:  2tnG2sXY2MtCNFQGjWWeDxjuHi2eRy41ZEBnKNsE2sXdi7bjunRphbX1GPZdvw6YMRGs1e9TVaR4vcbf788VRTyF
+[2025-04-10T08:17:49.193Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2tnG2sXY2MtCNFQGjWWeDxjuHi2eRy41ZEBnKNsE2sXdi7bjunRphbX1GPZdvw6YMRGs1e9TVaR4vcbf788VRTyF
+[2025-04-10T08:17:49.193Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 239366448542,
+  "solAmount": 50488984,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:49.193Z] [INFO] AccountWatcher::Sell Amount:  0.050488984
+[2025-04-10T08:17:49.585Z] [INFO] AccountWatcher::signature:  4MU8UMxDog5M9KvxJ3pigP7BmAYy4j9Kqp5oAjTgjQGTcsz7zTt35exhgcKAMzV7Wqk5AwX86PtSpFXwxhRGCMPD
+[2025-04-10T08:17:49.585Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4MU8UMxDog5M9KvxJ3pigP7BmAYy4j9Kqp5oAjTgjQGTcsz7zTt35exhgcKAMzV7Wqk5AwX86PtSpFXwxhRGCMPD
+[2025-04-10T08:17:49.585Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 934123197436,
+  "solAmount": 196442069,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:49.585Z] [INFO] AccountWatcher::Sell Amount:  0.196442069
+[2025-04-10T08:17:49.955Z] [INFO] AccountWatcher::signature:  5wnj91oZuYy6897HUvzydpMsTG72v7NkDMpWbVdZ4EWSLT9vjP3AUnMcnyUdjnJr2Wg4K1qP2DoH2vyh55HZ6tAF
+[2025-04-10T08:17:49.955Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5wnj91oZuYy6897HUvzydpMsTG72v7NkDMpWbVdZ4EWSLT9vjP3AUnMcnyUdjnJr2Wg4K1qP2DoH2vyh55HZ6tAF
+[2025-04-10T08:17:49.957Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 4718853931,
+  "solAmount": 990000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:49.957Z] [INFO] AccountWatcher::Buy Amount:  0.00099
+[2025-04-10T08:17:50.322Z] [INFO] AccountWatcher::signature:  3zPc8J4pM9FwrzdMztSPfY7ogYMGYwyqTf4UjN8VhpxjszfhCmq7enU9xCvSo41Tcq9AhMeMCtT5V6AgDH1S8tAf
+[2025-04-10T08:17:50.322Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3zPc8J4pM9FwrzdMztSPfY7ogYMGYwyqTf4UjN8VhpxjszfhCmq7enU9xCvSo41Tcq9AhMeMCtT5V6AgDH1S8tAf
+[2025-04-10T08:17:50.322Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 2345271996654,
+  "solAmount": 495000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:50.322Z] [INFO] AccountWatcher::Buy Amount:  0.495
+[2025-04-10T08:17:50.711Z] [INFO] AccountWatcher::signature:  364mSehFTQYPc61fD2udiK6BGFajT4w1XenE4AQraffBASp8n3zqpVkytbb7CAFuYcf7wzBQS18SV52rYm7WanVc
+[2025-04-10T08:17:50.711Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  364mSehFTQYPc61fD2udiK6BGFajT4w1XenE4AQraffBASp8n3zqpVkytbb7CAFuYcf7wzBQS18SV52rYm7WanVc
+[2025-04-10T08:17:50.711Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 14334912627,
+  "solAmount": 3043680,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:50.711Z] [INFO] AccountWatcher::Sell Amount:  0.00304368
+[2025-04-10T08:17:51.087Z] [INFO] AccountWatcher::signature:  3UqzommBUa4WZJbAfjWumCktN7d3wFruHJef2e4d7Lumczgr3WNdZDEoHHyv4DVHGLh2nGjZQziTYVrJFrbFqTLr
+[2025-04-10T08:17:51.088Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3UqzommBUa4WZJbAfjWumCktN7d3wFruHJef2e4d7Lumczgr3WNdZDEoHHyv4DVHGLh2nGjZQziTYVrJFrbFqTLr
+[2025-04-10T08:17:51.089Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 235352777717,
+  "solAmount": 50000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:51.089Z] [INFO] AccountWatcher::Buy Amount:  0.05
+[2025-04-10T08:17:51.465Z] [INFO] AccountWatcher::signature:  DPJxeZ57Y9Xk6HkbimNbhZ6a6pZh2jxKaUCWzHks7fPxLLMx1XaaJt9dwtHT2bK2gPeoUTvCvm8rmRX7sF1486w
+[2025-04-10T08:17:51.465Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  DPJxeZ57Y9Xk6HkbimNbhZ6a6pZh2jxKaUCWzHks7fPxLLMx1XaaJt9dwtHT2bK2gPeoUTvCvm8rmRX7sF1486w
+[2025-04-10T08:17:51.466Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 235352777717,
+  "solAmount": 50060518,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:51.466Z] [INFO] AccountWatcher::Buy Amount:  0.050060518
+[2025-04-10T08:17:51.828Z] [INFO] AccountWatcher::signature:  b7dPXQrwGhC2YeFvT5cdVvgxNS1bb3Y2EpPisiJeVtU34PYqR5yhT9FPY1iGJiFLELt9PLpfR251wTm9B5BP1Xr
+[2025-04-10T08:17:51.828Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  b7dPXQrwGhC2YeFvT5cdVvgxNS1bb3Y2EpPisiJeVtU34PYqR5yhT9FPY1iGJiFLELt9PLpfR251wTm9B5BP1Xr
+[2025-04-10T08:17:51.828Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 1,
+  "solAmount": 1,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:51.828Z] [INFO] AccountWatcher::Buy Amount:  1e-9
+[2025-04-10T08:17:52.229Z] [INFO] AccountWatcher::signature:  aL3pGhGG2D9WMRGpQvHvt5w9sVMeK8MsUQmkT4CmoCrX99HrLDZjG6GwxRtjSVFBS2R5PYvKZfg7HnzXFDNUauF
+[2025-04-10T08:17:52.229Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  aL3pGhGG2D9WMRGpQvHvt5w9sVMeK8MsUQmkT4CmoCrX99HrLDZjG6GwxRtjSVFBS2R5PYvKZfg7HnzXFDNUauF
+[2025-04-10T08:17:52.230Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 839492708048,
+  "solAmount": 179058179,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:52.230Z] [INFO] AccountWatcher::Buy Amount:  0.179058179
+[2025-04-10T08:17:52.590Z] [INFO] AccountWatcher::signature:  3fdYQp3jDLtxaH1Vr19AaWMxs436RF6RtEXR7ACJZ2PWR9RmNKQhZVu9rJSLtaincjunpbVPL3aLLcgGDprALop4
+[2025-04-10T08:17:52.590Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3fdYQp3jDLtxaH1Vr19AaWMxs436RF6RtEXR7ACJZ2PWR9RmNKQhZVu9rJSLtaincjunpbVPL3aLLcgGDprALop4
+[2025-04-10T08:17:52.590Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 528353306701,
+  "solAmount": 113091993,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:52.590Z] [INFO] AccountWatcher::Buy Amount:  0.113091993
+[2025-04-10T08:17:52.966Z] [INFO] AccountWatcher::signature:  2kF7ko5XogUgeFjoxWVUb11zQhxgSGRWt2zFBW4j72Fk5KgdaaR6yCZbWzqKuB1LVG1aMhTxBNhL2k3D2Lt1ce25
+[2025-04-10T08:17:52.967Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2kF7ko5XogUgeFjoxWVUb11zQhxgSGRWt2zFBW4j72Fk5KgdaaR6yCZbWzqKuB1LVG1aMhTxBNhL2k3D2Lt1ce25
+[2025-04-10T08:17:52.967Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 826911895280,
+  "solAmount": 177617618,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:52.967Z] [INFO] AccountWatcher::Buy Amount:  0.177617618
+[2025-04-10T08:17:53.334Z] [INFO] AccountWatcher::signature:  aQWbiACBU7x1KmU8JMC1goQNpWMac2TSR9w4EaH3Qq4r2oqnyv7P7h7T9p3VRkCX9mHWNLfnnhYBn1BcUTUUi9D
+[2025-04-10T08:17:53.334Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  aQWbiACBU7x1KmU8JMC1goQNpWMac2TSR9w4EaH3Qq4r2oqnyv7P7h7T9p3VRkCX9mHWNLfnnhYBn1BcUTUUi9D
+[2025-04-10T08:17:53.335Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 771710284702,
+  "solAmount": 166447128,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:53.335Z] [INFO] AccountWatcher::Buy Amount:  0.166447128
+[2025-04-10T08:17:53.690Z] [INFO] AccountWatcher::signature:  9s7AFf6CmFicd9Ywz6cWBUfra1D13JdKQbf7AV4u4xTz5bpar6sDuyJmyxu6HdaFW5GgGMEGRteSZ9DGG5Y9zh9
+[2025-04-10T08:17:53.690Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  9s7AFf6CmFicd9Ywz6cWBUfra1D13JdKQbf7AV4u4xTz5bpar6sDuyJmyxu6HdaFW5GgGMEGRteSZ9DGG5Y9zh9
+[2025-04-10T08:17:53.690Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 886306890339,
+  "solAmount": 191987163,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:53.690Z] [INFO] AccountWatcher::Buy Amount:  0.191987163
+[2025-04-10T08:17:54.075Z] [INFO] AccountWatcher::signature:  2bKfB5VMYUP2ApgXEVXQEt8txQJ91Q3bs8A3LsXPRj765awMphw5y7JxRL3Kh3k232KXJiMJfunJ7CymJQX63y7s
+[2025-04-10T08:17:54.075Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2bKfB5VMYUP2ApgXEVXQEt8txQJ91Q3bs8A3LsXPRj765awMphw5y7JxRL3Kh3k232KXJiMJfunJ7CymJQX63y7s
+[2025-04-10T08:17:54.076Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 614744141795,
+  "solAmount": 133682603,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:54.076Z] [INFO] AccountWatcher::Buy Amount:  0.133682603
+[2025-04-10T08:17:54.428Z] [INFO] AccountWatcher::signature:  2CyNJXoUnoCSVJypsEbZ3fFq2MKGPj6sYQuaiUFPw5KQm7RnH5GZqi3acJh4grNgA3NgsM8wmzK1vzgq2Uh22Bvh
+[2025-04-10T08:17:54.429Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2CyNJXoUnoCSVJypsEbZ3fFq2MKGPj6sYQuaiUFPw5KQm7RnH5GZqi3acJh4grNgA3NgsM8wmzK1vzgq2Uh22Bvh
+[2025-04-10T08:17:54.429Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 563752015493,
+  "solAmount": 122970193,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:54.429Z] [INFO] AccountWatcher::Buy Amount:  0.122970193
+[2025-04-10T08:17:54.792Z] [INFO] AccountWatcher::signature:  352GJfsj3vnXDDb47Yiyu2EbBRDKkEhhsoJkDZxUyK5TNN42eJ1hStUkWkiJ1qgHPEdN5h1tYCxdJXQ915mJJLEu
+[2025-04-10T08:17:54.792Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  352GJfsj3vnXDDb47Yiyu2EbBRDKkEhhsoJkDZxUyK5TNN42eJ1hStUkWkiJ1qgHPEdN5h1tYCxdJXQ915mJJLEu
+[2025-04-10T08:17:54.792Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 519737691873,
+  "solAmount": 113689852,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:54.792Z] [INFO] AccountWatcher::Buy Amount:  0.113689852
+[2025-04-10T08:17:55.163Z] [INFO] AccountWatcher::signature:  4x2VvLyx4jDguYrvBWvJHWZeWGwuqpj7g93rmTXem2BdF3zxKV6aWR7jfkFYF5gaKcoiva4Rm6MrMbL2rpT1ZwJN
+[2025-04-10T08:17:55.163Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4x2VvLyx4jDguYrvBWvJHWZeWGwuqpj7g93rmTXem2BdF3zxKV6aWR7jfkFYF5gaKcoiva4Rm6MrMbL2rpT1ZwJN
+[2025-04-10T08:17:55.164Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 160617289593,
+  "solAmount": 35196558,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:55.164Z] [INFO] AccountWatcher::Buy Amount:  0.035196558
+[2025-04-10T08:17:55.524Z] [INFO] AccountWatcher::signature:  5UXq2JPvVYRuswbDuiZ2Er3tWTCQovJp5Wtobeq19Fn43mdGXY6uoJuzpNoTeCbsV4GN5T2yjQJt3HB7NpQa7PL8
+[2025-04-10T08:17:55.524Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5UXq2JPvVYRuswbDuiZ2Er3tWTCQovJp5Wtobeq19Fn43mdGXY6uoJuzpNoTeCbsV4GN5T2yjQJt3HB7NpQa7PL8
+[2025-04-10T08:17:55.879Z] [INFO] AccountWatcher::signature:  52JEgMsVFsoxSfCSsKLxyJ7Fcs5RYcVgzurz9GAFXAgusRp66z5wYV4FtY7xxMNWWrrvtqoVK62KWuskW1WatHvP
+[2025-04-10T08:17:55.879Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  52JEgMsVFsoxSfCSsKLxyJ7Fcs5RYcVgzurz9GAFXAgusRp66z5wYV4FtY7xxMNWWrrvtqoVK62KWuskW1WatHvP
+[2025-04-10T08:17:56.244Z] [INFO] AccountWatcher::signature:  5B3WSH1R2V2eVSyxocN1eArSmh9hsBgbkujBJo44k6u4cN6yemqDy1XmwJR7tXtUAZC9bt3noFLKt21kbcgZsw7b
+[2025-04-10T08:17:56.244Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5B3WSH1R2V2eVSyxocN1eArSmh9hsBgbkujBJo44k6u4cN6yemqDy1XmwJR7tXtUAZC9bt3noFLKt21kbcgZsw7b
+[2025-04-10T08:17:56.604Z] [INFO] AccountWatcher::signature:  45rpUtPook1L1XyrZnTXdpr1gUzrD77mR4bB2aaJ4QLqp5tBnQumXF3iZrSDGXHBVwrmTy56ptCK6E8EQd6eQdBs
+[2025-04-10T08:17:56.604Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  45rpUtPook1L1XyrZnTXdpr1gUzrD77mR4bB2aaJ4QLqp5tBnQumXF3iZrSDGXHBVwrmTy56ptCK6E8EQd6eQdBs
+[2025-04-10T08:17:56.976Z] [INFO] AccountWatcher::signature:  mRkauJrwDvBTesR7kXgWw4ZtFQ49eQKnyENYrZGSHgJAUujsmQuZeAzEZXMK4HMGvATaJfFrjuDzk8NeoCAbtco
+[2025-04-10T08:17:56.976Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  mRkauJrwDvBTesR7kXgWw4ZtFQ49eQKnyENYrZGSHgJAUujsmQuZeAzEZXMK4HMGvATaJfFrjuDzk8NeoCAbtco
+[2025-04-10T08:17:56.976Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 216833339582,
+  "solAmount": 47562182,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:56.976Z] [INFO] AccountWatcher::Buy Amount:  0.047562182
+[2025-04-10T08:17:57.342Z] [INFO] AccountWatcher::signature:  5KsPBw8TSgtsPepB4zbSa256kN3LfSA9LPNoZ5M63TfPZ3sTRJPJLhJKqphEEEh1Db8HayZUKuUETypp192ei9Vs
+[2025-04-10T08:17:57.342Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5KsPBw8TSgtsPepB4zbSa256kN3LfSA9LPNoZ5M63TfPZ3sTRJPJLhJKqphEEEh1Db8HayZUKuUETypp192ei9Vs
+[2025-04-10T08:17:57.698Z] [INFO] AccountWatcher::signature:  5rDZ8TwrNuqW5G7vaXqMjFqqxZMFfzL4D6rnKUMmNEUCEfaTVY1mCdD6fWqHqgpeUrvWCquU2aEcMQxcBgPsRCTq
+[2025-04-10T08:17:57.698Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5rDZ8TwrNuqW5G7vaXqMjFqqxZMFfzL4D6rnKUMmNEUCEfaTVY1mCdD6fWqHqgpeUrvWCquU2aEcMQxcBgPsRCTq
+[2025-04-10T08:17:58.289Z] [INFO] AccountWatcher::signature:  5VdtwX2j1haXx4rqRS6YZmdPdofDnVfCrNB5rv4JskeSfQ5tb2pXXSkTLnsaxivMzuHG4Vu5XwKEeSWoiD2jDzVK
+[2025-04-10T08:17:58.289Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5VdtwX2j1haXx4rqRS6YZmdPdofDnVfCrNB5rv4JskeSfQ5tb2pXXSkTLnsaxivMzuHG4Vu5XwKEeSWoiD2jDzVK
+[2025-04-10T08:17:58.657Z] [INFO] AccountWatcher::signature:  3MzRM5ZFGpBZ5dKs2jEc3V8itAMWvyBtrTRFQ4SPRWoi9vRsB1h2dEaekKGphWNdSjKML5Zg9jduATNBfuX4E15o
+[2025-04-10T08:17:58.657Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3MzRM5ZFGpBZ5dKs2jEc3V8itAMWvyBtrTRFQ4SPRWoi9vRsB1h2dEaekKGphWNdSjKML5Zg9jduATNBfuX4E15o
+[2025-04-10T08:17:58.658Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 234784000000,
+  "solAmount": 51560410,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:58.658Z] [INFO] AccountWatcher::Buy Amount:  0.05156041
+[2025-04-10T08:17:59.015Z] [INFO] AccountWatcher::signature:  5GA7oBpfQH349ifL57TAN9DmdTcHcZMGawTdWJ25QCjCYUhHNtC7RoKcXBc1VzrHyZ9RTEDNJ9zY4ddDRCfpUTtf
+[2025-04-10T08:17:59.015Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5GA7oBpfQH349ifL57TAN9DmdTcHcZMGawTdWJ25QCjCYUhHNtC7RoKcXBc1VzrHyZ9RTEDNJ9zY4ddDRCfpUTtf
+[2025-04-10T08:17:59.015Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 234784000000,
+  "solAmount": 51560409,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:59.015Z] [INFO] AccountWatcher::Sell Amount:  0.051560409
+[2025-04-10T08:17:59.397Z] [INFO] AccountWatcher::signature:  3qkWXTVXmwYu1J1ToyifZ9eEjsj3dGmr3Tfe6uejz4MK9kJENxXxpeVGYsM5oTkBF6HBvRvExrUisYJAPL1pAp2Z
+[2025-04-10T08:17:59.397Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3qkWXTVXmwYu1J1ToyifZ9eEjsj3dGmr3Tfe6uejz4MK9kJENxXxpeVGYsM5oTkBF6HBvRvExrUisYJAPL1pAp2Z
+[2025-04-10T08:17:59.397Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 656966579442,
+  "solAmount": 144434337,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:59.397Z] [INFO] AccountWatcher::Buy Amount:  0.144434337
+[2025-04-10T08:17:59.768Z] [INFO] AccountWatcher::signature:  qcqW29BaUAKBrpcbFtcSQ3XgTCQ9771QB63h4J9ytRMEKtSNf9LjthqCPqWTA43Xop2UyJgcQhSrhLFEoAGHsTC
+[2025-04-10T08:17:59.768Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  qcqW29BaUAKBrpcbFtcSQ3XgTCQ9771QB63h4J9ytRMEKtSNf9LjthqCPqWTA43Xop2UyJgcQhSrhLFEoAGHsTC
+[2025-04-10T08:17:59.769Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 481429214448,
+  "solAmount": 106157940,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:17:59.769Z] [INFO] AccountWatcher::Buy Amount:  0.10615794
+[2025-04-10T08:18:00.140Z] [INFO] AccountWatcher::signature:  3AKHkudixK2MgQ1VMH7k4KzRYsnRUA14ud3c4RxVC2hC1ogdqvuSGWYgGA6RnidwhhkPFCs7xsRdW2TJg11Co9Vx
+[2025-04-10T08:18:00.140Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3AKHkudixK2MgQ1VMH7k4KzRYsnRUA14ud3c4RxVC2hC1ogdqvuSGWYgGA6RnidwhhkPFCs7xsRdW2TJg11Co9Vx
+[2025-04-10T08:18:00.140Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 485945122477,
+  "solAmount": 107425542,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:00.140Z] [INFO] AccountWatcher::Buy Amount:  0.107425542
+[2025-04-10T08:18:00.511Z] [INFO] AccountWatcher::signature:  4B9T3XGdkJJuQjUCuSe3FxAYPxVBkkxWwbHa3cGG2WxLJwvPYFnGoqRs8NdRhKBjuvSmWCLok2ZcjtKg8KZQwHyr
+[2025-04-10T08:18:00.511Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4B9T3XGdkJJuQjUCuSe3FxAYPxVBkkxWwbHa3cGG2WxLJwvPYFnGoqRs8NdRhKBjuvSmWCLok2ZcjtKg8KZQwHyr
+[2025-04-10T08:18:00.511Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 480204454272,
+  "solAmount": 106425767,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:00.511Z] [INFO] AccountWatcher::Buy Amount:  0.106425767
+[2025-04-10T08:18:00.876Z] [INFO] AccountWatcher::signature:  2H8FVgiVCRWShNCmWWZ2CxcdDV3yxvJHamCx4bLUCFWwK6YKPivMMpLCPw4rCi6drnNY6XHFeXBypZ7fCVCFQw87
+[2025-04-10T08:18:00.876Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2H8FVgiVCRWShNCmWWZ2CxcdDV3yxvJHamCx4bLUCFWwK6YKPivMMpLCPw4rCi6drnNY6XHFeXBypZ7fCVCFQw87
+[2025-04-10T08:18:00.876Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 878406705311,
+  "solAmount": 195373763,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:00.876Z] [INFO] AccountWatcher::Buy Amount:  0.195373763
+[2025-04-10T08:18:01.240Z] [INFO] AccountWatcher::signature:  24dLy9zyzkuR6pdiPZa22XXiqTrvatWUq29jKZLkM7tWfSJCvGD3WUKDJLCazngZmmFZa6gYnPzEBPArmHmkPqxu
+[2025-04-10T08:18:01.240Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  24dLy9zyzkuR6pdiPZa22XXiqTrvatWUq29jKZLkM7tWfSJCvGD3WUKDJLCazngZmmFZa6gYnPzEBPArmHmkPqxu
+[2025-04-10T08:18:01.242Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 769823992949,
+  "solAmount": 171967171,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:01.242Z] [INFO] AccountWatcher::Buy Amount:  0.171967171
+[2025-04-10T08:18:01.644Z] [INFO] AccountWatcher::signature:  5Z4ZRUkZGCaa65BA1h1CDyrhJj9X2CYH65MzbhEQCfkKXwcSwbSH99RUpi51Dju1UJiJphoU4KyndKdrCyFSLXXz
+[2025-04-10T08:18:01.644Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5Z4ZRUkZGCaa65BA1h1CDyrhJj9X2CYH65MzbhEQCfkKXwcSwbSH99RUpi51Dju1UJiJphoU4KyndKdrCyFSLXXz
+[2025-04-10T08:18:01.645Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 912846438795,
+  "solAmount": 204823242,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:01.645Z] [INFO] AccountWatcher::Buy Amount:  0.204823242
+[2025-04-10T08:18:02.010Z] [INFO] AccountWatcher::signature:  5AeFSYoQZJKRWUr9Se42spT9mxXMVYPczZ9E5p6GHGwxYcmso86Me1d1d6ecFyNMFAoxsVKNPLCYf5Sbhxcbf6H8
+[2025-04-10T08:18:02.010Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5AeFSYoQZJKRWUr9Se42spT9mxXMVYPczZ9E5p6GHGwxYcmso86Me1d1d6ecFyNMFAoxsVKNPLCYf5Sbhxcbf6H8
+[2025-04-10T08:18:02.011Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 749179056558,
+  "solAmount": 168839756,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:02.011Z] [INFO] AccountWatcher::Buy Amount:  0.168839756
+[2025-04-10T08:18:02.383Z] [INFO] AccountWatcher::signature:  hc1QBhNYGwv19M5LwvKALuQFaFV1bY1zpm2JwRndRs5qyh9ocYYupUtFSonLQo4ENYokcKvBipiK2y8av81dYDo
+[2025-04-10T08:18:02.383Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  hc1QBhNYGwv19M5LwvKALuQFaFV1bY1zpm2JwRndRs5qyh9ocYYupUtFSonLQo4ENYokcKvBipiK2y8av81dYDo
+[2025-04-10T08:18:02.384Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 534587503139,
+  "solAmount": 120888266,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:02.384Z] [INFO] AccountWatcher::Buy Amount:  0.120888266
+[2025-04-10T08:18:02.753Z] [INFO] AccountWatcher::signature:  USNph7HVk1CwnqUdzYV63qRvCM5WdoKZDusVEXXjtwUfxrzpd6JRTBsDdSxGpoz54DHSR1uQzfMkY2o6PCNZfxB
+[2025-04-10T08:18:02.753Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  USNph7HVk1CwnqUdzYV63qRvCM5WdoKZDusVEXXjtwUfxrzpd6JRTBsDdSxGpoz54DHSR1uQzfMkY2o6PCNZfxB
+[2025-04-10T08:18:02.753Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 546571616116,
+  "solAmount": 123953224,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:02.753Z] [INFO] AccountWatcher::Buy Amount:  0.123953224
+[2025-04-10T08:18:03.118Z] [INFO] AccountWatcher::signature:  2m3iEQcG2BQVqVNTLBxT37Cj6ak1nU64E7iz3FvgDqiAkY5gXSj2tB3GtuJYbmobcAPQWjaUEM7E6xAVff8f1hhU
+[2025-04-10T08:18:03.118Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2m3iEQcG2BQVqVNTLBxT37Cj6ak1nU64E7iz3FvgDqiAkY5gXSj2tB3GtuJYbmobcAPQWjaUEM7E6xAVff8f1hhU
+[2025-04-10T08:18:03.122Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 709171028140,
+  "solAmount": 161365482,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:03.122Z] [INFO] AccountWatcher::Buy Amount:  0.161365482
+[2025-04-10T08:18:03.498Z] [INFO] AccountWatcher::signature:  4A9eqeXoR8Yk3a6Si7z9WEhAer56S7Z1YPToeC8YKyRDkdR7rsvx1QphV26kf1g16c6oPotPTN5gYcSNpko2EsJ9
+[2025-04-10T08:18:03.500Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4A9eqeXoR8Yk3a6Si7z9WEhAer56S7Z1YPToeC8YKyRDkdR7rsvx1QphV26kf1g16c6oPotPTN5gYcSNpko2EsJ9
+[2025-04-10T08:18:03.500Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 531410706139,
+  "solAmount": 121317490,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:03.500Z] [INFO] AccountWatcher::Buy Amount:  0.12131749
+[2025-04-10T08:18:03.865Z] [INFO] AccountWatcher::signature:  4uEYCKove6QqyZeHWpFwJ1DHYCYALoC3G51TEZgcfVN9SgzWmKa6SNhBJtwDQJ2JUkJxAb8bizpLd1QaKx3wxekX
+[2025-04-10T08:18:03.865Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  4uEYCKove6QqyZeHWpFwJ1DHYCYALoC3G51TEZgcfVN9SgzWmKa6SNhBJtwDQJ2JUkJxAb8bizpLd1QaKx3wxekX
+[2025-04-10T08:18:04.236Z] [INFO] AccountWatcher::signature:  3JYhDKWTfCojxd4rPr9iutYuWEVn5ajCpDxrGQ9xuXV9eLFEzLRvWCzZGmvRXvWQoeHwg8bEsM2WQ3ywY4TcZaCp
+[2025-04-10T08:18:04.236Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3JYhDKWTfCojxd4rPr9iutYuWEVn5ajCpDxrGQ9xuXV9eLFEzLRvWCzZGmvRXvWQoeHwg8bEsM2WQ3ywY4TcZaCp
+[2025-04-10T08:18:04.236Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 614403858124,
+  "solAmount": 140693277,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:04.236Z] [INFO] AccountWatcher::Buy Amount:  0.140693277
+[2025-04-10T08:18:04.613Z] [INFO] AccountWatcher::signature:  U9WTuLujq2GjMN2DpZAqtgRXc2aaMTFPDroiTS8jGM2rXSR5Q2VtBCCGdxmkHzeFXzGrqScqYxvhbMHpGS2qfhu
+[2025-04-10T08:18:04.613Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  U9WTuLujq2GjMN2DpZAqtgRXc2aaMTFPDroiTS8jGM2rXSR5Q2VtBCCGdxmkHzeFXzGrqScqYxvhbMHpGS2qfhu
+[2025-04-10T08:18:04.613Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 616859186301,
+  "solAmount": 141720552,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:04.613Z] [INFO] AccountWatcher::Buy Amount:  0.141720552
+[2025-04-10T08:18:04.974Z] [INFO] AccountWatcher::signature:  4b5LvHRNtihjFPzpicvMDrrUs4v36HnUPWDayA73b9uk4zFzk47XrBkTif4eT3S4y72xktgrJSntD4oLJJeqqrbM
+[2025-04-10T08:18:04.974Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4b5LvHRNtihjFPzpicvMDrrUs4v36HnUPWDayA73b9uk4zFzk47XrBkTif4eT3S4y72xktgrJSntD4oLJJeqqrbM
+[2025-04-10T08:18:04.975Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 726101122525,
+  "solAmount": 167418550,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:04.975Z] [INFO] AccountWatcher::Buy Amount:  0.16741855
+[2025-04-10T08:18:05.337Z] [INFO] AccountWatcher::signature:  9BAN6Ki59xDg4qQFwTfZEHLDu5yRNqwe5rTSVtLqQPnrfiEGo4k1hvhMjf6Kkbfp8qpcEWf5c7JxkpqfXqBohYH
+[2025-04-10T08:18:05.337Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  9BAN6Ki59xDg4qQFwTfZEHLDu5yRNqwe5rTSVtLqQPnrfiEGo4k1hvhMjf6Kkbfp8qpcEWf5c7JxkpqfXqBohYH
+[2025-04-10T08:18:05.337Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 664571498116,
+  "solAmount": 153803433,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:05.337Z] [INFO] AccountWatcher::Buy Amount:  0.153803433
+[2025-04-10T08:18:05.707Z] [INFO] AccountWatcher::signature:  39maMQqmc7dJDrKp4o8mvTEnJDrezQSs2R3HMVMEkMLZ2Tf8v7znpCdWjv4qz3jhPvDDtr3HWG6Y1FpysKCidNGQ
+[2025-04-10T08:18:05.707Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  39maMQqmc7dJDrKp4o8mvTEnJDrezQSs2R3HMVMEkMLZ2Tf8v7znpCdWjv4qz3jhPvDDtr3HWG6Y1FpysKCidNGQ
+[2025-04-10T08:18:05.710Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 927700331274,
+  "solAmount": 215619744,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:05.710Z] [INFO] AccountWatcher::Buy Amount:  0.215619744
+[2025-04-10T08:18:06.056Z] [INFO] AccountWatcher::signature:  5X9wW38G8NbXQAHTYf2ZFP7xtmJoMKA4aoXsLK6pYwUqLEhPDZqVTgNqgENHpg3SCggPPWymADryUQhX62iP3Uvf
+[2025-04-10T08:18:06.056Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5X9wW38G8NbXQAHTYf2ZFP7xtmJoMKA4aoXsLK6pYwUqLEhPDZqVTgNqgENHpg3SCggPPWymADryUQhX62iP3Uvf
+[2025-04-10T08:18:06.056Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 707935077944,
+  "solAmount": 165266498,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:06.057Z] [INFO] AccountWatcher::Buy Amount:  0.165266498
+[2025-04-10T08:18:06.427Z] [INFO] AccountWatcher::signature:  c4YW72YndPnWpHRzvAEVQnN4bMZsEYfVdopCnpJgnRS7JKmkyycadgknxVEGX5vQNKGqWbucw3h9iDMmNzfsGba
+[2025-04-10T08:18:06.427Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  c4YW72YndPnWpHRzvAEVQnN4bMZsEYfVdopCnpJgnRS7JKmkyycadgknxVEGX5vQNKGqWbucw3h9iDMmNzfsGba
+[2025-04-10T08:18:06.428Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 698015273409,
+  "solAmount": 163569451,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:06.428Z] [INFO] AccountWatcher::Buy Amount:  0.163569451
+[2025-04-10T08:18:06.628Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:18:06.628Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:18:06.628Z] [INFO] AccountWatcher::Token Creator Sells:  0
+[2025-04-10T08:18:07.055Z] [INFO] AccountWatcher::signature:  5Bz5QgASxbqi4MAtk6u6kWqKiAtWrRRM3ppqcfFCDpkrHHPPCrq8ay9uwwV8khh2KKeuDrPgSRwWigqXkgsB5TtE
+[2025-04-10T08:18:07.055Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5Bz5QgASxbqi4MAtk6u6kWqKiAtWrRRM3ppqcfFCDpkrHHPPCrq8ay9uwwV8khh2KKeuDrPgSRwWigqXkgsB5TtE
+[2025-04-10T08:18:07.056Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 890191269126,
+  "solAmount": 209499917,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:07.056Z] [INFO] AccountWatcher::Buy Amount:  0.209499917
+[2025-04-10T08:18:07.417Z] [INFO] AccountWatcher::signature:  2ATXv6gaCdMAWwgHcUBhuSpB3VjBpFQJfkXxnERQd2gT3VvYRTsbfXcM38Mkcyx9QpDXySjmnzSatMWgA5DgtzCT
+[2025-04-10T08:18:07.417Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2ATXv6gaCdMAWwgHcUBhuSpB3VjBpFQJfkXxnERQd2gT3VvYRTsbfXcM38Mkcyx9QpDXySjmnzSatMWgA5DgtzCT
+[2025-04-10T08:18:07.417Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 566760622543,
+  "solAmount": 133909807,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:07.417Z] [INFO] AccountWatcher::Buy Amount:  0.133909807
+[2025-04-10T08:18:07.772Z] [INFO] AccountWatcher::signature:  4AQn6Lv6oZZdmntnNFU8guJ8sbjGvkEBML1fAMkPPCwpxUGEnAsWtXVRhgKkpirKpJLApUSsDHryyZYW8u9f6NBZ
+[2025-04-10T08:18:07.772Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4AQn6Lv6oZZdmntnNFU8guJ8sbjGvkEBML1fAMkPPCwpxUGEnAsWtXVRhgKkpirKpJLApUSsDHryyZYW8u9f6NBZ
+[2025-04-10T08:18:07.773Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 4718853931,
+  "solAmount": 1116633,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:07.773Z] [INFO] AccountWatcher::Sell Amount:  0.001116633
+[2025-04-10T08:18:08.138Z] [INFO] AccountWatcher::signature:  4qc8L8XsKy2p7mvQAfzEN334yEn81vC1AyBsn3nrzf63ZMJ2k58GKDbJNod8LUhxboaDHUBhQNLJqJb24R5cG7fA
+[2025-04-10T08:18:08.138Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4qc8L8XsKy2p7mvQAfzEN334yEn81vC1AyBsn3nrzf63ZMJ2k58GKDbJNod8LUhxboaDHUBhQNLJqJb24R5cG7fA
+[2025-04-10T08:18:08.138Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 518929945792,
+  "solAmount": 122967022,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:08.138Z] [INFO] AccountWatcher::Buy Amount:  0.122967022
+[2025-04-10T08:18:08.505Z] [INFO] AccountWatcher::signature:  5Sky4tgmRTgSuK7Pt5RaWf5KdPcWzthp1bpnhJ4s979UyPHgwvfzC9bectCcVQF5p1xZPXdpzQKpDu4VyBsHGJCM
+[2025-04-10T08:18:08.505Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  5Sky4tgmRTgSuK7Pt5RaWf5KdPcWzthp1bpnhJ4s979UyPHgwvfzC9bectCcVQF5p1xZPXdpzQKpDu4VyBsHGJCM
+[2025-04-10T08:18:08.856Z] [INFO] AccountWatcher::signature:  4iHnr2HaJMEV8dUxTxjRx9ssWbiQhesS8KetQADRCqTzbSMHQgf3gSXuKRVWtqxAW74GyTS7i6hUicofTE3dWXoc
+[2025-04-10T08:18:08.856Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4iHnr2HaJMEV8dUxTxjRx9ssWbiQhesS8KetQADRCqTzbSMHQgf3gSXuKRVWtqxAW74GyTS7i6hUicofTE3dWXoc
+[2025-04-10T08:18:08.857Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 747208091154,
+  "solAmount": 177670335,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:08.857Z] [INFO] AccountWatcher::Buy Amount:  0.177670335
+[2025-04-10T08:18:09.233Z] [INFO] AccountWatcher::signature:  5xfNagtSE5eUCa6V6UR5JJBwNUa7dvAid59HvQB8pun1J7F7UDSMQC7nXm3NP1TpH8KbK5fd3UHymUyRtfLMKSt5
+[2025-04-10T08:18:09.233Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5xfNagtSE5eUCa6V6UR5JJBwNUa7dvAid59HvQB8pun1J7F7UDSMQC7nXm3NP1TpH8KbK5fd3UHymUyRtfLMKSt5
+[2025-04-10T08:18:09.233Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 859066824752,
+  "solAmount": 205162738,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:09.233Z] [INFO] AccountWatcher::Buy Amount:  0.205162738
+[2025-04-10T08:18:09.609Z] [INFO] AccountWatcher::signature:  4dYfrCMrKckUgsMBVqGumeWSEY2gtFBQ48tLmQGtDvh7NEesZQ97aRaRqcwiKZELWAPY1YC9BdRUcRugepfz13dD
+[2025-04-10T08:18:09.609Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4dYfrCMrKckUgsMBVqGumeWSEY2gtFBQ48tLmQGtDvh7NEesZQ97aRaRqcwiKZELWAPY1YC9BdRUcRugepfz13dD
+[2025-04-10T08:18:09.609Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 860307959352,
+  "solAmount": 206424751,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:09.609Z] [INFO] AccountWatcher::Buy Amount:  0.206424751
+[2025-04-10T08:18:09.992Z] [INFO] AccountWatcher::signature:  7r77UFDjNGTwKDJi1t5qLwvresC6bjzn8bWH7t2kMq1mvwoYKNPUABkqFUfjuUNP6nJqrBvkqG3oVsgX6oQ3ixN
+[2025-04-10T08:18:09.993Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  7r77UFDjNGTwKDJi1t5qLwvresC6bjzn8bWH7t2kMq1mvwoYKNPUABkqFUfjuUNP6nJqrBvkqG3oVsgX6oQ3ixN
+[2025-04-10T08:18:09.993Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 893157727221,
+  "solAmount": 215336489,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:09.993Z] [INFO] AccountWatcher::Buy Amount:  0.215336489
+[2025-04-10T08:18:10.362Z] [INFO] AccountWatcher::signature:  3zSR8DNLdgHDUWF11BREBooRYZSULzPQDmSY7FBQBppUP1A759jGKT77Q1nLWxpwhpLzxvePEQGZ2rcjHMh5mRRQ
+[2025-04-10T08:18:10.362Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3zSR8DNLdgHDUWF11BREBooRYZSULzPQDmSY7FBQBppUP1A759jGKT77Q1nLWxpwhpLzxvePEQGZ2rcjHMh5mRRQ
+[2025-04-10T08:18:10.362Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 895246635770,
+  "solAmount": 216900417,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:10.362Z] [INFO] AccountWatcher::Buy Amount:  0.216900417
+[2025-04-10T08:18:10.741Z] [INFO] AccountWatcher::signature:  4k9wumthsz3PTJ4SjTBjrmBekgJqq4AUW5a7dQ6z1YavJC5QbB26CXSbHBHWQ7LCu198nFFbLh7G3AGyC3fhCuWg
+[2025-04-10T08:18:10.742Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4k9wumthsz3PTJ4SjTBjrmBekgJqq4AUW5a7dQ6z1YavJC5QbB26CXSbHBHWQ7LCu198nFFbLh7G3AGyC3fhCuWg
+[2025-04-10T08:18:10.742Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 930513397451,
+  "solAmount": 226578366,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:10.742Z] [INFO] AccountWatcher::Buy Amount:  0.226578366
+[2025-04-10T08:18:11.099Z] [INFO] AccountWatcher::signature:  5nZVfqgbcVTdCstjj8cqdeBttZgFCsZZt39yc7i1jFMLGL2BVg4Wip6Wni97eZp9MCgNYTBYW8mWNThKc4WrgS5G
+[2025-04-10T08:18:11.099Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5nZVfqgbcVTdCstjj8cqdeBttZgFCsZZt39yc7i1jFMLGL2BVg4Wip6Wni97eZp9MCgNYTBYW8mWNThKc4WrgS5G
+[2025-04-10T08:18:11.100Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 887089648641,
+  "solAmount": 217088606,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:11.100Z] [INFO] AccountWatcher::Buy Amount:  0.217088606
+[2025-04-10T08:18:11.472Z] [INFO] AccountWatcher::signature:  3P5db2opdNf5hMdfFsQmKLYGVvzXHU82h2LQ6NPgppFAasvrMocMWwHuNoagoCkEiTJypg91jpxNqJXYNonYULh5
+[2025-04-10T08:18:11.472Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3P5db2opdNf5hMdfFsQmKLYGVvzXHU82h2LQ6NPgppFAasvrMocMWwHuNoagoCkEiTJypg91jpxNqJXYNonYULh5
+[2025-04-10T08:18:11.473Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 869958863482,
+  "solAmount": 213931506,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:11.473Z] [INFO] AccountWatcher::Buy Amount:  0.213931506
+[2025-04-10T08:18:11.833Z] [INFO] AccountWatcher::signature:  2ZxjUmKAJJDApESY8G2V85MQoXTKXq3wMvVSo86pqfnssqkcw6CCUZ57PVsLSAWaZvpoJWL7qE3Rtd9v5MKTzezV
+[2025-04-10T08:18:11.833Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2ZxjUmKAJJDApESY8G2V85MQoXTKXq3wMvVSo86pqfnssqkcw6CCUZ57PVsLSAWaZvpoJWL7qE3Rtd9v5MKTzezV
+[2025-04-10T08:18:11.833Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 679636129643,
+  "solAmount": 167847282,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:11.833Z] [INFO] AccountWatcher::Buy Amount:  0.167847282
+[2025-04-10T08:18:12.222Z] [INFO] AccountWatcher::signature:  3bgmhQupDLBXbNotuas8yAoWUvJ2R4kPLtNW9Gf31cVusykWAMAhevCs56VknYa2L7iu6fJKwqKwtv5QmwepvkKK
+[2025-04-10T08:18:12.222Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3bgmhQupDLBXbNotuas8yAoWUvJ2R4kPLtNW9Gf31cVusykWAMAhevCs56VknYa2L7iu6fJKwqKwtv5QmwepvkKK
+[2025-04-10T08:18:12.224Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 894334279760,
+  "solAmount": 221836737,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:12.224Z] [INFO] AccountWatcher::Buy Amount:  0.221836737
+[2025-04-10T08:18:12.602Z] [INFO] AccountWatcher::signature:  xYM6auYLrhsZyxziugRm8diCUrDf5ihLN47KMz3w8HrA4qbiQ3nhr83ByVDwGB8aVjvn2FEYRjNDGUaiYWNVujW
+[2025-04-10T08:18:12.602Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  xYM6auYLrhsZyxziugRm8diCUrDf5ihLN47KMz3w8HrA4qbiQ3nhr83ByVDwGB8aVjvn2FEYRjNDGUaiYWNVujW
+[2025-04-10T08:18:12.602Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 821102572595,
+  "solAmount": 204645141,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:12.602Z] [INFO] AccountWatcher::Buy Amount:  0.204645141
+[2025-04-10T08:18:12.978Z] [INFO] AccountWatcher::signature:  5y2bqYe3jFVEfgGGqbC5AvQVkZb7HFfWQWUP8FCCjrU6U11JnFU9PeSAzwYriMru4GGYAaEmjkzJZ1qDuh8P6QQ7
+[2025-04-10T08:18:12.978Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5y2bqYe3jFVEfgGGqbC5AvQVkZb7HFfWQWUP8FCCjrU6U11JnFU9PeSAzwYriMru4GGYAaEmjkzJZ1qDuh8P6QQ7
+[2025-04-10T08:18:12.979Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 880708896236,
+  "solAmount": 220544115,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:12.979Z] [INFO] AccountWatcher::Buy Amount:  0.220544115
+[2025-04-10T08:18:13.365Z] [INFO] AccountWatcher::signature:  5YaarLYBceJndhA3pmt1oxpBVV7kKEhEqDVwc6rTr8iGApAzWKgcd5KywV1frPjmXQoh5G66K2uB6psg6zjwUb42
+[2025-04-10T08:18:13.365Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5YaarLYBceJndhA3pmt1oxpBVV7kKEhEqDVwc6rTr8iGApAzWKgcd5KywV1frPjmXQoh5G66K2uB6psg6zjwUb42
+[2025-04-10T08:18:13.365Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 736052081912,
+  "solAmount": 185153552,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:13.365Z] [INFO] AccountWatcher::Buy Amount:  0.185153552
+[2025-04-10T08:18:13.722Z] [INFO] AccountWatcher::signature:  39jqffXNSoehRBp8ZnMK2XEVHAqPTLzaKYxYG9iMyShtNYiud8LY8yGG4mWhninKSARoffrMv9FX5aydKsep5Qey
+[2025-04-10T08:18:13.722Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  39jqffXNSoehRBp8ZnMK2XEVHAqPTLzaKYxYG9iMyShtNYiud8LY8yGG4mWhninKSARoffrMv9FX5aydKsep5Qey
+[2025-04-10T08:18:13.722Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 235352777717,
+  "solAmount": 59285775,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:13.722Z] [INFO] AccountWatcher::Sell Amount:  0.059285775
+[2025-04-10T08:18:14.096Z] [INFO] AccountWatcher::signature:  65qQrj4ZQwfQja7FwUStU8sEaHoexLUj1sXXJkxRXMGzEe16BKVHfuhSawMjxEnVN2s82UHAC8H3aAD5D2GDxBaj
+[2025-04-10T08:18:14.096Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  65qQrj4ZQwfQja7FwUStU8sEaHoexLUj1sXXJkxRXMGzEe16BKVHfuhSawMjxEnVN2s82UHAC8H3aAD5D2GDxBaj
+[2025-04-10T08:18:14.097Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 728373628851,
+  "solAmount": 183732071,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:14.097Z] [INFO] AccountWatcher::Buy Amount:  0.183732071
+[2025-04-10T08:18:14.454Z] [INFO] AccountWatcher::signature:  3oVo4nKB6HTzfApo6X44ixvSMyR7BM6x2e8pZDRBAt61cqTXR1nS12bEZFMNzNPndrds6Ns39ar7oiFtjtj3S7F4
+[2025-04-10T08:18:14.454Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3oVo4nKB6HTzfApo6X44ixvSMyR7BM6x2e8pZDRBAt61cqTXR1nS12bEZFMNzNPndrds6Ns39ar7oiFtjtj3S7F4
+[2025-04-10T08:18:14.454Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 776616811081,
+  "solAmount": 196729373,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:14.455Z] [INFO] AccountWatcher::Buy Amount:  0.196729373
+[2025-04-10T08:18:14.819Z] [INFO] AccountWatcher::signature:  5D6oBohbk2es91YwA8StEMiMpzA6esseyhtBaPtqd2pQrvqKhP68ZGTMJeV5XcqkGPz2Vq9fYEarAEChNi8jr3nh
+[2025-04-10T08:18:14.819Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5D6oBohbk2es91YwA8StEMiMpzA6esseyhtBaPtqd2pQrvqKhP68ZGTMJeV5XcqkGPz2Vq9fYEarAEChNi8jr3nh
+[2025-04-10T08:18:14.819Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 235352777717,
+  "solAmount": 59709158,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:14.819Z] [INFO] AccountWatcher::Sell Amount:  0.059709158
+[2025-04-10T08:18:15.187Z] [INFO] AccountWatcher::signature:  4QA7Pwph5iw6L5JyL58uDr83AjQ5bAya7cE3CN9vniqsmZjbxP1MwGkFxCFEFJSVLSwYHUpe1Z7CeLAQ5dsvjTZ6
+[2025-04-10T08:18:15.187Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4QA7Pwph5iw6L5JyL58uDr83AjQ5bAya7cE3CN9vniqsmZjbxP1MwGkFxCFEFJSVLSwYHUpe1Z7CeLAQ5dsvjTZ6
+[2025-04-10T08:18:15.187Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 160617289593,
+  "solAmount": 40703452,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:15.187Z] [INFO] AccountWatcher::Sell Amount:  0.040703452
+[2025-04-10T08:18:15.558Z] [INFO] AccountWatcher::signature:  3peVo7fUcxjoczbN4c6NQNSu3RRS44iLR8uAPyGCZswAvP77B6iotyXt7wd54K7G8XWxioJekPxAJaHgsTPBZGzV
+[2025-04-10T08:18:15.558Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3peVo7fUcxjoczbN4c6NQNSu3RRS44iLR8uAPyGCZswAvP77B6iotyXt7wd54K7G8XWxioJekPxAJaHgsTPBZGzV
+[2025-04-10T08:18:15.558Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 486643293334,
+  "solAmount": 123437538,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:15.558Z] [INFO] AccountWatcher::Buy Amount:  0.123437538
+[2025-04-10T08:18:15.917Z] [INFO] AccountWatcher::signature:  K6DLDf5EfSQbU5WMjW72igsQ8fEysiXZfdAjx4UStrWcdZ6DwEou7ELKEe8QYtwMJDJw6YC3DWd9rwpG2WyRLdN
+[2025-04-10T08:18:15.917Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  K6DLDf5EfSQbU5WMjW72igsQ8fEysiXZfdAjx4UStrWcdZ6DwEou7ELKEe8QYtwMJDJw6YC3DWd9rwpG2WyRLdN
+[2025-04-10T08:18:15.917Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 216833339582,
+  "solAmount": 55041643,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:15.917Z] [INFO] AccountWatcher::Sell Amount:  0.055041643
+[2025-04-10T08:18:16.280Z] [INFO] AccountWatcher::signature:  5iyXN51cPQ5kqCrzEyphzHrSnQNjyUASBHfRB63KvDLh6GbvTXm7nhUe4geheQgZS4LGjhDRpHMLxMEFNUN6A6Kp
+[2025-04-10T08:18:16.280Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5iyXN51cPQ5kqCrzEyphzHrSnQNjyUASBHfRB63KvDLh6GbvTXm7nhUe4geheQgZS4LGjhDRpHMLxMEFNUN6A6Kp
+[2025-04-10T08:18:16.280Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 766178690592,
+  "solAmount": 194789745,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:16.280Z] [INFO] AccountWatcher::Buy Amount:  0.194789745
+[2025-04-10T08:18:16.674Z] [INFO] AccountWatcher::signature:  3sM24tHdZ5rLrimjtdEbdGfi34oGtsgeDKhwrQpM53KusWoykXrHPjMEZWc548ypqwmMwE1Gqk5QBePtoA6JQ5ww
+[2025-04-10T08:18:16.675Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3sM24tHdZ5rLrimjtdEbdGfi34oGtsgeDKhwrQpM53KusWoykXrHPjMEZWc548ypqwmMwE1Gqk5QBePtoA6JQ5ww
+[2025-04-10T08:18:16.676Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 871116999282,
+  "solAmount": 222491436,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:16.676Z] [INFO] AccountWatcher::Buy Amount:  0.222491436
+[2025-04-10T08:18:17.039Z] [INFO] AccountWatcher::signature:  2ZzRhExDLsTsAvsn92JQMQ6qynDHe3XiJ3g3en6rxwUn4pHdBG7iWoGhjifwBP6KQkevFhPZ4bYnZCTrMHwMxEjP
+[2025-04-10T08:18:17.039Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2ZzRhExDLsTsAvsn92JQMQ6qynDHe3XiJ3g3en6rxwUn4pHdBG7iWoGhjifwBP6KQkevFhPZ4bYnZCTrMHwMxEjP
+[2025-04-10T08:18:17.040Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 474416349239,
+  "solAmount": 121305760,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:17.040Z] [INFO] AccountWatcher::Sell Amount:  0.12130576
+[2025-04-10T08:18:17.401Z] [INFO] AccountWatcher::signature:  67drYa8ZaTwwxXZyXmkzK8hP9DqfUckHSfdAzt7gcvBvmka71uDMHPaofMPzwq9QrskLC6kca21HA7ndEvir6ZL1
+[2025-04-10T08:18:17.401Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  67drYa8ZaTwwxXZyXmkzK8hP9DqfUckHSfdAzt7gcvBvmka71uDMHPaofMPzwq9QrskLC6kca21HA7ndEvir6ZL1
+[2025-04-10T08:18:17.401Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 752469759073,
+  "solAmount": 192553551,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:17.401Z] [INFO] AccountWatcher::Buy Amount:  0.192553551
+[2025-04-10T08:18:17.751Z] [INFO] AccountWatcher::signature:  4KpwBzpqARXF2TCse8nYrcFyR2Qz45ykdcjbdco63aGALwcFK1w1ExUyRwzFVuFCkLSg1xhyzaoXh3qFuRFig7u2
+[2025-04-10T08:18:17.752Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4KpwBzpqARXF2TCse8nYrcFyR2Qz45ykdcjbdco63aGALwcFK1w1ExUyRwzFVuFCkLSg1xhyzaoXh3qFuRFig7u2
+[2025-04-10T08:18:17.754Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 615010064789,
+  "solAmount": 157986735,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:17.754Z] [INFO] AccountWatcher::Buy Amount:  0.157986735
+[2025-04-10T08:18:18.125Z] [INFO] AccountWatcher::signature:  2o1usSi34fUuipddDC9rSoJ5GVtEfmZd2aVNmH3EKfVRGMjfhTtaGWYsSZTV8mLBLdfXvUuK3f1ANqMxjTTArQX8
+[2025-04-10T08:18:18.125Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2o1usSi34fUuipddDC9rSoJ5GVtEfmZd2aVNmH3EKfVRGMjfhTtaGWYsSZTV8mLBLdfXvUuK3f1ANqMxjTTArQX8
+[2025-04-10T08:18:18.125Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 584213443744,
+  "solAmount": 150585250,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:18.125Z] [INFO] AccountWatcher::Buy Amount:  0.15058525
+[2025-04-10T08:18:18.502Z] [INFO] AccountWatcher::signature:  462M4XhLCzZSE4xMhqauFKj7r2gLVYrW3KD79vtVfvQ686xMrS12s97rToYHUhBANu3L62ro5626HsW4CBU2qH2d
+[2025-04-10T08:18:18.502Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  462M4XhLCzZSE4xMhqauFKj7r2gLVYrW3KD79vtVfvQ686xMrS12s97rToYHUhBANu3L62ro5626HsW4CBU2qH2d
+[2025-04-10T08:18:18.502Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 788953754698,
+  "solAmount": 204151163,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:18.502Z] [INFO] AccountWatcher::Buy Amount:  0.204151163
+[2025-04-10T08:18:18.702Z] [INFO] AccountWatcher::Processed  100  signatures
+[2025-04-10T08:18:18.869Z] [INFO] AccountWatcher::signature:  4KbrXgpuKRXGekcHNGFbsnf7yipsoSzJPTK18TuX8uuH9haQmqj3rkQMV2q85Q12HqKzhLYA4NterDkkcx3WLMXe
+[2025-04-10T08:18:18.869Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4KbrXgpuKRXGekcHNGFbsnf7yipsoSzJPTK18TuX8uuH9haQmqj3rkQMV2q85Q12HqKzhLYA4NterDkkcx3WLMXe
+[2025-04-10T08:18:18.869Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 875998686958,
+  "solAmount": 227748969,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:18.869Z] [INFO] AccountWatcher::Buy Amount:  0.227748969
+[2025-04-10T08:18:19.238Z] [INFO] AccountWatcher::signature:  DYWXZo3ppKBMRVtxZCfwTekLUmhqDFF9ZJaHDn7bJiU6FEhXhqb12R6oMjLKsEgTw2t1TNairpvSvRgfXrjrewi
+[2025-04-10T08:18:19.238Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  DYWXZo3ppKBMRVtxZCfwTekLUmhqDFF9ZJaHDn7bJiU6FEhXhqb12R6oMjLKsEgTw2t1TNairpvSvRgfXrjrewi
+[2025-04-10T08:18:19.238Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 759332597440,
+  "solAmount": 198337843,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:19.238Z] [INFO] AccountWatcher::Buy Amount:  0.198337843
+[2025-04-10T08:18:19.607Z] [INFO] AccountWatcher::signature:  v74cVP8rYFqow2nqya733ZWUJk2fYBUsj6bh8urHp6erHNqyQ5Z3f1rcC3PKJtEHHH6KN1u2P6jStucTKy2jskf
+[2025-04-10T08:18:19.607Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  v74cVP8rYFqow2nqya733ZWUJk2fYBUsj6bh8urHp6erHNqyQ5Z3f1rcC3PKJtEHHH6KN1u2P6jStucTKy2jskf
+[2025-04-10T08:18:19.607Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 692052033078,
+  "solAmount": 181513778,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:19.607Z] [INFO] AccountWatcher::Buy Amount:  0.181513778
+[2025-04-10T08:18:19.971Z] [INFO] AccountWatcher::signature:  3LG1nRHWThqws45iBBr6595EZLLEzPXWoKrYibzzA4phWKH9FnPDDWw4SY7PorhTTjGJz4UFfAjRrpSXwBmG3dbB
+[2025-04-10T08:18:19.971Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3LG1nRHWThqws45iBBr6595EZLLEzPXWoKrYibzzA4phWKH9FnPDDWw4SY7PorhTTjGJz4UFfAjRrpSXwBmG3dbB
+[2025-04-10T08:18:19.972Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 549945773494,
+  "solAmount": 144754344,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:19.972Z] [INFO] AccountWatcher::Buy Amount:  0.144754344
+[2025-04-10T08:18:20.340Z] [INFO] AccountWatcher::signature:  32Gsx84U4C9TyvpPyjSssNAqBASFoHD51cKuYgTU7J1ct6YsvgimwtvAvQNsaLSn24QdyXshdtmbTFe48gxjMW83
+[2025-04-10T08:18:20.340Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  32Gsx84U4C9TyvpPyjSssNAqBASFoHD51cKuYgTU7J1ct6YsvgimwtvAvQNsaLSn24QdyXshdtmbTFe48gxjMW83
+[2025-04-10T08:18:20.340Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 843820648045,
+  "solAmount": 222994868,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:20.340Z] [INFO] AccountWatcher::Buy Amount:  0.222994868
+[2025-04-10T08:18:20.718Z] [INFO] AccountWatcher::signature:  2RNPSerBSnHkG8qxGaejz7g34P4xNU4XWT4KFVr8FsV3AKumWRAT9LweUGdPb4vuhtpJBHR92YT8irQqucVSzT3s
+[2025-04-10T08:18:20.718Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2RNPSerBSnHkG8qxGaejz7g34P4xNU4XWT4KFVr8FsV3AKumWRAT9LweUGdPb4vuhtpJBHR92YT8irQqucVSzT3s
+[2025-04-10T08:18:20.720Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 652816628766,
+  "solAmount": 173260686,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:20.720Z] [INFO] AccountWatcher::Buy Amount:  0.173260686
+[2025-04-10T08:18:20.937Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+[2025-04-10T08:18:21.456Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+[2025-04-10T08:18:22.475Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+[2025-04-10T08:18:24.636Z] [INFO] AccountWatcher::signature:  5vVQg7rW5HgQ5ePBjneKMWqxsAKuVCzEPEYEZv1NnxQHL33k4o2CU8w7zJ8q57esyr9geS4bUsQAM6qRJkxJeKJv
+[2025-04-10T08:18:24.636Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5vVQg7rW5HgQ5ePBjneKMWqxsAKuVCzEPEYEZv1NnxQHL33k4o2CU8w7zJ8q57esyr9geS4bUsQAM6qRJkxJeKJv
+[2025-04-10T08:18:24.636Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 813230529731,
+  "solAmount": 216746875,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:24.636Z] [INFO] AccountWatcher::Buy Amount:  0.216746875
+[2025-04-10T08:18:25.008Z] [INFO] AccountWatcher::signature:  5ksLFYRd1GXzv3DeAut8BdTP6Mw1Voin4iFhUDGoLge6enR4p3kgUdjLNhPrmnjhrvBssvBs3snn21Lw1bbEXKwC
+[2025-04-10T08:18:25.009Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5ksLFYRd1GXzv3DeAut8BdTP6Mw1Voin4iFhUDGoLge6enR4p3kgUdjLNhPrmnjhrvBssvBs3snn21Lw1bbEXKwC
+[2025-04-10T08:18:25.009Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 605468523998,
+  "solAmount": 162033639,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:25.009Z] [INFO] AccountWatcher::Buy Amount:  0.162033639
+[2025-04-10T08:18:25.377Z] [INFO] AccountWatcher::signature:  5JpMBDXK4zaeSGrRtbH2Hs5HWZfEdan8tVjhHLtBdsQzN4nwF4kWUTkhahAyniFdZVB2A4xpYTQVrztjA6gCEht5
+[2025-04-10T08:18:25.377Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5JpMBDXK4zaeSGrRtbH2Hs5HWZfEdan8tVjhHLtBdsQzN4nwF4kWUTkhahAyniFdZVB2A4xpYTQVrztjA6gCEht5
+[2025-04-10T08:18:25.377Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 790362430437,
+  "solAmount": 212368346,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:25.377Z] [INFO] AccountWatcher::Buy Amount:  0.212368346
+[2025-04-10T08:18:25.738Z] [INFO] AccountWatcher::signature:  5JEM2Lvx4YRNAvm1LBsGy9pcioGUT9icdoD8JAwSoMjjeVw1jxvRQNnjgnwxF41f7hMqT4iTdrRSV89MT1xwgcB2
+[2025-04-10T08:18:25.738Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5JEM2Lvx4YRNAvm1LBsGy9pcioGUT9icdoD8JAwSoMjjeVw1jxvRQNnjgnwxF41f7hMqT4iTdrRSV89MT1xwgcB2
+[2025-04-10T08:18:25.738Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 471792299438,
+  "solAmount": 127232807,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:25.738Z] [INFO] AccountWatcher::Buy Amount:  0.127232807
+[2025-04-10T08:18:26.134Z] [INFO] AccountWatcher::signature:  3i93UqJ6yoFCk6WxDa6UK35xg2NRp3CP32hc3RowyZrVpueJoEvVAKjGsxDa9yM9s81Xzv7yHn4riG5vRGVESHNN
+[2025-04-10T08:18:26.134Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3i93UqJ6yoFCk6WxDa6UK35xg2NRp3CP32hc3RowyZrVpueJoEvVAKjGsxDa9yM9s81Xzv7yHn4riG5vRGVESHNN
+[2025-04-10T08:18:26.134Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 713513908938,
+  "solAmount": 193082191,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:26.134Z] [INFO] AccountWatcher::Buy Amount:  0.193082191
+[2025-04-10T08:18:26.496Z] [INFO] AccountWatcher::signature:  281zQA73zvaf1V53x6Ecuh7om9mRwrUcJkzigcLGLmmwXhmUSGuFXLH9bjQM5ukon219oEwVqa9je6Urex11uf6m
+[2025-04-10T08:18:26.496Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  281zQA73zvaf1V53x6Ecuh7om9mRwrUcJkzigcLGLmmwXhmUSGuFXLH9bjQM5ukon219oEwVqa9je6Urex11uf6m
+[2025-04-10T08:18:26.496Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 442513240264,
+  "solAmount": 120149688,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:26.496Z] [INFO] AccountWatcher::Buy Amount:  0.120149688
+[2025-04-10T08:18:26.859Z] [INFO] AccountWatcher::signature:  5mzauoAwxkDWXCHjscRh29oiR4A5Ha3mKj7kbcPiDRhb4ici9ouAhHxHYnQ9Q5rmnURoEY1aWbTYSFxycdNuqVy5
+[2025-04-10T08:18:26.860Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5mzauoAwxkDWXCHjscRh29oiR4A5Ha3mKj7kbcPiDRhb4ici9ouAhHxHYnQ9Q5rmnURoEY1aWbTYSFxycdNuqVy5
+[2025-04-10T08:18:26.860Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 460609176278,
+  "solAmount": 125391715,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:26.860Z] [INFO] AccountWatcher::Buy Amount:  0.125391715
+[2025-04-10T08:18:27.216Z] [INFO] AccountWatcher::signature:  57tCJEBDR9i3eb5QD43q74fsDRX2CMe7LWh3KkeEBb3rhFKpVp3j46g5fr1i7bdWcJ1G64fVH2HEHKzBzLzezG4j
+[2025-04-10T08:18:27.216Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  57tCJEBDR9i3eb5QD43q74fsDRX2CMe7LWh3KkeEBb3rhFKpVp3j46g5fr1i7bdWcJ1G64fVH2HEHKzBzLzezG4j
+[2025-04-10T08:18:27.216Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 800725119474,
+  "solAmount": 218783513,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:27.216Z] [INFO] AccountWatcher::Buy Amount:  0.218783513
+[2025-04-10T08:18:27.573Z] [INFO] AccountWatcher::signature:  VFwUY6L14dR2U33BPiTqWtUjhdftR4Bb6xCFZamw2YPhjSZ4N81n52FyJSJfdXMXhQbzk6WCGRUQApi7d4QKUmi
+[2025-04-10T08:18:27.573Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  VFwUY6L14dR2U33BPiTqWtUjhdftR4Bb6xCFZamw2YPhjSZ4N81n52FyJSJfdXMXhQbzk6WCGRUQApi7d4QKUmi
+[2025-04-10T08:18:27.573Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 690049799938,
+  "solAmount": 189365009,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:27.573Z] [INFO] AccountWatcher::Buy Amount:  0.189365009
+[2025-04-10T08:18:27.932Z] [INFO] AccountWatcher::signature:  34KwLH14mhNBC4X7YVhFzHPGmpTk8saFktrjohUcuM1dncmNSLzqFmX7ChkhyeBuVEX2R2sjdt2gokNoMR78ofKv
+[2025-04-10T08:18:27.932Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  34KwLH14mhNBC4X7YVhFzHPGmpTk8saFktrjohUcuM1dncmNSLzqFmX7ChkhyeBuVEX2R2sjdt2gokNoMR78ofKv
+[2025-04-10T08:18:27.932Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 816296641728,
+  "solAmount": 224998539,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:27.932Z] [INFO] AccountWatcher::Buy Amount:  0.224998539
+[2025-04-10T08:18:28.296Z] [INFO] AccountWatcher::signature:  53YXfGAQ8tpnX9Lmjwb4Qevyw3Pgpz3DV1szbFUHN4YpEnt2YL5q8wtnv2MijGmzkGUDc1xZgWeiZBUNTamvb5AL
+[2025-04-10T08:18:28.296Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  53YXfGAQ8tpnX9Lmjwb4Qevyw3Pgpz3DV1szbFUHN4YpEnt2YL5q8wtnv2MijGmzkGUDc1xZgWeiZBUNTamvb5AL
+[2025-04-10T08:18:28.296Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 555566721018,
+  "solAmount": 153749158,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:28.296Z] [INFO] AccountWatcher::Buy Amount:  0.153749158
+[2025-04-10T08:18:28.668Z] [INFO] AccountWatcher::signature:  3QZsUMonsEg647cf2inCLERRHuHaUJu4JK1oPwkLdGmtmmTvYwjn7oF5rwdz45LQzvCRJGmoDDE2hXZoYH64gDeC
+[2025-04-10T08:18:28.668Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3QZsUMonsEg647cf2inCLERRHuHaUJu4JK1oPwkLdGmtmmTvYwjn7oF5rwdz45LQzvCRJGmoDDE2hXZoYH64gDeC
+[2025-04-10T08:18:28.668Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 814643351771,
+  "solAmount": 226355443,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:28.668Z] [INFO] AccountWatcher::Buy Amount:  0.226355443
+[2025-04-10T08:18:29.029Z] [INFO] AccountWatcher::signature:  2X77hHSANTeC7Nq3VSUA6BkzocYAqVwUdKpesYvpSDHRWPLn8KH5jrT7hNQNqcChFUqTw3E7Gkw7Y6m2P2dSRErE
+[2025-04-10T08:18:29.029Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2X77hHSANTeC7Nq3VSUA6BkzocYAqVwUdKpesYvpSDHRWPLn8KH5jrT7hNQNqcChFUqTw3E7Gkw7Y6m2P2dSRErE
+[2025-04-10T08:18:29.029Z] [INFO] AccountWatcher::This transaction does not appear to be a pump fun transaction
+[2025-04-10T08:18:29.391Z] [INFO] AccountWatcher::signature:  2p7A4NffPzb4hm6NWznjZnUBji9KfgXmTWdRoXUXVCdi8pd7MqoFCmi5yvG9sjQK2PMcHdbHrCM4S4McUA5iHS22
+[2025-04-10T08:18:29.391Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2p7A4NffPzb4hm6NWznjZnUBji9KfgXmTWdRoXUXVCdi8pd7MqoFCmi5yvG9sjQK2PMcHdbHrCM4S4McUA5iHS22
+[2025-04-10T08:18:29.391Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 534195686711,
+  "solAmount": 149020568,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:29.391Z] [INFO] AccountWatcher::Buy Amount:  0.149020568
+[2025-04-10T08:18:29.756Z] [INFO] AccountWatcher::signature:  yNLd6mDWgGpRn6rZKDC47zYCtnqTeCXqufuGjEdMCL8FkJezNhW5LspfSSksuKvTdfvfA2LCmap67bqfE98ZGnB
+[2025-04-10T08:18:29.756Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  yNLd6mDWgGpRn6rZKDC47zYCtnqTeCXqufuGjEdMCL8FkJezNhW5LspfSSksuKvTdfvfA2LCmap67bqfE98ZGnB
+[2025-04-10T08:18:29.757Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 827604748513,
+  "solAmount": 231799226,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:29.757Z] [INFO] AccountWatcher::Buy Amount:  0.231799226
+[2025-04-10T08:18:30.125Z] [INFO] AccountWatcher::signature:  5GWLieWadpugGZ6vGYAVcvckJdFrvRjUovoF7EHoWNdHcMuQXQFiiAWSaLhczk6sZZwFci7LcquAsCWRMaxCVoyw
+[2025-04-10T08:18:30.125Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5GWLieWadpugGZ6vGYAVcvckJdFrvRjUovoF7EHoWNdHcMuQXQFiiAWSaLhczk6sZZwFci7LcquAsCWRMaxCVoyw
+[2025-04-10T08:18:30.125Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 762558756199,
+  "solAmount": 214586158,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:30.125Z] [INFO] AccountWatcher::Buy Amount:  0.214586158
+[2025-04-10T08:18:30.493Z] [INFO] AccountWatcher::signature:  4G41wBZf7ZE4Te8UpD7RuKn7AeSHAp1gcWXjJRCgKARz5vtBMBva3Mi8gWZ7cR8MtGf5SVJ6rCCrpa7yexdiVhMi
+[2025-04-10T08:18:30.493Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4G41wBZf7ZE4Te8UpD7RuKn7AeSHAp1gcWXjJRCgKARz5vtBMBva3Mi8gWZ7cR8MtGf5SVJ6rCCrpa7yexdiVhMi
+[2025-04-10T08:18:30.494Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 721487048097,
+  "solAmount": 203922236,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:30.494Z] [INFO] AccountWatcher::Buy Amount:  0.203922236
+[2025-04-10T08:18:30.872Z] [INFO] AccountWatcher::signature:  UgkHrng5wth7844uTwG7ibCXkCkYqnEqRWips4cBgAfRvSjJcqERd1XekQPAGYgkuDy3XhmmqT6zF5gVMVhSYb9
+[2025-04-10T08:18:30.872Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  UgkHrng5wth7844uTwG7ibCXkCkYqnEqRWips4cBgAfRvSjJcqERd1XekQPAGYgkuDy3XhmmqT6zF5gVMVhSYb9
+[2025-04-10T08:18:30.873Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 352680052459,
+  "solAmount": 100000001,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:30.873Z] [INFO] AccountWatcher::Buy Amount:  0.100000001
+[2025-04-10T08:18:31.231Z] [INFO] AccountWatcher::signature:  Nn3D8Fnodzn1CWS599zUKn4HugnwKtLCmjcDcMJRD2XjSpLKt31XEcnWNzGsz39Q4WwnE6H77U1WVv4ig3MiWSZ
+[2025-04-10T08:18:31.231Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  Nn3D8Fnodzn1CWS599zUKn4HugnwKtLCmjcDcMJRD2XjSpLKt31XEcnWNzGsz39Q4WwnE6H77U1WVv4ig3MiWSZ
+[2025-04-10T08:18:31.232Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 764173915015,
+  "solAmount": 217396480,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:31.232Z] [INFO] AccountWatcher::Buy Amount:  0.21739648
+[2025-04-10T08:18:31.596Z] [INFO] AccountWatcher::signature:  2u8fHfrYhMky6oPMNtxNu4Roh3LAZenffBrrrDaMdJesVooJcz1yd2WDa7jt7k2SFibZ6CVtdHYwpB7g38QxDhJP
+[2025-04-10T08:18:31.596Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2u8fHfrYhMky6oPMNtxNu4Roh3LAZenffBrrrDaMdJesVooJcz1yd2WDa7jt7k2SFibZ6CVtdHYwpB7g38QxDhJP
+[2025-04-10T08:18:31.596Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 640823707580,
+  "solAmount": 183068899,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:31.596Z] [INFO] AccountWatcher::Buy Amount:  0.183068899
+[2025-04-10T08:18:31.960Z] [INFO] AccountWatcher::signature:  4R4A7Fhd73EWLD6BpnnYA798h5vEwzm4ND7QnSU4PnacB64DF17eVUL4M38dauKmu2pnnohkPA1B8b9K4Rb1KU3r
+[2025-04-10T08:18:31.960Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4R4A7Fhd73EWLD6BpnnYA798h5vEwzm4ND7QnSU4PnacB64DF17eVUL4M38dauKmu2pnnohkPA1B8b9K4Rb1KU3r
+[2025-04-10T08:18:31.960Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 516530457558,
+  "solAmount": 148071152,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:31.960Z] [INFO] AccountWatcher::Buy Amount:  0.148071152
+[2025-04-10T08:18:32.316Z] [INFO] AccountWatcher::signature:  9aeYpDGQtXzaXHAcS3zTXRUNaDSHqa3HJqLbbYGgPhK1hKzdLvPjaBAoexsQx8sPsZeHZHQymLYbaw63A94WQX3
+[2025-04-10T08:18:32.316Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  9aeYpDGQtXzaXHAcS3zTXRUNaDSHqa3HJqLbbYGgPhK1hKzdLvPjaBAoexsQx8sPsZeHZHQymLYbaw63A94WQX3
+[2025-04-10T08:18:32.316Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 507393817492,
+  "solAmount": 145897457,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:32.316Z] [INFO] AccountWatcher::Buy Amount:  0.145897457
+[2025-04-10T08:18:32.677Z] [INFO] AccountWatcher::signature:  3TKDwKz1ohjHesfd8q9gP5UKibSKz43U4SQ1gXEnSa7MkJmbaz4uGTcLGswcazGmnzGUrbkxMq5jiVuofaABmJrp
+[2025-04-10T08:18:32.677Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3TKDwKz1ohjHesfd8q9gP5UKibSKz43U4SQ1gXEnSa7MkJmbaz4uGTcLGswcazGmnzGUrbkxMq5jiVuofaABmJrp
+[2025-04-10T08:18:32.677Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 526339607414,
+  "solAmount": 151813868,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:32.677Z] [INFO] AccountWatcher::Buy Amount:  0.151813868
+[2025-04-10T08:18:33.051Z] [INFO] AccountWatcher::signature:  47mvsH8NcXnSZZFFGuyBZyiqYboxdUm7148bvUQ6HXrS59PkwUm81miynaq4ibCtAEvWrMpLyUY9m9Fj64bARkha
+[2025-04-10T08:18:33.051Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  47mvsH8NcXnSZZFFGuyBZyiqYboxdUm7148bvUQ6HXrS59PkwUm81miynaq4ibCtAEvWrMpLyUY9m9Fj64bARkha
+[2025-04-10T08:18:33.051Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 526974824836,
+  "solAmount": 152477465,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:33.051Z] [INFO] AccountWatcher::Buy Amount:  0.152477465
+[2025-04-10T08:18:33.413Z] [INFO] AccountWatcher::signature:  49syr8yibrbALaFhxiTKK5s9LzVDriDM1bNjHSkk6PZbA3LLAwc3mafM8N3au2tPD7XfZjuo9uJmf6PJ6kqGeEFP
+[2025-04-10T08:18:33.413Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  49syr8yibrbALaFhxiTKK5s9LzVDriDM1bNjHSkk6PZbA3LLAwc3mafM8N3au2tPD7XfZjuo9uJmf6PJ6kqGeEFP
+[2025-04-10T08:18:33.413Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 722097965109,
+  "solAmount": 209720097,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:33.413Z] [INFO] AccountWatcher::Buy Amount:  0.209720097
+[2025-04-10T08:18:33.772Z] [INFO] AccountWatcher::signature:  5bthHWjnsK5SN96j81tuFfMjtP83WfyibHBVX98nQ7KZqw38StjGxrK4FaPeMmEgTrVcBsJKeDqKkuf8YLWGmFbe
+[2025-04-10T08:18:33.773Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5bthHWjnsK5SN96j81tuFfMjtP83WfyibHBVX98nQ7KZqw38StjGxrK4FaPeMmEgTrVcBsJKeDqKkuf8YLWGmFbe
+[2025-04-10T08:18:33.773Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 871538257238,
+  "solAmount": 254338448,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:33.773Z] [INFO] AccountWatcher::Buy Amount:  0.254338448
+[2025-04-10T08:18:34.196Z] [INFO] AccountWatcher::signature:  4MSvEvE6cQgq8jgLuMLL4yb2ERDFUNnsSedVGc5taJRzSN5KtzKufYTu1S4XS5mLuEBkP2uSiREUBdjKj9u2YNH6
+[2025-04-10T08:18:34.196Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4MSvEvE6cQgq8jgLuMLL4yb2ERDFUNnsSedVGc5taJRzSN5KtzKufYTu1S4XS5mLuEBkP2uSiREUBdjKj9u2YNH6
+[2025-04-10T08:18:34.196Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 545599813531,
+  "solAmount": 159902186,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:34.196Z] [INFO] AccountWatcher::Buy Amount:  0.159902186
+[2025-04-10T08:18:34.567Z] [INFO] AccountWatcher::signature:  23zdJ6j8Em8NxfZCAvgwauxdEz5wi9RQhFEsLD6AAe9WeLmAo5PG9vQE11eQvvfaYGhvzCUJcTw9M5bTwbcxjZ1e
+[2025-04-10T08:18:34.567Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  23zdJ6j8Em8NxfZCAvgwauxdEz5wi9RQhFEsLD6AAe9WeLmAo5PG9vQE11eQvvfaYGhvzCUJcTw9M5bTwbcxjZ1e
+[2025-04-10T08:18:34.927Z] [INFO] AccountWatcher::signature:  3Q8iZHqUsUsoKUu5cbXHvhHEszvQ9EA5V4JHPMfLfQWvP17as9eE5xLq7dimkuiUp7euc2Zx3ATQrkzJDc3jKndN
+[2025-04-10T08:18:34.928Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3Q8iZHqUsUsoKUu5cbXHvhHEszvQ9EA5V4JHPMfLfQWvP17as9eE5xLq7dimkuiUp7euc2Zx3ATQrkzJDc3jKndN
+[2025-04-10T08:18:34.928Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 656766136326,
+  "solAmount": 193182650,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:34.928Z] [INFO] AccountWatcher::Buy Amount:  0.19318265
+[2025-04-10T08:18:35.314Z] [INFO] AccountWatcher::signature:  4TnmRXnxoWoXTFRScLaVVhca7iiYFnTQuqyAT2X7ULgB6UbS1aNB3Ko3GpZGB348ddw1ituiXomdCS2KjcLdaASF
+[2025-04-10T08:18:35.314Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4TnmRXnxoWoXTFRScLaVVhca7iiYFnTQuqyAT2X7ULgB6UbS1aNB3Ko3GpZGB348ddw1ituiXomdCS2KjcLdaASF
+[2025-04-10T08:18:35.315Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 627943681134,
+  "solAmount": 185424129,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:35.315Z] [INFO] AccountWatcher::Buy Amount:  0.185424129
+[2025-04-10T08:18:35.671Z] [INFO] AccountWatcher::signature:  52o4TyeZt9fiZaCAy7GfMYjGtu4cykdVkyTtxk1oAd6fUbCoKHQmRXN1zsJ9JKqpfdVYEWjW7qWJ4pmCNT1uCnDB
+[2025-04-10T08:18:35.671Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  52o4TyeZt9fiZaCAy7GfMYjGtu4cykdVkyTtxk1oAd6fUbCoKHQmRXN1zsJ9JKqpfdVYEWjW7qWJ4pmCNT1uCnDB
+[2025-04-10T08:18:35.671Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 591389479860,
+  "solAmount": 175276808,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:35.671Z] [INFO] AccountWatcher::Buy Amount:  0.175276808
+[2025-04-10T08:18:35.896Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+[2025-04-10T08:18:36.412Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+[2025-04-10T08:18:37.430Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+[2025-04-10T08:18:39.576Z] [INFO] AccountWatcher::signature:  nXZ6die8KjCCzt6pxpB3rL6Y2G7UEhZmeVkkLTe79CRrNgRYFbQ7pbuDAjUzZ9M5ZqtQ3pEdvovYMK64x9hqskA
+[2025-04-10T08:18:39.576Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  nXZ6die8KjCCzt6pxpB3rL6Y2G7UEhZmeVkkLTe79CRrNgRYFbQ7pbuDAjUzZ9M5ZqtQ3pEdvovYMK64x9hqskA
+[2025-04-10T08:18:39.576Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 601628843470,
+  "solAmount": 178958819,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:39.576Z] [INFO] AccountWatcher::Buy Amount:  0.178958819
+[2025-04-10T08:18:39.935Z] [INFO] AccountWatcher::signature:  2rzcuKvgy3CQofUGmbfYvtyBjqUzxJCuZGD1F8pAxTn2ivSLbcs7NbRaA2rmmYCjfo3DoawLfc2dFUk6pFXmjzNm
+[2025-04-10T08:18:39.935Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2rzcuKvgy3CQofUGmbfYvtyBjqUzxJCuZGD1F8pAxTn2ivSLbcs7NbRaA2rmmYCjfo3DoawLfc2dFUk6pFXmjzNm
+[2025-04-10T08:18:39.935Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 715501682740,
+  "solAmount": 213685903,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:39.935Z] [INFO] AccountWatcher::Buy Amount:  0.213685903
+[2025-04-10T08:18:40.280Z] [INFO] AccountWatcher::signature:  CMVjXmYyw65YKXXzqqAbMVveNkD9QakTtQUy3aAuWzDG4ZzuuuSsgRZ39iSEUDpEeauDuV8tpAMVRvEfd9YPDzG
+[2025-04-10T08:18:40.280Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  CMVjXmYyw65YKXXzqqAbMVveNkD9QakTtQUy3aAuWzDG4ZzuuuSsgRZ39iSEUDpEeauDuV8tpAMVRvEfd9YPDzG
+[2025-04-10T08:18:40.280Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 625650592800,
+  "solAmount": 187617305,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:40.280Z] [INFO] AccountWatcher::Buy Amount:  0.187617305
+[2025-04-10T08:18:40.661Z] [INFO] AccountWatcher::signature:  5pN8yUxne6xqRdGB3VE8RtjEYCHDBKYkozFUpsbQn9Zy4PwT1PGB7CPGVvEmrpE4VCR9mGmvbfgdBA4KTbAgPbUT
+[2025-04-10T08:18:40.661Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5pN8yUxne6xqRdGB3VE8RtjEYCHDBKYkozFUpsbQn9Zy4PwT1PGB7CPGVvEmrpE4VCR9mGmvbfgdBA4KTbAgPbUT
+[2025-04-10T08:18:40.661Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 503697275375,
+  "solAmount": 151568442,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:40.661Z] [INFO] AccountWatcher::Buy Amount:  0.151568442
+[2025-04-10T08:18:41.015Z] [INFO] AccountWatcher::signature:  5bAdEfeEkoWiPuqQxVAgzjj5dtGxtNk3LBKbawjpa3KE7hYQyrYZYX3bVEL9HcmoHXx2sREgK9fF6Ec3aLNot3GY
+[2025-04-10T08:18:41.015Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5bAdEfeEkoWiPuqQxVAgzjj5dtGxtNk3LBKbawjpa3KE7hYQyrYZYX3bVEL9HcmoHXx2sREgK9fF6Ec3aLNot3GY
+[2025-04-10T08:18:41.015Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 481258001609,
+  "solAmount": 145253287,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:41.015Z] [INFO] AccountWatcher::Buy Amount:  0.145253287
+[2025-04-10T08:18:41.368Z] [INFO] AccountWatcher::signature:  36TRymAEJ69Wyx28JQBjXamXr8eUusZANSnwUwpPpTx2iVaiQxR6i1MbdQiW53Quq2pHcmRPBbdgs7jDusuWyv9v
+[2025-04-10T08:18:41.368Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  36TRymAEJ69Wyx28JQBjXamXr8eUusZANSnwUwpPpTx2iVaiQxR6i1MbdQiW53Quq2pHcmRPBbdgs7jDusuWyv9v
+[2025-04-10T08:18:41.368Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 624293608263,
+  "solAmount": 189063852,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:41.368Z] [INFO] AccountWatcher::Buy Amount:  0.189063852
+[2025-04-10T08:18:41.728Z] [INFO] AccountWatcher::signature:  3NL68Cznpwd8bpm2xDJjbRzLkeD2Qdag5SGryt2NR5fkz7jm5E3EyHtcgffeFdwPKLq1m3e7mgvngPqSsmggAYeQ
+[2025-04-10T08:18:41.729Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3NL68Cznpwd8bpm2xDJjbRzLkeD2Qdag5SGryt2NR5fkz7jm5E3EyHtcgffeFdwPKLq1m3e7mgvngPqSsmggAYeQ
+[2025-04-10T08:18:41.729Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 436419721595,
+  "solAmount": 132598281,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:41.729Z] [INFO] AccountWatcher::Buy Amount:  0.132598281
+[2025-04-10T08:18:42.088Z] [INFO] AccountWatcher::signature:  3abungCzBZ4AYGqwQzF3AmxWNs9CkvweJxaRNRmPxs66v5VpRdoF8P3VGkF73NjBFrogkmK5hiqwTzTQ7EPuK4t2
+[2025-04-10T08:18:42.089Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3abungCzBZ4AYGqwQzF3AmxWNs9CkvweJxaRNRmPxs66v5VpRdoF8P3VGkF73NjBFrogkmK5hiqwTzTQ7EPuK4t2
+[2025-04-10T08:18:42.089Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 466735543110,
+  "solAmount": 142203509,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:42.089Z] [INFO] AccountWatcher::Buy Amount:  0.142203509
+[2025-04-10T08:18:42.476Z] [INFO] AccountWatcher::signature:  62JYMGRDZF9cnnbrBdFocqCn9ivsZMkn3TrHUyLwT8oFmA81L5bLhFzwP1JxsSxkNTvtzo2ge8pbDefb6sdMxCEt
+[2025-04-10T08:18:42.476Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  62JYMGRDZF9cnnbrBdFocqCn9ivsZMkn3TrHUyLwT8oFmA81L5bLhFzwP1JxsSxkNTvtzo2ge8pbDefb6sdMxCEt
+[2025-04-10T08:18:42.476Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 473778572334,
+  "solAmount": 144767943,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:42.476Z] [INFO] AccountWatcher::Buy Amount:  0.144767943
+[2025-04-10T08:18:42.842Z] [INFO] AccountWatcher::signature:  4JZSBWUJGMi2depmWXCYxzrbbBvZa298oGTVK9Dit1LsPrauN7AjCpqdfoH5Ygra1TQ2uGbrZVMFNnpfDvxeRoJ1
+[2025-04-10T08:18:42.842Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  4JZSBWUJGMi2depmWXCYxzrbbBvZa298oGTVK9Dit1LsPrauN7AjCpqdfoH5Ygra1TQ2uGbrZVMFNnpfDvxeRoJ1
+[2025-04-10T08:18:43.215Z] [INFO] AccountWatcher::signature:  4EArMdcqCdxfDi6VL7mLPgqZiJVLfZBEjJGoKDS3CYAvC8XSJyCkDyLyXMKzBXggGZ76NZeWPs3T3z9kpcm6DdJk
+[2025-04-10T08:18:43.216Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4EArMdcqCdxfDi6VL7mLPgqZiJVLfZBEjJGoKDS3CYAvC8XSJyCkDyLyXMKzBXggGZ76NZeWPs3T3z9kpcm6DdJk
+[2025-04-10T08:18:43.216Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 40439024390243,
+  "solAmount": 11002760052,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:43.216Z] [INFO] AccountWatcher::Sell Amount:  11.002760052
+[2025-04-10T08:18:43.216Z] [INFO] AccountWatcher::TokenCreator signature found:  4EArMdcqCdxfDi6VL7mLPgqZiJVLfZBEjJGoKDS3CYAvC8XSJyCkDyLyXMKzBXggGZ76NZeWPs3T3z9kpcm6DdJk
+[2025-04-10T08:18:43.586Z] [INFO] AccountWatcher::signature:  2WYaiXukRevSKHmYmNe9v67Yc4kWFDqP5SBh8EYNt9WgniP9XbKbvab2a3W26UtzBrDnMFch5eFiekJCbpryPvZ6
+[2025-04-10T08:18:43.586Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2WYaiXukRevSKHmYmNe9v67Yc4kWFDqP5SBh8EYNt9WgniP9XbKbvab2a3W26UtzBrDnMFch5eFiekJCbpryPvZ6
+[2025-04-10T08:18:43.586Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 412892619499,
+  "solAmount": 100000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:43.586Z] [INFO] AccountWatcher::Buy Amount:  0.1
+[2025-04-10T08:18:43.938Z] [INFO] AccountWatcher::signature:  3m5LZqsX12y4rxybzBfDQMTe8Cr7RPf2m7FHpzR66hz7Rmc6uHbMH5aJ7GLKrq2jEyX5w3CJM145A4eV7FLkAEHc
+[2025-04-10T08:18:43.938Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3m5LZqsX12y4rxybzBfDQMTe8Cr7RPf2m7FHpzR66hz7Rmc6uHbMH5aJ7GLKrq2jEyX5w3CJM145A4eV7FLkAEHc
+[2025-04-10T08:18:43.939Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 656505391714,
+  "solAmount": 159468994,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:43.939Z] [INFO] AccountWatcher::Buy Amount:  0.159468994
+[2025-04-10T08:18:44.327Z] [INFO] AccountWatcher::signature:  ZbAnCLRTGLwaaoKcMPrvmFg9YRrjRgvvxdd9vzbSjeGXxXvf5nbxu5GzPNeeRF2PGY7gr6Qypwn4zYvVU7aYZhJ
+[2025-04-10T08:18:44.327Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  ZbAnCLRTGLwaaoKcMPrvmFg9YRrjRgvvxdd9vzbSjeGXxXvf5nbxu5GzPNeeRF2PGY7gr6Qypwn4zYvVU7aYZhJ
+[2025-04-10T08:18:44.327Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 372738666224,
+  "solAmount": 90796881,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:44.327Z] [INFO] AccountWatcher::Buy Amount:  0.090796881
+[2025-04-10T08:18:44.686Z] [INFO] AccountWatcher::signature:  5Zcm9YoAt8mmNuQ8ZfZWuoXChMDzcbCieApiMRhkMYZpXxccgjZsaMFptSji1eDjESmRYw989MpbnqDXg49bmN97
+[2025-04-10T08:18:44.686Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5Zcm9YoAt8mmNuQ8ZfZWuoXChMDzcbCieApiMRhkMYZpXxccgjZsaMFptSji1eDjESmRYw989MpbnqDXg49bmN97
+[2025-04-10T08:18:44.686Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 417109141438,
+  "solAmount": 101826393,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:44.686Z] [INFO] AccountWatcher::Buy Amount:  0.101826393
+[2025-04-10T08:18:45.043Z] [INFO] AccountWatcher::signature:  49nQdzu3gnLuNaVJhwbgDjZ8NvF42rGnWVDioNrzjZGG4mSccGGe9oMzgCXDGXLF2ubquJu2QFatVsJADhDuVNum
+[2025-04-10T08:18:45.043Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  49nQdzu3gnLuNaVJhwbgDjZ8NvF42rGnWVDioNrzjZGG4mSccGGe9oMzgCXDGXLF2ubquJu2QFatVsJADhDuVNum
+[2025-04-10T08:18:45.043Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 449802163250,
+  "solAmount": 110070175,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:45.043Z] [INFO] AccountWatcher::Buy Amount:  0.110070175
+[2025-04-10T08:18:45.415Z] [INFO] AccountWatcher::signature:  49ffCohmgWQ61bBb996cR3sCntkdXayrAZh38pReCdDWjd4CYsBdnbq5ptJ4cgcVoxru6Z6yCup8dsSY3iRbF2dp
+[2025-04-10T08:18:45.415Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  49ffCohmgWQ61bBb996cR3sCntkdXayrAZh38pReCdDWjd4CYsBdnbq5ptJ4cgcVoxru6Z6yCup8dsSY3iRbF2dp
+[2025-04-10T08:18:45.416Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 806327148962,
+  "solAmount": 198000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:45.416Z] [INFO] AccountWatcher::Buy Amount:  0.198
+[2025-04-10T08:18:45.777Z] [INFO] AccountWatcher::signature:  5hXCizFSCfUWNH48cQxdcodE4gCMDyrHzvuXDAFJqbDxkouNuFqNyXRrricdKjhdHVv1NEQ7e2MFZEaQwPqvoQSg
+[2025-04-10T08:18:45.777Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5hXCizFSCfUWNH48cQxdcodE4gCMDyrHzvuXDAFJqbDxkouNuFqNyXRrricdKjhdHVv1NEQ7e2MFZEaQwPqvoQSg
+[2025-04-10T08:18:45.778Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 630795890302,
+  "solAmount": 155513501,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:45.778Z] [INFO] AccountWatcher::Buy Amount:  0.155513501
+[2025-04-10T08:18:46.141Z] [INFO] AccountWatcher::signature:  3W3KUf3i2DLU1sAgw26LbrFD4ubRRwBD4bCeiFy61TxgVdxNvDuCEQ8vp4bAxgY285tGL1qpMTLngrUfN4uoqMqs
+[2025-04-10T08:18:46.141Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3W3KUf3i2DLU1sAgw26LbrFD4ubRRwBD4bCeiFy61TxgVdxNvDuCEQ8vp4bAxgY285tGL1qpMTLngrUfN4uoqMqs
+[2025-04-10T08:18:46.141Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 567019803213,
+  "solAmount": 140254964,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:46.141Z] [INFO] AccountWatcher::Buy Amount:  0.140254964
+[2025-04-10T08:18:46.503Z] [INFO] AccountWatcher::signature:  VqQgJDSthbfWE3SoqJ6Hk6juxpGbUxRKfzxwmSm493rr7mrrZyBy2U5hZUkJBZ448E34uwndCFGLMVymzrkb7Um
+[2025-04-10T08:18:46.503Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  VqQgJDSthbfWE3SoqJ6Hk6juxpGbUxRKfzxwmSm493rr7mrrZyBy2U5hZUkJBZ448E34uwndCFGLMVymzrkb7Um
+[2025-04-10T08:18:46.504Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 635505544960,
+  "solAmount": 157720568,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:46.504Z] [INFO] AccountWatcher::Buy Amount:  0.157720568
+[2025-04-10T08:18:46.868Z] [INFO] AccountWatcher::signature:  62roDMRiRd43e9UuFkPCDRf1zULVKnBTFM1V8YVvHMGqZycLuNPK2jiBmsepiQro1XWZyL6L8JFWAcCor51eD21n
+[2025-04-10T08:18:46.868Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  62roDMRiRd43e9UuFkPCDRf1zULVKnBTFM1V8YVvHMGqZycLuNPK2jiBmsepiQro1XWZyL6L8JFWAcCor51eD21n
+[2025-04-10T08:18:47.230Z] [INFO] AccountWatcher::signature:  5ryGmzG2VXJ61UDPEDN6Bb6R5Q3shDXgpP6ots4wnhdQGqBDehHpuRz12tTB9XbNSVSVgENn7bSE2XdWdnCZCydm
+[2025-04-10T08:18:47.230Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5ryGmzG2VXJ61UDPEDN6Bb6R5Q3shDXgpP6ots4wnhdQGqBDehHpuRz12tTB9XbNSVSVgENn7bSE2XdWdnCZCydm
+[2025-04-10T08:18:47.231Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 427465437418,
+  "solAmount": 106402685,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:47.231Z] [INFO] AccountWatcher::Buy Amount:  0.106402685
+[2025-04-10T08:18:47.591Z] [INFO] AccountWatcher::signature:  3RBFv1FDqYDSv1DAzd4TfBqXw4bWbd8sL3X6Zjm5o7B7HzvA1nfhe9t5qHmWaMS1D4pTVMuz4j8GNbohM3uyJPk5
+[2025-04-10T08:18:47.591Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3RBFv1FDqYDSv1DAzd4TfBqXw4bWbd8sL3X6Zjm5o7B7HzvA1nfhe9t5qHmWaMS1D4pTVMuz4j8GNbohM3uyJPk5
+[2025-04-10T08:18:47.591Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 598210193596,
+  "solAmount": 149329325,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:47.591Z] [INFO] AccountWatcher::Buy Amount:  0.149329325
+[2025-04-10T08:18:47.949Z] [INFO] AccountWatcher::signature:  5rf3fNURHFnAjzyokDYhWppmQdn1pvbvv2vr1XtesmnohwCjfnDKUstKnWDjbqQXpNBaSjuJPLPhBbNUUbLfWwT
+[2025-04-10T08:18:47.949Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5rf3fNURHFnAjzyokDYhWppmQdn1pvbvv2vr1XtesmnohwCjfnDKUstKnWDjbqQXpNBaSjuJPLPhBbNUUbLfWwT
+[2025-04-10T08:18:47.950Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 559988526011,
+  "solAmount": 140240108,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:47.950Z] [INFO] AccountWatcher::Buy Amount:  0.140240108
+[2025-04-10T08:18:48.326Z] [INFO] AccountWatcher::signature:  3GBzyNXTZPJ8Qgxg3GJVhJxif8zXcRCXm3YVqwZaDAgKzCEzzmPVz6BoYyAxP5JMHY6JF2fwfKc8byBzN26M2jyh
+[2025-04-10T08:18:48.326Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3GBzyNXTZPJ8Qgxg3GJVhJxif8zXcRCXm3YVqwZaDAgKzCEzzmPVz6BoYyAxP5JMHY6JF2fwfKc8byBzN26M2jyh
+[2025-04-10T08:18:48.326Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 529698107578,
+  "solAmount": 133058463,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:48.326Z] [INFO] AccountWatcher::Buy Amount:  0.133058463
+[2025-04-10T08:18:48.692Z] [INFO] AccountWatcher::signature:  34XWYB3BjLxWyKa3my8Gs4RddCigtjkCxyjdPcwL2XmYjDq3GvqAKPeiH8hjVgABMu1gX7cQiPV8U9DzaF9c5bsN
+[2025-04-10T08:18:48.693Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  34XWYB3BjLxWyKa3my8Gs4RddCigtjkCxyjdPcwL2XmYjDq3GvqAKPeiH8hjVgABMu1gX7cQiPV8U9DzaF9c5bsN
+[2025-04-10T08:18:48.693Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 462603026887,
+  "solAmount": 116527166,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:48.693Z] [INFO] AccountWatcher::Buy Amount:  0.116527166
+[2025-04-10T08:18:49.073Z] [INFO] AccountWatcher::signature:  4ccsDiVCVA2VUudWyUE922f3peKCyD9pDa15wCnGbsYUbXz9QxLaYj3UipKPNE6F2k2Wy5AKgLTor9gvXWPJeEsD
+[2025-04-10T08:18:49.073Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4ccsDiVCVA2VUudWyUE922f3peKCyD9pDa15wCnGbsYUbXz9QxLaYj3UipKPNE6F2k2Wy5AKgLTor9gvXWPJeEsD
+[2025-04-10T08:18:49.074Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 492570620917,
+  "solAmount": 124408038,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:49.074Z] [INFO] AccountWatcher::Buy Amount:  0.124408038
+[2025-04-10T08:18:49.436Z] [INFO] AccountWatcher::signature:  297JJivuhH4dYizmAetyTfU8Lc1bEj7haZwfKXfwioTh94rXm38r4b5N8WznVURSQz7UZqvL4A8J5f2oTx7T5js7
+[2025-04-10T08:18:49.436Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  297JJivuhH4dYizmAetyTfU8Lc1bEj7haZwfKXfwioTh94rXm38r4b5N8WznVURSQz7UZqvL4A8J5f2oTx7T5js7
+[2025-04-10T08:18:49.437Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 530577524403,
+  "solAmount": 134392297,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:49.437Z] [INFO] AccountWatcher::Buy Amount:  0.134392297
+[2025-04-10T08:18:49.808Z] [INFO] AccountWatcher::signature:  5m9p1nyERrWAquAipLAW5ABEnTgXLZ6qZqE1b2Cmcp4fs9NSZrkmUBMp3krh4XirkUnSYxrSmuYKJBpk8eaRCm6b
+[2025-04-10T08:18:49.808Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5m9p1nyERrWAquAipLAW5ABEnTgXLZ6qZqE1b2Cmcp4fs9NSZrkmUBMp3krh4XirkUnSYxrSmuYKJBpk8eaRCm6b
+[2025-04-10T08:18:49.810Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 352771153034,
+  "solAmount": 89576743,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:49.810Z] [INFO] AccountWatcher::Buy Amount:  0.089576743
+[2025-04-10T08:18:50.195Z] [INFO] AccountWatcher::signature:  31f5UWaCjgFZCa2Y7VGkZWqeRSEtGYnKVup5ZDGekoV1hXtQ7FxUD2wbpfhrvRg5cemx6xiFKt1uuH5giXe44UZv
+[2025-04-10T08:18:50.195Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  31f5UWaCjgFZCa2Y7VGkZWqeRSEtGYnKVup5ZDGekoV1hXtQ7FxUD2wbpfhrvRg5cemx6xiFKt1uuH5giXe44UZv
+[2025-04-10T08:18:50.196Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 418711300690,
+  "solAmount": 106551228,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:50.196Z] [INFO] AccountWatcher::Buy Amount:  0.106551228
+[2025-04-10T08:18:50.396Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:18:50.396Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:18:50.396Z] [INFO] AccountWatcher::Token Creator Sells:  40439024390243
+[2025-04-10T08:18:51.036Z] [INFO] AccountWatcher::signature:  5pYsKNmmdLUZxSk3p4XN7X3XtejXCkjfL5TNLY6wqJaUijKPtMWK4XqqZrA9JWEfmr4Jzu5tBM6Fdfba6FFAvknr
+[2025-04-10T08:18:51.036Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5pYsKNmmdLUZxSk3p4XN7X3XtejXCkjfL5TNLY6wqJaUijKPtMWK4XqqZrA9JWEfmr4Jzu5tBM6Fdfba6FFAvknr
+[2025-04-10T08:18:51.036Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 76929825231,
+  "solAmount": 19603960,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:51.036Z] [INFO] AccountWatcher::Buy Amount:  0.01960396
+[2025-04-10T08:18:51.386Z] [INFO] AccountWatcher::signature:  2YETox6BzFaB1p7q6MWzdQU2Bfe1fsB72qfeGvt9Uo5Lb7hxU8yZzVGNhf2WctpmTxYwbjwJk8og4HZF5isEEE9H
+[2025-04-10T08:18:51.386Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2YETox6BzFaB1p7q6MWzdQU2Bfe1fsB72qfeGvt9Uo5Lb7hxU8yZzVGNhf2WctpmTxYwbjwJk8og4HZF5isEEE9H
+[2025-04-10T08:18:51.386Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 39815465495,
+  "solAmount": 10149474,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:51.386Z] [INFO] AccountWatcher::Buy Amount:  0.010149474
+[2025-04-10T08:18:51.759Z] [INFO] AccountWatcher::signature:  29D2XP9v5sMNAqZHYRibYWvwHUf19LZS5811KrwrC3d5rDRYhReUY263sFoEM8Tc6n3nJHZUj8szHkZi2RErreGS
+[2025-04-10T08:18:51.759Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  29D2XP9v5sMNAqZHYRibYWvwHUf19LZS5811KrwrC3d5rDRYhReUY263sFoEM8Tc6n3nJHZUj8szHkZi2RErreGS
+[2025-04-10T08:18:51.759Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 558413411263,
+  "solAmount": 142586779,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:51.759Z] [INFO] AccountWatcher::Buy Amount:  0.142586779
+[2025-04-10T08:18:52.125Z] [INFO] AccountWatcher::signature:  4sFxXxzJ1CnSMESusgrDz4z8BdRSSDiW9BJ9PBNNt2B6ekQSsNDZ7fEtdMEWQM3wsGD6KwxXyfN1D1nVp3UGYLtZ
+[2025-04-10T08:18:52.125Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4sFxXxzJ1CnSMESusgrDz4z8BdRSSDiW9BJ9PBNNt2B6ekQSsNDZ7fEtdMEWQM3wsGD6KwxXyfN1D1nVp3UGYLtZ
+[2025-04-10T08:18:52.125Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 498670666268,
+  "solAmount": 127711834,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:52.127Z] [INFO] AccountWatcher::Buy Amount:  0.127711834
+[2025-04-10T08:18:52.484Z] [INFO] AccountWatcher::signature:  63qxPUiPiYyHmXR6782AqzgkV6mV757GXaj1fB88KajFM3gN9wjDc4YVxNbYTATADhizwmVZuVqSwTURK87jmJMY
+[2025-04-10T08:18:52.484Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  63qxPUiPiYyHmXR6782AqzgkV6mV757GXaj1fB88KajFM3gN9wjDc4YVxNbYTATADhizwmVZuVqSwTURK87jmJMY
+[2025-04-10T08:18:52.485Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 697676753966,
+  "solAmount": 179282760,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:52.485Z] [INFO] AccountWatcher::Buy Amount:  0.17928276
+[2025-04-10T08:18:52.872Z] [INFO] AccountWatcher::signature:  2rFzE2jMHjtgy9BbtaUDnuiTNg2iVqd2uDxwpFtSSp6eq4GdKMsLCqTdhjyNVs5tSQAUQCziZn5Ws7pwQYiZX8VY
+[2025-04-10T08:18:52.872Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2rFzE2jMHjtgy9BbtaUDnuiTNg2iVqd2uDxwpFtSSp6eq4GdKMsLCqTdhjyNVs5tSQAUQCziZn5Ws7pwQYiZX8VY
+[2025-04-10T08:18:52.873Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 388487497207,
+  "solAmount": 100137062,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:52.873Z] [INFO] AccountWatcher::Buy Amount:  0.100137062
+[2025-04-10T08:18:53.236Z] [INFO] AccountWatcher::signature:  2wm1VVWTEY1Q56XC8WNraM5ujhXLsMZMFawf2dBcdyyjaJJ5k6jaQrQyG1dXs8ZLcCCMnNFtBK1eB9NxsBznx9VA
+[2025-04-10T08:18:53.236Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2wm1VVWTEY1Q56XC8WNraM5ujhXLsMZMFawf2dBcdyyjaJJ5k6jaQrQyG1dXs8ZLcCCMnNFtBK1eB9NxsBznx9VA
+[2025-04-10T08:18:53.236Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 387900604652,
+  "solAmount": 100205813,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:53.236Z] [INFO] AccountWatcher::Buy Amount:  0.100205813
+[2025-04-10T08:18:53.594Z] [INFO] AccountWatcher::signature:  4mFU8s5bDXTWJZozfA1PyKsFeWeJTq3DiqvP3TppDRjoiUcdNwvRkLtB6meWM5CAJK4eL4iUop6vNFiD3F8Kb4BC
+[2025-04-10T08:18:53.594Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4mFU8s5bDXTWJZozfA1PyKsFeWeJTq3DiqvP3TppDRjoiUcdNwvRkLtB6meWM5CAJK4eL4iUop6vNFiD3F8Kb4BC
+[2025-04-10T08:18:53.594Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 606929824103,
+  "solAmount": 157230187,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:53.594Z] [INFO] AccountWatcher::Buy Amount:  0.157230187
+[2025-04-10T08:18:53.958Z] [INFO] AccountWatcher::signature:  2ogFkRVdbEoy42LhvSoX3FLLvxxiRtDqgw2a7jpPqb8JZVyn6kqcWJf5wfeH9j86MasPghYCBj57z1t8vyAefnZS
+[2025-04-10T08:18:53.959Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2ogFkRVdbEoy42LhvSoX3FLLvxxiRtDqgw2a7jpPqb8JZVyn6kqcWJf5wfeH9j86MasPghYCBj57z1t8vyAefnZS
+[2025-04-10T08:18:53.959Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 361599727448,
+  "solAmount": 93933265,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:53.959Z] [INFO] AccountWatcher::Buy Amount:  0.093933265
+[2025-04-10T08:18:54.321Z] [INFO] AccountWatcher::signature:  4v7HFLvE5dXykx9UrY2QkZ5282H8bz13zbzGkjTowSJGdv611zVDyUWoaJLi3gc5opBe36KtzifvC9TRKfgnUnWx
+[2025-04-10T08:18:54.321Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4v7HFLvE5dXykx9UrY2QkZ5282H8bz13zbzGkjTowSJGdv611zVDyUWoaJLi3gc5opBe36KtzifvC9TRKfgnUnWx
+[2025-04-10T08:18:54.321Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 668884061945,
+  "solAmount": 174266825,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:54.321Z] [INFO] AccountWatcher::Buy Amount:  0.174266825
+[2025-04-10T08:18:54.685Z] [INFO] AccountWatcher::signature:  toue8fPvJzto1RqxS7Gg1aCg3D2e7Uu3zZ6fUp2j327tzFsk53ojsfDox5Q3eP7yHhvdJtQVcy2xKVBJknfzVLi
+[2025-04-10T08:18:54.685Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  toue8fPvJzto1RqxS7Gg1aCg3D2e7Uu3zZ6fUp2j327tzFsk53ojsfDox5Q3eP7yHhvdJtQVcy2xKVBJknfzVLi
+[2025-04-10T08:18:54.685Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 393338363238,
+  "solAmount": 102788216,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:54.685Z] [INFO] AccountWatcher::Buy Amount:  0.102788216
+[2025-04-10T08:18:55.046Z] [INFO] AccountWatcher::signature:  4oqdsm6NFhUzy3MdRsSCNSY4dQZjVS7jKDqJR86pDgC58YBdJ8AdZsgSH6QUXDQH76tmEgP2DKPk6szWXKhwfG1b
+[2025-04-10T08:18:55.046Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4oqdsm6NFhUzy3MdRsSCNSY4dQZjVS7jKDqJR86pDgC58YBdJ8AdZsgSH6QUXDQH76tmEgP2DKPk6szWXKhwfG1b
+[2025-04-10T08:18:55.046Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 40000000000000,
+  "solAmount": 9393460010,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:55.046Z] [INFO] AccountWatcher::Sell Amount:  9.39346001
+[2025-04-10T08:18:55.046Z] [INFO] AccountWatcher::TokenCreator signature found:  4oqdsm6NFhUzy3MdRsSCNSY4dQZjVS7jKDqJR86pDgC58YBdJ8AdZsgSH6QUXDQH76tmEgP2DKPk6szWXKhwfG1b
+[2025-04-10T08:18:55.580Z] [INFO] AccountWatcher::signature:  2CVHiL72MmZZUomjHz1WQeCdFBvTmKrEdrAu43sYq6kTh6yJfYomEQjMorrNYGVRhdY3XeXTGxuyyrJUcELwWeUq
+[2025-04-10T08:18:55.580Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2CVHiL72MmZZUomjHz1WQeCdFBvTmKrEdrAu43sYq6kTh6yJfYomEQjMorrNYGVRhdY3XeXTGxuyyrJUcELwWeUq
+[2025-04-10T08:18:55.581Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 520596754089,
+  "solAmount": 109887395,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:55.581Z] [INFO] AccountWatcher::Buy Amount:  0.109887395
+[2025-04-10T08:18:55.936Z] [INFO] AccountWatcher::signature:  217vR5J5r5bHofD9CrvxBw5UbBma5gsuLa9gk8b1AstaFmHPq23gwQ1TY5Dpug5aQ3TCxucWuTJQyUXfBipCPvbU
+[2025-04-10T08:18:55.936Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  217vR5J5r5bHofD9CrvxBw5UbBma5gsuLa9gk8b1AstaFmHPq23gwQ1TY5Dpug5aQ3TCxucWuTJQyUXfBipCPvbU
+[2025-04-10T08:18:55.938Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 519598299687,
+  "solAmount": 109969366,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:55.938Z] [INFO] AccountWatcher::Buy Amount:  0.109969366
+[2025-04-10T08:18:56.303Z] [INFO] AccountWatcher::signature:  39XeGNGSh6Wksakww5FvHKJ2XV8yztWyQKz7ynV7oD4GTjJcGkbyH5XucuRwKQg4UUc6Apmsi3cEhoo6XYzUhxXu
+[2025-04-10T08:18:56.303Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  39XeGNGSh6Wksakww5FvHKJ2XV8yztWyQKz7ynV7oD4GTjJcGkbyH5XucuRwKQg4UUc6Apmsi3cEhoo6XYzUhxXu
+[2025-04-10T08:18:56.303Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 408329504103,
+  "solAmount": 86626075,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:56.303Z] [INFO] AccountWatcher::Buy Amount:  0.086626075
+[2025-04-10T08:18:56.666Z] [INFO] AccountWatcher::signature:  3N992rxoKH4mMxE4MoizwU4yas3sVE7xVRzBzTaNvBdnCXGtKTN4BH9NcNBjYuimyGz3o9etMHF4dPRSXNp7LaeC
+[2025-04-10T08:18:56.666Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3N992rxoKH4mMxE4MoizwU4yas3sVE7xVRzBzTaNvBdnCXGtKTN4BH9NcNBjYuimyGz3o9etMHF4dPRSXNp7LaeC
+[2025-04-10T08:18:56.666Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 705035443956,
+  "solAmount": 150000000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:56.666Z] [INFO] AccountWatcher::Buy Amount:  0.15
+[2025-04-10T08:18:57.033Z] [INFO] AccountWatcher::signature:  2SmvNAW1CZ3DSGDKJgrjo6o1CPQL1Tc322DMe2CSiBA1TpcYaS6xKGTNdGP91zV14wguNvxrgwaWV5s7T6Cfqymk
+[2025-04-10T08:18:57.033Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2SmvNAW1CZ3DSGDKJgrjo6o1CPQL1Tc322DMe2CSiBA1TpcYaS6xKGTNdGP91zV14wguNvxrgwaWV5s7T6Cfqymk
+[2025-04-10T08:18:57.034Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 465610073615,
+  "solAmount": 99359753,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:57.034Z] [INFO] AccountWatcher::Buy Amount:  0.099359753
+[2025-04-10T08:18:57.450Z] [INFO] AccountWatcher::signature:  4cPnxMwWhCPchYBSnnnqKc248rGHUNrvGgDm1DtXeNeQ4h9jQmQEW25E9Q9WLydhJ1LTxSZXjBqXpzn7X1JJnNLF
+[2025-04-10T08:18:57.450Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4cPnxMwWhCPchYBSnnnqKc248rGHUNrvGgDm1DtXeNeQ4h9jQmQEW25E9Q9WLydhJ1LTxSZXjBqXpzn7X1JJnNLF
+[2025-04-10T08:18:57.450Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 193233483037,
+  "solAmount": 41305456,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:57.450Z] [INFO] AccountWatcher::Buy Amount:  0.041305456
+[2025-04-10T08:18:57.808Z] [INFO] AccountWatcher::signature:  JSbvCFJZ54qdnxk3bC17RyYFhHYBw8N22mf6t3Vrg6qvSw1MzjQwHGphhUbH5bm4R7FSMCzshPpni5V53RLE4bh
+[2025-04-10T08:18:57.808Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  JSbvCFJZ54qdnxk3bC17RyYFhHYBw8N22mf6t3Vrg6qvSw1MzjQwHGphhUbH5bm4R7FSMCzshPpni5V53RLE4bh
+[2025-04-10T08:18:57.809Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 2340229604130,
+  "solAmount": 503532376,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:57.809Z] [INFO] AccountWatcher::Buy Amount:  0.503532376
+[2025-04-10T08:18:58.177Z] [INFO] AccountWatcher::signature:  3KrvaFMdM3Cb3djXzwvNep88jPRYQT3ukiPrXhjKNYirXou5KfmMvbzhgtQhW8wxaYPK4GVtrMCATRvgJWuxYNRQ
+[2025-04-10T08:18:58.177Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3KrvaFMdM3Cb3djXzwvNep88jPRYQT3ukiPrXhjKNYirXou5KfmMvbzhgtQhW8wxaYPK4GVtrMCATRvgJWuxYNRQ
+[2025-04-10T08:18:58.177Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 468610337240,
+  "solAmount": 101563233,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:58.177Z] [INFO] AccountWatcher::Buy Amount:  0.101563233
+[2025-04-10T08:18:58.543Z] [INFO] AccountWatcher::signature:  2QjYJ7nbfsPA8eQ6Ps3ChZ9U1Nxd55ZcNKmJ1QvCSXcaW7BSzVrqhyNoqRsGKwLWsXgYzffmFcF6C737hC6zoroQ
+[2025-04-10T08:18:58.543Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2QjYJ7nbfsPA8eQ6Ps3ChZ9U1Nxd55ZcNKmJ1QvCSXcaW7BSzVrqhyNoqRsGKwLWsXgYzffmFcF6C737hC6zoroQ
+[2025-04-10T08:18:58.543Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 705035443956,
+  "solAmount": 153270790,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:58.543Z] [INFO] AccountWatcher::Buy Amount:  0.15327079
+[2025-04-10T08:18:58.902Z] [INFO] AccountWatcher::signature:  4Z9XUMVArAtjKeadh9SZBbAjhw59uqYQbBTG5cuE8NNyd3Lqque1oid9utAAMjju66ULfvWvbkvfcExyzyb3kysu
+[2025-04-10T08:18:58.902Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4Z9XUMVArAtjKeadh9SZBbAjhw59uqYQbBTG5cuE8NNyd3Lqque1oid9utAAMjju66ULfvWvbkvfcExyzyb3kysu
+[2025-04-10T08:18:58.902Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 501270792999,
+  "solAmount": 109315866,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:58.902Z] [INFO] AccountWatcher::Buy Amount:  0.109315866
+[2025-04-10T08:18:59.286Z] [INFO] AccountWatcher::signature:  4ewhveAsEHNPGJBX947oo4fqDXyf98RSvX5FYTSQAwAauUpS6Pxm6PoHcojXEXa9Egj6FCLPqDNFUhthb1qmzhty
+[2025-04-10T08:18:59.287Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4ewhveAsEHNPGJBX947oo4fqDXyf98RSvX5FYTSQAwAauUpS6Pxm6PoHcojXEXa9Egj6FCLPqDNFUhthb1qmzhty
+[2025-04-10T08:18:59.287Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 391793586513,
+  "solAmount": 85640294,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:59.287Z] [INFO] AccountWatcher::Buy Amount:  0.085640294
+[2025-04-10T08:18:59.665Z] [INFO] AccountWatcher::signature:  4oBjGJiq144RFd6tuSFkX1SeHLPeYgdoNSAn4mxXNY9s4YCxNSkjMURiyxNsH9HwXAnxXsBCqBF9XhHP6kWyGeon
+[2025-04-10T08:18:59.665Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4oBjGJiq144RFd6tuSFkX1SeHLPeYgdoNSAn4mxXNY9s4YCxNSkjMURiyxNsH9HwXAnxXsBCqBF9XhHP6kWyGeon
+[2025-04-10T08:18:59.665Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 510767851641,
+  "solAmount": 111909382,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:18:59.665Z] [INFO] AccountWatcher::Buy Amount:  0.111909382
+[2025-04-10T08:19:00.049Z] [INFO] AccountWatcher::signature:  41ikTvCoCZQfYZLRHtkFB5jwGjvpiMj9Ce7n3nmxeGVH84B5eSt3qDcVXPmvbG72DVt7nof5Z1xktahChjoHmqmk
+[2025-04-10T08:19:00.050Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  41ikTvCoCZQfYZLRHtkFB5jwGjvpiMj9Ce7n3nmxeGVH84B5eSt3qDcVXPmvbG72DVt7nof5Z1xktahChjoHmqmk
+[2025-04-10T08:19:00.052Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 416582748910,
+  "solAmount": 91494612,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:00.052Z] [INFO] AccountWatcher::Buy Amount:  0.091494612
+[2025-04-10T08:19:00.415Z] [INFO] AccountWatcher::signature:  2ZLphE791Z9R6efwzQsyy9Y7ccinpXYjw9eYfqx7aM2zHbtQLAVecC3uewn7njVeS6MQaEKWkaUp6PTGBu4iGSWk
+[2025-04-10T08:19:00.415Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2ZLphE791Z9R6efwzQsyy9Y7ccinpXYjw9eYfqx7aM2zHbtQLAVecC3uewn7njVeS6MQaEKWkaUp6PTGBu4iGSWk
+[2025-04-10T08:19:00.415Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 349298567272,
+  "solAmount": 76870599,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:00.415Z] [INFO] AccountWatcher::Buy Amount:  0.076870599
+[2025-04-10T08:19:00.778Z] [INFO] AccountWatcher::signature:  3jsQioy4PUU3WPHo6AtEAUAHCiyqJMpYhcUK2xdXDi1fnqRAAyQrebQtSW43jFRySrdDU8FZ7STGzxaH37rCX7fQ
+[2025-04-10T08:19:00.778Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3jsQioy4PUU3WPHo6AtEAUAHCiyqJMpYhcUK2xdXDi1fnqRAAyQrebQtSW43jFRySrdDU8FZ7STGzxaH37rCX7fQ
+[2025-04-10T08:19:00.779Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 770708524628,
+  "solAmount": 170108779,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:00.779Z] [INFO] AccountWatcher::Buy Amount:  0.170108779
+[2025-04-10T08:19:01.140Z] [INFO] AccountWatcher::signature:  2TkbadjxAssbMfXZvNQRXbt4eHzuezkhJmwD4mFmQzf6GdsUHnJLU7H41ZVRYi7KAucZAUH6mH2Y7DXwwHsA3iPi
+[2025-04-10T08:19:01.141Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2TkbadjxAssbMfXZvNQRXbt4eHzuezkhJmwD4mFmQzf6GdsUHnJLU7H41ZVRYi7KAucZAUH6mH2Y7DXwwHsA3iPi
+[2025-04-10T08:19:01.141Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 646955623337,
+  "solAmount": 143325879,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:01.141Z] [INFO] AccountWatcher::Buy Amount:  0.143325879
+[2025-04-10T08:19:01.485Z] [INFO] AccountWatcher::signature:  2PjBCgr67wrxg6riTQsWi6zAh4JjaQnDXNKfoKHwcRLnQNCYhmKAkBTimP3T5duoYAmSizQTc64gJ1ZnjXGAb4J4
+[2025-04-10T08:19:01.485Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2PjBCgr67wrxg6riTQsWi6zAh4JjaQnDXNKfoKHwcRLnQNCYhmKAkBTimP3T5duoYAmSizQTc64gJ1ZnjXGAb4J4
+[2025-04-10T08:19:01.486Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 390031826209,
+  "solAmount": 86642753,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:01.486Z] [INFO] AccountWatcher::Buy Amount:  0.086642753
+[2025-04-10T08:19:01.855Z] [INFO] AccountWatcher::signature:  4udqzaebvktHs5t3eux25SJVsBQ8stVwHAntzTdEVqYEkbE53zq7gY5Qoi5tThwXAXjd1qnEPCwfD1rCiover7zf
+[2025-04-10T08:19:01.855Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4udqzaebvktHs5t3eux25SJVsBQ8stVwHAntzTdEVqYEkbE53zq7gY5Qoi5tThwXAXjd1qnEPCwfD1rCiover7zf
+[2025-04-10T08:19:01.856Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 518503382416,
+  "solAmount": 115457201,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:01.856Z] [INFO] AccountWatcher::Buy Amount:  0.115457201
+[2025-04-10T08:19:02.222Z] [INFO] AccountWatcher::signature:  2aCbidTM4vdTtqry1JJh8LtSGQZtr8RFaMTRsTfQttZ65tzjY2taf8QiZQY6mJZ5Cpqyo45DXeBh8McjfNorDnff
+[2025-04-10T08:19:02.222Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2aCbidTM4vdTtqry1JJh8LtSGQZtr8RFaMTRsTfQttZ65tzjY2taf8QiZQY6mJZ5Cpqyo45DXeBh8McjfNorDnff
+[2025-04-10T08:19:02.222Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 547464100428,
+  "solAmount": 122248503,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:02.222Z] [INFO] AccountWatcher::Buy Amount:  0.122248503
+[2025-04-10T08:19:02.589Z] [INFO] AccountWatcher::signature:  5mDd3kYWZKkMHHr8FBTp2eYRhThw4m17TAZtZ6kD9TX5EpPkxpZycsDZU9BabGHMDuu7QxQw3zPDThncejpohiSX
+[2025-04-10T08:19:02.589Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5mDd3kYWZKkMHHr8FBTp2eYRhThw4m17TAZtZ6kD9TX5EpPkxpZycsDZU9BabGHMDuu7QxQw3zPDThncejpohiSX
+[2025-04-10T08:19:02.589Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 556833431333,
+  "solAmount": 124703108,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:02.589Z] [INFO] AccountWatcher::Buy Amount:  0.124703108
+[2025-04-10T08:19:02.950Z] [INFO] AccountWatcher::signature:  629S1jaQVr8iHYkffHmShBUFR8XVNyFXMJu7NrPRhHqQ735uzFt3SbqkfQJTPZoL6AbSBRzJuh6E95Q7JLDFN9mE
+[2025-04-10T08:19:02.950Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  629S1jaQVr8iHYkffHmShBUFR8XVNyFXMJu7NrPRhHqQ735uzFt3SbqkfQJTPZoL6AbSBRzJuh6E95Q7JLDFN9mE
+[2025-04-10T08:19:02.950Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 582892358829,
+  "solAmount": 130932336,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:02.950Z] [INFO] AccountWatcher::Buy Amount:  0.130932336
+[2025-04-10T08:19:03.150Z] [INFO] AccountWatcher::Processed  200  signatures
+[2025-04-10T08:19:03.317Z] [INFO] AccountWatcher::signature:  5cYq46TysRxJF2WAsycDUwK9ioykpPrTmScwSsXHHAsrRJgKa7Yf62KqTMjfSFSPGyFFt2bnVqZXvmbPpfEJcPd
+[2025-04-10T08:19:03.317Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5cYq46TysRxJF2WAsycDUwK9ioykpPrTmScwSsXHHAsrRJgKa7Yf62KqTMjfSFSPGyFFt2bnVqZXvmbPpfEJcPd
+[2025-04-10T08:19:03.317Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 567836633694,
+  "solAmount": 127939047,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:03.317Z] [INFO] AccountWatcher::Buy Amount:  0.127939047
+[2025-04-10T08:19:03.678Z] [INFO] AccountWatcher::signature:  5gEpjooqpJHnpES5KRsW61k2K4xo3q2PwMBvyMjbKmMjhhoHrhjvWd52ygKswbAy3h4eWaiS7kx8ykLUhaAfcCSP
+[2025-04-10T08:19:03.678Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5gEpjooqpJHnpES5KRsW61k2K4xo3q2PwMBvyMjbKmMjhhoHrhjvWd52ygKswbAy3h4eWaiS7kx8ykLUhaAfcCSP
+[2025-04-10T08:19:03.678Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 462764225748,
+  "solAmount": 104550075,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:03.678Z] [INFO] AccountWatcher::Buy Amount:  0.104550075
+[2025-04-10T08:19:04.033Z] [INFO] AccountWatcher::signature:  3rnUzUhQ77TVfz9LTjfzfKPeY4RoPM6T143XdxM2DFfFyqLTgnpvq3ZXJ2Sua9begriwRXG6jpd4nxBjiJJ8vcm7
+[2025-04-10T08:19:04.033Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3rnUzUhQ77TVfz9LTjfzfKPeY4RoPM6T143XdxM2DFfFyqLTgnpvq3ZXJ2Sua9begriwRXG6jpd4nxBjiJJ8vcm7
+[2025-04-10T08:19:04.033Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 465610073615,
+  "solAmount": 105452224,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:04.033Z] [INFO] AccountWatcher::Buy Amount:  0.105452224
+[2025-04-10T08:19:04.406Z] [INFO] AccountWatcher::signature:  5HEYeydzKTCxhZuMcNgxX1K7jLuwC3opLVmMqErWM3yDsXf6MNWeVex1f9doLr5Fp3DnNijiMq1Y3Fc1wNRVXF2n
+[2025-04-10T08:19:04.406Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5HEYeydzKTCxhZuMcNgxX1K7jLuwC3opLVmMqErWM3yDsXf6MNWeVex1f9doLr5Fp3DnNijiMq1Y3Fc1wNRVXF2n
+[2025-04-10T08:19:04.406Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 81915751573,
+  "solAmount": 18579397,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:04.406Z] [INFO] AccountWatcher::Buy Amount:  0.018579397
+[2025-04-10T08:19:04.768Z] [INFO] AccountWatcher::signature:  5bMGwfzQW3CF6rM9PFW75881np4qdPMPjU4LCBqxPDVGe7r8CKdmYY5XpMMUZAP64GrSoX41Vntp8BK8hzJSLUND
+[2025-04-10T08:19:04.768Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5bMGwfzQW3CF6rM9PFW75881np4qdPMPjU4LCBqxPDVGe7r8CKdmYY5XpMMUZAP64GrSoX41Vntp8BK8hzJSLUND
+[2025-04-10T08:19:04.769Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 87726776228,
+  "solAmount": 19906364,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:04.769Z] [INFO] AccountWatcher::Buy Amount:  0.019906364
+[2025-04-10T08:19:05.141Z] [INFO] AccountWatcher::signature:  2r6yXavTAEfZWdheamdLYcnbbJecX4zyJe4mhaKTNwmTXjVMYjNhNnHD2vYpzWqLS6uHXgas5wgN2efqWJo6d9sg
+[2025-04-10T08:19:05.141Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2r6yXavTAEfZWdheamdLYcnbbJecX4zyJe4mhaKTNwmTXjVMYjNhNnHD2vYpzWqLS6uHXgas5wgN2efqWJo6d9sg
+[2025-04-10T08:19:05.142Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 861763262217,
+  "solAmount": 196039603,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:05.142Z] [INFO] AccountWatcher::Buy Amount:  0.196039603
+[2025-04-10T08:19:05.507Z] [INFO] AccountWatcher::signature:  5c6PDBU3uF4fVp9fEc1YZQDdWAWuFUtDdcNttpiaYe3doFtw1bEVLyFfuMiuhBRfESp9auswDoB43jWTSAFxESM2
+[2025-04-10T08:19:05.507Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5c6PDBU3uF4fVp9fEc1YZQDdWAWuFUtDdcNttpiaYe3doFtw1bEVLyFfuMiuhBRfESp9auswDoB43jWTSAFxESM2
+[2025-04-10T08:19:05.507Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 429404356548,
+  "solAmount": 98019801,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:05.507Z] [INFO] AccountWatcher::Buy Amount:  0.098019801
+[2025-04-10T08:19:05.875Z] [INFO] AccountWatcher::signature:  mmBAZY3wvkMPLov9myoc1QdpkeofyPgeJxSqPNRbP8R4SSTWXEYZwis92P1mnrFyjcV27rhgNY667iqEbJy5tvV
+[2025-04-10T08:19:05.875Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  mmBAZY3wvkMPLov9myoc1QdpkeofyPgeJxSqPNRbP8R4SSTWXEYZwis92P1mnrFyjcV27rhgNY667iqEbJy5tvV
+[2025-04-10T08:19:05.875Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 416998670892,
+  "solAmount": 95402874,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:05.875Z] [INFO] AccountWatcher::Buy Amount:  0.095402874
+[2025-04-10T08:19:06.217Z] [INFO] AccountWatcher::signature:  5jRtyTdPqkMRB6hfSPfCkSRcR9eejq22fXC7rLZEw1jXjpV6UgLXAmTG5pbpdBBAVNBDYhASft4Bi6JqunzDEayJ
+[2025-04-10T08:19:06.217Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5jRtyTdPqkMRB6hfSPfCkSRcR9eejq22fXC7rLZEw1jXjpV6UgLXAmTG5pbpdBBAVNBDYhASft4Bi6JqunzDEayJ
+[2025-04-10T08:19:06.218Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 620751027290,
+  "solAmount": 142412052,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:06.218Z] [INFO] AccountWatcher::Buy Amount:  0.142412052
+[2025-04-10T08:19:06.570Z] [INFO] AccountWatcher::signature:  3Wxnht55i4jVQ9yNVtzzUt1WhnYExQf2udhXBWVPCiBmJKCFUXibMUZ648GRvtgds3wSKCXSk6kZVtTqWvrrpCfN
+[2025-04-10T08:19:06.570Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3Wxnht55i4jVQ9yNVtzzUt1WhnYExQf2udhXBWVPCiBmJKCFUXibMUZ648GRvtgds3wSKCXSk6kZVtTqWvrrpCfN
+[2025-04-10T08:19:06.570Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 610332824006,
+  "solAmount": 140483243,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:06.570Z] [INFO] AccountWatcher::Buy Amount:  0.140483243
+[2025-04-10T08:19:06.925Z] [INFO] AccountWatcher::signature:  3u3BZSGbAmVMFvaBK2iMVGS1ASzrRDcYyCzsHyhkwcepEGSZWyBkdkvh6P8mySBdpMi9acYnCA2GrNpvzzBueCt
+[2025-04-10T08:19:06.925Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3u3BZSGbAmVMFvaBK2iMVGS1ASzrRDcYyCzsHyhkwcepEGSZWyBkdkvh6P8mySBdpMi9acYnCA2GrNpvzzBueCt
+[2025-04-10T08:19:06.926Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 531918029501,
+  "solAmount": 122808938,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:06.926Z] [INFO] AccountWatcher::Buy Amount:  0.122808938
+[2025-04-10T08:19:07.300Z] [INFO] AccountWatcher::signature:  4kv9VZaVHWePNjobAqEZ7qoMYbcKYLPWwjdZSP1wYLaRhFyuPPquTyb5AA3HePoqa5aQq8R4SoAzKDtQ9H93tgsb
+[2025-04-10T08:19:07.300Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4kv9VZaVHWePNjobAqEZ7qoMYbcKYLPWwjdZSP1wYLaRhFyuPPquTyb5AA3HePoqa5aQq8R4SoAzKDtQ9H93tgsb
+[2025-04-10T08:19:07.301Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 438275663076,
+  "solAmount": 101452257,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:07.301Z] [INFO] AccountWatcher::Buy Amount:  0.101452257
+[2025-04-10T08:19:07.667Z] [INFO] AccountWatcher::signature:  jFF7FWGrawSU2S5T9KmQ2CtLd6yLs4gZqnZq6QL72eXsHQpA3pfbyCiy8aMfQbvSPCR2gCDGJHJbiMmX2Y9dLWA
+[2025-04-10T08:19:07.667Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  jFF7FWGrawSU2S5T9KmQ2CtLd6yLs4gZqnZq6QL72eXsHQpA3pfbyCiy8aMfQbvSPCR2gCDGJHJbiMmX2Y9dLWA
+[2025-04-10T08:19:07.667Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 703704889997,
+  "solAmount": 163394016,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:07.667Z] [INFO] AccountWatcher::Buy Amount:  0.163394016
+[2025-04-10T08:19:08.030Z] [INFO] AccountWatcher::signature:  iw8aerABU2ovckL56dveD7F3nTAJVXZToyXF6qPy947QdTsk4jNF764PYhpkodsBh6K6HRKgSK6kpVu1uB8S8VN
+[2025-04-10T08:19:08.030Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  iw8aerABU2ovckL56dveD7F3nTAJVXZToyXF6qPy947QdTsk4jNF764PYhpkodsBh6K6HRKgSK6kpVu1uB8S8VN
+[2025-04-10T08:19:08.031Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 723528963609,
+  "solAmount": 168642814,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:08.031Z] [INFO] AccountWatcher::Buy Amount:  0.168642814
+[2025-04-10T08:19:08.414Z] [INFO] AccountWatcher::signature:  5CUSsLY51AtGvqwPxke5d2ytC1E8rs3Cv4F1TbxCas4iMkbtoQFjyUHdCsTPZqdJNrEvE6WBABmgNPAqQJErf5CX
+[2025-04-10T08:19:08.414Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5CUSsLY51AtGvqwPxke5d2ytC1E8rs3Cv4F1TbxCas4iMkbtoQFjyUHdCsTPZqdJNrEvE6WBABmgNPAqQJErf5CX
+[2025-04-10T08:19:08.414Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 696484090311,
+  "solAmount": 162961179,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:08.414Z] [INFO] AccountWatcher::Buy Amount:  0.162961179
+[2025-04-10T08:19:08.770Z] [INFO] AccountWatcher::signature:  4AN7XEK7pEPgpJoPrvUPVzcYcN6mc2kitawzGVLhBFpjRwXh52y9isE4jTnMdYfQMUExsvcy38WgqaoMtRTfnDAk
+[2025-04-10T08:19:08.770Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4AN7XEK7pEPgpJoPrvUPVzcYcN6mc2kitawzGVLhBFpjRwXh52y9isE4jTnMdYfQMUExsvcy38WgqaoMtRTfnDAk
+[2025-04-10T08:19:08.771Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 478503134985,
+  "solAmount": 112314130,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:08.771Z] [INFO] AccountWatcher::Buy Amount:  0.11231413
+[2025-04-10T08:19:09.128Z] [INFO] AccountWatcher::signature:  4tQcVURDUmh5Aio8pA91cDtpXZy2Hs2YvGPXArvPaguTdMpxDCJA8wUU1yEGFCfcZour5druyuW53uyLFLj8eSnT
+[2025-04-10T08:19:09.128Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  4tQcVURDUmh5Aio8pA91cDtpXZy2Hs2YvGPXArvPaguTdMpxDCJA8wUU1yEGFCfcZour5druyuW53uyLFLj8eSnT
+[2025-04-10T08:19:09.486Z] [INFO] AccountWatcher::signature:  RAKdk4QHUff6dt9qpTFXctdF5uHAJ85GPhkty3GJNxAdhB57m8F19LrX31Xo96FRuAvCktokHUjymrfRssqLqRb
+[2025-04-10T08:19:09.486Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  RAKdk4QHUff6dt9qpTFXctdF5uHAJ85GPhkty3GJNxAdhB57m8F19LrX31Xo96FRuAvCktokHUjymrfRssqLqRb
+[2025-04-10T08:19:09.486Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 501041371305,
+  "solAmount": 117915994,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:09.486Z] [INFO] AccountWatcher::Buy Amount:  0.117915994
+[2025-04-10T08:19:09.849Z] [INFO] AccountWatcher::signature:  5EVvEftDSEyEe4jwNfdZLcph3cRmWnMgYm4wECMYhNXgb72upTrXTZeXeAvr7rpuPnanQXctCzgeJpxxhm6TEgSS
+[2025-04-10T08:19:09.849Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5EVvEftDSEyEe4jwNfdZLcph3cRmWnMgYm4wECMYhNXgb72upTrXTZeXeAvr7rpuPnanQXctCzgeJpxxhm6TEgSS
+[2025-04-10T08:19:09.849Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 434260787291,
+  "solAmount": 102458667,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:09.849Z] [INFO] AccountWatcher::Buy Amount:  0.102458667
+[2025-04-10T08:19:10.340Z] [INFO] AccountWatcher::signature:  3E3YQVqDbngFCrf8nJ74YnnQ5LektftaRfbVfg486xM1Bkk12JAmNpG8cgJjuesFe2eAyeP8X9Guap59cL5ByQWU
+[2025-04-10T08:19:10.340Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3E3YQVqDbngFCrf8nJ74YnnQ5LektftaRfbVfg486xM1Bkk12JAmNpG8cgJjuesFe2eAyeP8X9Guap59cL5ByQWU
+[2025-04-10T08:19:10.340Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 1117928063455,
+  "solAmount": 263274818,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:10.340Z] [INFO] AccountWatcher::Sell Amount:  0.263274818
+[2025-04-10T08:19:10.712Z] [INFO] AccountWatcher::signature:  3Cu1N4AxDsExi52DwkttBVT2UgdY4JbcJ6wf8KnRigQstxhVkFjTeTgSMu29WxGG8Dk4w1QRnmCdHS8qmhdH6t3e
+[2025-04-10T08:19:10.712Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3Cu1N4AxDsExi52DwkttBVT2UgdY4JbcJ6wf8KnRigQstxhVkFjTeTgSMu29WxGG8Dk4w1QRnmCdHS8qmhdH6t3e
+[2025-04-10T08:19:10.712Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 705035443956,
+  "solAmount": 165221683,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:10.712Z] [INFO] AccountWatcher::Sell Amount:  0.165221683
+[2025-04-10T08:19:11.073Z] [INFO] AccountWatcher::signature:  5AgcChKfUGVEnp5nEngDcHDwJCQuFLwGdgUKxmTavFTqyyabbf7SZiHKj8F8gnTjJMywA43RW3o1m5TWPT35VRw8
+[2025-04-10T08:19:11.073Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5AgcChKfUGVEnp5nEngDcHDwJCQuFLwGdgUKxmTavFTqyyabbf7SZiHKj8F8gnTjJMywA43RW3o1m5TWPT35VRw8
+[2025-04-10T08:19:11.073Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 698844670416,
+  "solAmount": 163768168,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:11.073Z] [INFO] AccountWatcher::Buy Amount:  0.163768168
+[2025-04-10T08:19:11.435Z] [INFO] AccountWatcher::signature:  Rfm6DjCv5YggXUuHwXm6Vs2Tn5b1PM7zLYfjw3goNUByMeXTKWebLdRheHFvE9i3QttUy4eFV8Ei4fD5rFkqCFT
+[2025-04-10T08:19:11.435Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  Rfm6DjCv5YggXUuHwXm6Vs2Tn5b1PM7zLYfjw3goNUByMeXTKWebLdRheHFvE9i3QttUy4eFV8Ei4fD5rFkqCFT
+[2025-04-10T08:19:11.435Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 513098090118,
+  "solAmount": 120634173,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:11.435Z] [INFO] AccountWatcher::Buy Amount:  0.120634173
+[2025-04-10T08:19:11.794Z] [INFO] AccountWatcher::signature:  3nvzLuqzVDrPYWC6126M4NEm6kUMcerDBkg4owcbPbGVE8JgVX15AB4bQ1GLHJbjynxqapEGP178aCS6QxXEiGtf
+[2025-04-10T08:19:11.794Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3nvzLuqzVDrPYWC6126M4NEm6kUMcerDBkg4owcbPbGVE8JgVX15AB4bQ1GLHJbjynxqapEGP178aCS6QxXEiGtf
+[2025-04-10T08:19:11.794Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 645908941004,
+  "solAmount": 152336079,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:11.794Z] [INFO] AccountWatcher::Buy Amount:  0.152336079
+[2025-04-10T08:19:12.149Z] [INFO] AccountWatcher::signature:  Zk8wdBmhVZ6MSLAQEADVXWBGCdPMjM82gXiDJVJfrE7VYW2jEaVx5VJuPH7boqC7jPEmSiforNR9Eh2ZqzFBj5m
+[2025-04-10T08:19:12.149Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  Zk8wdBmhVZ6MSLAQEADVXWBGCdPMjM82gXiDJVJfrE7VYW2jEaVx5VJuPH7boqC7jPEmSiforNR9Eh2ZqzFBj5m
+[2025-04-10T08:19:12.149Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 493031264767,
+  "solAmount": 116639516,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:12.149Z] [INFO] AccountWatcher::Buy Amount:  0.116639516
+[2025-04-10T08:19:12.505Z] [INFO] AccountWatcher::signature:  5qCxwaL17aBY1ZdvziDEWN7mZaqB9WwGiR6AtR77gucrntct1bHfoDzMz5STUtw1qVatehzH2qaRSrA8iWmdqqUr
+[2025-04-10T08:19:12.505Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5qCxwaL17aBY1ZdvziDEWN7mZaqB9WwGiR6AtR77gucrntct1bHfoDzMz5STUtw1qVatehzH2qaRSrA8iWmdqqUr
+[2025-04-10T08:19:12.506Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 564534613611,
+  "solAmount": 133939265,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:12.506Z] [INFO] AccountWatcher::Buy Amount:  0.133939265
+[2025-04-10T08:19:12.877Z] [INFO] AccountWatcher::signature:  63y9XhsDWP9F9REKKsrh71VBAvRirzDDHpY3nXy4fQLRf6AH4Hv2S1HNUobh3q1EotbAuThswSec5FtufBrNzpYE
+[2025-04-10T08:19:12.877Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  63y9XhsDWP9F9REKKsrh71VBAvRirzDDHpY3nXy4fQLRf6AH4Hv2S1HNUobh3q1EotbAuThswSec5FtufBrNzpYE
+[2025-04-10T08:19:12.878Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 762960415105,
+  "solAmount": 181671227,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:12.878Z] [INFO] AccountWatcher::Buy Amount:  0.181671227
+[2025-04-10T08:19:13.267Z] [INFO] AccountWatcher::signature:  5GFpfH2yYb84HfxXDZX43S4KsVv9icf786M68hVFBv8Yh5Cz5P8QPNoRDTGDgntEeCfs5ZeKkSa4bmsKXeg52PXM
+[2025-04-10T08:19:13.267Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5GFpfH2yYb84HfxXDZX43S4KsVv9icf786M68hVFBv8Yh5Cz5P8QPNoRDTGDgntEeCfs5ZeKkSa4bmsKXeg52PXM
+[2025-04-10T08:19:13.267Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 601232608907,
+  "solAmount": 143694236,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:13.267Z] [INFO] AccountWatcher::Buy Amount:  0.143694236
+[2025-04-10T08:19:13.633Z] [INFO] AccountWatcher::signature:  4RBpn6vFxBt6EjtboyN27FzGedrURd2vQ8qWj8yo2HxE9GjEMN3TayKBKaFFvqjK9TDeZf6wh8cHLJKK6cvTsX5W
+[2025-04-10T08:19:13.633Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4RBpn6vFxBt6EjtboyN27FzGedrURd2vQ8qWj8yo2HxE9GjEMN3TayKBKaFFvqjK9TDeZf6wh8cHLJKK6cvTsX5W
+[2025-04-10T08:19:13.633Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 690309266754,
+  "solAmount": 165565689,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:13.633Z] [INFO] AccountWatcher::Buy Amount:  0.165565689
+[2025-04-10T08:19:14.000Z] [INFO] AccountWatcher::signature:  47sqYYEfjKyywVerHQ1n7PaxUNzXnYkX7LTNbYKm7H6iFPFvAWmiAk3mjG9pJmDMDqzQF4HDh1R2mu5xczRDWMrL
+[2025-04-10T08:19:14.000Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  47sqYYEfjKyywVerHQ1n7PaxUNzXnYkX7LTNbYKm7H6iFPFvAWmiAk3mjG9pJmDMDqzQF4HDh1R2mu5xczRDWMrL
+[2025-04-10T08:19:14.000Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 39815465495,
+  "solAmount": 9566421,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:14.000Z] [INFO] AccountWatcher::Sell Amount:  0.009566421
+[2025-04-10T08:19:14.366Z] [INFO] AccountWatcher::signature:  Bkye4yxhytPFNvju3xx39QsDsWHQMf9FjNyvstN7YhKk1aoDpEG99dUJMYhnw9fmBcP8VAwZq3qfbN8yxKNfUXj
+[2025-04-10T08:19:14.366Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  Bkye4yxhytPFNvju3xx39QsDsWHQMf9FjNyvstN7YhKk1aoDpEG99dUJMYhnw9fmBcP8VAwZq3qfbN8yxKNfUXj
+[2025-04-10T08:19:14.366Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 477097150412,
+  "solAmount": 114768772,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:14.366Z] [INFO] AccountWatcher::Buy Amount:  0.114768772
+[2025-04-10T08:19:14.733Z] [INFO] AccountWatcher::signature:  5WcbFYT2GKAJKesBQdkS7gGiTegAfjEQLEdSRfCQrdkdN9aUqfpVnGGe8emQaJipHtmfAc87FtzpgNoB6eJ29CN8
+[2025-04-10T08:19:14.733Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5WcbFYT2GKAJKesBQdkS7gGiTegAfjEQLEdSRfCQrdkdN9aUqfpVnGGe8emQaJipHtmfAc87FtzpgNoB6eJ29CN8
+[2025-04-10T08:19:14.733Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 497211672710,
+  "solAmount": 119926659,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:14.733Z] [INFO] AccountWatcher::Buy Amount:  0.119926659
+[2025-04-10T08:19:15.119Z] [INFO] AccountWatcher::signature:  4Zcnzz3NCqXL1CZGUPFQt1QvEGgyRgfFC4RmKGyxyj863DGaxH5fcK1AvFk7pVJfMqppiqjX2iUUjGyyhj5XerGT
+[2025-04-10T08:19:15.119Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4Zcnzz3NCqXL1CZGUPFQt1QvEGgyRgfFC4RmKGyxyj863DGaxH5fcK1AvFk7pVJfMqppiqjX2iUUjGyyhj5XerGT
+[2025-04-10T08:19:15.119Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 40016770318,
+  "solAmount": 9666187,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:15.119Z] [INFO] AccountWatcher::Buy Amount:  0.009666187
+[2025-04-10T08:19:15.483Z] [INFO] AccountWatcher::signature:  uz4LwU9xA5YjWKXJKwTTUEGV2xkCV5fDnF4aVQQxci2qBPxMDGy523N99rSsECPaTepDP1bXezqhQj3LGXg25pv
+[2025-04-10T08:19:15.483Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  uz4LwU9xA5YjWKXJKwTTUEGV2xkCV5fDnF4aVQQxci2qBPxMDGy523N99rSsECPaTepDP1bXezqhQj3LGXg25pv
+[2025-04-10T08:19:15.483Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 107351089137,
+  "solAmount": 25926236,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:15.483Z] [INFO] AccountWatcher::Sell Amount:  0.025926236
+[2025-04-10T08:19:15.846Z] [INFO] AccountWatcher::signature:  2FpPv8Yo1GPpmEiVVFdbz67Zda8y9PF31mE7cXQhjxdqi4QB2VaTo53iFwPL6Z6W2Hjha6jhv2FS6TQ1eZdWSBgB
+[2025-04-10T08:19:15.846Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2FpPv8Yo1GPpmEiVVFdbz67Zda8y9PF31mE7cXQhjxdqi4QB2VaTo53iFwPL6Z6W2Hjha6jhv2FS6TQ1eZdWSBgB
+[2025-04-10T08:19:15.847Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 76929825231,
+  "solAmount": 18569857,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:15.847Z] [INFO] AccountWatcher::Sell Amount:  0.018569857
+[2025-04-10T08:19:16.218Z] [INFO] AccountWatcher::signature:  YmBtuVH7xPPUDWEZc9jAvca3i4sFS4asttuxdkvW8zd8vT4Yvr14ayfo6oe2bgUT9WwAM8WZgxcR81qav4cCyxo
+[2025-04-10T08:19:16.218Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  YmBtuVH7xPPUDWEZc9jAvca3i4sFS4asttuxdkvW8zd8vT4Yvr14ayfo6oe2bgUT9WwAM8WZgxcR81qav4cCyxo
+[2025-04-10T08:19:16.218Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 40000000000000,
+  "solAmount": 8700525638,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:16.219Z] [INFO] AccountWatcher::Sell Amount:  8.700525638
+[2025-04-10T08:19:16.219Z] [INFO] AccountWatcher::TokenCreator signature found:  YmBtuVH7xPPUDWEZc9jAvca3i4sFS4asttuxdkvW8zd8vT4Yvr14ayfo6oe2bgUT9WwAM8WZgxcR81qav4cCyxo
+[2025-04-10T08:19:16.585Z] [INFO] AccountWatcher::signature:  42YQBeFWabTbka6X9hapE1Y39ozKp66EmfWXbnnQiRZbU1tHWr8GBJTABRdqbr1RmDqyZAMXcfYaj1VmsKhWbau3
+[2025-04-10T08:19:16.585Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  42YQBeFWabTbka6X9hapE1Y39ozKp66EmfWXbnnQiRZbU1tHWr8GBJTABRdqbr1RmDqyZAMXcfYaj1VmsKhWbau3
+[2025-04-10T08:19:16.585Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 588027001036,
+  "solAmount": 115445396,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:16.585Z] [INFO] AccountWatcher::Buy Amount:  0.115445396
+[2025-04-10T08:19:16.949Z] [INFO] AccountWatcher::signature:  5EBKR1KDthdupxQmxFEkXH3SfrkjmnKsuFm259gK1HBHcsPibkpRAt9Fp6TLm8Lpo45etg38DXTQ69mwH9o6dCSe
+[2025-04-10T08:19:16.949Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5EBKR1KDthdupxQmxFEkXH3SfrkjmnKsuFm259gK1HBHcsPibkpRAt9Fp6TLm8Lpo45etg38DXTQ69mwH9o6dCSe
+[2025-04-10T08:19:16.950Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 671605465183,
+  "solAmount": 132265232,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:16.950Z] [INFO] AccountWatcher::Buy Amount:  0.132265232
+[2025-04-10T08:19:17.310Z] [INFO] AccountWatcher::signature:  ESGWzMHcYwR5uqhBt5PDwgYq7oKxan3uW25Y2UXsXiqvVTNnv3qhLjrqLsDLyiGByzdZqintFZFEQYMaGb91MYj
+[2025-04-10T08:19:17.310Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  ESGWzMHcYwR5uqhBt5PDwgYq7oKxan3uW25Y2UXsXiqvVTNnv3qhLjrqLsDLyiGByzdZqintFZFEQYMaGb91MYj
+[2025-04-10T08:19:17.311Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 755673563070,
+  "solAmount": 149348319,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:17.311Z] [INFO] AccountWatcher::Buy Amount:  0.149348319
+[2025-04-10T08:19:17.679Z] [INFO] AccountWatcher::signature:  5hbBzMQzK9Scyi8z8WcEED6KC5twpb6pmXSaWtWyMEmv3jPdfqyVrvSG2MRRWVDe5vNs2agEty7f6jR67ZM1ixBc
+[2025-04-10T08:19:17.679Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5hbBzMQzK9Scyi8z8WcEED6KC5twpb6pmXSaWtWyMEmv3jPdfqyVrvSG2MRRWVDe5vNs2agEty7f6jR67ZM1ixBc
+[2025-04-10T08:19:17.679Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 733718464928,
+  "solAmount": 145545830,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:17.679Z] [INFO] AccountWatcher::Buy Amount:  0.14554583
+[2025-04-10T08:19:18.056Z] [INFO] AccountWatcher::signature:  3Q6DpmepkXuFrHqLQERKk2v3WFKZ3eQFHxfX6N4hfD3ooHnjknkzrXaBb7N5HLupDdNp5X6JHxnFJMM5vGgsrKh8
+[2025-04-10T08:19:18.056Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3Q6DpmepkXuFrHqLQERKk2v3WFKZ3eQFHxfX6N4hfD3ooHnjknkzrXaBb7N5HLupDdNp5X6JHxnFJMM5vGgsrKh8
+[2025-04-10T08:19:18.057Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 801526279137,
+  "solAmount": 159604408,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:18.057Z] [INFO] AccountWatcher::Buy Amount:  0.159604408
+[2025-04-10T08:19:18.420Z] [INFO] AccountWatcher::signature:  4fE6G9R9JLWHrpSw4AxF2GgAu12uCnbdJKyFGXYjQhYfkH8gzPiTpjTmkQqMn62YFzYqnxLRfqWMzwpXEPJ7WB1P
+[2025-04-10T08:19:18.420Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4fE6G9R9JLWHrpSw4AxF2GgAu12uCnbdJKyFGXYjQhYfkH8gzPiTpjTmkQqMn62YFzYqnxLRfqWMzwpXEPJ7WB1P
+[2025-04-10T08:19:18.420Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 764570394711,
+  "solAmount": 152840284,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:18.420Z] [INFO] AccountWatcher::Buy Amount:  0.152840284
+[2025-04-10T08:19:18.777Z] [INFO] AccountWatcher::signature:  oKZQyrotjjXXZwYW74ofeYFC3qADpYd7kFwTpqFfRmdX5K4SbRnfFDJUqkQga5tfg5zRmVjp4N5Lk1HmTvXo2hf
+[2025-04-10T08:19:18.777Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  oKZQyrotjjXXZwYW74ofeYFC3qADpYd7kFwTpqFfRmdX5K4SbRnfFDJUqkQga5tfg5zRmVjp4N5Lk1HmTvXo2hf
+[2025-04-10T08:19:18.778Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 719803897513,
+  "solAmount": 144425036,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:18.778Z] [INFO] AccountWatcher::Buy Amount:  0.144425036
+[2025-04-10T08:19:19.139Z] [INFO] AccountWatcher::signature:  2meN8FEZ1YnXKKrPmuw1k5V2sYLqqtgs132LMkZRGc7v9u3Lprf6mobRHVQkdH6v71AqXXpAxG2Qepxw67yKCmm4
+[2025-04-10T08:19:19.139Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2meN8FEZ1YnXKKrPmuw1k5V2sYLqqtgs132LMkZRGc7v9u3Lprf6mobRHVQkdH6v71AqXXpAxG2Qepxw67yKCmm4
+[2025-04-10T08:19:19.140Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 763700927861,
+  "solAmount": 153801888,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:19.140Z] [INFO] AccountWatcher::Buy Amount:  0.153801888
+[2025-04-10T08:19:19.507Z] [INFO] AccountWatcher::signature:  3aLvoHXmBZVqN46TBMUrG4fNWfeJy4Qq8G3i5vKpodJoK5ASGAzS2m4AxyQg6kZxygek7tB6B75JvnwSoKKh21MJ
+[2025-04-10T08:19:19.507Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3aLvoHXmBZVqN46TBMUrG4fNWfeJy4Qq8G3i5vKpodJoK5ASGAzS2m4AxyQg6kZxygek7tB6B75JvnwSoKKh21MJ
+[2025-04-10T08:19:19.507Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 458846654930,
+  "solAmount": 92690391,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:19.507Z] [INFO] AccountWatcher::Buy Amount:  0.092690391
+[2025-04-10T08:19:19.865Z] [INFO] AccountWatcher::signature:  4ZhyCvdjePGbda1PgXLedi6VzD6yGgEZTeqknHutgoE1fUU21SspKNfVTCD7cwtiCfFFr3u28BmAAd5kg4XvDVJF
+[2025-04-10T08:19:19.865Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4ZhyCvdjePGbda1PgXLedi6VzD6yGgEZTeqknHutgoE1fUU21SspKNfVTCD7cwtiCfFFr3u28BmAAd5kg4XvDVJF
+[2025-04-10T08:19:19.865Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 496069728741,
+  "solAmount": 100449878,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:19.865Z] [INFO] AccountWatcher::Buy Amount:  0.100449878
+[2025-04-10T08:19:20.229Z] [INFO] AccountWatcher::signature:  NpbnpUn2dG2Uapwibfs96DDMePrSrD8odpevAgYb7pxj9DFXvFDLr3Ti64WZ9uj2RQy9UXRmQNC6R5HVnHgv66v
+[2025-04-10T08:19:20.229Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  NpbnpUn2dG2Uapwibfs96DDMePrSrD8odpevAgYb7pxj9DFXvFDLr3Ti64WZ9uj2RQy9UXRmQNC6R5HVnHgv66v
+[2025-04-10T08:19:20.229Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 691991483147,
+  "solAmount": 140540876,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:20.229Z] [INFO] AccountWatcher::Buy Amount:  0.140540876
+[2025-04-10T08:19:20.604Z] [INFO] AccountWatcher::signature:  5fPefkYTDCZHskLJPnWW8bAeYNKQy15K61Uw3VvYGpvDRUY9RazA3g8d6gKJsEQEqKY1dgFXs7qZ9Yg51qcZzSSH
+[2025-04-10T08:19:20.604Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5fPefkYTDCZHskLJPnWW8bAeYNKQy15K61Uw3VvYGpvDRUY9RazA3g8d6gKJsEQEqKY1dgFXs7qZ9Yg51qcZzSSH
+[2025-04-10T08:19:20.604Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 763700927861,
+  "solAmount": 155673514,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:20.604Z] [INFO] AccountWatcher::Buy Amount:  0.155673514
+[2025-04-10T08:19:20.968Z] [INFO] AccountWatcher::signature:  5P8dcApiHhtn5LsDucXyDT58dZFQ9ZqX3cqrzMp7qej94LDn618Ef9D66bmaWqj9XHyGMbkYCN7hLKeZ7k4azYmY
+[2025-04-10T08:19:20.968Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5P8dcApiHhtn5LsDucXyDT58dZFQ9ZqX3cqrzMp7qej94LDn618Ef9D66bmaWqj9XHyGMbkYCN7hLKeZ7k4azYmY
+[2025-04-10T08:19:20.969Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 391323259020,
+  "solAmount": 80000001,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:20.969Z] [INFO] AccountWatcher::Buy Amount:  0.080000001
+[2025-04-10T08:19:21.334Z] [INFO] AccountWatcher::signature:  4MGnhqh3JaVBeXkomNpKnuZiTXrHbKNFNbRZLfVDVcLkBc8yv9SFZoTo1GkFiQMRXBMfLzuGH2DdAJqwZFViNNdR
+[2025-04-10T08:19:21.334Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4MGnhqh3JaVBeXkomNpKnuZiTXrHbKNFNbRZLfVDVcLkBc8yv9SFZoTo1GkFiQMRXBMfLzuGH2DdAJqwZFViNNdR
+[2025-04-10T08:19:21.334Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 1255768842706,
+  "solAmount": 257792079,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:21.334Z] [INFO] AccountWatcher::Buy Amount:  0.257792079
+[2025-04-10T08:19:21.682Z] [INFO] AccountWatcher::signature:  2uFeqwcyLXmXS5fqAyhULco2aVKj2D19AuPiFD1jF9G56mPQWgRcmj6Bqs1sfsFzpqUf5EHBt8GAUmLnGKJ4LNL5
+[2025-04-10T08:19:21.682Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2uFeqwcyLXmXS5fqAyhULco2aVKj2D19AuPiFD1jF9G56mPQWgRcmj6Bqs1sfsFzpqUf5EHBt8GAUmLnGKJ4LNL5
+[2025-04-10T08:19:21.682Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 827679167227,
+  "solAmount": 170808424,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:21.682Z] [INFO] AccountWatcher::Buy Amount:  0.170808424
+[2025-04-10T08:19:22.092Z] [INFO] AccountWatcher::signature:  41GqJzixLWv34DeKhT1smdqNKHPttgsLPobFiBafV6Lmy8jPZA38VCBhZ8F4QX7J1qTfgWyhCuUNsoFmiHXtgBPW
+[2025-04-10T08:19:22.093Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  41GqJzixLWv34DeKhT1smdqNKHPttgsLPobFiBafV6Lmy8jPZA38VCBhZ8F4QX7J1qTfgWyhCuUNsoFmiHXtgBPW
+[2025-04-10T08:19:22.093Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 642346790245,
+  "solAmount": 133056049,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:22.093Z] [INFO] AccountWatcher::Buy Amount:  0.133056049
+[2025-04-10T08:19:22.470Z] [INFO] AccountWatcher::signature:  5rSSJkYUqUhspbPS9TWcg7xSvzuAtmAsbbMvGajd2nTVcbHmQDpAkVyBQTYJTit8uooUMSmkSggJ9xoWyems91Nk
+[2025-04-10T08:19:22.470Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5rSSJkYUqUhspbPS9TWcg7xSvzuAtmAsbbMvGajd2nTVcbHmQDpAkVyBQTYJTit8uooUMSmkSggJ9xoWyems91Nk
+[2025-04-10T08:19:22.470Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 775429171389,
+  "solAmount": 161202094,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:22.470Z] [INFO] AccountWatcher::Buy Amount:  0.161202094
+[2025-04-10T08:19:22.873Z] [INFO] AccountWatcher::signature:  5u6HXdf91fdBVMPacpZeARZUkn9nAYipxkdcY4tmStBdwkLWkAaEit8jAXd7ohSLzWbkk2SNynNhdeMkp7k7MMDY
+[2025-04-10T08:19:22.874Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5u6HXdf91fdBVMPacpZeARZUkn9nAYipxkdcY4tmStBdwkLWkAaEit8jAXd7ohSLzWbkk2SNynNhdeMkp7k7MMDY
+[2025-04-10T08:19:22.874Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 841737251213,
+  "solAmount": 175708114,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:22.874Z] [INFO] AccountWatcher::Buy Amount:  0.175708114
+[2025-04-10T08:19:23.232Z] [INFO] AccountWatcher::signature:  mmAzPr2UpDJ17dEk8FV8fwjRsGLajGJ2JmXWy9EpNC8L7nndAn3Wjqq8Dzu6GKDJ1kXRhDi4niYZXSBPBCHqkTz
+[2025-04-10T08:19:23.232Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  mmAzPr2UpDJ17dEk8FV8fwjRsGLajGJ2JmXWy9EpNC8L7nndAn3Wjqq8Dzu6GKDJ1kXRhDi4niYZXSBPBCHqkTz
+[2025-04-10T08:19:23.232Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 818108396781,
+  "solAmount": 171499842,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:23.232Z] [INFO] AccountWatcher::Buy Amount:  0.171499842
+[2025-04-10T08:19:23.597Z] [INFO] AccountWatcher::signature:  5i6VgCoDYSWqn9Ex2Fwb3c2gUq8NiKaJCChbz3Bkxazr9esxfzDe5zLFnXmUGR4TmmuEmPP3tdFoEMLJfcd3XLnS
+[2025-04-10T08:19:23.597Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5i6VgCoDYSWqn9Ex2Fwb3c2gUq8NiKaJCChbz3Bkxazr9esxfzDe5zLFnXmUGR4TmmuEmPP3tdFoEMLJfcd3XLnS
+[2025-04-10T08:19:23.597Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 462976717885,
+  "solAmount": 97371682,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:23.597Z] [INFO] AccountWatcher::Buy Amount:  0.097371682
+[2025-04-10T08:19:23.962Z] [INFO] AccountWatcher::signature:  2m4wViC3C4TW5t1ZT9F3BJ6Vbu3b7UggYhfVC3D5W1yZpHRx1sYsi2updnzJZZiR5zy5jyu9H8mTbGPAx1WY5cua
+[2025-04-10T08:19:23.962Z] [INFO] AccountWatcher::checkTransactionStatus failed for transaction:  2m4wViC3C4TW5t1ZT9F3BJ6Vbu3b7UggYhfVC3D5W1yZpHRx1sYsi2updnzJZZiR5zy5jyu9H8mTbGPAx1WY5cua
+[2025-04-10T08:19:24.540Z] [INFO] AccountWatcher::signature:  iZyzWaXEEFqiyW8AxQM46yfsvJcDHBzEfkecsuSvY9zg4bA1gskXQQyGTQqT93uiKfHK6WzXQq1i958rprcZB7q
+[2025-04-10T08:19:24.540Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  iZyzWaXEEFqiyW8AxQM46yfsvJcDHBzEfkecsuSvY9zg4bA1gskXQQyGTQqT93uiKfHK6WzXQq1i958rprcZB7q
+[2025-04-10T08:19:24.540Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 740533667140,
+  "solAmount": 156226824,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:24.540Z] [INFO] AccountWatcher::Buy Amount:  0.156226824
+[2025-04-10T08:19:24.898Z] [INFO] AccountWatcher::signature:  394Dc9U2j5MUkSnRkBH1gfJi5mmUy529CgsdfDWqnhkzcMJS1heKobt91E2nHMWvRg72nrXRGTxWXA1Wdai3YrZG
+[2025-04-10T08:19:24.898Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  394Dc9U2j5MUkSnRkBH1gfJi5mmUy529CgsdfDWqnhkzcMJS1heKobt91E2nHMWvRg72nrXRGTxWXA1Wdai3YrZG
+[2025-04-10T08:19:24.898Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 820684124373,
+  "solAmount": 173829879,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:24.898Z] [INFO] AccountWatcher::Buy Amount:  0.173829879
+[2025-04-10T08:19:25.255Z] [INFO] AccountWatcher::signature:  1ZBrLRuAhE9Go1GUibftW6HEhacjVUVPUmr7DPQw7we95rnop8BfqQwPitvmWYWk6aKpaRv1PrDUTtaKfGtzQuJ
+[2025-04-10T08:19:25.255Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  1ZBrLRuAhE9Go1GUibftW6HEhacjVUVPUmr7DPQw7we95rnop8BfqQwPitvmWYWk6aKpaRv1PrDUTtaKfGtzQuJ
+[2025-04-10T08:19:25.255Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 499267838691,
+  "solAmount": 106109288,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:25.255Z] [INFO] AccountWatcher::Buy Amount:  0.106109288
+[2025-04-10T08:19:25.621Z] [INFO] AccountWatcher::signature:  yMBy9aNSNeTwB6Dy6VcaaGgZNKKEkfC6XaaNjkkkqmkNVLfzb3rFiuWHPZcbCJXEkyZxtcigCNK4XY4BPA2vsRT
+[2025-04-10T08:19:25.621Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  yMBy9aNSNeTwB6Dy6VcaaGgZNKKEkfC6XaaNjkkkqmkNVLfzb3rFiuWHPZcbCJXEkyZxtcigCNK4XY4BPA2vsRT
+[2025-04-10T08:19:25.622Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 1227530331192,
+  "solAmount": 262048729,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:25.622Z] [INFO] AccountWatcher::Buy Amount:  0.262048729
+[2025-04-10T08:19:25.978Z] [INFO] AccountWatcher::signature:  8NEnEtvDCdFYnFZGT1pHSukwALJ35FvMYGsLrbhW7XnLtnKTjAnUH3QjvTd2Rp1c8xLwQNq4RAfqvp4h4n4JLRs
+[2025-04-10T08:19:25.978Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  8NEnEtvDCdFYnFZGT1pHSukwALJ35FvMYGsLrbhW7XnLtnKTjAnUH3QjvTd2Rp1c8xLwQNq4RAfqvp4h4n4JLRs
+[2025-04-10T08:19:25.978Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 718110829484,
+  "solAmount": 154070443,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:25.978Z] [INFO] AccountWatcher::Buy Amount:  0.154070443
+[2025-04-10T08:19:26.347Z] [INFO] AccountWatcher::signature:  ucWrsognzzFHrRdUbn5E3Hv6M5A7bGaPWtuSKw8teoaVW8FsbQGQr3tWQKXQx1SnHeJ3uF5rFJiYcbz388NKdD6
+[2025-04-10T08:19:26.348Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  ucWrsognzzFHrRdUbn5E3Hv6M5A7bGaPWtuSKw8teoaVW8FsbQGQr3tWQKXQx1SnHeJ3uF5rFJiYcbz388NKdD6
+[2025-04-10T08:19:26.348Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 36470464005,
+  "solAmount": 7839985,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:26.348Z] [INFO] AccountWatcher::Buy Amount:  0.007839985
+[2025-04-10T08:19:26.754Z] [INFO] AccountWatcher::signature:  5TuYiszLQm6T1Ag3iW3r59YkFsMtbGw1hsKUK1WkL1bSvSN3A3eCkv61ReFE2yw5TUd33cvHZdGB4xtDfv136owt
+[2025-04-10T08:19:26.754Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5TuYiszLQm6T1Ag3iW3r59YkFsMtbGw1hsKUK1WkL1bSvSN3A3eCkv61ReFE2yw5TUd33cvHZdGB4xtDfv136owt
+[2025-04-10T08:19:26.755Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 46043533455,
+  "solAmount": 9900000,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:26.755Z] [INFO] AccountWatcher::Buy Amount:  0.0099
+[2025-04-10T08:19:27.116Z] [INFO] AccountWatcher::signature:  4aBDTPGzoGxv8pZsA6y744SBAcSJf6PAwcm6cpw5PiCzC2e8RrT2nerhCvC3Nd7JjMxWzE2pCficqkPFUt1P6u6f
+[2025-04-10T08:19:27.116Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4aBDTPGzoGxv8pZsA6y744SBAcSJf6PAwcm6cpw5PiCzC2e8RrT2nerhCvC3Nd7JjMxWzE2pCficqkPFUt1P6u6f
+[2025-04-10T08:19:27.116Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 139458970462,
+  "solAmount": 30000001,
+  "direction": "buy",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:27.116Z] [INFO] AccountWatcher::Buy Amount:  0.030000001
+[2025-04-10T08:19:27.478Z] [INFO] AccountWatcher::signature:  3uP7BYbY9fRJy8GZ6bCJ6J9dcraF9xagqfdsStyqHHbzcvZc15wExm9ek9C4Y4Y1voWuJGstEM8LAdourWQFTdq5
+[2025-04-10T08:19:27.478Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  3uP7BYbY9fRJy8GZ6bCJ6J9dcraF9xagqfdsStyqHHbzcvZc15wExm9ek9C4Y4Y1voWuJGstEM8LAdourWQFTdq5
+[2025-04-10T08:19:27.479Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 193233483037,
+  "solAmount": 41562037,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:27.479Z] [INFO] AccountWatcher::Sell Amount:  0.041562037
+[2025-04-10T08:19:27.837Z] [INFO] AccountWatcher::signature:  JeYDENxcUMhSc3o8iPhKraQpuh3CzHarzqAHiju7dNUiNUMESHzL8RJrkHNFAj8TLKS7M9RZALXhkr7Dn6zB4cr
+[2025-04-10T08:19:27.837Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  JeYDENxcUMhSc3o8iPhKraQpuh3CzHarzqAHiju7dNUiNUMESHzL8RJrkHNFAj8TLKS7M9RZALXhkr7Dn6zB4cr
+[2025-04-10T08:19:27.838Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 763700927861,
+  "solAmount": 163856830,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:27.838Z] [INFO] AccountWatcher::Sell Amount:  0.16385683
+[2025-04-10T08:19:28.193Z] [INFO] AccountWatcher::signature:  4k9Qv91TjAJyLkanDtEorvgmkuZXW6T67RVZUe3DT2uL75KYuizL8fnXSxEfqaDk9AmErbGU1Aod952vmwMHV4n9
+[2025-04-10T08:19:28.193Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4k9Qv91TjAJyLkanDtEorvgmkuZXW6T67RVZUe3DT2uL75KYuizL8fnXSxEfqaDk9AmErbGU1Aod952vmwMHV4n9
+[2025-04-10T08:19:28.194Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 763700927861,
+  "solAmount": 163212594,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:28.194Z] [INFO] AccountWatcher::Sell Amount:  0.163212594
+[2025-04-10T08:19:28.550Z] [INFO] AccountWatcher::signature:  5GKcgcAT1BTVnpFtpAJrbbvTpyWMnEV38HeaVtJxDQ1GaH7EwMFkhCvnguH5p9HfbhZ3Y8HLnu9V7QRkRh5YZxbp
+[2025-04-10T08:19:28.550Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  5GKcgcAT1BTVnpFtpAJrbbvTpyWMnEV38HeaVtJxDQ1GaH7EwMFkhCvnguH5p9HfbhZ3Y8HLnu9V7QRkRh5YZxbp
+[2025-04-10T08:19:28.550Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 322053267411,
+  "solAmount": 68634674,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:28.550Z] [INFO] AccountWatcher::Sell Amount:  0.068634674
+[2025-04-10T08:19:28.750Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:28.751Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:28.751Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:28.776Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+[2025-04-10T08:19:29.293Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+[2025-04-10T08:19:30.314Z] [ERROR] AccountWatcher::Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+[2025-04-10T08:19:33.787Z] [INFO] AccountWatcher::signature:  2fj3YRTQC7if1ioKTATn2ZiduPkencX4uJfaFZKFqFfMdzSnysq4Km5caqbun1QqXEk1jVTdetg9JwS7KLcibDyp
+[2025-04-10T08:19:33.787Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  2fj3YRTQC7if1ioKTATn2ZiduPkencX4uJfaFZKFqFfMdzSnysq4Km5caqbun1QqXEk1jVTdetg9JwS7KLcibDyp
+[2025-04-10T08:19:33.788Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 387900604652,
+  "solAmount": 82516989,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:33.788Z] [INFO] AccountWatcher::Sell Amount:  0.082516989
+[2025-04-10T08:19:34.157Z] [INFO] AccountWatcher::signature:  4G9MWEwdaZYXQzKrJKdNC5QY2jiU3LYALioWdaDcGjWzzABttj6z8YTUfKBX7wgzrKaSGnjJRxeKVKmRzY43DMTn
+[2025-04-10T08:19:34.157Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  4G9MWEwdaZYXQzKrJKdNC5QY2jiU3LYALioWdaDcGjWzzABttj6z8YTUfKBX7wgzrKaSGnjJRxeKVKmRzY43DMTn
+[2025-04-10T08:19:34.157Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 799473368196,
+  "solAmount": 169551895,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:34.157Z] [INFO] AccountWatcher::Sell Amount:  0.169551895
+[2025-04-10T08:19:34.517Z] [INFO] AccountWatcher::signature:  1iZ2KGaCuDfNxp2GrKKTn2LpgZXPHyQzff9CdEEp6Erx2xEsk1ProvnJ8HPGn7TN7KVBtMuyQv3NyP8s1qQB5Br
+[2025-04-10T08:19:34.517Z] [INFO] AccountWatcher::checkTransactionStatus succeeded for transaction:  1iZ2KGaCuDfNxp2GrKKTn2LpgZXPHyQzff9CdEEp6Erx2xEsk1ProvnJ8HPGn7TN7KVBtMuyQv3NyP8s1qQB5Br
+[2025-04-10T08:19:34.517Z] [INFO] AccountWatcher::Result:  {
+  "tokenAmount": 1255768842706,
+  "solAmount": 264923800,
+  "direction": "sell",
+  "tokenAddress": "DT4owLeY5FvhyE7Cr33PPjdtg647ykJp8snawX9Npump"
+}
+[2025-04-10T08:19:34.517Z] [INFO] AccountWatcher::Sell Amount:  0.2649238
+[2025-04-10T08:19:34.717Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:34.717Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:34.717Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:35.596Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:35.596Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:35.596Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:36.141Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:36.141Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:36.141Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:37.110Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:37.110Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:37.110Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:37.620Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:37.621Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:37.621Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:37.948Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:37.948Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:37.948Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:38.302Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:38.302Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:38.303Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:38.662Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:38.662Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:38.662Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:39.215Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:39.215Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:39.215Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:40.171Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:40.171Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:40.171Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:40.560Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:40.560Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:40.560Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:41.168Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:41.168Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:41.168Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:41.512Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:41.512Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:41.512Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:41.882Z] [INFO] AccountWatcher::Token Creator:  EeZBcvuREh7ygP7aAaPDnbFEpADWvAQv8q2BoVYHu7wZ
+[2025-04-10T08:19:41.882Z] [INFO] AccountWatcher::Token Creator Buys:  680439024390243
+[2025-04-10T08:19:41.882Z] [INFO] AccountWatcher::Token Creator Sells:  120439024390243
+[2025-04-10T08:19:42.694Z] [ERROR] AccountWatcher::An error occurred: {
+  "code": -32019,
+  "name": "SolanaJSONRPCError"
+}
+[2025-04-10T08:19:42.694Z] [ERROR] AccountWatcher::failed to get signatures for address: Failed to query long-term storage; please try again

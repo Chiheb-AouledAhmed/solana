@@ -3,9 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const TokenBuyer_1 = require("./TokenBuyer");
+const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 const serum_1 = require("@project-serum/serum");
-const swapUtils_1 = require("./swapUtils");
 const dotenv_1 = __importDefault(require("dotenv"));
 const web3_js_1 = require("@solana/web3.js");
 //import { getAssociatedTokenAddress } from '@solana/spl-token/extension';
@@ -15,7 +14,6 @@ const bs58_1 = __importDefault(require("bs58"));
 const express_1 = __importDefault(require("express"));
 let stopAccountWatcher = false;
 let tokenToWatch = null;
-const _utils_1 = require("./_utils");
 async function main() {
     console.log('Starting Solana Trader Bot...');
     try {
@@ -134,15 +132,19 @@ async function main() {
           0.25 // 25% slippage tolerance
         );*/
         //buyToken();
-        let mint = "GjPKe9zH3L9YU2HWkjR7tJYmJbSgnGnqQdFyAFyKaoTG";
-        let exempleSignature = "5oDFGBnbjpVXFkzpvcTTWYYK3733rSYR8H9zCUTW5oyiDwm7usJMBkExDfQaG4krmYqN35g1xnfuZHsCAVdHkhas";
-        const transaction = await (0, _utils_1.getParsedTransactionWithRetry)(connection, exempleSignature, {
-            commitment: 'confirmed',
-            maxSupportedTransactionVersion: 0
-        });
-        let result = await (0, swapUtils_1.decodePumpFunTradev2)(exempleSignature, transaction);
-        console.log((0, _utils_1.checkTransactionStatus)(transaction, exempleSignature));
-        await (0, TokenBuyer_1.watchTokenTxsToBuy)(mint, exempleSignature, server);
+        /*let mint = "GjPKe9zH3L9YU2HWkjR7tJYmJbSgnGnqQdFyAFyKaoTG"
+        let exempleSignature = "5oDFGBnbjpVXFkzpvcTTWYYK3733rSYR8H9zCUTW5oyiDwm7usJMBkExDfQaG4krmYqN35g1xnfuZHsCAVdHkhas"
+        const transaction = await getParsedTransactionWithRetry(
+            connection,
+            exempleSignature,
+            {
+                commitment: 'confirmed',
+                maxSupportedTransactionVersion: 0
+            }
+        )
+        let result = await decodePumpFunTradev2(exempleSignature,transaction);
+        console.log(checkTransactionStatus(transaction,exempleSignature))
+        await watchTokenTxsToBuy(mint,exempleSignature,server);*/
         //await AnalysePumpFunTransactions(mint,signature,fileName);
         //await watchTokenTxsToBuy(mint,signature);
         //await AnalyseCommonAddressesTransactions(mint,signature,fileName);
@@ -202,7 +204,7 @@ async function main() {
         //const filename = "export_transfer_BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6_1743717772074.csv";
         //await AnalyseExchangeAddresses(filename);
         const watchedAccountsUsage = {};
-        //await watchPumpFunTransactions(server);
+        await (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(server);
         console.log('awaited');
     }
     catch (error) {
