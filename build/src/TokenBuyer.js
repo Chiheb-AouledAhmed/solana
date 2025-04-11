@@ -44,6 +44,8 @@ const swapUtils_1 = require("./swapUtils");
 const pumpFunAccountWatcher_1 = require("./pumpFunAccountWatcher");
 const fs = __importStar(require("fs"));
 const logStream = fs.createWriteStream('./logs/output.log', { flags: 'a' });
+const originalConsoleLog = console.log.bind(console);
+const originalConsoleError = console.error.bind(console);
 // Custom logger function to replace console.log
 function logToFile(...args) {
     const timestamp = new Date().toISOString();
@@ -51,6 +53,7 @@ function logToFile(...args) {
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
     logStream.write(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}\n`);
+    originalConsoleLog(`[${timestamp}] [INFO] TokenBuyer::${formattedMessage}`);
 }
 // Custom logger function for errors
 function errorToFile(...args) {
@@ -59,16 +62,15 @@ function errorToFile(...args) {
         .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
         .join(' ');
     logStream.write(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}\n`);
+    originalConsoleError(`[${timestamp}] [ERROR] TokenBuyer::${formattedMessage}`);
 }
 // Replace console.log and console.error with custom loggers
-console.log = logToFile;
-console.error = errorToFile;
 let stopWatching = false;
 let lastSignature = '';
 let knownTokens = _config_1.KNOWN_TOKENS;
 let Processing = false;
 let stopcurrWatch = false;
-const COOL_DOWN_PERIOD = 3 * 30 * 60 * 1000;
+const COOL_DOWN_PERIOD = 15 * 60 * 1000;
 let firstRun = true;
 let TRANSACTION_INTERVAL = 200;
 let BUY_THRESHHOLD = 8;
@@ -104,6 +106,8 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
             console.error('Error during cleanup:', error);
         }
     }
+    console.log = logToFile;
+    console.error = errorToFile;
     const addressData = {};
     process.on('SIGINT', () => {
         console.log('Keyboard interrupt detected (Ctrl+C). Cleaning up...');
@@ -158,6 +162,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
     }*/
     //const watchedAccount = new PublicKey(ACCOUNT_TO_WATCH);
     let watchedAccounts = [new web3_js_1.PublicKey(tokenAccountAddress)];
+    let lastcheckTime = Date.now();
     let cacheSignature = new Set();
     let allSum = 0;
     while (true) {
@@ -191,6 +196,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
             cnt++;
             const signature = signatureInfo.signature.signature;
             if (signature && !cacheSignature.has(signature)) {
+                lastcheckTime = Date.now();
                 cacheSignature.add(signature);
                 if (cnt % 100 == 0)
                     console.log("Processed ", cnt, " signatures");
@@ -296,8 +302,11 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
                 await new Promise(resolve => setTimeout(resolve, TRANSACTION_INTERVAL));
             }
         }
-        if (tokenCreator == null) {
-            console.log("Start Token not found in the transactions");
+        if ((tokenCreator == null) || (lastcheckTime + COOL_DOWN_PERIOD < Date.now())) {
+            if ((tokenCreator == null))
+                console.log("Start Token not found in the transactions");
+            else
+                console.log("Last check time exceeded the cooldown period");
             console.log("restarting the process");
             (0, pumpFunAccountWatcher_1.watchPumpFunTransactions)(server);
         }
@@ -306,6 +315,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
             allsum += addressData[tokenCreator].sells;
         }
         firstRun = false;
+        await new Promise(resolve => setTimeout(resolve, _config_1.POLLING_INTERVAL));
     }
 }
 // Call this function to stop watching transactions
