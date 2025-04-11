@@ -196,7 +196,6 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
             cnt++;
             const signature = signatureInfo.signature.signature;
             if (signature && !cacheSignature.has(signature)) {
-                lastcheckTime = Date.now();
                 cacheSignature.add(signature);
                 if (cnt % 100 == 0)
                     console.log("Processed ", cnt, " signatures");
@@ -249,6 +248,7 @@ async function watchTokenTxsToBuy(tokenAccountAddress, signatureBefore, server, 
                                 }
                             }
                             if ((tokenCreator == address)) {
+                                lastcheckTime = Date.now();
                                 console.log("TokenCreator signature found: ", signature);
                                 if (Math.abs(addressData[address].TokenBuys - addressData[address].TokenSells) < 1e13) {
                                     const filteredAddressArray = Object.entries(addressData)
